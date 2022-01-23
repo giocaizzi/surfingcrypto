@@ -45,7 +45,7 @@ Additionally, it is possible to specify the location of a `data` folder where to
 
 ### Price data scraping
 
-The [Scraper()](/_autosummary/surfincrypto.scraper.Scraper.rst) gets the necesarriy data from [coinmarketcap.com](http://www.coinmarketcap.com) and stores data locally. 
+The [Scraper()](/_autosummary/surfingcrypto.scraper.rst) gets the necesarriy data from [coinmarketcap.com](http://www.coinmarketcap.com) and stores data locally. 
 
 ### Telegram notifications
 
