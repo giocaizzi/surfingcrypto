@@ -185,7 +185,7 @@
 <h1>surfingcrypto.scraper.Scraper<a class="headerlink" href="#surfingcrypto-scraper-scraper" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.scraper.</span></span><span class="sig-name descname"><span class="pre">Scraper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.scraper.Scraper" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.scraper.</span></span><span class="sig-name descname"><span class="pre">Scraper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fiat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'EUR'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.scraper.Scraper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This is a wrapper of GitHub repo <cite>cryptocmd</cite> that scrapes data from coinmarketcap.com.
 It scrapes data for the crypto coins specified in the keys of the customizable coins.json file.
@@ -195,7 +195,10 @@ If it exists, it check last element of datetime index and compares it with today
 If required, it updates the <cite>*.csv</cite> file to today’s date.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>configuration</strong> (<a class="reference internal" href="surfingcrypto.config.config.html#surfingcrypto.config.config" title="surfingcrypto.config.config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.config.config</span></code></a>) – package configuration object</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>configuration</strong> (<a class="reference internal" href="surfingcrypto.config.config.html#surfingcrypto.config.config" title="surfingcrypto.config.config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.config.config</span></code></a>) – package configuration object</p></li>
+<li><p><strong>fiat</strong> (<em>str</em>) – prices will be restituted in the selected fiat, defaults is <cite>EUR</cite></p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -255,7 +258,7 @@ If required, it updates the <cite>*.csv</cite> file to today’s date.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.scraper.Scraper.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fiat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'EUR'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.scraper.Scraper.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -265,7 +268,7 @@ If required, it updates the <cite>*.csv</cite> file to today’s date.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.scraper.Scraper.__init__" title="surfingcrypto.scraper.Scraper.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(configuration)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.scraper.Scraper.__init__" title="surfingcrypto.scraper.Scraper.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(configuration[, fiat])</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.scraper.Scraper.load_csv" title="surfingcrypto.scraper.Scraper.load_csv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_csv</span></code></a>(path)</p></td>
