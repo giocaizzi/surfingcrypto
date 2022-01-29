@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>surfingcrypto.strategies &mdash; surfingcrypto 0.0.1 documentation</title>
+  <title>surfingcrypto.reporting.plotting.candlesticks &mdash; surfingcrypto 0.0.1 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="surfingcrypto.strategies.SmaCross" href="surfingcrypto.strategies.SmaCross.html" />
-    <link rel="prev" title="surfingcrypto.scraper.Scraper" href="surfingcrypto.scraper.Scraper.html" /> 
+    <link rel="next" title="surfingcrypto.reporting.plotting.plot_RSI" href="surfingcrypto.reporting.plotting.plot_RSI.html" />
+    <link rel="prev" title="surfingcrypto.reporting.plotting" href="surfingcrypto.reporting.plotting.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -100,17 +100,23 @@
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.coinbase.html">surfingcrypto.coinbase</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.config.html">surfingcrypto.config</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.gtrends.html">surfingcrypto.gtrends</a></li>
-<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.plotting.html">surfingcrypto.plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.portfolio.html">surfingcrypto.portfolio</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.portfolio_tracker.html">surfingcrypto.portfolio_tracker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.scraper.html">surfingcrypto.scraper</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">surfingcrypto.strategies</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.strategies.SmaCross.html">surfingcrypto.strategies.SmaCross</a></li>
-<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.strategies.TestStrategy.html">surfingcrypto.strategies.TestStrategy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="surfingcrypto.reporting.html">surfingcrypto.reporting</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.figures.html">surfingcrypto.reporting.figures</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="surfingcrypto.reporting.plotting.html">surfingcrypto.reporting.plotting</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">surfingcrypto.reporting.plotting.candlesticks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.plotting.plot_RSI.html">surfingcrypto.reporting.plotting.plot_RSI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.plotting.plot_bb.html">surfingcrypto.reporting.plotting.plot_bb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.plotting.plot_macd.html">surfingcrypto.reporting.plotting.plot_macd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.plotting.plot_moving_averages.html">surfingcrypto.reporting.plotting.plot_moving_averages</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.trend_line.html">surfingcrypto.reporting.trend_line</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.scraper.html">surfingcrypto.scraper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.telegram_bot.html">surfingcrypto.telegram_bot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.trend_line.html">surfingcrypto.trend_line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.ts.html">surfingcrypto.ts</a></li>
 </ul>
 </li>
@@ -161,13 +167,17 @@
         
           <li><a href="surfingcrypto.html">surfingcrypto</a> &raquo;</li>
         
-      <li>surfingcrypto.strategies</li>
+          <li><a href="surfingcrypto.reporting.html">surfingcrypto.reporting</a> &raquo;</li>
+        
+          <li><a href="surfingcrypto.reporting.plotting.html">surfingcrypto.reporting.plotting</a> &raquo;</li>
+        
+      <li>surfingcrypto.reporting.plotting.candlesticks</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/_autosummary/surfingcrypto.strategies.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/surfingcrypto.reporting.plotting.candlesticks.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -180,23 +190,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-surfingcrypto.strategies">
-<span id="surfingcrypto-strategies"></span><h1>surfingcrypto.strategies<a class="headerlink" href="#module-surfingcrypto.strategies" title="Permalink to this headline">¶</a></h1>
-<p class="rubric">Classes</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="surfingcrypto.strategies.SmaCross.html#surfingcrypto.strategies.SmaCross" title="surfingcrypto.strategies.SmaCross"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SmaCross</span></code></a>(*args, **kwargs)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="surfingcrypto.strategies.TestStrategy.html#surfingcrypto.strategies.TestStrategy" title="surfingcrypto.strategies.TestStrategy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TestStrategy</span></code></a>(*args, **kwargs)</p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
+  <div class="section" id="surfingcrypto-reporting-plotting-candlesticks">
+<h1>surfingcrypto.reporting.plotting.candlesticks<a class="headerlink" href="#surfingcrypto-reporting-plotting-candlesticks" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="surfingcrypto.reporting.plotting.candlesticks">
+<span class="sig-prename descclassname"><span class="pre">surfingcrypto.reporting.plotting.</span></span><span class="sig-name descname"><span class="pre">candlesticks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vol_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'candlesticks'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.reporting.plotting.candlesticks" title="Permalink to this definition">¶</a></dt>
+<dd><p>plotting candlesticks into a matplotlib.axes.Axes object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ts</strong> (<a class="reference internal" href="surfingcrypto.ts.TS.html#surfingcrypto.ts.TS" title="surfingcrypto.ts.TS"><code class="xref py py-class docutils literal notranslate"><span class="pre">surfingcrypto.ts.TS</span></code></a>) – <cite>surfingcrypto.ts.TS</cite> object</p></li>
+<li><p><strong>ax</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code>) – matplotlib ax to plot candlesticks into.</p></li>
+<li><p><strong>volume</strong> (<em>bool</em><em>,</em><em>optional</em>) – plot volume histogram data into a another ax specified with <cite>vol_ax</cite></p></li>
+<li><p><strong>vol_ax</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code>) – matplotlib ax to plot volume histogram into.</p></li>
+<li><p><strong>style</strong> (<em>str</em><em>,</em><em>optional</em>) – style of plotting candlesticks, <cite>candlesticks</cite> is default but <cite>ohlc</cite> style is used in BB bands plotting.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 
@@ -207,10 +219,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="surfingcrypto.strategies.SmaCross.html" class="btn btn-neutral float-right" title="surfingcrypto.strategies.SmaCross" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="surfingcrypto.reporting.plotting.plot_RSI.html" class="btn btn-neutral float-right" title="surfingcrypto.reporting.plotting.plot_RSI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="surfingcrypto.scraper.Scraper.html" class="btn btn-neutral float-left" title="surfingcrypto.scraper.Scraper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="surfingcrypto.reporting.plotting.html" class="btn btn-neutral float-left" title="surfingcrypto.reporting.plotting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

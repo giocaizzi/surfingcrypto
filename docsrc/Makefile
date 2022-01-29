@@ -27,4 +27,5 @@ github:
 
 gitclean:
 	@make clean
+	@rm -r source/_autosummary
 	@rm -r ../docs/*

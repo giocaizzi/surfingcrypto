@@ -19,7 +19,7 @@ surfingcrypto.config
       :toctree:
       :template: custom-class-template.rst
    
-      config
+      Config
    
    
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>surfingcrypto.trend_line &mdash; surfingcrypto 0.0.1 documentation</title>
+  <title>surfingcrypto.reporting.figures &mdash; surfingcrypto 0.0.1 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="surfingcrypto.trend_line.trend_line" href="surfingcrypto.trend_line.trend_line.html" />
-    <link rel="prev" title="surfingcrypto.telegram_bot.Tg_notifications" href="surfingcrypto.telegram_bot.Tg_notifications.html" /> 
+    <link rel="next" title="surfingcrypto.reporting.figures.CoinFigure" href="surfingcrypto.reporting.figures.CoinFigure.html" />
+    <link rel="prev" title="surfingcrypto.reporting" href="surfingcrypto.reporting.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -100,16 +100,19 @@
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.coinbase.html">surfingcrypto.coinbase</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.config.html">surfingcrypto.config</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.gtrends.html">surfingcrypto.gtrends</a></li>
-<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.plotting.html">surfingcrypto.plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.portfolio.html">surfingcrypto.portfolio</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.portfolio_tracker.html">surfingcrypto.portfolio_tracker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.scraper.html">surfingcrypto.scraper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.strategies.html">surfingcrypto.strategies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.telegram_bot.html">surfingcrypto.telegram_bot</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">surfingcrypto.trend_line</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.trend_line.trend_line.html">surfingcrypto.trend_line.trend_line</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="surfingcrypto.reporting.html">surfingcrypto.reporting</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">surfingcrypto.reporting.figures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.figures.CoinFigure.html">surfingcrypto.reporting.figures.CoinFigure</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.plotting.html">surfingcrypto.reporting.plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.trend_line.html">surfingcrypto.reporting.trend_line</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.scraper.html">surfingcrypto.scraper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.telegram_bot.html">surfingcrypto.telegram_bot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.ts.html">surfingcrypto.ts</a></li>
 </ul>
 </li>
@@ -160,13 +163,15 @@
         
           <li><a href="surfingcrypto.html">surfingcrypto</a> &raquo;</li>
         
-      <li>surfingcrypto.trend_line</li>
+          <li><a href="surfingcrypto.reporting.html">surfingcrypto.reporting</a> &raquo;</li>
+        
+      <li>surfingcrypto.reporting.figures</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/_autosummary/surfingcrypto.trend_line.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/surfingcrypto.reporting.figures.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -179,8 +184,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-surfingcrypto.trend_line">
-<span id="surfingcrypto-trend-line"></span><h1>surfingcrypto.trend_line<a class="headerlink" href="#module-surfingcrypto.trend_line" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-surfingcrypto.reporting.figures">
+<span id="surfingcrypto-reporting-figures"></span><h1>surfingcrypto.reporting.figures<a class="headerlink" href="#module-surfingcrypto.reporting.figures" title="Permalink to this headline">¶</a></h1>
+<p>figures built for crypto prices.</p>
 <p class="rubric">Classes</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -188,8 +194,8 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="surfingcrypto.trend_line.trend_line.html#surfingcrypto.trend_line.trend_line" title="surfingcrypto.trend_line.trend_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trend_line</span></code></a>(ts[, trendln_start])</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="surfingcrypto.reporting.figures.CoinFigure.html#surfingcrypto.reporting.figures.CoinFigure" title="surfingcrypto.reporting.figures.CoinFigure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CoinFigure</span></code></a>(ts[, kind, trendlines, graphstart])</p></td>
+<td><p>This objects are complex matplotlib figures predisponed to fit OHLC + TA indicators data.</p></td>
 </tr>
 </tbody>
 </table>
@@ -203,10 +209,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="surfingcrypto.trend_line.trend_line.html" class="btn btn-neutral float-right" title="surfingcrypto.trend_line.trend_line" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="surfingcrypto.reporting.figures.CoinFigure.html" class="btn btn-neutral float-right" title="surfingcrypto.reporting.figures.CoinFigure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="surfingcrypto.telegram_bot.Tg_notifications.html" class="btn btn-neutral float-left" title="surfingcrypto.telegram_bot.Tg_notifications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="surfingcrypto.reporting.html" class="btn btn-neutral float-left" title="surfingcrypto.reporting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
