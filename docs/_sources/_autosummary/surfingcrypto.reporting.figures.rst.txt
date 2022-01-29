@@ -1,7 +1,7 @@
-surfingcrypto.plotting
-======================
+surfingcrypto.reporting.figures
+===============================
 
-.. automodule:: surfingcrypto.plotting
+.. automodule:: surfingcrypto.reporting.figures
   
    
    

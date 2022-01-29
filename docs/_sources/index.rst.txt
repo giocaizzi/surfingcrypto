@@ -12,7 +12,6 @@ It's future developement will be based on **algotrading**.
 .. warning ::
    The package is under developement and it has not been released yet.
 
-.. include:: intro.md
 
 .. toctree::
    :maxdepth: 2

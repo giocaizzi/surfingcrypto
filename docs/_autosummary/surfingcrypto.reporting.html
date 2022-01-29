@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>surfingcrypto.trend_line.trend_line &mdash; surfingcrypto 0.0.1 documentation</title>
+  <title>surfingcrypto.reporting &mdash; surfingcrypto 0.0.1 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="surfingcrypto.ts" href="surfingcrypto.ts.html" />
-    <link rel="prev" title="surfingcrypto.trend_line" href="surfingcrypto.trend_line.html" /> 
+    <link rel="next" title="surfingcrypto.reporting.figures" href="surfingcrypto.reporting.figures.html" />
+    <link rel="prev" title="surfingcrypto.portfolio_tracker.Tracker" href="surfingcrypto.portfolio_tracker.Tracker.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -100,16 +100,16 @@
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.coinbase.html">surfingcrypto.coinbase</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.config.html">surfingcrypto.config</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.gtrends.html">surfingcrypto.gtrends</a></li>
-<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.plotting.html">surfingcrypto.plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.portfolio.html">surfingcrypto.portfolio</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.portfolio_tracker.html">surfingcrypto.portfolio_tracker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.scraper.html">surfingcrypto.scraper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.strategies.html">surfingcrypto.strategies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.telegram_bot.html">surfingcrypto.telegram_bot</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="surfingcrypto.trend_line.html">surfingcrypto.trend_line</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">surfingcrypto.trend_line.trend_line</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">surfingcrypto.reporting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.figures.html">surfingcrypto.reporting.figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.plotting.html">surfingcrypto.reporting.plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.trend_line.html">surfingcrypto.reporting.trend_line</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.scraper.html">surfingcrypto.scraper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.telegram_bot.html">surfingcrypto.telegram_bot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.ts.html">surfingcrypto.ts</a></li>
 </ul>
 </li>
@@ -160,15 +160,13 @@
         
           <li><a href="surfingcrypto.html">surfingcrypto</a> &raquo;</li>
         
-          <li><a href="surfingcrypto.trend_line.html">surfingcrypto.trend_line</a> &raquo;</li>
-        
-      <li>surfingcrypto.trend_line.trend_line</li>
+      <li>surfingcrypto.reporting</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/_autosummary/surfingcrypto.trend_line.trend_line.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/surfingcrypto.reporting.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -181,46 +179,27 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="surfingcrypto-trend-line-trend-line">
-<h1>surfingcrypto.trend_line.trend_line<a class="headerlink" href="#surfingcrypto-trend-line-trend-line" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="surfingcrypto.trend_line.trend_line">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.trend_line.</span></span><span class="sig-name descname"><span class="pre">trend_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trendln_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'01-01-2021'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.trend_line.trend_line" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.trend_line.trend_line.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trendln_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'01-01-2021'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.trend_line.trend_line.__init__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<p class="rubric">Methods</p>
+  <div class="section" id="module-surfingcrypto.reporting">
+<span id="surfingcrypto-reporting"></span><h1>surfingcrypto.reporting<a class="headerlink" href="#module-surfingcrypto.reporting" title="Permalink to this headline">¶</a></h1>
+<p>module for reporting objects</p>
+<p class="rubric">Modules</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.trend_line.trend_line.__init__" title="surfingcrypto.trend_line.trend_line.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(ts[, trendln_start])</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="surfingcrypto.reporting.figures.html#module-surfingcrypto.reporting.figures" title="surfingcrypto.reporting.figures"><code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.reporting.figures</span></code></a></p></td>
+<td><p>figures built for crypto prices.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">build</span></code>([compute, method, data_type, ...])</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="surfingcrypto.reporting.plotting.html#module-surfingcrypto.reporting.plotting" title="surfingcrypto.reporting.plotting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.reporting.plotting</span></code></a></p></td>
+<td><p>plotting methods.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute</span></code>()</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">extend</span></code>([periods])</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">obtain_correct_indexes</span></code>(list)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_trend</span></code>(ax[, nbest, extend, show_min_maxs])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="surfingcrypto.reporting.trend_line.html#module-surfingcrypto.reporting.trend_line" title="surfingcrypto.reporting.trend_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.reporting.trend_line</span></code></a>(ts[, ...])</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
 </div>
 
 
@@ -231,10 +210,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="surfingcrypto.ts.html" class="btn btn-neutral float-right" title="surfingcrypto.ts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="surfingcrypto.reporting.figures.html" class="btn btn-neutral float-right" title="surfingcrypto.reporting.figures" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="surfingcrypto.trend_line.html" class="btn btn-neutral float-left" title="surfingcrypto.trend_line" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="surfingcrypto.portfolio_tracker.Tracker.html" class="btn btn-neutral float-left" title="surfingcrypto.portfolio_tracker.Tracker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

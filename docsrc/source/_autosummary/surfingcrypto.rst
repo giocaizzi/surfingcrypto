@@ -31,12 +31,10 @@
    surfingcrypto.coinbase
    surfingcrypto.config
    surfingcrypto.gtrends
-   surfingcrypto.plotting
    surfingcrypto.portfolio
    surfingcrypto.portfolio_tracker
+   surfingcrypto.reporting
    surfingcrypto.scraper
-   surfingcrypto.strategies
    surfingcrypto.telegram_bot
-   surfingcrypto.trend_line
    surfingcrypto.ts
 

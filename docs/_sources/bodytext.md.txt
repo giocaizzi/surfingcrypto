@@ -15,7 +15,7 @@ This script is executed on a AWS ec2 istance every day at `06:30 AM UTC`.
    
 2. [Tg_notifications()](/_autosummary/surfingcrypto.telegram_bot.rst) starts a telegram client to send outputs to bot followers.
    
-3. [CoinFigure()](/_autosummary/surfingcrypto.plotting.CoinFigure.rst) Creates a figure that resumes the last month of data. If requested, it plots also technical indicators.
+3. [CoinFigure()](/_autosummary/surfingcrypto.reporting.figures.CoinFigure.rst) Creates a figure that resumes the last month of data. If requested, it plots also technical indicators.
   
 The folder `examples` contains `main.ipynb` that allows to experiment interactively with the repository capacities.
 
@@ -34,7 +34,7 @@ ___
 
 ### Configuration
 
-The [config()](/_autosummary/surfingcrypto.config.config.rst) class is used to pass the user configuration.
+The [config()](/_autosummary/surfingcrypto.config.Config.rst) class is used to pass the user configuration.
 
 It requires to specify the location of the folder in which there is a `config.json` file, in which it is possible/required to specify the following parameters:
 * the parametrization of Technical Analysis (eg. window of moving averages, RSI length, etc...)

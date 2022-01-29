@@ -1,9 +1,9 @@
-﻿surfingcrypto.config.config
+surfingcrypto.config.Config
 ===========================
 
 .. currentmodule:: surfingcrypto.config
 
-.. autoclass:: config
+.. autoclass:: Config
    :members:
    :show-inheritance:
    :inherited-members:
@@ -16,11 +16,11 @@
 
    .. autosummary::
    
-      ~config.__init__
-      ~config.format_coinbase_req
-      ~config.read_coinbase_requirements
-      ~config.set_requirements
-      ~config.set_scraping_parameters
+      ~Config.__init__
+      ~Config.format_coinbase_req
+      ~Config.read_coinbase_requirements
+      ~Config.set_requirements
+      ~Config.set_scraping_parameters
    
    
 
