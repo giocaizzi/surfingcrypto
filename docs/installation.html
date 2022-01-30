@@ -180,22 +180,23 @@
 </pre></div>
 </div>
 </li>
-<li><p>Run setup in editable mode to allow importing from anywhere within the environment and set it in editable <code class="docutils literal notranslate"><span class="pre">-e</span></code> mode.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install -e .
+<li><p>Install with <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install .
 </pre></div>
 </div>
 </li>
 </ol>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">surfincrypto</span></code> submodules require a <code class="docutils literal notranslate"><span class="pre">surfingcrypto.cronfig</span></code> object to set path directories to appropriate <code class="docutils literal notranslate"><span class="pre">config_folder</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code> folders to store private credentials and other generic data.</p>
+<p><code class="docutils literal notranslate"><span class="pre">surfincrypto</span></code> submodules require a <code class="docutils literal notranslate"><span class="pre">surfingcrypto.Config</span></code> object to set path directories to appropriate <code class="docutils literal notranslate"><span class="pre">config_folder</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code> folders to store private credentials and other generic data.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">config_folder</span></code> : required</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">data_folder</span></code> - <em>optional</em>. If not provided is searched in parent of   <code class="docutils literal notranslate"><span class="pre">config_folder</span></code> or created.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parent</span><span class="o">=</span><span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">surfingcrypto</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="n">parent</span><span class="o">=</span><span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/&quot;</span>
 
-<span class="n">configuration</span><span class="o">=</span><span class="n">surfingcrypto</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">config</span><span class="p">(</span>
+<span class="n">configuration</span><span class="o">=</span><span class="n">Config</span><span class="p">(</span>
     <span class="n">parent</span><span class="o">+</span><span class="s2">&quot;config&quot;</span><span class="p">,</span>
     <span class="n">parent</span><span class="o">+</span><span class="s2">&quot;data&quot;</span>
     <span class="p">)</span>

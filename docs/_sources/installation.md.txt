@@ -12,22 +12,23 @@
     conda activate cryptoenv
     ```
 
-3. Run setup in editable mode to allow importing from anywhere within the environment and set it in editable `-e` mode.
+3. Install with `pip`
    ```shell
-   pip install -e .
+   pip install .
    ```
 
 ## Configuration
 
-`surfincrypto` submodules require a `surfingcrypto.cronfig` object to set path directories to appropriate `config_folder` and `data` folders to store private credentials and other generic data.
+`surfincrypto` submodules require a `surfingcrypto.Config` object to set path directories to appropriate `config_folder` and `data` folders to store private credentials and other generic data.
 
    * `config_folder` : required
    * `data_folder` - *optional*. If not provided is searched in parent of   `config_folder` or created.
 
 ```python
+from surfingcrypto import Config
 parent="/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/"
 
-configuration=surfingcrypto.config.config(
+configuration=Config(
     parent+"config",
     parent+"data"
     )
