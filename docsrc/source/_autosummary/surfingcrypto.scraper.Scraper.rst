@@ -19,7 +19,6 @@ surfingcrypto.scraper.Scraper
       ~Scraper.__init__
       ~Scraper.load_csv
       ~Scraper.log
-      ~Scraper.overall_output_description
       ~Scraper.run
       ~Scraper.scrape_alltime_data
       ~Scraper.scrape_missing_data
