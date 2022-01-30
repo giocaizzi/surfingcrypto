@@ -13,15 +13,6 @@ surfingcrypto.coinbase
 
    
    
-   .. rubric:: Classes
-
-   .. autosummary::
-      :toctree:
-      :template: custom-class-template.rst
-   
-      CB
-      MyCoinbase
-   
    
 
    
@@ -29,4 +20,15 @@ surfingcrypto.coinbase
    
 
 
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst
+   :recursive:
+
+   surfingcrypto.coinbase.coinbase
+   surfingcrypto.coinbase.portfolio
+   surfingcrypto.coinbase.portfolio_tracker
 

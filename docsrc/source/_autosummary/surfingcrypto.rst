@@ -31,8 +31,6 @@
    surfingcrypto.coinbase
    surfingcrypto.config
    surfingcrypto.gtrends
-   surfingcrypto.portfolio
-   surfingcrypto.portfolio_tracker
    surfingcrypto.reporting
    surfingcrypto.scraper
    surfingcrypto.telegram_bot
