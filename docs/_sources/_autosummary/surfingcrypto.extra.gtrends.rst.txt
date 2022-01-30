@@ -1,7 +1,7 @@
-surfingcrypto.gtrends
-=====================
+surfingcrypto.extra.gtrends
+===========================
 
-.. automodule:: surfingcrypto.gtrends
+.. automodule:: surfingcrypto.extra.gtrends
   
    
    

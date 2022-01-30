@@ -30,7 +30,7 @@
 
    surfingcrypto.coinbase
    surfingcrypto.config
-   surfingcrypto.gtrends
+   surfingcrypto.extra
    surfingcrypto.reporting
    surfingcrypto.scraper
    surfingcrypto.telegram_bot

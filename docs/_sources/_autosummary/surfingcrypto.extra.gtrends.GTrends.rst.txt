@@ -1,7 +1,7 @@
-surfingcrypto.gtrends.GTrends
-=============================
+surfingcrypto.extra.gtrends.GTrends
+===================================
 
-.. currentmodule:: surfingcrypto.gtrends
+.. currentmodule:: surfingcrypto.extra.gtrends
 
 .. autoclass:: GTrends
    :members:
