@@ -1,22 +1,19 @@
 # Installation
 
-1. With`conda` create new environtment for the project.
+1. Clone repo
+    ```shell
+    git clone git@github.com:giocaizzi/surfingcrypto.git
+    ```
+2. Install requirements.
 
     ```shell
-    conda env create -f environment.yml
+    pip install -r requirements.txt
     ```
 
-2. Activate env to use repository.
-
-    ```shell
-    conda activate cryptoenv
-    ```
-
-3. Install with `pip`
+3. Install package with `pip`
    ```shell
    pip install .
    ```
-
 ## Configuration
 
 `surfincrypto` submodules require a `surfingcrypto.Config` object to set path directories to appropriate `config_folder` and `data` folders to store private credentials and other generic data.

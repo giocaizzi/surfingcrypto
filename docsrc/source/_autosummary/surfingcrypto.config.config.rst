@@ -1,4 +1,4 @@
-﻿surfingcrypto.config.Config
+surfingcrypto.config.Config
 ===========================
 
 .. currentmodule:: surfingcrypto.config
