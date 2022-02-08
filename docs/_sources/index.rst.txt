@@ -18,7 +18,7 @@ It features also an integration with Coinbase to get notifications on portfolio 
 It's future developement will be based on **algotrading**.
 
 .. note ::
-   This is project is based on making money fast to go surf in some tropical destination.
+   This is project is based on making money fast to go surf |:ocean:| in some tropical destination. |:palm_tree:|
 
 .. warning ::
    The package is under developement and it has not been released yet.
