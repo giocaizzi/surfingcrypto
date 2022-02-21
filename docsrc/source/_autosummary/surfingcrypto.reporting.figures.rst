@@ -19,7 +19,10 @@ surfingcrypto.reporting.figures
       :toctree:
       :template: custom-class-template.rst
    
-      CoinFigure
+      ATHPlot
+      BaseFigure
+      SimplePlot
+      TaPlot
    
    
 

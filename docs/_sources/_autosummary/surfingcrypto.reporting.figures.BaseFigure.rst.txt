@@ -1,9 +1,9 @@
-surfingcrypto.reporting.figures.CoinFigure
+surfingcrypto.reporting.figures.BaseFigure
 ==========================================
 
 .. currentmodule:: surfingcrypto.reporting.figures
 
-.. autoclass:: CoinFigure
+.. autoclass:: BaseFigure
    :members:
    :show-inheritance:
    :inherited-members:
@@ -16,12 +16,10 @@ surfingcrypto.reporting.figures.CoinFigure
 
    .. autosummary::
    
-      ~CoinFigure.__init__
-      ~CoinFigure.center_series
-      ~CoinFigure.default_plot
-      ~CoinFigure.save
-      ~CoinFigure.set_axes
-      ~CoinFigure.ta_plot
+      ~BaseFigure.__init__
+      ~BaseFigure.center_series
+      ~BaseFigure.save
+      ~BaseFigure.set_axes
    
    
 

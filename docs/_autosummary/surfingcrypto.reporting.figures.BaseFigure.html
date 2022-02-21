@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>surfingcrypto.reporting.figures.BaseFigure &mdash; surfingcrypto 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="surfingcrypto.reporting.figures.SimplePlot" href="surfingcrypto.reporting.figures.SimplePlot.html" />
+    <link rel="prev" title="surfingcrypto.reporting.figures.ATHPlot" href="surfingcrypto.reporting.figures.ATHPlot.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> surfingcrypto
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bodytext.html">Quick start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Code reference:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="surfingcrypto.html">surfingcrypto</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.coinbase.html">surfingcrypto.coinbase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.config.html">surfingcrypto.config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.extra.html">surfingcrypto.extra</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="surfingcrypto.reporting.html">surfingcrypto.reporting</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="surfingcrypto.reporting.figures.html">surfingcrypto.reporting.figures</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.figures.ATHPlot.html">surfingcrypto.reporting.figures.ATHPlot</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">surfingcrypto.reporting.figures.BaseFigure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.figures.SimplePlot.html">surfingcrypto.reporting.figures.SimplePlot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.figures.TaPlot.html">surfingcrypto.reporting.figures.TaPlot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.plotting.html">surfingcrypto.reporting.plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.trend_line.html">surfingcrypto.reporting.trend_line</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.scraper.html">surfingcrypto.scraper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.telegram_bot.html">surfingcrypto.telegram_bot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.ts.html">surfingcrypto.ts</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">surfingcrypto</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="surfingcrypto.html">surfingcrypto</a> &raquo;</li>
+          <li><a href="surfingcrypto.reporting.html">surfingcrypto.reporting</a> &raquo;</li>
+          <li><a href="surfingcrypto.reporting.figures.html">surfingcrypto.reporting.figures</a> &raquo;</li>
+      <li>surfingcrypto.reporting.figures.BaseFigure</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/surfingcrypto.reporting.figures.BaseFigure.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="surfingcrypto-reporting-figures-basefigure">
+<h1>surfingcrypto.reporting.figures.BaseFigure<a class="headerlink" href="#surfingcrypto-reporting-figures-basefigure" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="surfingcrypto.reporting.figures.BaseFigure">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.reporting.figures.</span></span><span class="sig-name descname"><span class="pre">BaseFigure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graphstart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'1-1-2021'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.reporting.figures.BaseFigure" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This is the base class object for all figures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ts</strong> (<a class="reference internal" href="surfingcrypto.ts.TS.html#surfingcrypto.ts.TS" title="surfingcrypto.ts.TS"><code class="xref py py-class docutils literal notranslate"><span class="pre">surfingcrypto.ts.TS</span></code></a>) – <cite>surfingcrypto.ts.TS</cite> object</p></li>
+<li><p><strong>graphstart</strong> (<em>str</em>) – date string in d-m-Y format (or relative from today eg. 1 month: <cite>1m</cite>,3 month: <cite>3m</cite>) from which to start the graph.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.reporting.figures.BaseFigure.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graphstart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'1-1-2021'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.reporting.figures.BaseFigure.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.reporting.figures.BaseFigure.__init__" title="surfingcrypto.reporting.figures.BaseFigure.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(ts[, graphstart])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.reporting.figures.BaseFigure.center_series" title="surfingcrypto.reporting.figures.BaseFigure.center_series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">center_series</span></code></a>(ax[, on])</p></td>
+<td><p>centers the active series in the graph.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.reporting.figures.BaseFigure.save" title="surfingcrypto.reporting.figures.BaseFigure.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(path)</p></td>
+<td><p>save fig to specified path.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.reporting.figures.BaseFigure.set_axes" title="surfingcrypto.reporting.figures.BaseFigure.set_axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_axes</span></code></a>(xlims)</p></td>
+<td><p>set all axes to the specified xlims.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.reporting.figures.BaseFigure.center_series">
+<span class="sig-name descname"><span class="pre">center_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Close'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.reporting.figures.BaseFigure.center_series" title="Permalink to this definition"></a></dt>
+<dd><p>centers the active series in the graph.
+This is useful when dealing only with “zoomed-in” views.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code>) – </p></li>
+<li><p><strong>on</strong> (<em>str</em>) – <cite>Close</cite> or TA indicator name</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.reporting.figures.BaseFigure.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.reporting.figures.BaseFigure.save" title="Permalink to this definition"></a></dt>
+<dd><p>save fig to specified path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – path to output file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.reporting.figures.BaseFigure.set_axes">
+<span class="sig-name descname"><span class="pre">set_axes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlims</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.reporting.figures.BaseFigure.set_axes" title="Permalink to this definition"></a></dt>
+<dd><p>set all axes to the specified xlims.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xlims</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code>) – tuple of xlims as datetime objects.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="surfingcrypto.reporting.figures.ATHPlot.html" class="btn btn-neutral float-left" title="surfingcrypto.reporting.figures.ATHPlot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="surfingcrypto.reporting.figures.SimplePlot.html" class="btn btn-neutral float-right" title="surfingcrypto.reporting.figures.SimplePlot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, giocaizzi.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
