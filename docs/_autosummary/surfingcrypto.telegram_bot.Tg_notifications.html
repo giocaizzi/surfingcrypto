@@ -97,7 +97,11 @@
 <p>Wrapper of official telegram API to send notifications from a BOT initiaed manually with &#64;BotFather.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>configuration</strong> – package configuration object</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>configuration</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.config.config</span></code>) – package configuration object</p></li>
+<li><p><strong>channel_mode</strong> (<em>bool</em>) – init class in channel_bot, send to all chat_id contained in telegram_users.csv</p></li>
+<li><p><strong>new_users_check</strong> (<em>bool</em>) – check for new users and add new ones to telegram_users.csv</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -174,10 +178,13 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.telegram_bot.Tg_notifications.send_message_to_all" title="surfingcrypto.telegram_bot.Tg_notifications.send_message_to_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_message_to_all</span></code></a>(message)</p></td>
 <td><p>send message to all known users</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.telegram_bot.Tg_notifications.send_photo" title="surfingcrypto.telegram_bot.Tg_notifications.send_photo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_photo</span></code></a>(photo, chat_id[, caption])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.telegram_bot.Tg_notifications.send_message_to_user" title="surfingcrypto.telegram_bot.Tg_notifications.send_message_to_user"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_message_to_user</span></code></a>(message, username)</p></td>
+<td><p>send message to specific user.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.telegram_bot.Tg_notifications.send_photo" title="surfingcrypto.telegram_bot.Tg_notifications.send_photo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_photo</span></code></a>(photo, chat_id[, caption])</p></td>
 <td><p>send photo.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.telegram_bot.Tg_notifications.send_photo_to_all" title="surfingcrypto.telegram_bot.Tg_notifications.send_photo_to_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_photo_to_all</span></code></a>(photo)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.telegram_bot.Tg_notifications.send_photo_to_all" title="surfingcrypto.telegram_bot.Tg_notifications.send_photo_to_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_photo_to_all</span></code></a>(photo)</p></td>
 <td><p>send message to all known users</p></td>
 </tr>
 </tbody>
@@ -222,6 +229,20 @@ If the new users are found, they are automatically added to known users csv file
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>message</strong> (<em>str</em>) – string containing message to send</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.telegram_bot.Tg_notifications.send_message_to_user">
+<span class="sig-name descname"><span class="pre">send_message_to_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.telegram_bot.Tg_notifications.send_message_to_user" title="Permalink to this definition"></a></dt>
+<dd><p>send message to specific user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> (<em>str</em>) – string containing message to send</p></li>
+<li><p><strong>username</strong> (<em>str</em>) – string username, as saved in <cite>telegram_users.csv</cite> file.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>

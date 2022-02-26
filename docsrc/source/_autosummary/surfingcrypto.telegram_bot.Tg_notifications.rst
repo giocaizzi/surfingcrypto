@@ -1,4 +1,4 @@
-surfingcrypto.telegram\_bot.Tg\_notifications
+﻿surfingcrypto.telegram\_bot.Tg\_notifications
 =============================================
 
 .. currentmodule:: surfingcrypto.telegram_bot
@@ -22,6 +22,7 @@ surfingcrypto.telegram\_bot.Tg\_notifications
       ~Tg_notifications.send_doc
       ~Tg_notifications.send_message
       ~Tg_notifications.send_message_to_all
+      ~Tg_notifications.send_message_to_user
       ~Tg_notifications.send_photo
       ~Tg_notifications.send_photo_to_all
    
