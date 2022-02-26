@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>surfingcrypto.coinbase.coinbase.TransactionHandler &mdash; surfingcrypto 0.0.1 documentation</title>
+  <title>surfingcrypto.coinbase.coinbase.TransactionsGetter &mdash; surfingcrypto 0.0.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -52,7 +52,7 @@
 <li class="toctree-l3 current"><a class="reference internal" href="surfingcrypto.coinbase.coinbase.html">surfingcrypto.coinbase.coinbase</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.coinbase.coinbase.CB.html">surfingcrypto.coinbase.coinbase.CB</a></li>
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.coinbase.coinbase.MyCoinbase.html">surfingcrypto.coinbase.coinbase.MyCoinbase</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">surfingcrypto.coinbase.coinbase.TransactionHandler</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">surfingcrypto.coinbase.coinbase.TransactionsGetter</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="surfingcrypto.coinbase.portfolio.html">surfingcrypto.coinbase.portfolio</a></li>
@@ -86,9 +86,9 @@
           <li><a href="surfingcrypto.html">surfingcrypto</a> &raquo;</li>
           <li><a href="surfingcrypto.coinbase.html">surfingcrypto.coinbase</a> &raquo;</li>
           <li><a href="surfingcrypto.coinbase.coinbase.html">surfingcrypto.coinbase.coinbase</a> &raquo;</li>
-      <li>surfingcrypto.coinbase.coinbase.TransactionHandler</li>
+      <li>surfingcrypto.coinbase.coinbase.TransactionsGetter</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/surfingcrypto.coinbase.coinbase.TransactionHandler.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/surfingcrypto.coinbase.coinbase.TransactionsGetter.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -96,11 +96,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="surfingcrypto-coinbase-coinbase-transactionhandler">
-<h1>surfingcrypto.coinbase.coinbase.TransactionHandler<a class="headerlink" href="#surfingcrypto-coinbase-coinbase-transactionhandler" title="Permalink to this headline"></a></h1>
+  <div class="section" id="surfingcrypto-coinbase-coinbase-transactionsgetter">
+<h1>surfingcrypto.coinbase.coinbase.TransactionsGetter<a class="headerlink" href="#surfingcrypto-coinbase-coinbase-transactionsgetter" title="Permalink to this headline"></a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionHandler">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.coinbase.coinbase.</span></span><span class="sig-name descname"><span class="pre">TransactionHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mycoinbase</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionHandler" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionsGetter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.coinbase.coinbase.</span></span><span class="sig-name descname"><span class="pre">TransactionsGetter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mycoinbase</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This objects fetches all coinbase transactions and parses them into a known format.</p>
 <dl class="field-list simple">
@@ -109,8 +109,19 @@
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionHandler.mycoinbase">
-<span class="sig-name descname"><span class="pre">mycoinbase</span></span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionHandler.mycoinbase" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionsGetter.known_types">
+<span class="sig-name descname"><span class="pre">known_types</span></span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter.known_types" title="Permalink to this definition"></a></dt>
+<dd><p>list of string names of supported transaction types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionsGetter.mycoinbase">
+<span class="sig-name descname"><span class="pre">mycoinbase</span></span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter.mycoinbase" title="Permalink to this definition"></a></dt>
 <dd><p><a class="reference internal" href="surfingcrypto.coinbase.coinbase.MyCoinbase.html#surfingcrypto.coinbase.coinbase.MyCoinbase" title="surfingcrypto.coinbase.coinbase.MyCoinbase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MyCoinbase</span></code></a> object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -120,8 +131,8 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionHandler.df">
-<span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionHandler.df" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionsGetter.df">
+<span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter.df" title="Permalink to this definition"></a></dt>
 <dd><p>dataframe of all known transactions</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -131,8 +142,8 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionHandler.my_coinbase_obj">
-<span class="sig-name descname"><span class="pre">my_coinbase_obj</span></span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionHandler.my_coinbase_obj" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionsGetter.my_coinbase_obj">
+<span class="sig-name descname"><span class="pre">my_coinbase_obj</span></span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter.my_coinbase_obj" title="Permalink to this definition"></a></dt>
 <dd><p>list of processed transactions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -142,8 +153,8 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionHandler.unhandled_trans">
-<span class="sig-name descname"><span class="pre">unhandled_trans</span></span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionHandler.unhandled_trans" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionsGetter.unhandled_trans">
+<span class="sig-name descname"><span class="pre">unhandled_trans</span></span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter.unhandled_trans" title="Permalink to this definition"></a></dt>
 <dd><p>list informations of unhandled transactions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -153,8 +164,8 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionHandler.error_log">
-<span class="sig-name descname"><span class="pre">error_log</span></span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionHandler.error_log" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionsGetter.error_log">
+<span class="sig-name descname"><span class="pre">error_log</span></span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter.error_log" title="Permalink to this definition"></a></dt>
 <dd><p>list informations of transactions that resulted in an error.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -164,8 +175,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionHandler.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mycoinbase</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionHandler.__init__" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionsGetter.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mycoinbase</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter.__init__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -175,53 +186,56 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.coinbase.coinbase.TransactionHandler.__init__" title="surfingcrypto.coinbase.coinbase.TransactionHandler.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(mycoinbase)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter.__init__" title="surfingcrypto.coinbase.coinbase.TransactionsGetter.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(mycoinbase)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.coinbase.coinbase.TransactionHandler.get_native_amount" title="surfingcrypto.coinbase.coinbase.TransactionHandler.get_native_amount"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_native_amount</span></code></a>(transaction)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter.get_native_amount" title="surfingcrypto.coinbase.coinbase.TransactionsGetter.get_native_amount"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_native_amount</span></code></a>(transaction)</p></td>
 <td><p>gets native amount from transaction</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.coinbase.coinbase.TransactionHandler.get_transact_data" title="surfingcrypto.coinbase.coinbase.TransactionHandler.get_transact_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_transact_data</span></code></a>(account, transaction)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter.get_transact_data" title="surfingcrypto.coinbase.coinbase.TransactionsGetter.get_transact_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_transact_data</span></code></a>(account, transaction)</p></td>
 <td><p>gets required additional data (eg.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.coinbase.coinbase.TransactionHandler.get_transact_info" title="surfingcrypto.coinbase.coinbase.TransactionHandler.get_transact_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_transact_info</span></code></a>(transaction)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter.get_transact_info" title="surfingcrypto.coinbase.coinbase.TransactionsGetter.get_transact_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_transact_info</span></code></a>(transaction)</p></td>
 <td><p>get basic info from transaction.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.coinbase.coinbase.TransactionHandler.handle_transactions" title="surfingcrypto.coinbase.coinbase.TransactionHandler.handle_transactions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">handle_transactions</span></code></a>(account)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter.handle_transactions" title="surfingcrypto.coinbase.coinbase.TransactionsGetter.handle_transactions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">handle_transactions</span></code></a>(account)</p></td>
 <td><p>handles the transactions based on type.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.coinbase.coinbase.TransactionHandler.process_transaction" title="surfingcrypto.coinbase.coinbase.TransactionHandler.process_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_transaction</span></code></a>(account, transaction)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter.process_transaction" title="surfingcrypto.coinbase.coinbase.TransactionsGetter.process_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_transaction</span></code></a>(account, transaction)</p></td>
 <td><p>process a transaction.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionHandler.get_native_amount">
-<span class="sig-name descname"><span class="pre">get_native_amount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transaction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionHandler.get_native_amount" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionsGetter.get_native_amount">
+<span class="sig-name descname"><span class="pre">get_native_amount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transaction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter.get_native_amount" title="Permalink to this definition"></a></dt>
 <dd><p>gets native amount from transaction</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionHandler.get_transact_data">
-<span class="sig-name descname"><span class="pre">get_transact_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transaction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionHandler.get_transact_data" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionsGetter.get_transact_data">
+<span class="sig-name descname"><span class="pre">get_transact_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transaction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter.get_transact_data" title="Permalink to this definition"></a></dt>
 <dd><p>gets required additional data (eg. fees) from different kinds of transactions.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionHandler.get_transact_info">
-<span class="sig-name descname"><span class="pre">get_transact_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transaction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionHandler.get_transact_info" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionsGetter.get_transact_info">
+<span class="sig-name descname"><span class="pre">get_transact_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transaction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter.get_transact_info" title="Permalink to this definition"></a></dt>
 <dd><p>get basic info from transaction.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionHandler.handle_transactions">
-<span class="sig-name descname"><span class="pre">handle_transactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionHandler.handle_transactions" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionsGetter.handle_transactions">
+<span class="sig-name descname"><span class="pre">handle_transactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter.handle_transactions" title="Permalink to this definition"></a></dt>
 <dd><p>handles the transactions based on type.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionHandler.process_transaction">
-<span class="sig-name descname"><span class="pre">process_transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transaction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionHandler.process_transaction" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.coinbase.coinbase.TransactionsGetter.process_transaction">
+<span class="sig-name descname"><span class="pre">process_transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transaction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.coinbase.coinbase.TransactionsGetter.process_transaction" title="Permalink to this definition"></a></dt>
 <dd><p>process a transaction.</p>
 </dd></dl>
 

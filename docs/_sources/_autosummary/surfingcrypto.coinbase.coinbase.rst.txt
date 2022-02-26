@@ -21,6 +21,7 @@ surfingcrypto.coinbase.coinbase
    
       CB
       MyCoinbase
+      TransactionsGetter
    
    
 

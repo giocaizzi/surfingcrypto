@@ -1,4 +1,4 @@
-﻿surfingcrypto.coinbase.coinbase
+surfingcrypto.coinbase.coinbase
 ===============================
 
 .. automodule:: surfingcrypto.coinbase.coinbase
@@ -21,7 +21,7 @@
    
       CB
       MyCoinbase
-      TransactionHandler
+      TransactionsGetter
    
    
 
