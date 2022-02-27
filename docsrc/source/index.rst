@@ -33,7 +33,7 @@ It's future developement will be based on **algotrading**.
    contents/references.md
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Examples:
 
    examples/scraper.ipynb
