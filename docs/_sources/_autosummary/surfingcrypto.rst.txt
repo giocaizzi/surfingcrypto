@@ -28,9 +28,9 @@
    :template: custom-module-template.rst
    :recursive:
 
-   surfingcrypto.coinbase
    surfingcrypto.config
    surfingcrypto.extra
+   surfingcrypto.portfolio
    surfingcrypto.reporting
    surfingcrypto.scraper
    surfingcrypto.telegram_bot
