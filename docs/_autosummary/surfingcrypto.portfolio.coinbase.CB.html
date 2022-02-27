@@ -138,7 +138,8 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Requires an API Key and API Secret stored in <cite>coinbase.json</cite>.
-The permissions required to run this code are <em>read-only</em> and are the following.</p>
+The permissions required to run this code are <em>read-only</em> and are the
+following.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">`wallet:sells:read`</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">`wallet:accounts:read`</span></code></p></li>
@@ -151,13 +152,15 @@ The permissions required to run this code are <em>read-only</em> and are the fol
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>configuration</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.config.config</span></code>) – package configuration object</p>
+<dd class="field-odd"><p><strong>configuration</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.config.config</span></code>) – package
+configuration object</p>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.CB.configuration">
 <span class="sig-name descname"><span class="pre">configuration</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.CB.configuration" title="Permalink to this definition"></a></dt>
-<dd><p>package configuration object</p>
+<dd><p>package
+configuration object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.config.config</span></code></p>
@@ -168,7 +171,8 @@ The permissions required to run this code are <em>read-only</em> and are the fol
 <dl class="py attribute">
 <dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.CB.client">
 <span class="sig-name descname"><span class="pre">client</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.CB.client" title="Permalink to this definition"></a></dt>
-<dd><p>client object for making requests to coinbase API</p>
+<dd><p>client object for
+making requests to coinbase API</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">coinbase.wallet.client.Client</span></code></p>
@@ -197,7 +201,7 @@ The permissions required to run this code are <em>read-only</em> and are the fol
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>(configuration)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.CB.get_accounts_from_list" title="surfingcrypto.portfolio.coinbase.CB.get_accounts_from_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_accounts_from_list</span></code></a>([l])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.CB.get_accounts_from_list" title="surfingcrypto.portfolio.coinbase.CB.get_accounts_from_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_accounts_from_list</span></code></a>([_list])</p></td>
 <td><p>gets accounts from a list dumped locally in the config folder.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.CB.get_active_accounts" title="surfingcrypto.portfolio.coinbase.CB.get_active_accounts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_active_accounts</span></code></a>()</p></td>
@@ -210,11 +214,15 @@ The permissions required to run this code are <em>read-only</em> and are the fol
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.CB.get_accounts_from_list">
-<span class="sig-name descname"><span class="pre">get_accounts_from_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.CB.get_accounts_from_list" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_accounts_from_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.CB.get_accounts_from_list" title="Permalink to this definition"></a></dt>
 <dd><p>gets accounts from a list dumped locally in the config folder.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>list of coinbase accounts</p>
+<dd class="field-odd"><p><dl class="simple">
+<dt>list</dt><dd><p>of coinbase accounts</p>
+</dd>
+</dl>
+</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>from_list (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">coinbase.ApiObject</span></code>)</p>
@@ -228,7 +236,11 @@ The permissions required to run this code are <em>read-only</em> and are the fol
 <dd><p>get active accounts (balance &gt; 0)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>list of coinbase accounts</p>
+<dd class="field-odd"><p><dl class="simple">
+<dt>list of</dt><dd><p>coinbase accounts</p>
+</dd>
+</dl>
+</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>active (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">coinbase.ApiObject</span></code>)</p>
@@ -250,8 +262,14 @@ The permissions required to run this code are <em>read-only</em> and are the fol
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>list of coinbase accounts
-timeranges (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code>): list of dictionaries with dates of first and last transaction for each account in <cite>has_transactions</cite></p>
+<dd class="field-odd"><p><dl class="simple">
+<dt>list</dt><dd><p>of coinbase accounts</p>
+</dd>
+<dt>timeranges (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code>): list of</dt><dd><p>dictionaries with dates of first and last transaction
+for each account in <cite>has_transactions</cite></p>
+</dd>
+</dl>
+</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>has_transactions (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">coinbase.ApiObject</span></code>)</p>

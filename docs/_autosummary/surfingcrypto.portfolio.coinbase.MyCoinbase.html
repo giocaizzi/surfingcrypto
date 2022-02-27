@@ -136,14 +136,18 @@
 <dd><p>Bases: <a class="reference internal" href="surfingcrypto.portfolio.coinbase.CB.html#surfingcrypto.portfolio.coinbase.CB" title="surfingcrypto.portfolio.coinbase.CB"><code class="xref py py-class docutils literal notranslate"><span class="pre">surfingcrypto.portfolio.coinbase.CB</span></code></a></p>
 <p>This class is the user’s Coinbase.</p>
 <p>It stores all cryptocurrency accounts - either active or historic.</p>
-<p>It inherits from <cite>surfingcrypto.coinbase.CB</cite> the client methods and all information regarding the user.
+<p>It inherits from <cite>surfingcrypto.coinbase.CB</cite> the client methods
+and all information regarding the user.
 It automatically dumps temporary data in order to load accounts faster.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>active_accounts</strong> (<em>bool</em>) – default <cite>True</cite>, select active (balance&gt;0) accounts only.</p></li>
-<li><p><strong>force</strong> (<em>bool</em>) – force update from API even if local cache is found.</p></li>
-<li><p><strong>configuration</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.config.config</span></code>) – package configuration object.</p></li>
+<li><p><strong>active_accounts</strong> (<em>bool</em>) – default <cite>True</cite>, select
+active (balance&gt;0) accounts only.</p></li>
+<li><p><strong>force</strong> (<em>bool</em>) – force update from API even if
+local cache is found.</p></li>
+<li><p><strong>configuration</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.config.config</span></code>) – package
+configuration object.</p></li>
 </ul>
 </dd>
 </dl>
@@ -159,9 +163,23 @@ It automatically dumps temporary data in order to load accounts faster.</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.last_updated">
+<span class="sig-name descname"><span class="pre">last_updated</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.last_updated" title="Permalink to this definition"></a></dt>
+<dd><p>datetime of
+last updates of account list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime.datetime</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.timeranges">
 <span class="sig-name descname"><span class="pre">timeranges</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.timeranges" title="Permalink to this definition"></a></dt>
-<dd><p>list of dictionaries with dates of first and last transaction for each account</p>
+<dd><p>list of
+dictionaries with dates of first and last transaction for
+each account</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></p>
@@ -201,7 +219,7 @@ It automatically dumps temporary data in order to load accounts faster.</p>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>([active_accounts, force])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_accounts_from_list" title="surfingcrypto.portfolio.coinbase.MyCoinbase.get_accounts_from_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_accounts_from_list</span></code></a>([l])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_accounts_from_list" title="surfingcrypto.portfolio.coinbase.MyCoinbase.get_accounts_from_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_accounts_from_list</span></code></a>([_list])</p></td>
 <td><p>gets accounts from a list dumped locally in the config folder.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_active_accounts" title="surfingcrypto.portfolio.coinbase.MyCoinbase.get_active_accounts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_active_accounts</span></code></a>()</p></td>
@@ -211,7 +229,7 @@ It automatically dumps temporary data in order to load accounts faster.</p>
 <td><p>get all accounts with recorded transactions.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.mycoinbase_report" title="surfingcrypto.portfolio.coinbase.MyCoinbase.mycoinbase_report"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mycoinbase_report</span></code></a>()</p></td>
-<td><p>nicely formatted report of accounts portfolio and user's total balance in EUR</p></td>
+<td><p>Nicely formatted report of accounts portfolio and user total balance in EUR.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.start" title="surfingcrypto.portfolio.coinbase.MyCoinbase.start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start</span></code></a>(active_accounts, force)</p></td>
 <td><p>start MyCoinbase module, loading accounts as specified.</p></td>
@@ -220,11 +238,15 @@ It automatically dumps temporary data in order to load accounts faster.</p>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.get_accounts_from_list">
-<span class="sig-name descname"><span class="pre">get_accounts_from_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_accounts_from_list" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_accounts_from_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_accounts_from_list" title="Permalink to this definition"></a></dt>
 <dd><p>gets accounts from a list dumped locally in the config folder.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>list of coinbase accounts</p>
+<dd class="field-odd"><p><dl class="simple">
+<dt>list</dt><dd><p>of coinbase accounts</p>
+</dd>
+</dl>
+</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>from_list (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">coinbase.ApiObject</span></code>)</p>
@@ -238,7 +260,11 @@ It automatically dumps temporary data in order to load accounts faster.</p>
 <dd><p>get active accounts (balance &gt; 0)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>list of coinbase accounts</p>
+<dd class="field-odd"><p><dl class="simple">
+<dt>list of</dt><dd><p>coinbase accounts</p>
+</dd>
+</dl>
+</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>active (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">coinbase.ApiObject</span></code>)</p>
@@ -260,8 +286,14 @@ It automatically dumps temporary data in order to load accounts faster.</p>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>list of coinbase accounts
-timeranges (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code>): list of dictionaries with dates of first and last transaction for each account in <cite>has_transactions</cite></p>
+<dd class="field-odd"><p><dl class="simple">
+<dt>list</dt><dd><p>of coinbase accounts</p>
+</dd>
+<dt>timeranges (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code>): list of</dt><dd><p>dictionaries with dates of first and last transaction
+for each account in <cite>has_transactions</cite></p>
+</dd>
+</dl>
+</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>has_transactions (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">coinbase.ApiObject</span></code>)</p>
@@ -272,7 +304,8 @@ timeranges (<code class="xref py py-obj docutils literal notranslate"><span clas
 <dl class="py method">
 <dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.mycoinbase_report">
 <span class="sig-name descname"><span class="pre">mycoinbase_report</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.mycoinbase_report" title="Permalink to this definition"></a></dt>
-<dd><p>nicely formatted report of accounts portfolio and user’s total balance in EUR</p>
+<dd><p>Nicely formatted report of accounts portfolio and user total
+balance in EUR.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>text</p>
