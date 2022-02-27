@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quick start &mdash; surfingcrypto 0.0.1 documentation</title>
+  <title>Quick start &mdash; surfingcrypto 0.0.2 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
             <img src="_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.0.1
+                0.0.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -44,17 +44,19 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick start</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#pre-processing-initalization-of-tools">Pre-processing &amp; initalization of tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#key-modules">Key modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-usage">Basic usage</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#price-data-scraping">Price data scraping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#telegram-notifications">Telegram notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#price-data-analysis">Price data analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#plotting-prices-and-indicators">Plotting prices and indicators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reporting-useful-information">Reporting useful information</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#price-data-analysis">Price data analysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#plotting-prices-and-indicators">Plotting prices and indicators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reporting-useful-information">Reporting useful information</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#package-modules-structure">Package modules structure</a></li>
 </ul>
 </li>
 </ul>
@@ -89,29 +91,24 @@
              
   <div class="tex2jax_ignore mathjax_ignore section" id="quick-start">
 <h1>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline"></a></h1>
-<p>This repository - as of 15 November 2021 - is the source code for automated reporting of cryptocurrency prices. It uses a telegram bot (&#64;ccrryyppttoo_bot) to send <strong>daily updates on crypto prices</strong>.</p>
+<p>This project provides a customizable and automatic reporting tool for crypto price data.
+It is able to plot complex graphs for price information (from traditional <strong>candlesticks&amp;volume</strong> to <strong>technical analysis</strong> indicators).
+All outputs (plots and calculations) can be sent via telegram using a TelegramBot created with &#64;BotFather.
+It features also an integration with Coinbase to get notifications on portfolio value.</p>
 <p><img alt="TA Figure" src="_images/ta.jpeg" /></p>
-<p>The coins that are actually tracked are: <code class="docutils literal notranslate"><span class="pre">BTC</span></code>,<code class="docutils literal notranslate"><span class="pre">ETH</span></code>,<code class="docutils literal notranslate"><span class="pre">ADA</span></code>,<code class="docutils literal notranslate"><span class="pre">MATIC</span></code>, <code class="docutils literal notranslate"><span class="pre">SOL</span></code>.</p>
-<p>If you wish to get updates on the selected coins, just open a chat with the bot and start the conversation with <code class="docutils literal notranslate"><span class="pre">\start</span></code>. You will be added to the user list.</p>
-<p>The package is used as in <code class="docutils literal notranslate"><span class="pre">main.py</span></code>.
-This script is executed on a AWS ec2 istance every day at <code class="docutils literal notranslate"><span class="pre">06:30</span> <span class="pre">AM</span> <span class="pre">UTC</span></code>.</p>
-<ol class="arabic simple">
-<li><p>The <a class="reference internal" href="_autosummary/surfingcrypto.scraper.Scraper.html"><span class="doc std std-doc">Scraper()</span></a> class gets the necesarriy data from <a class="reference external" href="http://www.coinmarketcap.com">coinmarketcap.com</a> and stores data locally.</p></li>
-<li><p><a class="reference internal" href="_autosummary/surfingcrypto.telegram_bot.html"><span class="doc std std-doc">Tg_notifications()</span></a> starts a telegram client to send outputs to bot followers.</p></li>
-<li><p><a class="reference internal" href="_autosummary/surfingcrypto.reporting.figures.TaPlot.html"><span class="doc std std-doc">TaPlot</span></a> Creates a figure that resumes the last month of data. If requested, it plots also technical indicators.</p></li>
-</ol>
-<p>The folder <code class="docutils literal notranslate"><span class="pre">examples</span></code> contains <code class="docutils literal notranslate"><span class="pre">main.ipynb</span></code> that allows to experiment interactively with the repository capacities.</p>
+<p>It is possible to get historical price data on any cryptocurrency listed on <a class="reference external" href="http://www.coinmarketcap.com">coinmarketcap.com</a>, such as <code class="docutils literal notranslate"><span class="pre">BTC</span></code>,<code class="docutils literal notranslate"><span class="pre">ETH</span></code>,<code class="docutils literal notranslate"><span class="pre">ADA</span></code>,<code class="docutils literal notranslate"><span class="pre">MATIC</span></code>, <code class="docutils literal notranslate"><span class="pre">SOL</span></code>.</p>
+<p>The idea behind the package is to have a set of functions to produce daily reports, in form of plots and text. An example is as used as in <a class="reference external" href="https://github.com/giocaizzi/surfingcrypto/blob/main/main.py"><code class="docutils literal notranslate"><span class="pre">main.py</span></code></a>.</p>
+<p>This script is actually deployed as a crontab job on a AWS ec2 istance, every day at <code class="docutils literal notranslate"><span class="pre">10:30</span> <span class="pre">AM</span> <span class="pre">UTC</span></code>.</p>
 <hr class="docutils" />
 <ul class="simple">
 <li><p><a class="reference external" href="#quick-start">Quick start</a></p>
 <ul>
-<li><p><a class="reference external" href="#pre-processing--initalization-of-tools">Pre-processing &amp; initalization of tools</a></p>
+<li><p><a class="reference external" href="#key-modules">Key modules</a></p></li>
+<li><p><a class="reference external" href="#basic-usage">Basic usage</a></p>
 <ul>
 <li><p><a class="reference external" href="#configuration">Configuration</a></p></li>
 <li><p><a class="reference external" href="#price-data-scraping">Price data scraping</a></p></li>
 <li><p><a class="reference external" href="#telegram-notifications">Telegram notifications</a></p></li>
-</ul>
-</li>
 <li><p><a class="reference external" href="#price-data-analysis">Price data analysis</a></p>
 <ul>
 <li><p><a class="reference external" href="#plotting-prices-and-indicators">Plotting prices and indicators</a></p></li>
@@ -120,10 +117,22 @@ This script is executed on a AWS ec2 istance every day at <code class="docutils 
 </li>
 </ul>
 </li>
+<li><p><a class="reference external" href="#package-modules-structure">Package modules structure</a></p></li>
+</ul>
+</li>
 </ul>
 <hr class="docutils" />
-<div class="section" id="pre-processing-initalization-of-tools">
-<h2>Pre-processing &amp; initalization of tools<a class="headerlink" href="#pre-processing-initalization-of-tools" title="Permalink to this headline"></a></h2>
+<div class="section" id="key-modules">
+<h2>Key modules<a class="headerlink" href="#key-modules" title="Permalink to this headline"></a></h2>
+<ol class="arabic simple">
+<li><p>The <a class="reference internal" href="_autosummary/surfingcrypto.scraper.Scraper.html"><span class="doc std std-doc">Scraper()</span></a> class gets the necesarriy data from <a class="reference external" href="http://www.coinmarketcap.com">coinmarketcap.com</a> and stores data locally.</p></li>
+<li><p><a class="reference internal" href="_autosummary/surfingcrypto.telegram_bot.html"><span class="doc std std-doc">Tg_notifications()</span></a> starts a telegram client to send outputs to bot followers.</p></li>
+<li><p><a class="reference internal" href="_autosummary/surfingcrypto.reporting.figures.TaPlot.html"><span class="doc std std-doc">TaPlot</span></a> Creates a time-series figure plot that resumes the price cryptocurrency. If requested, it can also plot also complex indicators.</p></li>
+</ol>
+<p>The folder <code class="docutils literal notranslate"><span class="pre">examples</span></code> containsa a series of examples that allows to experiment interactively with the repository capacities.</p>
+</div>
+<div class="section" id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline"></a></h2>
 <div class="section" id="configuration">
 <h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline"></a></h3>
 <p>The <a class="reference internal" href="_autosummary/surfingcrypto.config.Config.html"><span class="doc std std-doc">config()</span></a> class is used to pass the user configuration.</p>
@@ -141,28 +150,26 @@ This script is executed on a AWS ec2 istance every day at <code class="docutils 
 </div>
 <div class="section" id="telegram-notifications">
 <h3>Telegram notifications<a class="headerlink" href="#telegram-notifications" title="Permalink to this headline"></a></h3>
-<p>In order to receive daily updates on prices, a telegram bot (&#64;ccrryyppttoo_bot) is used.</p>
+<p>In order to receive daily updates on prices, a telegram bot is used. Bots can be created with &#64;BotFather.</p>
 <p>The bot can be used both in “normal” mode or in “channel mode”.
 The normal mode (<code class="docutils literal notranslate"><span class="pre">channel_mode=False</span></code>) requires to specify a <code class="docutils literal notranslate"><span class="pre">chat_id</span></code> parameter to specify the desired chat to send the message/picture/document to. Otherwise, when <code class="docutils literal notranslate"><span class="pre">channel_mode=True</span></code> then the bot will send the content to all users specified in the <code class="docutils literal notranslate"><span class="pre">telegram_users.csv</span></code>.</p>
 <p>The bot has the capability of adding new users to the known list of users, just by recording the <code class="docutils literal notranslate"><span class="pre">chat_id</span></code> of the users that have interacted with it. Everytime the bot is initiated, it checks for new users.</p>
 </div>
-</div>
 <div class="section" id="price-data-analysis">
-<h2>Price data analysis<a class="headerlink" href="#price-data-analysis" title="Permalink to this headline"></a></h2>
+<h3>Price data analysis<a class="headerlink" href="#price-data-analysis" title="Permalink to this headline"></a></h3>
 <p>The project is focused on the production of a customizable and useful set of information to be up to date with cryptocurrency prices.</p>
 <p>The reporting structure is based on the production of graphs and by well-structured text.</p>
 <div class="section" id="plotting-prices-and-indicators">
-<h3>Plotting prices and indicators<a class="headerlink" href="#plotting-prices-and-indicators" title="Permalink to this headline"></a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">CoinFigure</span></code> class inherits from the classic <code class="docutils literal notranslate"><span class="pre">TS</span></code> class and it is a structured plot of the latest price data. Indicators are computed on request.</p>
+<h4>Plotting prices and indicators<a class="headerlink" href="#plotting-prices-and-indicators" title="Permalink to this headline"></a></h4>
 <p>There following are the kind of plots that have been implemented.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">default</span></code> Default plot.</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">SimplePlot</span></code> Simple plot.</p>
 <ul>
 <li><p>candlesticks</p></li>
 <li><p>volume</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ta</span></code> Technical Analysis plot.</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">TaPlot</span></code> Technical Analysis plot.</p>
 <ul>
 <li><p>candlestick (with MA lines)</p></li>
 <li><p>volume</p></li>
@@ -171,12 +178,13 @@ The normal mode (<code class="docutils literal notranslate"><span class="pre">ch
 <li><p>RSI</p></li>
 </ul>
 </li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATHPlot</span></code> Distance from ATH plot</p></li>
 </ul>
-<p>The <code class="docutils literal notranslate"><span class="pre">ta</span></code> kind of plot is easily customizable, for integrating and/or changing indicators in the plots.</p>
+<p>All plots inherits from the same base object <code class="docutils literal notranslate"><span class="pre">BaseFigure</span></code> that has useful methods for working with matplotlib figures.</p>
 </div>
 <div class="section" id="reporting-useful-information">
-<h3>Reporting useful information<a class="headerlink" href="#reporting-useful-information" title="Permalink to this headline"></a></h3>
-<p>The class <code class="docutils literal notranslate"><span class="pre">CoinFigure</span></code> inherits from <code class="docutils literal notranslate"><span class="pre">TS</span></code> and so it has some reporting methods associated, such as <code class="docutils literal notranslate"><span class="pre">report_percentage_diff</span></code> that produces a well structured string with formatting to be sent via telegram or read over the terminal.</p>
+<h4>Reporting useful information<a class="headerlink" href="#reporting-useful-information" title="Permalink to this headline"></a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">TS</span></code> class has some reporting methods associated, such as <code class="docutils literal notranslate"><span class="pre">report_percentage_diff</span></code> that produces a well structured string with formatting to be sent via telegram or read over the terminal.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**</span><span class="n">ADA</span><span class="o">**</span>
 <span class="o">-</span> <span class="mi">1</span><span class="n">d</span><span class="p">:</span> <span class="mf">0.36</span> <span class="o">%</span>
 <span class="o">-</span> <span class="mi">3</span><span class="n">d</span><span class="p">:</span> <span class="o">-</span><span class="mf">2.32</span> <span class="o">%</span>
@@ -187,6 +195,12 @@ The normal mode (<code class="docutils literal notranslate"><span class="pre">ch
 </div>
 <p>Ex: percentage difference for a set of different days.</p>
 </div>
+</div>
+</div>
+<div class="section" id="package-modules-structure">
+<h2>Package modules structure<a class="headerlink" href="#package-modules-structure" title="Permalink to this headline"></a></h2>
+<p>The following image depicts the package module structure and integration architecture.</p>
+<p><img alt="TA Figure" src="_images/structure.png" /></p>
 </div>
 </div>
 

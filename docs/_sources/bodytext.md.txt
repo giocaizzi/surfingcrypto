@@ -1,36 +1,42 @@
 # Quick start
 
-This repository - as of 15 November 2021 - is the source code for automated reporting of cryptocurrency prices. It uses a telegram bot (@ccrryyppttoo_bot) to send **daily updates on crypto prices**.
+This project provides a customizable and automatic reporting tool for crypto price data.
+It is able to plot complex graphs for price information (from traditional **candlesticks&volume** to **technical analysis** indicators).
+All outputs (plots and calculations) can be sent via telegram using a TelegramBot created with @BotFather.
+It features also an integration with Coinbase to get notifications on portfolio value.
 
 ![TA Figure](./images/ta.jpeg)
 
-The coins that are actually tracked are: `BTC`,`ETH`,`ADA`,`MATIC`, `SOL`.
+It is possible to get historical price data on any cryptocurrency listed on [coinmarketcap.com](http://www.coinmarketcap.com), such as `BTC`,`ETH`,`ADA`,`MATIC`, `SOL`.
 
-If you wish to get updates on the selected coins, just open a chat with the bot and start the conversation with `\start`. You will be added to the user list.
+The idea behind the package is to have a set of functions to produce daily reports, in form of plots and text. An example is as used as in [`main.py`](https://github.com/giocaizzi/surfingcrypto/blob/main/main.py).
 
-The package is used as in `main.py`.
-This script is executed on a AWS ec2 istance every day at `06:30 AM UTC`.
+This script is actually deployed as a crontab job on a AWS ec2 istance, every day at `10:30 AM UTC`.
+
+___
+- [Quick start](#quick-start)
+  - [Key modules](#key-modules)
+  - [Basic usage](#basic-usage)
+    - [Configuration](#configuration)
+    - [Price data scraping](#price-data-scraping)
+    - [Telegram notifications](#telegram-notifications)
+    - [Price data analysis](#price-data-analysis)
+      - [Plotting prices and indicators](#plotting-prices-and-indicators)
+      - [Reporting useful information](#reporting-useful-information)
+  - [Package modules structure](#package-modules-structure)
+___
+
+## Key modules
 
 1. The [Scraper()](/_autosummary/surfingcrypto.scraper.Scraper.rst) class gets the necesarriy data from [coinmarketcap.com](http://www.coinmarketcap.com) and stores data locally. 
    
 2. [Tg_notifications()](/_autosummary/surfingcrypto.telegram_bot.rst) starts a telegram client to send outputs to bot followers.
    
-3. [TaPlot](/_autosummary/surfingcrypto.reporting.figures.TaPlot.rst) Creates a figure that resumes the last month of data. If requested, it plots also technical indicators.
+3. [TaPlot](/_autosummary/surfingcrypto.reporting.figures.TaPlot.rst) Creates a time-series figure plot that resumes the price cryptocurrency. If requested, it can also plot also complex indicators.
   
-The folder `examples` contains `main.ipynb` that allows to experiment interactively with the repository capacities.
+The folder `examples` containsa a series of examples that allows to experiment interactively with the repository capacities.
 
-___
-- [Quick start](#quick-start)
-  - [Pre-processing & initalization of tools](#pre-processing--initalization-of-tools)
-    - [Configuration](#configuration)
-    - [Price data scraping](#price-data-scraping)
-    - [Telegram notifications](#telegram-notifications)
-  - [Price data analysis](#price-data-analysis)
-    - [Plotting prices and indicators](#plotting-prices-and-indicators)
-    - [Reporting useful information](#reporting-useful-information)
-___
-
-## Pre-processing & initalization of tools
+## Basic usage
 
 ### Configuration
 
@@ -49,41 +55,41 @@ The [Scraper()](/_autosummary/surfingcrypto.scraper.rst) gets the necesarriy dat
 
 ### Telegram notifications
 
-In order to receive daily updates on prices, a telegram bot (@ccrryyppttoo_bot) is used.
+In order to receive daily updates on prices, a telegram bot is used. Bots can be created with @BotFather.
 
 The bot can be used both in "normal" mode or in "channel mode".
 The normal mode (`channel_mode=False`) requires to specify a `chat_id` parameter to specify the desired chat to send the message/picture/document to. Otherwise, when `channel_mode=True` then the bot will send the content to all users specified in the `telegram_users.csv`.
 
 The bot has the capability of adding new users to the known list of users, just by recording the `chat_id` of the users that have interacted with it. Everytime the bot is initiated, it checks for new users.
 
-## Price data analysis
+### Price data analysis
 
 The project is focused on the production of a customizable and useful set of information to be up to date with cryptocurrency prices.
 
 The reporting structure is based on the production of graphs and by well-structured text.
 
-### Plotting prices and indicators
-
-`CoinFigure` class inherits from the classic `TS` class and it is a structured plot of the latest price data. Indicators are computed on request.
+#### Plotting prices and indicators
 
 There following are the kind of plots that have been implemented.
 
-- `default` Default plot.
+- `SimplePlot` Simple plot.
   - candlesticks
   - volume
 
-- `ta` Technical Analysis plot. 
+- `TaPlot` Technical Analysis plot. 
   - candlestick (with MA lines)
   - volume
   - MACD 
   - Bollinger bands
   - RSI
 
-The `ta` kind of plot is easily customizable, for integrating and/or changing indicators in the plots.
+- `ATHPlot` Distance from ATH plot
 
-### Reporting useful information
+All plots inherits from the same base object `BaseFigure` that has useful methods for working with matplotlib figures.
 
-The class `CoinFigure` inherits from `TS` and so it has some reporting methods associated, such as `report_percentage_diff` that produces a well structured string with formatting to be sent via telegram or read over the terminal.
+#### Reporting useful information
+
+The `TS` class has some reporting methods associated, such as `report_percentage_diff` that produces a well structured string with formatting to be sent via telegram or read over the terminal.
 
 ```
 **ADA**
@@ -94,3 +100,9 @@ The class `CoinFigure` inherits from `TS` and so it has some reporting methods a
 - 60d: -14.30 %
 ```
 Ex: percentage difference for a set of different days.
+
+## Package modules structure
+
+The following image depicts the package module structure and integration architecture.
+
+![TA Figure](./images/structure.png)
