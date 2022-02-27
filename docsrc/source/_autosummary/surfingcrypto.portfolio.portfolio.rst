@@ -19,7 +19,7 @@ surfingcrypto.portfolio.portfolio
       :toctree:
       :template: custom-class-template.rst
    
-      PortfolioAnalysis
+      Portfolio
    
    
 

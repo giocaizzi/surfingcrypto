@@ -17,9 +17,6 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "%matplotlib inline\n",
-    "%load_ext autoreload\n",
-    "%autoreload 2\n",
     "from surfingcrypto import Config,TS\n",
     "from surfingcrypto.reporting.figures import SimplePlot,TaPlot,ATHPlot"
    ]

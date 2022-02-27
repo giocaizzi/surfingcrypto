@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>surfingcrypto.portfolio.portfolio.PortfolioAnalysis &mdash; surfingcrypto 0.0.2 documentation</title>
+  <title>surfingcrypto.portfolio.portfolio.Portfolio &mdash; surfingcrypto 0.0.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -52,6 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/scraper.html">Scraper: get the required data.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ts.html">TS: a time-series object optimized for crypto price data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/reporting.html">Reporting: plot price data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_coinbase.html">Portfolio - Coinbase</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Code reference:</span></p>
 <ul class="current">
@@ -61,7 +62,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="surfingcrypto.portfolio.html">surfingcrypto.portfolio</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="surfingcrypto.portfolio.coinbase.html">surfingcrypto.portfolio.coinbase</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="surfingcrypto.portfolio.portfolio.html">surfingcrypto.portfolio.portfolio</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">surfingcrypto.portfolio.portfolio.PortfolioAnalysis</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">surfingcrypto.portfolio.portfolio.Portfolio</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="surfingcrypto.portfolio.portfolio_tracker.html">surfingcrypto.portfolio.portfolio_tracker</a></li>
@@ -92,9 +93,9 @@
           <li><a href="surfingcrypto.html">surfingcrypto</a> &raquo;</li>
           <li><a href="surfingcrypto.portfolio.html">surfingcrypto.portfolio</a> &raquo;</li>
           <li><a href="surfingcrypto.portfolio.portfolio.html">surfingcrypto.portfolio.portfolio</a> &raquo;</li>
-      <li>surfingcrypto.portfolio.portfolio.PortfolioAnalysis</li>
+      <li>surfingcrypto.portfolio.portfolio.Portfolio</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/surfingcrypto.portfolio.portfolio.PortfolioAnalysis.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/surfingcrypto.portfolio.portfolio.Portfolio.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -126,13 +127,15 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="surfingcrypto-portfolio-portfolio-portfolioanalysis">
-<h1>surfingcrypto.portfolio.portfolio.PortfolioAnalysis<a class="headerlink" href="#surfingcrypto-portfolio-portfolio-portfolioanalysis" title="Permalink to this headline"></a></h1>
+<div class="section" id="surfingcrypto-portfolio-portfolio-portfolio">
+<h1>surfingcrypto.portfolio.portfolio.Portfolio<a class="headerlink" href="#surfingcrypto-portfolio-portfolio-portfolio" title="Permalink to this headline"></a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.PortfolioAnalysis">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.portfolio.portfolio.</span></span><span class="sig-name descname"><span class="pre">PortfolioAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mycoinbase_df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.PortfolioAnalysis" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.Portfolio">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.portfolio.portfolio.</span></span><span class="sig-name descname"><span class="pre">Portfolio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.Portfolio" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>This class is a Coinbase portfolio analysis.</p>
+<p>User portfolio.</p>
+<p>At the moment the only supported <a class="reference internal" href="#surfingcrypto.portfolio.portfolio.Portfolio.portfolio_type" title="surfingcrypto.portfolio.portfolio.Portfolio.portfolio_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">portfolio_type</span></code></a> is Coinbase, via
+the <a class="reference internal" href="surfingcrypto.portfolio.coinbase.html#module-surfingcrypto.portfolio.coinbase" title="surfingcrypto.portfolio.coinbase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.portfolio.coinbase</span></code></a> submodule.</p>
 <p>Has methods for assessing portfolio values, grouping transactions by type,
 calculate total fees, etc.</p>
 <p>With <cite>Portfolio.Analysis.standardize()</cite> it is possible to adapt
@@ -141,15 +144,21 @@ where there are only <cite>buy</cite> or <cite>sell</cite> trades
 and the amounts are always positive.</p>
 <p>This standard portfolio allows to reconstruct easily the timeline
 of the portfolio value, at each given instant in time.</p>
+<p>Arguments:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.Portfolio.portfolio_type">
+<span class="sig-name descname"><span class="pre">portfolio_type</span></span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.Portfolio.portfolio_type" title="Permalink to this definition"></a></dt>
+<dd><p>type of portfolio</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>mycoinbase_df</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>) – coinbase transaction
-history, eg. <cite>surfingcrypto.coinbase.MyCoinbase.my_coinbase</cite></p>
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
 </dd>
 </dl>
+</dd></dl>
+
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.PortfolioAnalysis.df">
-<span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.PortfolioAnalysis.df" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.Portfolio.df">
+<span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.Portfolio.df" title="Permalink to this definition"></a></dt>
 <dd><p>coinbase transaction
 history as from the <cite>surfingcrypto.coinbase.MyCoinbase</cite> output</p>
 <dl class="field-list simple">
@@ -160,8 +169,8 @@ history as from the <cite>surfingcrypto.coinbase.MyCoinbase</cite> output</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.PortfolioAnalysis.std_df">
-<span class="sig-name descname"><span class="pre">std_df</span></span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.PortfolioAnalysis.std_df" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.Portfolio.std_df">
+<span class="sig-name descname"><span class="pre">std_df</span></span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.Portfolio.std_df" title="Permalink to this definition"></a></dt>
 <dd><p>standardized transaction history,
 contains only <cite>buy</cite> or <cite>sell</cite></p>
 <dl class="field-list simple">
@@ -178,29 +187,29 @@ contains only <cite>buy</cite> or <cite>sell</cite></p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>(mycoinbase_df)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>(**kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.portfolio.PortfolioAnalysis.live_value" title="surfingcrypto.portfolio.portfolio.PortfolioAnalysis.live_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">live_value</span></code></a>(client, amount, currency)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.portfolio.Portfolio.live_value" title="surfingcrypto.portfolio.portfolio.Portfolio.live_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">live_value</span></code></a>(client, amount, currency)</p></td>
 <td><p>gets live value of given currency and amount.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.portfolio.PortfolioAnalysis.portfolio_value" title="surfingcrypto.portfolio.portfolio.PortfolioAnalysis.portfolio_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">portfolio_value</span></code></a>(client)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.portfolio.Portfolio.portfolio_value" title="surfingcrypto.portfolio.portfolio.Portfolio.portfolio_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">portfolio_value</span></code></a>(client)</p></td>
 <td><p>gets live value of portfolio.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.portfolio.PortfolioAnalysis.standardize" title="surfingcrypto.portfolio.portfolio.PortfolioAnalysis.standardize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">standardize</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.portfolio.Portfolio.standardize" title="surfingcrypto.portfolio.portfolio.Portfolio.standardize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">standardize</span></code></a>()</p></td>
 <td><p>creates a dataframe of only <cite>buy</cite> and <cite>sell</cite> orders, for easier portfolio analysis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.portfolio.PortfolioAnalysis.total_by_type" title="surfingcrypto.portfolio.portfolio.PortfolioAnalysis.total_by_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">total_by_type</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.portfolio.Portfolio.total_by_type" title="surfingcrypto.portfolio.portfolio.Portfolio.total_by_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">total_by_type</span></code></a>()</p></td>
 <td><p>total EUR by transaction type.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.portfolio.PortfolioAnalysis.total_fees" title="surfingcrypto.portfolio.portfolio.PortfolioAnalysis.total_fees"><code class="xref py py-obj docutils literal notranslate"><span class="pre">total_fees</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.portfolio.Portfolio.total_fees" title="surfingcrypto.portfolio.portfolio.Portfolio.total_fees"><code class="xref py py-obj docutils literal notranslate"><span class="pre">total_fees</span></code></a>()</p></td>
 <td><p>total fees paid by user for th</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.PortfolioAnalysis.live_value">
-<span class="sig-name descname"><span class="pre">live_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">currency</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.PortfolioAnalysis.live_value" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.Portfolio.live_value">
+<span class="sig-name descname"><span class="pre">live_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">currency</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.Portfolio.live_value" title="Permalink to this definition"></a></dt>
 <dd><p>gets live value of given currency and amount.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -214,8 +223,8 @@ contains only <cite>buy</cite> or <cite>sell</cite></p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.PortfolioAnalysis.portfolio_value">
-<span class="sig-name descname"><span class="pre">portfolio_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.PortfolioAnalysis.portfolio_value" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.Portfolio.portfolio_value">
+<span class="sig-name descname"><span class="pre">portfolio_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.Portfolio.portfolio_value" title="Permalink to this definition"></a></dt>
 <dd><p>gets live value of portfolio.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -225,8 +234,8 @@ contains only <cite>buy</cite> or <cite>sell</cite></p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.PortfolioAnalysis.standardize">
-<span class="sig-name descname"><span class="pre">standardize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.PortfolioAnalysis.standardize" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.Portfolio.standardize">
+<span class="sig-name descname"><span class="pre">standardize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.Portfolio.standardize" title="Permalink to this definition"></a></dt>
 <dd><p>creates a dataframe of only <cite>buy</cite> and <cite>sell</cite> orders, for easier portfolio analysis.</p>
 <p>It calculates missing fee information of <cite>trade</cite> transactions.</p>
 <div class="admonition note">
@@ -236,8 +245,8 @@ contains only <cite>buy</cite> or <cite>sell</cite></p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.PortfolioAnalysis.total_by_type">
-<span class="sig-name descname"><span class="pre">total_by_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.PortfolioAnalysis.total_by_type" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.Portfolio.total_by_type">
+<span class="sig-name descname"><span class="pre">total_by_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.Portfolio.total_by_type" title="Permalink to this definition"></a></dt>
 <dd><p>total EUR by transaction type.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -247,8 +256,8 @@ contains only <cite>buy</cite> or <cite>sell</cite></p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.PortfolioAnalysis.total_fees">
-<span class="sig-name descname"><span class="pre">total_fees</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.PortfolioAnalysis.total_fees" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.Portfolio.total_fees">
+<span class="sig-name descname"><span class="pre">total_fees</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.Portfolio.total_fees" title="Permalink to this definition"></a></dt>
 <dd><p>total fees paid by user for th</p>
 </dd></dl>
 

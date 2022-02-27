@@ -20,6 +20,7 @@ surfingcrypto.portfolio.coinbase.MyCoinbase
       ~MyCoinbase.get_all_accounts_with_transactions
       ~MyCoinbase.mycoinbase_report
       ~MyCoinbase.start
+      ~MyCoinbase.transactions_history
    
    
 

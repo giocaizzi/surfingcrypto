@@ -52,6 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/scraper.html">Scraper: get the required data.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ts.html">TS: a time-series object optimized for crypto price data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/reporting.html">Reporting: plot price data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_coinbase.html">Portfolio - Coinbase</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Code reference:</span></p>
 <ul class="current">
@@ -126,24 +127,30 @@
 <dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.scraper.</span></span><span class="sig-name descname"><span class="pre">Scraper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fiat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'EUR'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.scraper.Scraper" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>This is a wrapper of GitHub repo <cite>cryptocmd</cite> that scrapes data from coinmarketcap.com.
-It scrapes data for the crypto coins specified in the keys of the customizable coins.json file.
-Saves data in a <cite>*.csv</cite> file stored in <cite>data/ts/</cite>.
+<p>wrapper of GitHub repo <cite>cryptocmd</cite>.</p>
+<p>Scrapes data from coinmarketcap.com.</p>
+<p>It scrapes data for the crypto coins specified in the keys of the
+customizable coins.json file.Saves data in a <cite>*.csv</cite> file
+stored in <cite>data/ts/</cite>.
 Checks if the file exists, if not it is downloaded.
-If it exists, it check last element of datetime index and compares it with today’s date.
-If required, it updates the <cite>*.csv</cite> file to today’s date.</p>
+If it exists, it check last element of datetime index and compares it
+with today’s date. If required, it updates the <cite>*.csv</cite> file
+to today’s date.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>configuration</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.config.config</span></code>) – package configuration object</p></li>
-<li><p><strong>fiat</strong> (<em>str</em>) – prices will be restituted in the selected fiat, defaults is <cite>EUR</cite></p></li>
+<li><p><strong>configuration</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.config.config</span></code>) – package
+configuration object</p></li>
+<li><p><strong>fiat</strong> (<em>str</em>) – prices will be restituted in the selected fiat,
+defaults is <cite>EUR</cite></p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper.config">
 <span class="sig-name descname"><span class="pre">config</span></span><a class="headerlink" href="#surfingcrypto.scraper.Scraper.config" title="Permalink to this definition"></a></dt>
-<dd><p>package configuration object</p>
+<dd><p>package
+configuration object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.config.config</span></code></p>
@@ -154,7 +161,8 @@ If required, it updates the <cite>*.csv</cite> file to today’s date.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper.log_strings">
 <span class="sig-name descname"><span class="pre">log_strings</span></span><a class="headerlink" href="#surfingcrypto.scraper.Scraper.log_strings" title="Permalink to this definition"></a></dt>
-<dd><p>list of log strings for output of process, one for each coin.</p>
+<dd><p>list of log
+strings for output of process, one for each coin.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></p>
@@ -165,7 +173,8 @@ If required, it updates the <cite>*.csv</cite> file to today’s date.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper.log_bool">
 <span class="sig-name descname"><span class="pre">log_bool</span></span><a class="headerlink" href="#surfingcrypto.scraper.Scraper.log_bool" title="Permalink to this definition"></a></dt>
-<dd><p>list of boolean output of process, one for each coin.</p>
+<dd><p>list of boolean
+output of process, one for each coin.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></p>
@@ -176,7 +185,8 @@ If required, it updates the <cite>*.csv</cite> file to today’s date.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper.output">
 <span class="sig-name descname"><span class="pre">output</span></span><a class="headerlink" href="#surfingcrypto.scraper.Scraper.output" title="Permalink to this definition"></a></dt>
-<dd><p>Overall boolean output of process. If everything went well.</p>
+<dd><p>Overall boolean output of process. If
+everything went well.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>bool</p>
@@ -225,7 +235,8 @@ If required, it updates the <cite>*.csv</cite> file to today’s date.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper.load_csv">
 <span class="sig-name descname"><span class="pre">load_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.scraper.Scraper.load_csv" title="Permalink to this definition"></a></dt>
-<dd><p>load csv data from directory specified as <cite>data_folder</cite> in package config</p>
+<dd><p>load csv data from directory specified as <cite>data_folder</cite>
+in package config</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – path to csv file</p>
@@ -275,11 +286,15 @@ df (<code class="xref py py-obj docutils literal notranslate"><span class="pre">
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>last</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime.datetime</span></code>) – date parsed as string with d-m-Y format of last known price</p></li>
-<li><p><strong>end_day</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime.datetime</span></code>) – date parsed as string with d-m-Y format for limiting the dowload of data to a specific date.</p></li>
+<li><p><strong>last</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime.datetime</span></code>) – date parsed as string
+with d-m-Y format of last known price</p></li>
+<li><p><strong>end_day</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime.datetime</span></code>) – date parsed
+as string with d-m-Y format for limiting the
+dowload of data to a specific date.</p></li>
 <li><p><strong>key</strong> (<em>str</em>) – symbol of crypto</p></li>
 <li><p><strong>path</strong> (<em>str</em>) – path to csv file</p></li>
-<li><p><strong>df</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>) – dataframe of  locally stored data</p></li>
+<li><p><strong>df</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>) – dataframe of
+locally stored data</p></li>
 </ul>
 </dd>
 </dl>

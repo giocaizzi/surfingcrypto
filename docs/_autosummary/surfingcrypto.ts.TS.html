@@ -51,6 +51,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/scraper.html">Scraper: get the required data.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ts.html">TS: a time-series object optimized for crypto price data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/reporting.html">Reporting: plot price data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_coinbase.html">Portfolio - Coinbase</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Code reference:</span></p>
 <ul class="current">
@@ -128,20 +129,25 @@
 <p>This is an time-series oriented crypto price data object.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Data can be downloaded calling <code class="docutils literal notranslate"><span class="pre">`surfingcrypto.scraper.Scraper`</span></code> object.</p>
+<p>Data can be downloaded calling <code class="docutils literal notranslate"><span class="pre">`surfingcrypto.scraper.Scraper`</span></code>
+object.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>configuration</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.config.config</span></code>) – configuration object</p></li>
-<li><p><strong>coin</strong> (<em>str</em>) – string representing the crypto coin of choice, eg. BTC,ETH</p></li>
+<li><p><strong>configuration</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.config.config</span></code>) – configuration
+object</p></li>
+<li><p><strong>coin</strong> (<em>str</em>) – string representing the crypto coin of choice,
+eg. BTC,ETH</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="surfingcrypto.ts.TS.df">
 <span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#surfingcrypto.ts.TS.df" title="Permalink to this definition"></a></dt>
-<dd><p>dataframe with datetime index of ohlc data. Could store also TA indicators if these are computed invoking the relative method.</p>
+<dd><p>dataframe with datetime index
+of ohlc data. Could store also TA indicators if these are
+computed invoking the relative method.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></p>
@@ -193,7 +199,8 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="surfingcrypto.ts.TS.build_ts">
 <span class="sig-name descname"><span class="pre">build_ts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.ts.TS.build_ts" title="Permalink to this definition"></a></dt>
-<dd><p>reads the data from data stored locally in <cite>data/ts/</cite> and saved in .csv format.</p>
+<dd><p>reads the data from data stored locally in <cite>data/ts/</cite> and
+saved in .csv format.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -208,7 +215,8 @@
 <dd><p>Percentage difference given a window size.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>window</strong> (<em>int</em>) – number of days used to computer percentage difference.</p>
+<dd class="field-odd"><p><strong>window</strong> (<em>int</em>) – number of days used to computer percentage
+difference.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -216,10 +224,12 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="surfingcrypto.ts.TS.report_percentage_diff">
 <span class="sig-name descname"><span class="pre">report_percentage_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">3,</span> <span class="pre">7,</span> <span class="pre">14,</span> <span class="pre">60]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.ts.TS.report_percentage_diff" title="Permalink to this definition"></a></dt>
-<dd><p>Produces verbose and pretty report on latest price difference from a given list of windows.</p>
+<dd><p>Produces verbose and pretty report on latest price
+difference from a given list of windows.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>windows</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>) – list of windows to compute percentage difference.</p>
+<dd class="field-odd"><p><strong>windows</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>) – list of windows
+to compute percentage difference.</p>
 </dd>
 </dl>
 </dd></dl>

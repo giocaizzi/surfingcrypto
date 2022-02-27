@@ -52,6 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/scraper.html">Scraper: get the required data.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ts.html">TS: a time-series object optimized for crypto price data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/reporting.html">Reporting: plot price data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_coinbase.html">Portfolio - Coinbase</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Code reference:</span></p>
 <ul class="current">
@@ -126,13 +127,17 @@
 <dt class="sig sig-object py" id="surfingcrypto.telegram_bot.TelegramBot">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.telegram_bot.</span></span><span class="sig-name descname"><span class="pre">TelegramBot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_users_check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.telegram_bot.TelegramBot" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Wrapper of official telegram API to send notifications from a BOT initiaed manually with &#64;BotFather.</p>
+<p>Wrapper of official telegram API to send notifications from a BOT
+initiaed manually with &#64;BotFather.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>configuration</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.config.config</span></code>) – package configuration object</p></li>
-<li><p><strong>channel_mode</strong> (<em>bool</em>) – init class in channel_bot, send to all chat_id contained in telegram_users.csv</p></li>
-<li><p><strong>new_users_check</strong> (<em>bool</em>) – check for new users and add new ones to telegram_users.csv</p></li>
+<li><p><strong>configuration</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.config.config</span></code>) – package
+configuration object</p></li>
+<li><p><strong>channel_mode</strong> (<em>bool</em>) – init class in channel_bot, send to all
+chat_id contained in telegram_users.csv</p></li>
+<li><p><strong>new_users_check</strong> (<em>bool</em>) – check for new users and add new ones
+to telegram_users.csv</p></li>
 </ul>
 </dd>
 </dl>
@@ -150,7 +155,8 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="surfingcrypto.telegram_bot.TelegramBot.users">
 <span class="sig-name descname"><span class="pre">users</span></span><a class="headerlink" href="#surfingcrypto.telegram_bot.TelegramBot.users" title="Permalink to this definition"></a></dt>
-<dd><p>dataframe containing usernames and chat_id of known users following the bot</p>
+<dd><p>dataframe containing usernames
+and chat_id of known users following the bot</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></p>
@@ -161,7 +167,8 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="surfingcrypto.telegram_bot.TelegramBot.updates">
 <span class="sig-name descname"><span class="pre">updates</span></span><a class="headerlink" href="#surfingcrypto.telegram_bot.TelegramBot.updates" title="Permalink to this definition"></a></dt>
-<dd><p>dataframe containing all updates fetched from bot</p>
+<dd><p>dataframe containing all updates
+fetched from bot</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></p>
@@ -226,7 +233,8 @@
 <dt class="sig sig-object py" id="surfingcrypto.telegram_bot.TelegramBot.new_users">
 <span class="sig-name descname"><span class="pre">new_users</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.telegram_bot.TelegramBot.new_users" title="Permalink to this definition"></a></dt>
 <dd><p>check if unknown users have interacted with the telegram bot.
-If the new users are found, they are automatically added to known users csv files.</p>
+If the new users are found, they are automatically added to known users
+csv files.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -268,7 +276,8 @@ If the new users are found, they are automatically added to known users csv file
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>message</strong> (<em>str</em>) – string containing message to send</p></li>
-<li><p><strong>username</strong> (<em>str</em>) – string username, as saved in <cite>telegram_users.csv</cite> file.</p></li>
+<li><p><strong>username</strong> (<em>str</em>) – string username, as saved in <cite>telegram_users.csv</cite></p></li>
+<li><p><strong>file.</strong> – </p></li>
 </ul>
 </dd>
 </dl>

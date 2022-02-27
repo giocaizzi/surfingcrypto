@@ -1,0 +1,412 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Portfolio - Coinbase\n",
+    "\n",
+    "The user portfolio is an object that is kept apart from the definition of objects related to the cryprocurrency portfolio provider (eg. Coinbase API). \n",
+    "\n",
+    "This is done for keeping a level of separation between the two layers, allowing future developement (eg. the implementation of other crypto trading services) and providing methods that are useful specifically at this level.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from surfingcrypto import Config\n",
+    "from surfingcrypto.portfolio import MyCoinbase"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "parent=\"/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/\"\n",
+    "c=Config(parent+\"config\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## `MyCoinbase` object\n",
+    "\n",
+    "The only implemented crypto trading platform is Coinbase and `MyCoinbase` is the class that under the hood of the `Portfolio` object handles the Coinbase user-profile, that is made of the client methods - inherited from the Coinbase API client wrapper object `CB` - plus some additional methods that are used for facilitating the user's sessions."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Get active accounts\n",
+    "\n",
+    "Basic `MyCoinbase` initialization offers loading all accounts that can be considered `active`, a.k.a. that have a `balance`> 0.00 EUR or USD."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "MyCoinbase( isHistoric:False, last updated:2022-02-27 22:07:54.571325, N_accounts:6)\n"
+     ]
+    }
+   ],
+   "source": [
+    "cb=MyCoinbase(configuration=c)\n",
+    "print(cb)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "AAVE : EUR 118.97\n",
+      "SUSHI : EUR 59.92\n",
+      "MATIC : EUR 336.73\n",
+      "UNI : EUR 116.10\n",
+      "ADA : EUR 301.25\n",
+      "USDC : EUR 0.01\n",
+      "---\n",
+      "Portfolio: EUR 932.98\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(cb.mycoinbase_report())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Get all accounts with transactions.\n",
+    "\n",
+    "This is the `isHistoric` mode of MyCoinbase, in which the `accounts` represents all accounts that has ever had a transaction. These accounts can either be fetched all from Coinbase API or locally cached.\n",
+    "\n",
+    "If the local cached account file is older than 7 days, it is automatically updated. Otherwise, accounts are loaded from the ones specified in dump file.\n",
+    "\n",
+    "There is a huge difference in time of execution, loading all accounts that have transactions takes about 1m 20s versus about 12.7s to load accounts from a local dump file."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "MyCoinbase( isHistoric:True, last updated:2022-02-27 11:23:57, N_accounts:30)\n"
+     ]
+    }
+   ],
+   "source": [
+    "cb=MyCoinbase(\n",
+    "    active_accounts=False,\n",
+    "    configuration=c)\n",
+    "print(cb)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Obviously the result of `mycoinbase_report()` won't change as it ignores accounts that have `balance`==0.00, but the length of the `accounts` attribute has more accounts than when initalized for only the active ones."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "AAVE : EUR 118.97\n",
+      "SUSHI : EUR 59.92\n",
+      "MATIC : EUR 336.73\n",
+      "UNI : EUR 116.10\n",
+      "ADA : EUR 301.25\n",
+      "USDC : EUR 0.01\n",
+      "---\n",
+      "Portfolio: EUR 932.98\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(cb.mycoinbase_report())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Transaction history\n",
+    "\n",
+    "Get the full transaction history."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cb.transactions_history()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "TransactionGetter(Processed transactions:177, Unhandled:0, Errors:9 )"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cb.history"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>type</th>\n",
+       "      <th>amount</th>\n",
+       "      <th>symbol</th>\n",
+       "      <th>native_amount</th>\n",
+       "      <th>nat_symbol</th>\n",
+       "      <th>total</th>\n",
+       "      <th>subtotal</th>\n",
+       "      <th>total_fee</th>\n",
+       "      <th>spot_price</th>\n",
+       "      <th>trade_id</th>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>datetime</th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>2022-01-04T10:46:31Z</th>\n",
+       "      <td>send</td>\n",
+       "      <td>-1.511428</td>\n",
+       "      <td>SOL</td>\n",
+       "      <td>-226.08</td>\n",
+       "      <td>EUR</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>149.580369</td>\n",
+       "      <td>None</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2022-01-04T10:44:49Z</th>\n",
+       "      <td>trade</td>\n",
+       "      <td>1.511428</td>\n",
+       "      <td>SOL</td>\n",
+       "      <td>225.73</td>\n",
+       "      <td>EUR</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>149.348800</td>\n",
+       "      <td>5851e642-8786-585b-a5d7-8546c8c16129</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2022-01-02T23:24:25Z</th>\n",
+       "      <td>send</td>\n",
+       "      <td>-1.026156</td>\n",
+       "      <td>SOL</td>\n",
+       "      <td>-159.04</td>\n",
+       "      <td>EUR</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>154.986191</td>\n",
+       "      <td>None</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2021-11-29T10:47:17Z</th>\n",
+       "      <td>trade</td>\n",
+       "      <td>1.026156</td>\n",
+       "      <td>SOL</td>\n",
+       "      <td>186.85</td>\n",
+       "      <td>EUR</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>182.087335</td>\n",
+       "      <td>18160e53-8019-561c-a812-efd59cc7a354</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2021-08-07T14:25:58Z</th>\n",
+       "      <td>trade</td>\n",
+       "      <td>-2737.634483</td>\n",
+       "      <td>ACH</td>\n",
+       "      <td>-299.46</td>\n",
+       "      <td>EUR</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>0.109386</td>\n",
+       "      <td>4dbcbf9c-cd0d-56cb-8e25-f1da9a64558f</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                       type  ...                              trade_id\n",
+       "datetime                     ...                                      \n",
+       "2022-01-04T10:46:31Z   send  ...                                  None\n",
+       "2022-01-04T10:44:49Z  trade  ...  5851e642-8786-585b-a5d7-8546c8c16129\n",
+       "2022-01-02T23:24:25Z   send  ...                                  None\n",
+       "2021-11-29T10:47:17Z  trade  ...  18160e53-8019-561c-a812-efd59cc7a354\n",
+       "2021-08-07T14:25:58Z  trade  ...  4dbcbf9c-cd0d-56cb-8e25-f1da9a64558f\n",
+       "\n",
+       "[5 rows x 10 columns]"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cb.history.df.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[]"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cb.history.unhandled_trans"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'transaction_type': 'buy',\n",
+       " 'account_id': 'af38031b-b9e5-5825-bb3e-77ea783ac192',\n",
+       " 'transaction_id': '22d9ed43-e213-5726-a127-6f80dbb8b3d1',\n",
+       " 'info': {'amount': -200.0, 'symbol': 'EUR', 'date': '2021-04-27T06:07:25Z'},\n",
+       " 'error_log': coinbase.wallet.error.NotFoundError(<Response [404]>,\n",
+       "                                     'not_found',\n",
+       "                                     'Not found',\n",
+       "                                     [{'id': 'not_found',\n",
+       "                                       'message': 'Not found'}])}"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cb.history.error_log[0]"
+   ]
+  }
+ ],
+ "metadata": {
+  "interpreter": {
+   "hash": "2e02a164808c41417adc12155d25fe4bbfd713e61a4a1963afc9ad34588db99f"
+  },
+  "kernelspec": {
+   "display_name": "Python 3.7.11 64-bit ('crypto': conda)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.12"
+  },
+  "orig_nbformat": 4
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
