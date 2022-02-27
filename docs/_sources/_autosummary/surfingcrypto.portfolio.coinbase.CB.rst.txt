@@ -9,8 +9,6 @@ surfingcrypto.portfolio.coinbase.CB
    :inherited-members:
 
    
-   .. automethod:: __init__
-
    
    .. rubric:: Methods
 

@@ -9,8 +9,6 @@ surfingcrypto.scraper.Scraper
    :inherited-members:
 
    
-   .. automethod:: __init__
-
    
    .. rubric:: Methods
 

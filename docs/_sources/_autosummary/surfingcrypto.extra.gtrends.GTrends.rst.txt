@@ -9,8 +9,6 @@ surfingcrypto.extra.gtrends.GTrends
    :inherited-members:
 
    
-   .. automethod:: __init__
-
    
    .. rubric:: Methods
 

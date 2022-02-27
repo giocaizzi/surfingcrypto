@@ -14,6 +14,7 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,6 +45,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bodytext.html">Quick start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/scraper.html">Scraper: dowload required price data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/ts.html">TS: a time-series object optimized for crypto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/reporting.html">Reporting: plot price data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Code reference:</span></p>
 <ul class="current">
@@ -96,19 +103,45 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="surfingcrypto-portfolio-coinbase-mycoinbase">
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="surfingcrypto-portfolio-coinbase-mycoinbase">
 <h1>surfingcrypto.portfolio.coinbase.MyCoinbase<a class="headerlink" href="#surfingcrypto-portfolio-coinbase-mycoinbase" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.portfolio.coinbase.</span></span><span class="sig-name descname"><span class="pre">MyCoinbase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">active_accounts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.portfolio.coinbase.</span></span><span class="sig-name descname"><span class="pre">MyCoinbase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">active_accounts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="surfingcrypto.portfolio.coinbase.CB.html#surfingcrypto.portfolio.coinbase.CB" title="surfingcrypto.portfolio.coinbase.CB"><code class="xref py py-class docutils literal notranslate"><span class="pre">surfingcrypto.portfolio.coinbase.CB</span></code></a></p>
-<p>This class is the user’s portfolio.
-It inherits from <cite>surfingcrypto.coinbase.CB</cite> client class all information regarding the user.
+<p>This class is the user’s Coinbase.</p>
+<p>It stores all cryptocurrency accounts - either active or historic.</p>
+<p>It inherits from <cite>surfingcrypto.coinbase.CB</cite> the client methods and all information regarding the user.
 It automatically dumps temporary data in order to load accounts faster.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>active_accounts</strong> (<em>bool</em>) – default <cite>True</cite>, select active (balance&gt;0) accounts only.</p></li>
+<li><p><strong>force</strong> (<em>bool</em>) – force update from API even if local cache is found.</p></li>
 <li><p><strong>configuration</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.config.config</span></code>) – package configuration object.</p></li>
 </ul>
 </dd>
@@ -157,11 +190,6 @@ It automatically dumps temporary data in order to load accounts faster.</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">active_accounts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.__init__" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -169,7 +197,7 @@ It automatically dumps temporary data in order to load accounts faster.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.__init__" title="surfingcrypto.portfolio.coinbase.MyCoinbase.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([active_accounts])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>([active_accounts, force])</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_accounts_from_list" title="surfingcrypto.portfolio.coinbase.MyCoinbase.get_accounts_from_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_accounts_from_list</span></code></a>([l])</p></td>
@@ -184,7 +212,7 @@ It automatically dumps temporary data in order to load accounts faster.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.mycoinbase_report" title="surfingcrypto.portfolio.coinbase.MyCoinbase.mycoinbase_report"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mycoinbase_report</span></code></a>()</p></td>
 <td><p>nicely formatted report of accounts portfolio and user's total balance in EUR</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.start" title="surfingcrypto.portfolio.coinbase.MyCoinbase.start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start</span></code></a>(active_accounts)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.start" title="surfingcrypto.portfolio.coinbase.MyCoinbase.start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start</span></code></a>(active_accounts, force)</p></td>
 <td><p>start MyCoinbase module, loading accounts as specified.</p></td>
 </tr>
 </tbody>
@@ -256,11 +284,14 @@ timeranges (<code class="xref py py-obj docutils literal notranslate"><span clas
 
 <dl class="py method">
 <dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.start">
-<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">active_accounts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.start" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">active_accounts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.start" title="Permalink to this definition"></a></dt>
 <dd><p>start MyCoinbase module, loading accounts as specified.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>active_accounts</strong><strong>(</strong><strong>)</strong> – </p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>active_accounts</strong> (<em>bool</em>) – get only active (balance&gt;0) accounts</p></li>
+<li><p><strong>force</strong> (<em>bool</em>) – force update from API even if local cache is found.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>

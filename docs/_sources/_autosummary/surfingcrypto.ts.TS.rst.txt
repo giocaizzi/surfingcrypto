@@ -9,8 +9,6 @@ surfingcrypto.ts.TS
    :inherited-members:
 
    
-   .. automethod:: __init__
-
    
    .. rubric:: Methods
 

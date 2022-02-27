@@ -14,6 +14,7 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,6 +45,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bodytext.html">Quick start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/scraper.html">Scraper: dowload required price data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/ts.html">TS: a time-series object optimized for crypto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/reporting.html">Reporting: plot price data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Code reference:</span></p>
 <ul class="current">
@@ -94,7 +101,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="surfingcrypto-portfolio-portfolio-portfolioanalysis">
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="surfingcrypto-portfolio-portfolio-portfolioanalysis">
 <h1>surfingcrypto.portfolio.portfolio.PortfolioAnalysis<a class="headerlink" href="#surfingcrypto-portfolio-portfolio-portfolioanalysis" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.PortfolioAnalysis">
@@ -139,11 +170,6 @@ contains only <cite>buy</cite> or <cite>sell</cite></p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.PortfolioAnalysis.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mycoinbase_df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.PortfolioAnalysis.__init__" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -151,7 +177,7 @@ contains only <cite>buy</cite> or <cite>sell</cite></p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.portfolio.PortfolioAnalysis.__init__" title="surfingcrypto.portfolio.portfolio.PortfolioAnalysis.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(mycoinbase_df)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>(mycoinbase_df)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.portfolio.PortfolioAnalysis.live_value" title="surfingcrypto.portfolio.portfolio.PortfolioAnalysis.live_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">live_value</span></code></a>(client, amount, currency)</p></td>

@@ -39,6 +39,7 @@ extensions = [
     "sphinx.ext.autosummary",
     'myst_parser',
     'sphinxemoji.sphinxemoji',
+    'nbsphinx',
 ]
 autosummary_generate = True
 source_suffix = ['.rst', '.md']

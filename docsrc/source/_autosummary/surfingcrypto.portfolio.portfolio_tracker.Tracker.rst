@@ -9,8 +9,6 @@ surfingcrypto.portfolio.portfolio\_tracker.Tracker
    :inherited-members:
 
    
-   .. automethod:: __init__
-
    
    .. rubric:: Methods
 

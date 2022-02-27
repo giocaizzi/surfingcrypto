@@ -14,10 +14,11 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="surfingcrypto" href="_autosummary/surfingcrypto.html" />
+    <link rel="next" title="Scraper: get the required data." href="examples/scraper.html" />
     <link rel="prev" title="Installation" href="installation.html" /> 
 </head>
 
@@ -60,6 +61,12 @@
 </ul>
 </li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/scraper.html">Scraper: get the required data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/ts.html">TS: a time-series object optimized for crypto price data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/reporting.html">Reporting: plot price data</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Code reference:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="_autosummary/surfingcrypto.html">surfingcrypto</a></li>
@@ -89,7 +96,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="tex2jax_ignore mathjax_ignore section" id="quick-start">
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="tex2jax_ignore mathjax_ignore section" id="quick-start">
 <h1>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline"></a></h1>
 <p>This project provides a customizable and automatic reporting tool for crypto price data.
 It is able to plot complex graphs for price information (from traditional <strong>candlesticks&amp;volume</strong> to <strong>technical analysis</strong> indicators).
@@ -135,7 +166,7 @@ It features also an integration with Coinbase to get notifications on portfolio 
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline"></a></h2>
 <div class="section" id="configuration">
 <h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline"></a></h3>
-<p>The <a class="reference internal" href="_autosummary/surfingcrypto.config.Config.html"><span class="doc std std-doc">config()</span></a> class is used to pass the user configuration.</p>
+<p>The <a class="reference internal" href="_autosummary/surfingcrypto.config.Config.html"><span class="doc std std-doc">Config()</span></a> class is used to pass the user configuration.</p>
 <p>It requires to specify the location of the folder in which there is a <code class="docutils literal notranslate"><span class="pre">config.json</span></code> file, in which it is possible/required to specify the following parameters:</p>
 <ul class="simple">
 <li><p>the parametrization of Technical Analysis (eg. window of moving averages, RSI length, etc…)</p></li>
@@ -147,6 +178,7 @@ It features also an integration with Coinbase to get notifications on portfolio 
 <div class="section" id="price-data-scraping">
 <h3>Price data scraping<a class="headerlink" href="#price-data-scraping" title="Permalink to this headline"></a></h3>
 <p>The <a class="reference internal" href="_autosummary/surfingcrypto.scraper.Scraper.html"><span class="doc std std-doc">Scraper()</span></a> gets the necesarriy data from <a class="reference external" href="http://www.coinmarketcap.com">coinmarketcap.com</a> and stores data locally.</p>
+<p><a class="reference internal" href="examples/scraper.html"><span class="doc std std-doc">Go to full example.</span></a></p>
 </div>
 <div class="section" id="telegram-notifications">
 <h3>Telegram notifications<a class="headerlink" href="#telegram-notifications" title="Permalink to this headline"></a></h3>
@@ -180,6 +212,7 @@ The normal mode (<code class="docutils literal notranslate"><span class="pre">ch
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ATHPlot</span></code> Distance from ATH plot</p></li>
 </ul>
+<p><a class="reference internal" href="examples/reporting.html"><span class="doc std std-doc">Go to full example.</span></a></p>
 <p>All plots inherits from the same base object <code class="docutils literal notranslate"><span class="pre">BaseFigure</span></code> that has useful methods for working with matplotlib figures.</p>
 </div>
 <div class="section" id="reporting-useful-information">
@@ -209,7 +242,7 @@ The normal mode (<code class="docutils literal notranslate"><span class="pre">ch
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="_autosummary/surfingcrypto.html" class="btn btn-neutral float-right" title="surfingcrypto" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="examples/scraper.html" class="btn btn-neutral float-right" title="Scraper: get the required data." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

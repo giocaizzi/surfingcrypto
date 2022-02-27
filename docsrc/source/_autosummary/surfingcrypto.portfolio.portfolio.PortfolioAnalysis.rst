@@ -9,8 +9,6 @@ surfingcrypto.portfolio.portfolio.PortfolioAnalysis
    :inherited-members:
 
    
-   .. automethod:: __init__
-
    
    .. rubric:: Methods
 

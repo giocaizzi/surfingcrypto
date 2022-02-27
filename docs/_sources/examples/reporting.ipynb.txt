@@ -45,7 +45,9 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## The `SimplePlot` figure\n",
+    "## Price data plots\n",
+    "\n",
+    "### The `SimplePlot` figure\n",
     "\n",
     "This is the most basic price plot."
    ]
@@ -82,7 +84,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## The `TaPlot` figure"
+    "### The `TaPlot` figure"
    ]
   },
   {
@@ -121,6 +123,15 @@
     "    ts=ts,\n",
     "    graphstart=\"3m\"\n",
     "    )"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Other plots\n",
+    "\n",
+    "### Distance from ATH"
    ]
   },
   {

@@ -31,6 +31,14 @@ It's future developement will be based on **algotrading**.
    installation.md
    bodytext.md
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Examples:
+
+   examples/scraper.ipynb
+   examples/ts.ipynb
+   examples/reporting.ipynb
+
 Code reference
 ==============
 

@@ -9,8 +9,6 @@ surfingcrypto.telegram\_bot.TelegramBot
    :inherited-members:
 
    
-   .. automethod:: __init__
-
    
    .. rubric:: Methods
 

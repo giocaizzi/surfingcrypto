@@ -9,8 +9,6 @@ surfingcrypto.reporting.figures.ATHPlot
    :inherited-members:
 
    
-   .. automethod:: __init__
-
    
    .. rubric:: Methods
 

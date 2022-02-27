@@ -9,8 +9,6 @@ surfingcrypto.config.Config
    :inherited-members:
 
    
-   .. automethod:: __init__
-
    
    .. rubric:: Methods
 
