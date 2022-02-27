@@ -19,7 +19,7 @@ surfingcrypto.telegram\_bot
       :toctree:
       :template: custom-class-template.rst
    
-      Tg_notifications
+      TelegramBot
    
    
 

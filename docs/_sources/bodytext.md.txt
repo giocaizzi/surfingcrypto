@@ -30,9 +30,9 @@ ___
 
 1. The [Scraper()](/_autosummary/surfingcrypto.scraper.Scraper.rst) class gets the necesarriy data from [coinmarketcap.com](http://www.coinmarketcap.com) and stores data locally. 
    
-2. [Tg_notifications()](/_autosummary/surfingcrypto.telegram_bot.rst) starts a telegram client to send outputs to bot followers.
+2. [TelegramBot()](/_autosummary/surfingcrypto.telegram_bot.TelegramBot.rst) starts a telegram client to send outputs to bot followers.
    
-3. [TaPlot](/_autosummary/surfingcrypto.reporting.figures.TaPlot.rst) Creates a time-series figure plot that resumes the price cryptocurrency. If requested, it can also plot also complex indicators.
+3. [TaPlot](/_autosummary/surfingcrypto.reporting.figures.TaPlot.rst) Creates a time-series figure plot that resumes the price cryptocurrency. There are also other kinds of data plot, but specifically it can also plot also complex indicators.
   
 The folder `examples` containsa a series of examples that allows to experiment interactively with the repository capacities.
 
@@ -51,7 +51,7 @@ Additionally, it is possible to specify the location of a `data` folder where to
 
 ### Price data scraping
 
-The [Scraper()](/_autosummary/surfingcrypto.scraper.rst) gets the necesarriy data from [coinmarketcap.com](http://www.coinmarketcap.com) and stores data locally. 
+The [Scraper()](/_autosummary/surfingcrypto.scraper.Scraper.rst) gets the necesarriy data from [coinmarketcap.com](http://www.coinmarketcap.com) and stores data locally. 
 
 ### Telegram notifications
 
