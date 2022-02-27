@@ -28,8 +28,9 @@ It's future developement will be based on **algotrading**.
    :maxdepth: 2
    :caption: Contents:
 
-   installation.md
-   bodytext.md
+   contents/installation.md
+   contents/bodytext.md
+   contents/references.md
 
 .. toctree::
    :maxdepth: 2
