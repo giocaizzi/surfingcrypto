@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# TS: a time-series object optimized for crypto price data\n",
+    "# `TS`: a time-series object optimized for crypto price data\n",
     "\n",
     "The object `surfingcrypto.ts.TS` is specifically designed for cryptocurrencies price data.\n",
     "\n",

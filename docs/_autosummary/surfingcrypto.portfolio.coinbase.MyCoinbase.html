@@ -18,7 +18,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="surfingcrypto.portfolio.coinbase.TransactionsGetter" href="surfingcrypto.portfolio.coinbase.TransactionsGetter.html" />
+    <link rel="next" title="surfingcrypto.portfolio.coinbase.TransactionsHistory" href="surfingcrypto.portfolio.coinbase.TransactionsHistory.html" />
     <link rel="prev" title="surfingcrypto.portfolio.coinbase.CB" href="surfingcrypto.portfolio.coinbase.CB.html" /> 
 </head>
 
@@ -52,7 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/scraper.html">Scraper: get the required data.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ts.html">TS: a time-series object optimized for crypto price data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/reporting.html">Reporting: plot price data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_coinbase.html">Portfolio - Coinbase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_coinbase.html">Portfolio: <code class="docutils literal notranslate"><span class="pre">MyCoinbase</span></code></a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Code reference:</span></p>
 <ul class="current">
@@ -63,7 +63,7 @@
 <li class="toctree-l3 current"><a class="reference internal" href="surfingcrypto.portfolio.coinbase.html">surfingcrypto.portfolio.coinbase</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.coinbase.CB.html">surfingcrypto.portfolio.coinbase.CB</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">surfingcrypto.portfolio.coinbase.MyCoinbase</a></li>
-<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.coinbase.TransactionsGetter.html">surfingcrypto.portfolio.coinbase.TransactionsGetter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.coinbase.TransactionsHistory.html">surfingcrypto.portfolio.coinbase.TransactionsHistory</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="surfingcrypto.portfolio.portfolio.html">surfingcrypto.portfolio.portfolio</a></li>
@@ -191,7 +191,8 @@ each account</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.isHistoric">
 <span class="sig-name descname"><span class="pre">isHistoric</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.isHistoric" title="Permalink to this definition"></a></dt>
-<dd><p>if module has been loaded in historic mode.</p>
+<dd><p>if module has been loaded in historic mode,
+a.k.a. all accounts with a transaction in the record</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>bool</p>
@@ -229,14 +230,14 @@ each account</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_all_accounts_with_transactions" title="surfingcrypto.portfolio.coinbase.MyCoinbase.get_all_accounts_with_transactions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_all_accounts_with_transactions</span></code></a>([verbose])</p></td>
 <td><p>get all accounts with recorded transactions.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.mycoinbase_report" title="surfingcrypto.portfolio.coinbase.MyCoinbase.mycoinbase_report"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mycoinbase_report</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_history" title="surfingcrypto.portfolio.coinbase.MyCoinbase.get_history"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_history</span></code></a>()</p></td>
+<td><p>start a TransactionsHistory object</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.mycoinbase_report" title="surfingcrypto.portfolio.coinbase.MyCoinbase.mycoinbase_report"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mycoinbase_report</span></code></a>()</p></td>
 <td><p>Nicely formatted report of accounts portfolio and user total balance in EUR.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.start" title="surfingcrypto.portfolio.coinbase.MyCoinbase.start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start</span></code></a>(active_accounts, force)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.start" title="surfingcrypto.portfolio.coinbase.MyCoinbase.start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start</span></code></a>(active_accounts, force)</p></td>
 <td><p>start MyCoinbase module, loading accounts as specified.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.transactions_history" title="surfingcrypto.portfolio.coinbase.MyCoinbase.transactions_history"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transactions_history</span></code></a>()</p></td>
-<td><p>start a TransactionsGetter object</p></td>
 </tr>
 </tbody>
 </table>
@@ -306,6 +307,12 @@ for each account in <cite>has_transactions</cite></p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.get_history">
+<span class="sig-name descname"><span class="pre">get_history</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_history" title="Permalink to this definition"></a></dt>
+<dd><p>start a TransactionsHistory object</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.mycoinbase_report">
 <span class="sig-name descname"><span class="pre">mycoinbase_report</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.mycoinbase_report" title="Permalink to this definition"></a></dt>
 <dd><p>Nicely formatted report of accounts portfolio and user total
@@ -334,12 +341,6 @@ balance in EUR.</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.transactions_history">
-<span class="sig-name descname"><span class="pre">transactions_history</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.transactions_history" title="Permalink to this definition"></a></dt>
-<dd><p>start a TransactionsGetter object</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -349,7 +350,7 @@ balance in EUR.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="surfingcrypto.portfolio.coinbase.CB.html" class="btn btn-neutral float-left" title="surfingcrypto.portfolio.coinbase.CB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="surfingcrypto.portfolio.coinbase.TransactionsGetter.html" class="btn btn-neutral float-right" title="surfingcrypto.portfolio.coinbase.TransactionsGetter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="surfingcrypto.portfolio.coinbase.TransactionsHistory.html" class="btn btn-neutral float-right" title="surfingcrypto.portfolio.coinbase.TransactionsHistory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

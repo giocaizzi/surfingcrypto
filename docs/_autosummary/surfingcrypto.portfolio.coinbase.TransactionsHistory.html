@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>surfingcrypto.portfolio.coinbase.TransactionsGetter &mdash; surfingcrypto 0.0.2 documentation</title>
+  <title>surfingcrypto.portfolio.coinbase.TransactionsHistory &mdash; surfingcrypto 0.0.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -52,7 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/scraper.html">Scraper: get the required data.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ts.html">TS: a time-series object optimized for crypto price data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/reporting.html">Reporting: plot price data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_coinbase.html">Portfolio - Coinbase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_coinbase.html">Portfolio: <code class="docutils literal notranslate"><span class="pre">MyCoinbase</span></code></a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Code reference:</span></p>
 <ul class="current">
@@ -63,7 +63,7 @@
 <li class="toctree-l3 current"><a class="reference internal" href="surfingcrypto.portfolio.coinbase.html">surfingcrypto.portfolio.coinbase</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.coinbase.CB.html">surfingcrypto.portfolio.coinbase.CB</a></li>
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.coinbase.MyCoinbase.html">surfingcrypto.portfolio.coinbase.MyCoinbase</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">surfingcrypto.portfolio.coinbase.TransactionsGetter</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">surfingcrypto.portfolio.coinbase.TransactionsHistory</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="surfingcrypto.portfolio.portfolio.html">surfingcrypto.portfolio.portfolio</a></li>
@@ -95,9 +95,9 @@
           <li><a href="surfingcrypto.html">surfingcrypto</a> &raquo;</li>
           <li><a href="surfingcrypto.portfolio.html">surfingcrypto.portfolio</a> &raquo;</li>
           <li><a href="surfingcrypto.portfolio.coinbase.html">surfingcrypto.portfolio.coinbase</a> &raquo;</li>
-      <li>surfingcrypto.portfolio.coinbase.TransactionsGetter</li>
+      <li>surfingcrypto.portfolio.coinbase.TransactionsHistory</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/surfingcrypto.portfolio.coinbase.TransactionsGetter.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/surfingcrypto.portfolio.coinbase.TransactionsHistory.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -129,11 +129,11 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="surfingcrypto-portfolio-coinbase-transactionsgetter">
-<h1>surfingcrypto.portfolio.coinbase.TransactionsGetter<a class="headerlink" href="#surfingcrypto-portfolio-coinbase-transactionsgetter" title="Permalink to this headline"></a></h1>
+<div class="section" id="surfingcrypto-portfolio-coinbase-transactionshistory">
+<h1>surfingcrypto.portfolio.coinbase.TransactionsHistory<a class="headerlink" href="#surfingcrypto-portfolio-coinbase-transactionshistory" title="Permalink to this headline"></a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.TransactionsGetter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.portfolio.coinbase.</span></span><span class="sig-name descname"><span class="pre">TransactionsGetter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mycoinbase</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.TransactionsGetter" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.TransactionsHistory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.portfolio.coinbase.</span></span><span class="sig-name descname"><span class="pre">TransactionsHistory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mycoinbase</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.TransactionsHistory" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This objects fetches all coinbase transactions and parses them into a
 known format.</p>
@@ -143,8 +143,8 @@ known format.</p>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.TransactionsGetter.df">
-<span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.TransactionsGetter.df" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.TransactionsHistory.df">
+<span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.TransactionsHistory.df" title="Permalink to this definition"></a></dt>
 <dd><p>dataframe of all known transactions</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -154,8 +154,8 @@ known format.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.TransactionsGetter.transactions">
-<span class="sig-name descname"><span class="pre">transactions</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.TransactionsGetter.transactions" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.TransactionsHistory.transactions">
+<span class="sig-name descname"><span class="pre">transactions</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.TransactionsHistory.transactions" title="Permalink to this definition"></a></dt>
 <dd><p>list
 of processed transactions.</p>
 <dl class="field-list simple">
@@ -166,8 +166,8 @@ of processed transactions.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.TransactionsGetter.known_types">
-<span class="sig-name descname"><span class="pre">known_types</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.TransactionsGetter.known_types" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.TransactionsHistory.known_types">
+<span class="sig-name descname"><span class="pre">known_types</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.TransactionsHistory.known_types" title="Permalink to this definition"></a></dt>
 <dd><p>list of string names
 of supported transaction types.</p>
 <dl class="field-list simple">
@@ -178,8 +178,8 @@ of supported transaction types.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.TransactionsGetter.unhandled_trans">
-<span class="sig-name descname"><span class="pre">unhandled_trans</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.TransactionsGetter.unhandled_trans" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.TransactionsHistory.unhandled_trans">
+<span class="sig-name descname"><span class="pre">unhandled_trans</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.TransactionsHistory.unhandled_trans" title="Permalink to this definition"></a></dt>
 <dd><p>list informations of
 unhandled transactions.</p>
 <dl class="field-list simple">
@@ -190,8 +190,8 @@ unhandled transactions.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.TransactionsGetter.error_log">
-<span class="sig-name descname"><span class="pre">error_log</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.TransactionsGetter.error_log" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.TransactionsHistory.error_log">
+<span class="sig-name descname"><span class="pre">error_log</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.TransactionsHistory.error_log" title="Permalink to this definition"></a></dt>
 <dd><p>list informations of
 transactions that resulted in an error.</p>
 <dl class="field-list simple">

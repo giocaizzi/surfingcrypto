@@ -1,9 +1,9 @@
-surfingcrypto.portfolio.coinbase.TransactionsGetter
-===================================================
+surfingcrypto.portfolio.coinbase.TransactionsHistory
+====================================================
 
 .. currentmodule:: surfingcrypto.portfolio.coinbase
 
-.. autoclass:: TransactionsGetter
+.. autoclass:: TransactionsHistory
    :members:
    :show-inheritance:
    :inherited-members:
@@ -14,7 +14,7 @@ surfingcrypto.portfolio.coinbase.TransactionsGetter
 
    .. autosummary::
    
-      ~TransactionsGetter.__init__
+      ~TransactionsHistory.__init__
    
    
 

@@ -47,10 +47,10 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="examples/scraper.html">Scraper: get the required data.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/ts.html">TS: a time-series object optimized for crypto price data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/scraper.html"><code class="docutils literal notranslate"><span class="pre">Scraper</span></code>: get the required data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/ts.html"><code class="docutils literal notranslate"><span class="pre">TS</span></code>: a time-series object optimized for crypto price data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/reporting.html">Reporting: plot price data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/portfolio_coinbase.html">Portfolio: Coinbase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/portfolio_coinbase.html">Portfolio: <code class="docutils literal notranslate"><span class="pre">MyCoinbase</span></code></a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Code reference:</span></p>
 <ul>
@@ -182,7 +182,7 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.TransactionsGetter.html#surfingcrypto.portfolio.coinbase.TransactionsGetter.df">df (surfingcrypto.portfolio.coinbase.TransactionsGetter attribute)</a>
+      <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.TransactionsHistory.html#surfingcrypto.portfolio.coinbase.TransactionsHistory.df">df (surfingcrypto.portfolio.coinbase.TransactionsHistory attribute)</a>
 
       <ul>
         <li><a href="_autosummary/surfingcrypto.portfolio.portfolio.Portfolio.html#surfingcrypto.portfolio.portfolio.Portfolio.df">(surfingcrypto.portfolio.portfolio.Portfolio attribute)</a>
@@ -196,7 +196,7 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.TransactionsGetter.html#surfingcrypto.portfolio.coinbase.TransactionsGetter.error_log">error_log (surfingcrypto.portfolio.coinbase.TransactionsGetter attribute)</a>
+      <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.TransactionsHistory.html#surfingcrypto.portfolio.coinbase.TransactionsHistory.error_log">error_log (surfingcrypto.portfolio.coinbase.TransactionsHistory attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -232,6 +232,8 @@
         <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.MyCoinbase.html#surfingcrypto.portfolio.coinbase.MyCoinbase.get_all_accounts_with_transactions">(surfingcrypto.portfolio.coinbase.MyCoinbase method)</a>
 </li>
       </ul></li>
+      <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.MyCoinbase.html#surfingcrypto.portfolio.coinbase.MyCoinbase.get_history">get_history() (surfingcrypto.portfolio.coinbase.MyCoinbase method)</a>
+</li>
       <li><a href="_autosummary/surfingcrypto.telegram_bot.TelegramBot.html#surfingcrypto.telegram_bot.TelegramBot.getUpdates">getUpdates() (surfingcrypto.telegram_bot.TelegramBot method)</a>
 </li>
       <li><a href="_autosummary/surfingcrypto.extra.gtrends.GTrends.html#surfingcrypto.extra.gtrends.GTrends">GTrends (class in surfingcrypto.extra.gtrends)</a>
@@ -258,7 +260,7 @@
 <h2 id="K">K</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.TransactionsGetter.html#surfingcrypto.portfolio.coinbase.TransactionsGetter.known_types">known_types (surfingcrypto.portfolio.coinbase.TransactionsGetter attribute)</a>
+      <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.TransactionsHistory.html#surfingcrypto.portfolio.coinbase.TransactionsHistory.known_types">known_types (surfingcrypto.portfolio.coinbase.TransactionsHistory attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -445,8 +447,6 @@
       </ul></li>
       <li><a href="_autosummary/surfingcrypto.reporting.figures.SimplePlot.html#surfingcrypto.reporting.figures.SimplePlot">SimplePlot (class in surfingcrypto.reporting.figures)</a>
 </li>
-      <li><a href="_autosummary/surfingcrypto.portfolio.portfolio.Portfolio.html#surfingcrypto.portfolio.portfolio.Portfolio.standardize">standardize() (surfingcrypto.portfolio.portfolio.Portfolio method)</a>
-</li>
       <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.MyCoinbase.html#surfingcrypto.portfolio.coinbase.MyCoinbase.start">start() (surfingcrypto.portfolio.coinbase.MyCoinbase method)</a>
 </li>
       <li><a href="_autosummary/surfingcrypto.portfolio.portfolio.Portfolio.html#surfingcrypto.portfolio.portfolio.Portfolio.std_df">std_df (surfingcrypto.portfolio.portfolio.Portfolio attribute)</a>
@@ -588,11 +588,9 @@
 </li>
       <li><a href="_autosummary/surfingcrypto.portfolio.portfolio_tracker.Tracker.html#surfingcrypto.portfolio.portfolio_tracker.Tracker">Tracker (class in surfingcrypto.portfolio.portfolio_tracker)</a>
 </li>
-      <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.TransactionsGetter.html#surfingcrypto.portfolio.coinbase.TransactionsGetter.transactions">transactions (surfingcrypto.portfolio.coinbase.TransactionsGetter attribute)</a>
+      <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.TransactionsHistory.html#surfingcrypto.portfolio.coinbase.TransactionsHistory.transactions">transactions (surfingcrypto.portfolio.coinbase.TransactionsHistory attribute)</a>
 </li>
-      <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.MyCoinbase.html#surfingcrypto.portfolio.coinbase.MyCoinbase.transactions_history">transactions_history() (surfingcrypto.portfolio.coinbase.MyCoinbase method)</a>
-</li>
-      <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.TransactionsGetter.html#surfingcrypto.portfolio.coinbase.TransactionsGetter">TransactionsGetter (class in surfingcrypto.portfolio.coinbase)</a>
+      <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.TransactionsHistory.html#surfingcrypto.portfolio.coinbase.TransactionsHistory">TransactionsHistory (class in surfingcrypto.portfolio.coinbase)</a>
 </li>
       <li><a href="_autosummary/surfingcrypto.ts.TS.html#surfingcrypto.ts.TS">TS (class in surfingcrypto.ts)</a>
 </li>
@@ -602,7 +600,7 @@
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.TransactionsGetter.html#surfingcrypto.portfolio.coinbase.TransactionsGetter.unhandled_trans">unhandled_trans (surfingcrypto.portfolio.coinbase.TransactionsGetter attribute)</a>
+      <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.TransactionsHistory.html#surfingcrypto.portfolio.coinbase.TransactionsHistory.unhandled_trans">unhandled_trans (surfingcrypto.portfolio.coinbase.TransactionsHistory attribute)</a>
 </li>
       <li><a href="_autosummary/surfingcrypto.telegram_bot.TelegramBot.html#surfingcrypto.telegram_bot.TelegramBot.updates">updates (surfingcrypto.telegram_bot.TelegramBot attribute)</a>
 </li>

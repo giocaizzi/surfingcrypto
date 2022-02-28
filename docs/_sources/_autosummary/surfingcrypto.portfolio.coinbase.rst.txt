@@ -21,7 +21,7 @@ surfingcrypto.portfolio.coinbase
    
       CB
       MyCoinbase
-      TransactionsGetter
+      TransactionsHistory
    
    
 
