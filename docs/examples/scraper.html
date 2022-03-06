@@ -53,7 +53,6 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Scraper</span></code>: get the required data.</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Download-data">Download data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Error-log">Error log</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ts.html"><code class="docutils literal notranslate"><span class="pre">TS</span></code>: a time-series object optimized for crypto price data</a></li>
@@ -373,22 +372,22 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>Load the configuration.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parent</span><span class="o">=</span><span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/&quot;</span>
-<span class="n">c</span><span class="o">=</span><span class="n">Config</span><span class="p">(</span><span class="n">parent</span><span class="o">+</span><span class="s2">&quot;config&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">=</span><span class="n">Config</span><span class="p">(</span><span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/config&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="Download-data">
 <h2>Download data<a class="headerlink" href="#Download-data" title="Permalink to this headline"></a></h2>
 <p>Run the scraper.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">fiat</span></code> argument specifies currency in which download the data. The output is printed right after execution if <code class="docutils literal notranslate"><span class="pre">verbose</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">=</span><span class="n">Scraper</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">=</span><span class="n">Scraper</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">fiat</span><span class="o">=</span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">s</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -402,58 +401,27 @@ Error fetching coin id data for coin code {} CGLD
 Error message: &#39;CGLD&#39; coin code is unavailable on coinmarketcap.com
 Error fetching price data for {} for interval &#39;{}&#39; and &#39;{}&#39; CGLD 25-04-2021 25-04-2021
 Error message (download_data) : &#34;slug&#34; must only contain lowercase characters
-### SCRAPER
-Update failed. Check log files for update
-DF: SOL already up to date.
-DF: ACH already up to date.
-DF: QNT already up to date.
-DF: BOND already up to date.
-DF: CLV already up to date.
-DF: BAL already up to date.
-DF: AAVE already up to date.
-DF: AMP already up to date.
-DF: SKL already up to date.
-DF: USDT already up to date.
-DF: SUSHI already up to date.
-DF: RLC already up to date.
-DF: STORJ already up to date.
-DF: FORTH already up to date.
-DF: MATIC already up to date.
-DF: UNI already up to date.
-DF: XLM already up to date.
-DF: COMP already up to date.
-DF: NU already up to date.
-DF: GRT already up to date.
-DF: CGLD download failed.
-DF: ADA already up to date.
-DF: MKR already up to date.
-DF: MANA already up to date.
-DF: BAT already up to date.
-DF: ETC already up to date.
-DF: ETH already up to date.
-DF: BTC already up to date.
+Update failed. There are (1/28) errors.
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Error-log">
-<h2>Error log<a class="headerlink" href="#Error-log" title="Permalink to this headline"></a></h2>
-<p>This object has a error log for inspecting the result.</p>
+<p>All runs are stored in <code class="docutils literal notranslate"><span class="pre">runs</span></code> attribute, as a list of individual <code class="docutils literal notranslate"><span class="pre">CoinScraper</span></code> objects.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">errors</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">runs</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[{&#39;coin&#39;: &#39;CGLD&#39;,
-  &#39;error&#39;: TypeError(&#34;&#39;NoneType&#39; object is not subscriptable&#34;)}]
+[CoinScraper(SOL, start=01-10-2017, end_day=05-03-2022, error=False,),
+ CoinScraper(ACH, start=06-08-2021, end_day=07-08-2021, error=False,),
+ CoinScraper(QNT, start=29-07-2021, end_day=31-07-2021, error=False,)]
 </pre></div></div>
 </div>
 </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>surfingcrypto.scraper.Scraper &mdash; surfingcrypto 0.0.2 documentation</title>
+  <title>surfingcrypto.scraper.CoinScraper &mdash; surfingcrypto 0.0.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,8 +18,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="surfingcrypto.telegram_bot" href="surfingcrypto.telegram_bot.html" />
-    <link rel="prev" title="surfingcrypto.scraper.CoinScraper" href="surfingcrypto.scraper.CoinScraper.html" /> 
+    <link rel="next" title="surfingcrypto.scraper.Scraper" href="surfingcrypto.scraper.Scraper.html" />
+    <link rel="prev" title="surfingcrypto.scraper" href="surfingcrypto.scraper.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -62,8 +62,8 @@
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.portfolio.html">surfingcrypto.portfolio</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.reporting.html">surfingcrypto.reporting</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="surfingcrypto.scraper.html">surfingcrypto.scraper</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.scraper.CoinScraper.html">surfingcrypto.scraper.CoinScraper</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">surfingcrypto.scraper.Scraper</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">surfingcrypto.scraper.CoinScraper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.scraper.Scraper.html">surfingcrypto.scraper.Scraper</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.telegram_bot.html">surfingcrypto.telegram_bot</a></li>
@@ -88,9 +88,9 @@
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="surfingcrypto.html">surfingcrypto</a> &raquo;</li>
           <li><a href="surfingcrypto.scraper.html">surfingcrypto.scraper</a> &raquo;</li>
-      <li>surfingcrypto.scraper.Scraper</li>
+      <li>surfingcrypto.scraper.CoinScraper</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/surfingcrypto.scraper.Scraper.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/surfingcrypto.scraper.CoinScraper.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -122,27 +122,45 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="surfingcrypto-scraper-scraper">
-<h1>surfingcrypto.scraper.Scraper<a class="headerlink" href="#surfingcrypto-scraper-scraper" title="Permalink to this headline"></a></h1>
+<div class="section" id="surfingcrypto-scraper-coinscraper">
+<h1>surfingcrypto.scraper.CoinScraper<a class="headerlink" href="#surfingcrypto-scraper-coinscraper" title="Permalink to this headline"></a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.scraper.</span></span><span class="sig-name descname"><span class="pre">Scraper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fiat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'EUR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.scraper.Scraper" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.scraper.CoinScraper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.scraper.</span></span><span class="sig-name descname"><span class="pre">CoinScraper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fiat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.scraper.CoinScraper" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>gets all data required by module configuration.</p>
+<p>wrapper of GitHub repo <cite>cryptocmd</cite>.</p>
+<p>Scrapes data from coinmarketcap.com.</p>
+<p>It scrapes data for the crypto coins specified in the keys of the
+customizable coins.json file.Saves data in a <cite>*.csv</cite> file
+stored in <cite>data/ts/</cite>.
+Checks if the file exists, if not it is downloaded.
+If it exists, it check last element of datetime index and compares it
+with today’s date. If required, it updates the <cite>*.csv</cite> file
+to today’s date.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) – symbol of crypto</p></li>
+<li><p><strong>fiat</strong> (<em>self.fiat =</em>) – </p></li>
 <li><p><strong>configuration</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.config.config</span></code>) – package
 configuration object</p></li>
-<li><p><strong>fiat</strong> (<em>str</em>) – prices will be restituted in the selected fiat,
-defaults is <cite>EUR</cite></p></li>
-<li><p><strong>log</strong> (<em>bool</em>) – wether to log at the end of execution</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper.config">
-<span class="sig-name descname"><span class="pre">config</span></span><a class="headerlink" href="#surfingcrypto.scraper.Scraper.config" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.scraper.CoinScraper.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#surfingcrypto.scraper.CoinScraper.key" title="Permalink to this definition"></a></dt>
+<dd><p>symbol of crypto</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surfingcrypto.scraper.CoinScraper.config">
+<span class="sig-name descname"><span class="pre">config</span></span><a class="headerlink" href="#surfingcrypto.scraper.CoinScraper.config" title="Permalink to this definition"></a></dt>
 <dd><p>package
 configuration object</p>
 <dl class="field-list simple">
@@ -153,9 +171,31 @@ configuration object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper.fiat">
-<span class="sig-name descname"><span class="pre">fiat</span></span><a class="headerlink" href="#surfingcrypto.scraper.Scraper.fiat" title="Permalink to this definition"></a></dt>
-<dd><p>fiat symbol</p>
+<dt class="sig sig-object py" id="surfingcrypto.scraper.CoinScraper.start">
+<span class="sig-name descname"><span class="pre">start</span></span><a class="headerlink" href="#surfingcrypto.scraper.CoinScraper.start" title="Permalink to this definition"></a></dt>
+<dd><p>start day</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime.datetime</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surfingcrypto.scraper.CoinScraper.end_day">
+<span class="sig-name descname"><span class="pre">end_day</span></span><a class="headerlink" href="#surfingcrypto.scraper.CoinScraper.end_day" title="Permalink to this definition"></a></dt>
+<dd><p>end day</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime.datetime</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surfingcrypto.scraper.CoinScraper.path">
+<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#surfingcrypto.scraper.CoinScraper.path" title="Permalink to this definition"></a></dt>
+<dd><p>path to csv file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>str</p>
@@ -164,47 +204,34 @@ configuration object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper.verbose">
-<span class="sig-name descname"><span class="pre">verbose</span></span><a class="headerlink" href="#surfingcrypto.scraper.Scraper.verbose" title="Permalink to this definition"></a></dt>
-<dd><p>wether to print log</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper.runs">
-<span class="sig-name descname"><span class="pre">runs</span></span><a class="headerlink" href="#surfingcrypto.scraper.Scraper.runs" title="Permalink to this definition"></a></dt>
-<dd><p>list
-of <cite>CoinScraper</cite> objects</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">surfincrypto.scraper.CoinScraper</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper.output">
-<span class="sig-name descname"><span class="pre">output</span></span><a class="headerlink" href="#surfingcrypto.scraper.Scraper.output" title="Permalink to this definition"></a></dt>
-<dd><p>Overall boolean output of process. If
-everything went well.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper.output_descrition">
-<span class="sig-name descname"><span class="pre">output_descrition</span></span><a class="headerlink" href="#surfingcrypto.scraper.Scraper.output_descrition" title="Permalink to this definition"></a></dt>
-<dd><p>Overall log string of ouput.</p>
+<dt class="sig sig-object py" id="surfingcrypto.scraper.CoinScraper.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#surfingcrypto.scraper.CoinScraper.description" title="Permalink to this definition"></a></dt>
+<dd><p>verbose description of result</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surfingcrypto.scraper.CoinScraper.result">
+<span class="sig-name descname"><span class="pre">result</span></span><a class="headerlink" href="#surfingcrypto.scraper.CoinScraper.result" title="Permalink to this definition"></a></dt>
+<dd><p>outcome of scraping run</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surfingcrypto.scraper.CoinScraper.error">
+<span class="sig-name descname"><span class="pre">error</span></span><a class="headerlink" href="#surfingcrypto.scraper.CoinScraper.error" title="Permalink to this definition"></a></dt>
+<dd><p>generic error</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Excection</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -216,20 +243,11 @@ everything went well.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>(configuration[, fiat, verbose])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>(key, fiat, configuration)</p></td>
 <td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.scraper.Scraper.run" title="surfingcrypto.scraper.Scraper.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
-<td><p>runs the scraping process.</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.scraper.Scraper.run" title="Permalink to this definition"></a></dt>
-<dd><p>runs the scraping process.</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -238,8 +256,8 @@ everything went well.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="surfingcrypto.scraper.CoinScraper.html" class="btn btn-neutral float-left" title="surfingcrypto.scraper.CoinScraper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="surfingcrypto.telegram_bot.html" class="btn btn-neutral float-right" title="surfingcrypto.telegram_bot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="surfingcrypto.scraper.html" class="btn btn-neutral float-left" title="surfingcrypto.scraper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="surfingcrypto.scraper.Scraper.html" class="btn btn-neutral float-right" title="surfingcrypto.scraper.Scraper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

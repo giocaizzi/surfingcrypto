@@ -1,9 +1,9 @@
-surfingcrypto.scraper.Scraper
-=============================
+surfingcrypto.scraper.CoinScraper
+=================================
 
 .. currentmodule:: surfingcrypto.scraper
 
-.. autoclass:: Scraper
+.. autoclass:: CoinScraper
    :members:
    :show-inheritance:
    :inherited-members:
@@ -14,8 +14,7 @@ surfingcrypto.scraper.Scraper
 
    .. autosummary::
    
-      ~Scraper.__init__
-      ~Scraper.run
+      ~CoinScraper.__init__
    
    
 

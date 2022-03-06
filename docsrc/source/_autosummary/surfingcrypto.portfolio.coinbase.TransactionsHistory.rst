@@ -15,6 +15,7 @@ surfingcrypto.portfolio.coinbase.TransactionsHistory
    .. autosummary::
    
       ~TransactionsHistory.__init__
+      ~TransactionsHistory.executed_without_errors
    
    
 

@@ -19,6 +19,7 @@ surfingcrypto.scraper
       :toctree:
       :template: custom-class-template.rst
    
+      CoinScraper
       Scraper
    
    
