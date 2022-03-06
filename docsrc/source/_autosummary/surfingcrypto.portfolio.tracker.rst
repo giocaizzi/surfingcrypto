@@ -1,7 +1,7 @@
-surfingcrypto.portfolio.portfolio\_tracker
-==========================================
+surfingcrypto.portfolio.tracker
+===============================
 
-.. automodule:: surfingcrypto.portfolio.portfolio_tracker
+.. automodule:: surfingcrypto.portfolio.tracker
   
    
    

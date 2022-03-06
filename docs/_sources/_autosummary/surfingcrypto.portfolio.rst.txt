@@ -30,5 +30,5 @@ surfingcrypto.portfolio
 
    surfingcrypto.portfolio.coinbase
    surfingcrypto.portfolio.portfolio
-   surfingcrypto.portfolio.portfolio_tracker
+   surfingcrypto.portfolio.tracker
 

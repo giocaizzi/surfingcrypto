@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>surfingcrypto.portfolio.portfolio_tracker.position_adjust &mdash; surfingcrypto 0.0.2 documentation</title>
+  <title>surfingcrypto.portfolio.tracker.fifo &mdash; surfingcrypto 0.0.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,8 +18,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="surfingcrypto.portfolio.portfolio_tracker.Tracker" href="surfingcrypto.portfolio.portfolio_tracker.Tracker.html" />
-    <link rel="prev" title="surfingcrypto.portfolio.portfolio_tracker.portfolio_start_of_year_stats" href="surfingcrypto.portfolio.portfolio_tracker.portfolio_start_of_year_stats.html" /> 
+    <link rel="next" title="surfingcrypto.portfolio.tracker.modified_cost_per_share" href="surfingcrypto.portfolio.tracker.modified_cost_per_share.html" />
+    <link rel="prev" title="surfingcrypto.portfolio.tracker.calc_returns" href="surfingcrypto.portfolio.tracker.calc_returns.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -62,15 +62,15 @@
 <li class="toctree-l2 current"><a class="reference internal" href="surfingcrypto.portfolio.html">surfingcrypto.portfolio</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="surfingcrypto.portfolio.coinbase.html">surfingcrypto.portfolio.coinbase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="surfingcrypto.portfolio.portfolio.html">surfingcrypto.portfolio.portfolio</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="surfingcrypto.portfolio.portfolio_tracker.html">surfingcrypto.portfolio.portfolio_tracker</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.portfolio_tracker.benchmark_portfolio_calcs.html">surfingcrypto.portfolio.portfolio_tracker.benchmark_portfolio_calcs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.portfolio_tracker.calc_returns.html">surfingcrypto.portfolio.portfolio_tracker.calc_returns</a></li>
-<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.portfolio_tracker.fifo.html">surfingcrypto.portfolio.portfolio_tracker.fifo</a></li>
-<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.portfolio_tracker.modified_cost_per_share.html">surfingcrypto.portfolio.portfolio_tracker.modified_cost_per_share</a></li>
-<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.portfolio_tracker.portfolio_end_of_year_stats.html">surfingcrypto.portfolio.portfolio_tracker.portfolio_end_of_year_stats</a></li>
-<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.portfolio_tracker.portfolio_start_of_year_stats.html">surfingcrypto.portfolio.portfolio_tracker.portfolio_start_of_year_stats</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">surfingcrypto.portfolio.portfolio_tracker.position_adjust</a></li>
-<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.portfolio_tracker.Tracker.html">surfingcrypto.portfolio.portfolio_tracker.Tracker</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="surfingcrypto.portfolio.tracker.html">surfingcrypto.portfolio.tracker</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.tracker.benchmark_portfolio_calcs.html">surfingcrypto.portfolio.tracker.benchmark_portfolio_calcs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.tracker.calc_returns.html">surfingcrypto.portfolio.tracker.calc_returns</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">surfingcrypto.portfolio.tracker.fifo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.tracker.modified_cost_per_share.html">surfingcrypto.portfolio.tracker.modified_cost_per_share</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.tracker.portfolio_end_of_year_stats.html">surfingcrypto.portfolio.tracker.portfolio_end_of_year_stats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.tracker.portfolio_start_of_year_stats.html">surfingcrypto.portfolio.tracker.portfolio_start_of_year_stats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.tracker.position_adjust.html">surfingcrypto.portfolio.tracker.position_adjust</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.tracker.Tracker.html">surfingcrypto.portfolio.tracker.Tracker</a></li>
 </ul>
 </li>
 </ul>
@@ -99,10 +99,10 @@
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="surfingcrypto.html">surfingcrypto</a> &raquo;</li>
           <li><a href="surfingcrypto.portfolio.html">surfingcrypto.portfolio</a> &raquo;</li>
-          <li><a href="surfingcrypto.portfolio.portfolio_tracker.html">surfingcrypto.portfolio.portfolio_tracker</a> &raquo;</li>
-      <li>surfingcrypto.portfolio.portfolio_tracker.position_adjust</li>
+          <li><a href="surfingcrypto.portfolio.tracker.html">surfingcrypto.portfolio.tracker</a> &raquo;</li>
+      <li>surfingcrypto.portfolio.tracker.fifo</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/surfingcrypto.portfolio.portfolio_tracker.position_adjust.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/surfingcrypto.portfolio.tracker.fifo.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -134,11 +134,11 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="surfingcrypto-portfolio-portfolio-tracker-position-adjust">
-<h1>surfingcrypto.portfolio.portfolio_tracker.position_adjust<a class="headerlink" href="#surfingcrypto-portfolio-portfolio-tracker-position-adjust" title="Permalink to this headline"></a></h1>
+<div class="section" id="surfingcrypto-portfolio-tracker-fifo">
+<h1>surfingcrypto.portfolio.tracker.fifo<a class="headerlink" href="#surfingcrypto-portfolio-tracker-fifo" title="Permalink to this headline"></a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio_tracker.position_adjust">
-<span class="sig-prename descclassname"><span class="pre">surfingcrypto.portfolio.portfolio_tracker.</span></span><span class="sig-name descname"><span class="pre">position_adjust</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">daily_positions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sale</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio_tracker.position_adjust" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.tracker.fifo">
+<span class="sig-prename descclassname"><span class="pre">surfingcrypto.portfolio.tracker.</span></span><span class="sig-name descname"><span class="pre">fifo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">daily_positions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sales</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.tracker.fifo" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </div>
@@ -147,8 +147,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="surfingcrypto.portfolio.portfolio_tracker.portfolio_start_of_year_stats.html" class="btn btn-neutral float-left" title="surfingcrypto.portfolio.portfolio_tracker.portfolio_start_of_year_stats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="surfingcrypto.portfolio.portfolio_tracker.Tracker.html" class="btn btn-neutral float-right" title="surfingcrypto.portfolio.portfolio_tracker.Tracker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="surfingcrypto.portfolio.tracker.calc_returns.html" class="btn btn-neutral float-left" title="surfingcrypto.portfolio.tracker.calc_returns" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="surfingcrypto.portfolio.tracker.modified_cost_per_share.html" class="btn btn-neutral float-right" title="surfingcrypto.portfolio.tracker.modified_cost_per_share" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -371,13 +371,22 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">surfingcrypto</span> <span class="kn">import</span> <span class="n">Config</span>
 <span class="kn">from</span> <span class="nn">surfingcrypto.portfolio</span> <span class="kn">import</span> <span class="n">MyCoinbase</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parent</span><span class="o">=</span><span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/&quot;</span>
@@ -392,7 +401,7 @@ div.rendered_html tbody tr:hover {
 <h3>Get active accounts<a class="headerlink" href="#Get-active-accounts" title="Permalink to this headline"></a></h3>
 <p>Basic <code class="docutils literal notranslate"><span class="pre">MyCoinbase</span></code> initialization offers loading all accounts that can be considered <code class="docutils literal notranslate"><span class="pre">active</span></code>, a.k.a. that have a <code class="docutils literal notranslate"><span class="pre">balance</span></code>&gt; 0.00 EUR or USD.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cb</span><span class="o">=</span><span class="n">MyCoinbase</span><span class="p">(</span><span class="n">configuration</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
@@ -405,11 +414,11 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-MyCoinbase( isHistoric:False, last updated:2022-02-28 22:30:11.085418, N_accounts:6)
+MyCoinbase( isHistoric:False, last updated:2022-03-06 22:08:50.892283, N_accounts:6)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cb</span><span class="o">.</span><span class="n">mycoinbase_report</span><span class="p">())</span>
@@ -421,14 +430,14 @@ MyCoinbase( isHistoric:False, last updated:2022-02-28 22:30:11.085418, N_account
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-AAVE : EUR 125.72
-SUSHI : EUR 65.15
-MATIC : EUR 360.59
-UNI : EUR 120.20
-ADA : EUR 329.80
+AAVE : EUR 110.32
+SUSHI : EUR 59.59
+MATIC : EUR 348.68
+UNI : EUR 106.50
+ADA : EUR 305.37
 USDC : EUR 0.01
 ---
-Portfolio: EUR 1001.47
+Portfolio: EUR 930.47
 </pre></div></div>
 </div>
 </div>
@@ -438,7 +447,7 @@ Portfolio: EUR 1001.47
 <p>If the local cached account file is older than 7 days, it is automatically updated. Otherwise, accounts are loaded from the ones specified in dump file.</p>
 <p>There is a huge difference in time of execution, loading all accounts that have transactions takes about 1m 20s versus about 12.7s to load accounts from a local dump file.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cb</span><span class="o">=</span><span class="n">MyCoinbase</span><span class="p">(</span>
@@ -453,12 +462,12 @@ Portfolio: EUR 1001.47
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-MyCoinbase( isHistoric:True, last updated:2022-02-27 11:23:57, N_accounts:30)
+MyCoinbase( isHistoric:True, last updated:2022-03-06 16:08:57, N_accounts:30)
 </pre></div></div>
 </div>
 <p>Obviously the result of <code class="docutils literal notranslate"><span class="pre">mycoinbase_report()</span></code> won’t change as it ignores accounts that have <code class="docutils literal notranslate"><span class="pre">balance</span></code>==0.00, but the length of the <code class="docutils literal notranslate"><span class="pre">accounts</span></code> attribute has more accounts than when initalized for only the active ones.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cb</span><span class="o">.</span><span class="n">mycoinbase_report</span><span class="p">())</span>
@@ -470,14 +479,14 @@ MyCoinbase( isHistoric:True, last updated:2022-02-27 11:23:57, N_accounts:30)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-AAVE : EUR 125.72
-SUSHI : EUR 65.15
-MATIC : EUR 360.59
-UNI : EUR 120.20
-ADA : EUR 329.80
+AAVE : EUR 110.32
+SUSHI : EUR 59.59
+MATIC : EUR 348.68
+UNI : EUR 106.50
+ADA : EUR 305.37
 USDC : EUR 0.01
 ---
-Portfolio: EUR 1001.47
+Portfolio: EUR 930.47
 </pre></div></div>
 </div>
 </div>
@@ -485,7 +494,7 @@ Portfolio: EUR 1001.47
 <h3>Transaction history<a class="headerlink" href="#Transaction-history" title="Permalink to this headline"></a></h3>
 <p>Get the full transaction history via the <code class="docutils literal notranslate"><span class="pre">TransactionsHistory</span></code> class.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cb</span><span class="o">.</span><span class="n">get_history</span><span class="p">()</span>
@@ -493,7 +502,7 @@ Portfolio: EUR 1001.47
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cb</span><span class="o">.</span><span class="n">history</span>
@@ -501,16 +510,16 @@ Portfolio: EUR 1001.47
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-TransactionsHistory(Processed transactions:177, Unhandled:0, Errors:9 )
+TransactionsHistory(Transactions:186 - Processed:186, Unhandled:0 - Errors:9)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cb</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -518,7 +527,7 @@ TransactionsHistory(Processed transactions:177, Unhandled:0, Errors:9 )
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -567,93 +576,76 @@ TransactionsHistory(Processed transactions:177, Unhandled:0, Errors:9 )
   </thead>
   <tbody>
     <tr>
-      <th>2022-01-04T10:46:31Z</th>
-      <td>send</td>
-      <td>-1.511428</td>
-      <td>SOL</td>
-      <td>-226.08</td>
+      <th>2018-10-22T06:07:05Z</th>
+      <td>fiat_deposit</td>
+      <td>100.000000</td>
       <td>EUR</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>149.580369</td>
+      <td>100.00</td>
+      <td>EUR</td>
+      <td>100.00</td>
+      <td>100.00</td>
+      <td>0.00</td>
+      <td>1.000000</td>
       <td>None</td>
     </tr>
     <tr>
-      <th>2022-01-04T10:44:49Z</th>
-      <td>trade</td>
-      <td>1.511428</td>
-      <td>SOL</td>
-      <td>225.73</td>
+      <th>2018-10-22T06:29:22Z</th>
+      <td>buy</td>
+      <td>0.017237</td>
+      <td>BTC</td>
+      <td>100.00</td>
       <td>EUR</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>149.348800</td>
-      <td>5851e642-8786-585b-a5d7-8546c8c16129</td>
-    </tr>
-    <tr>
-      <th>2022-01-02T23:24:25Z</th>
-      <td>send</td>
-      <td>-1.026156</td>
-      <td>SOL</td>
-      <td>-159.04</td>
-      <td>EUR</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>154.986191</td>
+      <td>100.00</td>
+      <td>97.01</td>
+      <td>2.99</td>
+      <td>5627.999719</td>
       <td>None</td>
     </tr>
     <tr>
-      <th>2021-11-29T10:47:17Z</th>
-      <td>trade</td>
-      <td>1.026156</td>
-      <td>SOL</td>
-      <td>186.85</td>
+      <th>2018-10-22T06:29:22Z</th>
+      <td>buy</td>
+      <td>-100.000000</td>
+      <td>EUR</td>
+      <td>-100.00</td>
       <td>EUR</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>182.087335</td>
-      <td>18160e53-8019-561c-a812-efd59cc7a354</td>
+      <td>1.000000</td>
+      <td>None</td>
     </tr>
     <tr>
-      <th>2021-08-07T14:25:58Z</th>
-      <td>trade</td>
-      <td>-2737.634483</td>
-      <td>ACH</td>
-      <td>-299.46</td>
+      <th>2018-11-09T12:05:12Z</th>
+      <td>sell</td>
+      <td>-0.017237</td>
+      <td>BTC</td>
+      <td>-93.27</td>
+      <td>EUR</td>
+      <td>93.27</td>
+      <td>96.26</td>
+      <td>2.99</td>
+      <td>5584.488743</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2018-11-09T12:05:13Z</th>
+      <td>sell</td>
+      <td>93.270000</td>
+      <td>EUR</td>
+      <td>93.27</td>
       <td>EUR</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>0.109386</td>
-      <td>4dbcbf9c-cd0d-56cb-8e25-f1da9a64558f</td>
+      <td>1.000000</td>
+      <td>None</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cb</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">unhandled_trans</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[]
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cb</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">error_log</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -661,7 +653,7 @@ TransactionsHistory(Processed transactions:177, Unhandled:0, Errors:9 )
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="output_area docutils container">

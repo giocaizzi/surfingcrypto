@@ -17,13 +17,23 @@
    "metadata": {},
    "outputs": [],
    "source": [
+    "%load_ext autoreload\n",
+    "%autoreload 2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
     "from surfingcrypto import Config\n",
     "from surfingcrypto.portfolio import MyCoinbase"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 3,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -51,14 +61,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 4,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "MyCoinbase( isHistoric:False, last updated:2022-02-28 22:30:11.085418, N_accounts:6)\n"
+      "MyCoinbase( isHistoric:False, last updated:2022-03-06 22:08:50.892283, N_accounts:6)\n"
      ]
     }
    ],
@@ -69,21 +79,21 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "AAVE : EUR 125.72\n",
-      "SUSHI : EUR 65.15\n",
-      "MATIC : EUR 360.59\n",
-      "UNI : EUR 120.20\n",
-      "ADA : EUR 329.80\n",
+      "AAVE : EUR 110.32\n",
+      "SUSHI : EUR 59.59\n",
+      "MATIC : EUR 348.68\n",
+      "UNI : EUR 106.50\n",
+      "ADA : EUR 305.37\n",
       "USDC : EUR 0.01\n",
       "---\n",
-      "Portfolio: EUR 1001.47\n"
+      "Portfolio: EUR 930.47\n"
      ]
     }
    ],
@@ -106,14 +116,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 6,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "MyCoinbase( isHistoric:True, last updated:2022-02-27 11:23:57, N_accounts:30)\n"
+      "MyCoinbase( isHistoric:True, last updated:2022-03-06 16:08:57, N_accounts:30)\n"
      ]
     }
    ],
@@ -133,21 +143,21 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 7,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "AAVE : EUR 125.72\n",
-      "SUSHI : EUR 65.15\n",
-      "MATIC : EUR 360.59\n",
-      "UNI : EUR 120.20\n",
-      "ADA : EUR 329.80\n",
+      "AAVE : EUR 110.32\n",
+      "SUSHI : EUR 59.59\n",
+      "MATIC : EUR 348.68\n",
+      "UNI : EUR 106.50\n",
+      "ADA : EUR 305.37\n",
       "USDC : EUR 0.01\n",
       "---\n",
-      "Portfolio: EUR 1001.47\n"
+      "Portfolio: EUR 930.47\n"
      ]
     }
    ],
@@ -166,7 +176,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 17,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -175,16 +185,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 39,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "TransactionsHistory(Processed transactions:177, Unhandled:0, Errors:9 )"
+       "TransactionsHistory(Transactions:186 - Processed:186, Unhandled:0 - Errors:9)"
       ]
      },
-     "execution_count": 8,
+     "execution_count": 39,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -195,7 +205,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 37,
    "metadata": {},
    "outputs": [
     {
@@ -246,101 +256,101 @@
        "  </thead>\n",
        "  <tbody>\n",
        "    <tr>\n",
-       "      <th>2022-01-04T10:46:31Z</th>\n",
-       "      <td>send</td>\n",
-       "      <td>-1.511428</td>\n",
-       "      <td>SOL</td>\n",
-       "      <td>-226.08</td>\n",
+       "      <th>2018-10-22T06:07:05Z</th>\n",
+       "      <td>fiat_deposit</td>\n",
+       "      <td>100.000000</td>\n",
        "      <td>EUR</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>149.580369</td>\n",
+       "      <td>100.00</td>\n",
+       "      <td>EUR</td>\n",
+       "      <td>100.00</td>\n",
+       "      <td>100.00</td>\n",
+       "      <td>0.00</td>\n",
+       "      <td>1.000000</td>\n",
        "      <td>None</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-       "      <th>2022-01-04T10:44:49Z</th>\n",
-       "      <td>trade</td>\n",
-       "      <td>1.511428</td>\n",
-       "      <td>SOL</td>\n",
-       "      <td>225.73</td>\n",
+       "      <th>2018-10-22T06:29:22Z</th>\n",
+       "      <td>buy</td>\n",
+       "      <td>0.017237</td>\n",
+       "      <td>BTC</td>\n",
+       "      <td>100.00</td>\n",
        "      <td>EUR</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>149.348800</td>\n",
-       "      <td>5851e642-8786-585b-a5d7-8546c8c16129</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2022-01-02T23:24:25Z</th>\n",
-       "      <td>send</td>\n",
-       "      <td>-1.026156</td>\n",
-       "      <td>SOL</td>\n",
-       "      <td>-159.04</td>\n",
-       "      <td>EUR</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>154.986191</td>\n",
+       "      <td>100.00</td>\n",
+       "      <td>97.01</td>\n",
+       "      <td>2.99</td>\n",
+       "      <td>5627.999719</td>\n",
        "      <td>None</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-       "      <th>2021-11-29T10:47:17Z</th>\n",
-       "      <td>trade</td>\n",
-       "      <td>1.026156</td>\n",
-       "      <td>SOL</td>\n",
-       "      <td>186.85</td>\n",
+       "      <th>2018-10-22T06:29:22Z</th>\n",
+       "      <td>buy</td>\n",
+       "      <td>-100.000000</td>\n",
+       "      <td>EUR</td>\n",
+       "      <td>-100.00</td>\n",
        "      <td>EUR</td>\n",
        "      <td>NaN</td>\n",
        "      <td>NaN</td>\n",
        "      <td>NaN</td>\n",
-       "      <td>182.087335</td>\n",
-       "      <td>18160e53-8019-561c-a812-efd59cc7a354</td>\n",
+       "      <td>1.000000</td>\n",
+       "      <td>None</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-       "      <th>2021-08-07T14:25:58Z</th>\n",
-       "      <td>trade</td>\n",
-       "      <td>-2737.634483</td>\n",
-       "      <td>ACH</td>\n",
-       "      <td>-299.46</td>\n",
+       "      <th>2018-11-09T12:05:12Z</th>\n",
+       "      <td>sell</td>\n",
+       "      <td>-0.017237</td>\n",
+       "      <td>BTC</td>\n",
+       "      <td>-93.27</td>\n",
+       "      <td>EUR</td>\n",
+       "      <td>93.27</td>\n",
+       "      <td>96.26</td>\n",
+       "      <td>2.99</td>\n",
+       "      <td>5584.488743</td>\n",
+       "      <td>None</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2018-11-09T12:05:13Z</th>\n",
+       "      <td>sell</td>\n",
+       "      <td>93.270000</td>\n",
+       "      <td>EUR</td>\n",
+       "      <td>93.27</td>\n",
        "      <td>EUR</td>\n",
        "      <td>NaN</td>\n",
        "      <td>NaN</td>\n",
        "      <td>NaN</td>\n",
-       "      <td>0.109386</td>\n",
-       "      <td>4dbcbf9c-cd0d-56cb-8e25-f1da9a64558f</td>\n",
+       "      <td>1.000000</td>\n",
+       "      <td>None</td>\n",
        "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
        "</div>"
       ],
       "text/plain": [
-       "                       type       amount symbol  native_amount nat_symbol  \\\n",
+       "                              type      amount symbol  native_amount  \\\n",
+       "datetime                                                               \n",
+       "2018-10-22T06:07:05Z  fiat_deposit  100.000000    EUR         100.00   \n",
+       "2018-10-22T06:29:22Z           buy    0.017237    BTC         100.00   \n",
+       "2018-10-22T06:29:22Z           buy -100.000000    EUR        -100.00   \n",
+       "2018-11-09T12:05:12Z          sell   -0.017237    BTC         -93.27   \n",
+       "2018-11-09T12:05:13Z          sell   93.270000    EUR          93.27   \n",
+       "\n",
+       "                     nat_symbol   total  subtotal  total_fee   spot_price  \\\n",
        "datetime                                                                    \n",
-       "2022-01-04T10:46:31Z   send    -1.511428    SOL        -226.08        EUR   \n",
-       "2022-01-04T10:44:49Z  trade     1.511428    SOL         225.73        EUR   \n",
-       "2022-01-02T23:24:25Z   send    -1.026156    SOL        -159.04        EUR   \n",
-       "2021-11-29T10:47:17Z  trade     1.026156    SOL         186.85        EUR   \n",
-       "2021-08-07T14:25:58Z  trade -2737.634483    ACH        -299.46        EUR   \n",
+       "2018-10-22T06:07:05Z        EUR  100.00    100.00       0.00     1.000000   \n",
+       "2018-10-22T06:29:22Z        EUR  100.00     97.01       2.99  5627.999719   \n",
+       "2018-10-22T06:29:22Z        EUR     NaN       NaN        NaN     1.000000   \n",
+       "2018-11-09T12:05:12Z        EUR   93.27     96.26       2.99  5584.488743   \n",
+       "2018-11-09T12:05:13Z        EUR     NaN       NaN        NaN     1.000000   \n",
        "\n",
-       "                      total  subtotal  total_fee  spot_price  \\\n",
-       "datetime                                                       \n",
-       "2022-01-04T10:46:31Z    NaN       NaN        NaN  149.580369   \n",
-       "2022-01-04T10:44:49Z    NaN       NaN        NaN  149.348800   \n",
-       "2022-01-02T23:24:25Z    NaN       NaN        NaN  154.986191   \n",
-       "2021-11-29T10:47:17Z    NaN       NaN        NaN  182.087335   \n",
-       "2021-08-07T14:25:58Z    NaN       NaN        NaN    0.109386   \n",
-       "\n",
-       "                                                  trade_id  \n",
-       "datetime                                                    \n",
-       "2022-01-04T10:46:31Z                                  None  \n",
-       "2022-01-04T10:44:49Z  5851e642-8786-585b-a5d7-8546c8c16129  \n",
-       "2022-01-02T23:24:25Z                                  None  \n",
-       "2021-11-29T10:47:17Z  18160e53-8019-561c-a812-efd59cc7a354  \n",
-       "2021-08-07T14:25:58Z  4dbcbf9c-cd0d-56cb-8e25-f1da9a64558f  "
+       "                     trade_id  \n",
+       "datetime                       \n",
+       "2018-10-22T06:07:05Z     None  \n",
+       "2018-10-22T06:29:22Z     None  \n",
+       "2018-10-22T06:29:22Z     None  \n",
+       "2018-11-09T12:05:12Z     None  \n",
+       "2018-11-09T12:05:13Z     None  "
       ]
      },
-     "execution_count": 9,
+     "execution_count": 37,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -351,27 +361,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "[]"
-      ]
-     },
-     "execution_count": 10,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "cb.history.unhandled_trans"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 38,
    "metadata": {},
    "outputs": [
     {
@@ -388,7 +378,7 @@
        "                                       'message': 'Not found'}])}"
       ]
      },
-     "execution_count": 11,
+     "execution_count": 38,
      "metadata": {},
      "output_type": "execute_result"
     }

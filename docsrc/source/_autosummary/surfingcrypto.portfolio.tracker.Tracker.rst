@@ -1,7 +1,7 @@
-surfingcrypto.portfolio.portfolio\_tracker.Tracker
-==================================================
+surfingcrypto.portfolio.tracker.Tracker
+=======================================
 
-.. currentmodule:: surfingcrypto.portfolio.portfolio_tracker
+.. currentmodule:: surfingcrypto.portfolio.tracker
 
 .. autoclass:: Tracker
    :members:
