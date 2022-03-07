@@ -144,20 +144,9 @@ If not, it will be created.</p>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.config.Config.config_folder">
-<span class="sig-name descname"><span class="pre">config_folder</span></span><a class="headerlink" href="#surfingcrypto.config.Config.config_folder" title="Permalink to this definition"></a></dt>
-<dd><p>ABSOLUTE path to config folder.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.config.Config.rebrandings">
-<span class="sig-name descname"><span class="pre">rebrandings</span></span><a class="headerlink" href="#surfingcrypto.config.Config.rebrandings" title="Permalink to this definition"></a></dt>
-<dd><p>dictionary of known rebrandings</p>
+<dt class="sig sig-object py" id="surfingcrypto.config.Config.coinbase">
+<span class="sig-name descname"><span class="pre">coinbase</span></span><a class="headerlink" href="#surfingcrypto.config.Config.coinbase" title="Permalink to this definition"></a></dt>
+<dd><p>coinbase user configuration</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>dict</p>
@@ -166,12 +155,12 @@ If not, it will be created.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.config.Config.data_folder">
-<span class="sig-name descname"><span class="pre">data_folder</span></span><a class="headerlink" href="#surfingcrypto.config.Config.data_folder" title="Permalink to this definition"></a></dt>
-<dd><p>ABSOLUTE path to data folder</p>
+<dt class="sig sig-object py" id="surfingcrypto.config.Config.coinbase_req">
+<span class="sig-name descname"><span class="pre">coinbase_req</span></span><a class="headerlink" href="#surfingcrypto.config.Config.coinbase_req" title="Permalink to this definition"></a></dt>
+<dd><p>containing coinbase requirements</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>str,optional</p>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -188,20 +177,42 @@ If not, it will be created.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.config.Config.telegram">
-<span class="sig-name descname"><span class="pre">telegram</span></span><a class="headerlink" href="#surfingcrypto.config.Config.telegram" title="Permalink to this definition"></a></dt>
-<dd><p>telegram user configuration</p>
+<dt class="sig sig-object py" id="surfingcrypto.config.Config.config_folder">
+<span class="sig-name descname"><span class="pre">config_folder</span></span><a class="headerlink" href="#surfingcrypto.config.Config.config_folder" title="Permalink to this definition"></a></dt>
+<dd><p>ABSOLUTE path to config folder.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>dict</p>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.config.Config.coinbase">
-<span class="sig-name descname"><span class="pre">coinbase</span></span><a class="headerlink" href="#surfingcrypto.config.Config.coinbase" title="Permalink to this definition"></a></dt>
-<dd><p>coinbase user configuration</p>
+<dt class="sig sig-object py" id="surfingcrypto.config.Config.data_folder">
+<span class="sig-name descname"><span class="pre">data_folder</span></span><a class="headerlink" href="#surfingcrypto.config.Config.data_folder" title="Permalink to this definition"></a></dt>
+<dd><p>ABSOLUTE path to data folder</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surfingcrypto.config.Config.error_log">
+<span class="sig-name descname"><span class="pre">error_log</span></span><a class="headerlink" href="#surfingcrypto.config.Config.error_log" title="Permalink to this definition"></a></dt>
+<dd><p>list of errors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surfingcrypto.config.Config.rebrandings">
+<span class="sig-name descname"><span class="pre">rebrandings</span></span><a class="headerlink" href="#surfingcrypto.config.Config.rebrandings" title="Permalink to this definition"></a></dt>
+<dd><p>dictionary of known rebrandings</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>dict</p>
@@ -221,12 +232,23 @@ If not, it will be created.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.config.Config.coinbase_req">
-<span class="sig-name descname"><span class="pre">coinbase_req</span></span><a class="headerlink" href="#surfingcrypto.config.Config.coinbase_req" title="Permalink to this definition"></a></dt>
-<dd><p>containing coinbase requirements</p>
+<dt class="sig sig-object py" id="surfingcrypto.config.Config.telegram">
+<span class="sig-name descname"><span class="pre">telegram</span></span><a class="headerlink" href="#surfingcrypto.config.Config.telegram" title="Permalink to this definition"></a></dt>
+<dd><p>telegram user configuration</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></p>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surfingcrypto.config.Config.temp_folder">
+<span class="sig-name descname"><span class="pre">temp_folder</span></span><a class="headerlink" href="#surfingcrypto.config.Config.temp_folder" title="Permalink to this definition"></a></dt>
+<dd><p>ABSOLUTE path to data folder</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str,optional</p>
 </dd>
 </dl>
 </dd></dl>
