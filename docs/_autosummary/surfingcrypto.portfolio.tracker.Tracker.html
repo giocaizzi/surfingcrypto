@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>surfingcrypto.portfolio.tracker.Tracker &mdash; surfingcrypto 0.0.2 documentation</title>
+  <title>surfingcrypto.portfolio.tracker.Tracker &mdash; surfingcrypto 0.0.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -31,7 +31,7 @@
             <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.0.2
+                0.0.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -138,8 +138,24 @@
 <h1>surfingcrypto.portfolio.tracker.Tracker<a class="headerlink" href="#surfingcrypto-portfolio-tracker-tracker" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="surfingcrypto.portfolio.tracker.Tracker">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.portfolio.tracker.</span></span><span class="sig-name descname"><span class="pre">Tracker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stocks_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stocks_end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configuration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.tracker.Tracker" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.portfolio.tracker.</span></span><span class="sig-name descname"><span class="pre">Tracker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stocks_start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stocks_end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configuration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="surfingcrypto.config.Config.html#surfingcrypto.config.Config" title="surfingcrypto.config.Config"><span class="pre">surfingcrypto.config.Config</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.tracker.Tracker" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Tracker module</p>
+<p>This module tracks the daily portfolio value,
+plus it features a series of portfolio statistics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – _description_</p></li>
+<li><p><strong>stocks_start</strong> (<em>str</em><em>, </em><em>optional</em>) – time from which start tracking.
+Defaults to None.</p></li>
+<li><p><strong>stocks_end</strong> (<em>str</em><em>, </em><em>optional</em>) – time from which stop tracking.
+Defaults to None.</p></li>
+<li><p><strong>configuration</strong> (<a class="reference internal" href="surfingcrypto.config.Config.html#surfingcrypto.config.Config" title="surfingcrypto.config.Config"><em>Config</em></a><em>, </em><em>optional</em>) – surfingcrypto configuration object.
+Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -150,8 +166,8 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>(df[, stocks_start, stocks_end, ...])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">line</span></code>(df, val_1, val_2)</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.tracker.Tracker.line" title="surfingcrypto.portfolio.tracker.Tracker.line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">line</span></code></a>(df, vals)</p></td>
+<td><p>plotly lines</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">line_facets</span></code>(df, val_1, val_2)</p></td>
 <td><p></p></td>
@@ -168,8 +184,8 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">portfolio_start_balance</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_benchmark</span></code>(benchmark)</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.tracker.Tracker.set_benchmark" title="surfingcrypto.portfolio.tracker.Tracker.set_benchmark"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_benchmark</span></code></a>(benchmark)</p></td>
+<td><p>_summary_</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.tracker.Tracker.time_fill" title="surfingcrypto.portfolio.tracker.Tracker.time_fill"><code class="xref py py-obj docutils literal notranslate"><span class="pre">time_fill</span></code></a>()</p></td>
 <td><p>_summary_</p></td>
@@ -177,14 +193,48 @@
 </tbody>
 </table>
 <dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.tracker.Tracker.line">
+<span class="sig-name descname"><span class="pre">line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.tracker.Tracker.line" title="Permalink to this definition"></a></dt>
+<dd><p>plotly lines</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – dataframe to plot</p></li>
+<li><p><strong>vals</strong> (<em>list</em>) – list of columns to plot</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="surfingcrypto.portfolio.tracker.Tracker.load_data">
 <span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.tracker.Tracker.load_data" title="Permalink to this definition"></a></dt>
 <dd><p>loads required data from configuration object</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.tracker.Tracker.set_benchmark">
+<span class="sig-name descname"><span class="pre">set_benchmark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">benchmark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.core.frame.DataFrame</span></span></span><a class="headerlink" href="#surfingcrypto.portfolio.tracker.Tracker.set_benchmark" title="Permalink to this definition"></a></dt>
+<dd><p>_summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>benchmark</strong> (<em>str</em>) – string code of benchmark</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – _description_</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dataframe of benchmark</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="surfingcrypto.portfolio.tracker.Tracker.time_fill">
-<span class="sig-name descname"><span class="pre">time_fill</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.tracker.Tracker.time_fill" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">time_fill</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#surfingcrypto.portfolio.tracker.Tracker.time_fill" title="Permalink to this definition"></a></dt>
 <dd><p>_summary_</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

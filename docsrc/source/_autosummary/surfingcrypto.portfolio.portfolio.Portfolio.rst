@@ -1,4 +1,4 @@
-surfingcrypto.portfolio.portfolio.Portfolio
+﻿surfingcrypto.portfolio.portfolio.Portfolio
 ===========================================
 
 .. currentmodule:: surfingcrypto.portfolio.portfolio
@@ -15,10 +15,6 @@ surfingcrypto.portfolio.portfolio.Portfolio
    .. autosummary::
    
       ~Portfolio.__init__
-      ~Portfolio.live_value
-      ~Portfolio.portfolio_value
-      ~Portfolio.total_by_type
-      ~Portfolio.total_fees
    
    
 

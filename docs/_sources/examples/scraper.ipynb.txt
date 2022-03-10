@@ -74,18 +74,18 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 4,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "[CoinScraper(SOL, start=01-10-2017, end_day=05-03-2022, error=False,),\n",
+       "[CoinScraper(SOL, start=01-10-2017, end_day=09-03-2022, error=False,),\n",
        " CoinScraper(ACH, start=06-08-2021, end_day=07-08-2021, error=False,),\n",
        " CoinScraper(QNT, start=29-07-2021, end_day=31-07-2021, error=False,)]"
       ]
      },
-     "execution_count": 5,
+     "execution_count": 4,
      "metadata": {},
      "output_type": "execute_result"
     }
