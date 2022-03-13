@@ -1,4 +1,4 @@
-﻿surfingcrypto.portfolio.portfolio.Portfolio
+surfingcrypto.portfolio.portfolio.Portfolio
 ===========================================
 
 .. currentmodule:: surfingcrypto.portfolio.portfolio
