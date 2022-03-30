@@ -33,6 +33,5 @@
    surfingcrypto.portfolio
    surfingcrypto.reporting
    surfingcrypto.scraper
-   surfingcrypto.telegram_bot
    surfingcrypto.ts
 

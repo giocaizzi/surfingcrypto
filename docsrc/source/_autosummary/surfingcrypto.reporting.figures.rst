@@ -21,6 +21,7 @@ surfingcrypto.reporting.figures
    
       ATHPlot
       BaseFigure
+      PortfolioPlot
       SimplePlot
       TaPlot
    

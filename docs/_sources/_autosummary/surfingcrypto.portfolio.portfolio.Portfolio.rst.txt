@@ -15,6 +15,7 @@ surfingcrypto.portfolio.portfolio.Portfolio
    .. autosummary::
    
       ~Portfolio.__init__
+      ~Portfolio.total_fees
    
    
 

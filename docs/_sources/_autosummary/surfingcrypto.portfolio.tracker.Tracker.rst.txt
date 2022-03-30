@@ -15,13 +15,7 @@ surfingcrypto.portfolio.tracker.Tracker
    .. autosummary::
    
       ~Tracker.__init__
-      ~Tracker.check_and_subset_data
-      ~Tracker.line
-      ~Tracker.line_facets
-      ~Tracker.per_day_portfolio_calcs
-      ~Tracker.set_benchmark
-      ~Tracker.time_fill
-      ~Tracker.track_value
+      ~Tracker.daily_grouped_metrics
    
    
 

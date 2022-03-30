@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>surfingcrypto.portfolio.tracker.calc_returns &mdash; surfingcrypto 0.0.3 documentation</title>
+  <title>surfingcrypto.reporting.plotting.shiftedColorMap &mdash; surfingcrypto 0.1.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,8 +18,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="surfingcrypto.portfolio.tracker.modified_cost_per_share" href="surfingcrypto.portfolio.tracker.modified_cost_per_share.html" />
-    <link rel="prev" title="surfingcrypto.portfolio.tracker.benchmark_portfolio_calcs" href="surfingcrypto.portfolio.tracker.benchmark_portfolio_calcs.html" /> 
+    <link rel="next" title="surfingcrypto.reporting.trend_line" href="surfingcrypto.reporting.trend_line.html" />
+    <link rel="prev" title="surfingcrypto.reporting.plotting.plot_moving_averages" href="surfingcrypto.reporting.plotting.plot_moving_averages.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -31,7 +31,7 @@
             <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.0.3
+                0.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -59,23 +59,22 @@
 <li class="toctree-l1 current"><a class="reference internal" href="surfingcrypto.html">surfingcrypto</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.config.html">surfingcrypto.config</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.extra.html">surfingcrypto.extra</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="surfingcrypto.portfolio.html">surfingcrypto.portfolio</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.portfolio.coinbase.html">surfingcrypto.portfolio.coinbase</a></li>
-<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.portfolio.portfolio.html">surfingcrypto.portfolio.portfolio</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="surfingcrypto.portfolio.tracker.html">surfingcrypto.portfolio.tracker</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.tracker.benchmark_portfolio_calcs.html">surfingcrypto.portfolio.tracker.benchmark_portfolio_calcs</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">surfingcrypto.portfolio.tracker.calc_returns</a></li>
-<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.tracker.modified_cost_per_share.html">surfingcrypto.portfolio.tracker.modified_cost_per_share</a></li>
-<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.tracker.portfolio_end_of_year_stats.html">surfingcrypto.portfolio.tracker.portfolio_end_of_year_stats</a></li>
-<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.tracker.portfolio_start_of_year_stats.html">surfingcrypto.portfolio.tracker.portfolio_start_of_year_stats</a></li>
-<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.portfolio.tracker.Tracker.html">surfingcrypto.portfolio.tracker.Tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.portfolio.html">surfingcrypto.portfolio</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="surfingcrypto.reporting.html">surfingcrypto.reporting</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.figures.html">surfingcrypto.reporting.figures</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="surfingcrypto.reporting.plotting.html">surfingcrypto.reporting.plotting</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.plotting.candlesticks.html">surfingcrypto.reporting.plotting.candlesticks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.plotting.plot_RSI.html">surfingcrypto.reporting.plotting.plot_RSI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.plotting.plot_bb.html">surfingcrypto.reporting.plotting.plot_bb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.plotting.plot_macd.html">surfingcrypto.reporting.plotting.plot_macd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.plotting.plot_moving_averages.html">surfingcrypto.reporting.plotting.plot_moving_averages</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">surfingcrypto.reporting.plotting.shiftedColorMap</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.trend_line.html">surfingcrypto.reporting.trend_line</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.reporting.html">surfingcrypto.reporting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.scraper.html">surfingcrypto.scraper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.telegram_bot.html">surfingcrypto.telegram_bot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.ts.html">surfingcrypto.ts</a></li>
 </ul>
 </li>
@@ -96,11 +95,11 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="surfingcrypto.html">surfingcrypto</a> &raquo;</li>
-          <li><a href="surfingcrypto.portfolio.html">surfingcrypto.portfolio</a> &raquo;</li>
-          <li><a href="surfingcrypto.portfolio.tracker.html">surfingcrypto.portfolio.tracker</a> &raquo;</li>
-      <li>surfingcrypto.portfolio.tracker.calc_returns</li>
+          <li><a href="surfingcrypto.reporting.html">surfingcrypto.reporting</a> &raquo;</li>
+          <li><a href="surfingcrypto.reporting.plotting.html">surfingcrypto.reporting.plotting</a> &raquo;</li>
+      <li>surfingcrypto.reporting.plotting.shiftedColorMap</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/surfingcrypto.portfolio.tracker.calc_returns.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/surfingcrypto.reporting.plotting.shiftedColorMap.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -132,12 +131,34 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="surfingcrypto-portfolio-tracker-calc-returns">
-<h1>surfingcrypto.portfolio.tracker.calc_returns<a class="headerlink" href="#surfingcrypto-portfolio-tracker-calc-returns" title="Permalink to this headline"></a></h1>
+<div class="section" id="surfingcrypto-reporting-plotting-shiftedcolormap">
+<h1>surfingcrypto.reporting.plotting.shiftedColorMap<a class="headerlink" href="#surfingcrypto-reporting-plotting-shiftedcolormap" title="Permalink to this headline"></a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.tracker.calc_returns">
-<span class="sig-prename descclassname"><span class="pre">surfingcrypto.portfolio.tracker.</span></span><span class="sig-name descname"><span class="pre">calc_returns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">portfolio</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.tracker.calc_returns" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="surfingcrypto.reporting.plotting.shiftedColorMap">
+<span class="sig-prename descclassname"><span class="pre">surfingcrypto.reporting.plotting.</span></span><span class="sig-name descname"><span class="pre">shiftedColorMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">midpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'shiftedcmap'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.reporting.plotting.shiftedColorMap" title="Permalink to this definition"></a></dt>
+<dd><p>Function to offset the “center” of a colormap. Useful for
+data with a negative min and positive max and you want the
+middle of the colormap’s dynamic range to be at zero.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cmap</strong> – The matplotlib colormap to be altered</p></li>
+<li><p><strong>start</strong> – Offset from lowest point in the colormap’s range.
+Defaults to 0.0 (no lower offset). Should be between
+0.0 and <cite>midpoint</cite>.</p></li>
+<li><p><strong>midpoint</strong> – The new center of the colormap. Defaults to
+0.5 (no shift). Should be between 0.0 and 1.0. In
+general, this should be  1 - vmax / (vmax + abs(vmin))
+For example if your data range from -15.0 to +5.0 and
+you want the center of the colormap at 0.0, <cite>midpoint</cite>
+should be set to  1 - 5/(5 + 15)) or 0.75</p></li>
+<li><p><strong>stop</strong> – Offset from highest point in the colormap’s range.
+Defaults to 1.0 (no upper offset). Should be between
+<cite>midpoint</cite> and 1.0.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 
@@ -145,8 +166,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="surfingcrypto.portfolio.tracker.benchmark_portfolio_calcs.html" class="btn btn-neutral float-left" title="surfingcrypto.portfolio.tracker.benchmark_portfolio_calcs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="surfingcrypto.portfolio.tracker.modified_cost_per_share.html" class="btn btn-neutral float-right" title="surfingcrypto.portfolio.tracker.modified_cost_per_share" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="surfingcrypto.reporting.plotting.plot_moving_averages.html" class="btn btn-neutral float-left" title="surfingcrypto.reporting.plotting.plot_moving_averages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="surfingcrypto.reporting.trend_line.html" class="btn btn-neutral float-right" title="surfingcrypto.reporting.trend_line" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

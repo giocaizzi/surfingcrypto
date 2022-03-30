@@ -15,6 +15,7 @@ surfingcrypto.config.Config
    .. autosummary::
    
       ~Config.__init__
+      ~Config.add_coins
    
    
 

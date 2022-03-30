@@ -19,6 +19,7 @@ surfingcrypto.reporting.plotting
       plot_bb
       plot_macd
       plot_moving_averages
+      shiftedColorMap
    
    
 
