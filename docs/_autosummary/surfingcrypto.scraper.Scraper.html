@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>surfingcrypto.scraper.Scraper &mdash; surfingcrypto 0.1.2 documentation</title>
+  <title>surfingcrypto.scraper.Scraper &mdash; surfingcrypto 0.1.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -31,7 +31,7 @@
             <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.1.2
+                0.1.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -135,7 +135,7 @@
 configuration object</p></li>
 <li><p><strong>fiat</strong> (<em>str</em>) – prices will be restituted in the selected fiat,
 defaults is <cite>EUR</cite></p></li>
-<li><p><strong>log</strong> (<em>bool</em>) – wether to log at the end of execution</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – wether to log at the end of execution</p></li>
 </ul>
 </dd>
 </dl>
@@ -186,6 +186,18 @@ of <cite>CoinScraper</cite> objects</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper.errors">
+<span class="sig-name descname"><span class="pre">errors</span></span><a class="headerlink" href="#surfingcrypto.scraper.Scraper.errors" title="Permalink to this definition"></a></dt>
+<dd><p>list
+of <cite>CoinScraper</cite> objects that have errors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">surfincrypto.scraper.CoinScraper</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper.output">
 <span class="sig-name descname"><span class="pre">output</span></span><a class="headerlink" href="#surfingcrypto.scraper.Scraper.output" title="Permalink to this definition"></a></dt>
 <dd><p>Overall boolean output of process. If
@@ -200,7 +212,7 @@ everything went well.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="surfingcrypto.scraper.Scraper.output_descrition">
 <span class="sig-name descname"><span class="pre">output_descrition</span></span><a class="headerlink" href="#surfingcrypto.scraper.Scraper.output_descrition" title="Permalink to this definition"></a></dt>
-<dd><p>Overall log string of ouput.</p>
+<dd><p>Overall string description of output.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>str</p>
