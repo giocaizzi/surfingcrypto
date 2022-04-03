@@ -6,8 +6,8 @@ echo "$(date)"
 source /home/ec2-user/miniconda3/bin/activate
 conda activate cryptoenv
 
-pip install surfingcrypto --upgrade
-pip install TelegramBotNotifications --upgrade
+pip install surfingcrypto -U --quiet
+pip install TelegramBotNotifications -U --quiet
 
 cd /home/ec2-user/surfingcrypto
 
