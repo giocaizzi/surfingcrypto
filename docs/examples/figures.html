@@ -373,7 +373,7 @@ div.rendered_html tbody tr:hover {
 <p>This module is the core for the production of the images that can be used for visually assessing the price data.</p>
 <p>All package figures are based on <code class="docutils literal notranslate"><span class="pre">BaseFigure</span></code> object that offers basic methods for working with matplotlib figures.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">surfingcrypto</span> <span class="kn">import</span> <span class="n">Config</span><span class="p">,</span><span class="n">TS</span>
@@ -383,7 +383,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>Then load the configuration files.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parent</span><span class="o">=</span><span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/&quot;</span>
@@ -397,7 +397,7 @@ div.rendered_html tbody tr:hover {
 <h3>The <code class="docutils literal notranslate"><span class="pre">SimplePlot</span></code> figure<a class="headerlink" href="#The-SimplePlot-figure" title="Permalink to this headline"></a></h3>
 <p>This is the most basic price plot.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">=</span><span class="n">TS</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">coin</span><span class="o">=</span><span class="s2">&quot;BTC&quot;</span><span class="p">)</span>
@@ -425,7 +425,7 @@ BTC plotted.
 <h3>The <code class="docutils literal notranslate"><span class="pre">TaPlot</span></code> figure<a class="headerlink" href="#The-TaPlot-figure" title="Permalink to this headline"></a></h3>
 <p>Produce a comples <code class="docutils literal notranslate"><span class="pre">ta</span></code> plot for each coin specified in the configuration file.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tap</span><span class="o">=</span><span class="n">TaPlot</span><span class="p">(</span>
@@ -458,7 +458,7 @@ BTC plotted.
 <div class="section" id="Distance-from-ATH">
 <h3>Distance from ATH<a class="headerlink" href="#Distance-from-ATH" title="Permalink to this headline"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ath</span><span class="o">=</span><span class="n">ATHPlot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span><span class="s2">&quot;1-1-2020&quot;</span><span class="p">)</span>

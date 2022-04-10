@@ -19,7 +19,6 @@
       ~MyCoinbase.get_active_accounts
       ~MyCoinbase.get_all_accounts_with_transactions
       ~MyCoinbase.get_history
-      ~MyCoinbase.live_value_report
       ~MyCoinbase.start
    
    

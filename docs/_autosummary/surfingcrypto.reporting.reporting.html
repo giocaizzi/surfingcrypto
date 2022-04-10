@@ -51,7 +51,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples/scraper.html"><code class="docutils literal notranslate"><span class="pre">Scraper</span></code>: get the required data.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ts.html"><code class="docutils literal notranslate"><span class="pre">TS</span></code>: a time-series object optimized for crypto price data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/reporting.html">Reporting: text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/figures.html">Reporting: figures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_01.html">Surfingcrypto <code class="docutils literal notranslate"><span class="pre">Portfolio</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_coinbase.html">Portfolio: <code class="docutils literal notranslate"><span class="pre">MyCoinbase</span></code></a></li>
 </ul>
@@ -66,6 +67,7 @@
 <li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.plotting.html">surfingcrypto.reporting.plotting</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">surfingcrypto.reporting.reporting</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.reporting.percentage_diff.html">surfingcrypto.reporting.reporting.percentage_diff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.reporting.report_coinbase_live_value.html">surfingcrypto.reporting.reporting.report_coinbase_live_value</a></li>
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.reporting.report_percentage_diff.html">surfingcrypto.reporting.reporting.report_percentage_diff</a></li>
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.reporting.report_stock_gain.html">surfingcrypto.reporting.reporting.report_stock_gain</a></li>
 </ul>
@@ -142,11 +144,14 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="surfingcrypto.reporting.reporting.percentage_diff.html#surfingcrypto.reporting.reporting.percentage_diff" title="surfingcrypto.reporting.reporting.percentage_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">percentage_diff</span></code></a>(df[, window])</p></td>
 <td><p>Percentage difference given a window size.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="surfingcrypto.reporting.reporting.report_percentage_diff.html#surfingcrypto.reporting.reporting.report_percentage_diff" title="surfingcrypto.reporting.reporting.report_percentage_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">report_percentage_diff</span></code></a>(df, coin[, windows])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="surfingcrypto.reporting.reporting.report_coinbase_live_value.html#surfingcrypto.reporting.reporting.report_coinbase_live_value" title="surfingcrypto.reporting.reporting.report_coinbase_live_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">report_coinbase_live_value</span></code></a>(portfolio)</p></td>
+<td><p>Nicely formatted report of accounts portfolio and user total balance in EUR.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="surfingcrypto.reporting.reporting.report_percentage_diff.html#surfingcrypto.reporting.reporting.report_percentage_diff" title="surfingcrypto.reporting.reporting.report_percentage_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">report_percentage_diff</span></code></a>(df, coin[, windows])</p></td>
 <td><p>Produces verbose and pretty report on latest price difference from a given list of windows.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="surfingcrypto.reporting.reporting.report_stock_gain.html#surfingcrypto.reporting.reporting.report_stock_gain" title="surfingcrypto.reporting.reporting.report_stock_gain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">report_stock_gain</span></code></a>(df)</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="surfingcrypto.reporting.reporting.report_stock_gain.html#surfingcrypto.reporting.reporting.report_stock_gain" title="surfingcrypto.reporting.reporting.report_stock_gain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">report_stock_gain</span></code></a>(df)</p></td>
+<td><p>report stock gain</p></td>
 </tr>
 </tbody>
 </table>

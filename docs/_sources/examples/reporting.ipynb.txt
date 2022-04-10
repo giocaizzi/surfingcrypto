@@ -6,18 +6,23 @@
    "source": [
     "# Reporting: text\n",
     "\n",
-    "The `surfingcrypto.reporting.reporting` module contains a set of methods used to extract formatted text out of `surfingcrypto` modules, so to report their status."
+    "The `surfingcrypto.reporting.reporting` module contains a set of methods used to extract formatted text out of `surfingcrypto` modules, so to report their status.\n",
+    "\n",
+    "The formatting is set so to be sent as Telegram messages."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 1,
    "metadata": {},
    "outputs": [],
    "source": [
-    "from surfingcrypto.reporting.reporting import report_percentage_diff\n",
+    "from surfingcrypto.reporting.reporting import report_percentage_diff,report_stock_gain,report_coinbase_live_value\n",
+    "\n",
+    "from surfingcrypto.portfolio import Portfolio\n",
     "from surfingcrypto.ts import TS\n",
     "from surfingcrypto import Config\n",
+    "\n",
     "c = Config(\"/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/config\")\n"
    ]
   },
@@ -25,12 +30,12 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Percentage difference"
+    "## TS : Price percentage difference"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 2,
    "metadata": {},
    "outputs": [
     {
@@ -50,6 +55,89 @@
    "source": [
     "ts=TS(coin=\"BTC\",configuration=c)\n",
     "print(report_percentage_diff(ts.df,ts.coin))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Portfolio: live value"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "p = Portfolio(\"coinbase\", configuration=c)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ALGO : EUR 191.00\n",
+      "AAVE : EUR 172.06\n",
+      "SUSHI : EUR 70.61\n",
+      "MATIC : EUR 350.16\n",
+      "UNI : EUR 124.11\n",
+      "ADA : EUR 148.25\n",
+      "USDC : EUR 0.01\n",
+      "---\n",
+      "Portfolio: EUR 1056.20\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(report_coinbase_live_value(p))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Portfolio : Stock gain/loss"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "p.start_tracker(\n",
+    "    stocks_start=\"1-1-2021\", benchmark=\"ETH\",\n",
+    ")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ADA : -162.17\n",
+      "MATIC : 94.87\n",
+      "USDC : 0.00\n",
+      "SUSHI : -69.20\n",
+      "UNI : -58.55\n",
+      "AAVE : -41.51\n",
+      "ALGO : 33.65\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(report_stock_gain(p.tracker.daily_snaphost(\"2022-03-27\")))"
    ]
   }
  ],

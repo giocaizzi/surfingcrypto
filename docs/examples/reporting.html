@@ -54,7 +54,9 @@
 <li class="toctree-l1"><a class="reference internal" href="scraper.html"><code class="docutils literal notranslate"><span class="pre">Scraper</span></code>: get the required data.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ts.html"><code class="docutils literal notranslate"><span class="pre">TS</span></code>: a time-series object optimized for crypto price data</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Reporting: text</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Percentage-difference">Percentage difference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#TS-:-Price-percentage-difference">TS : Price percentage difference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Portfolio:-live-value">Portfolio: live value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Portfolio-:-Stock-gain/loss">Portfolio : Stock gain/loss</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="figures.html">Reporting: figures</a></li>
@@ -363,21 +365,25 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Reporting:-text">
 <h1>Reporting: text<a class="headerlink" href="#Reporting:-text" title="Permalink to this headline"></a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">surfingcrypto.reporting.reporting</span></code> module contains a set of methods used to extract formatted text out of <code class="docutils literal notranslate"><span class="pre">surfingcrypto</span></code> modules, so to report their status.</p>
+<p>The formatting is set so to be sent as Telegram messages.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">surfingcrypto.reporting.reporting</span> <span class="kn">import</span> <span class="n">report_percentage_diff</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">surfingcrypto.reporting.reporting</span> <span class="kn">import</span> <span class="n">report_percentage_diff</span><span class="p">,</span><span class="n">report_stock_gain</span><span class="p">,</span><span class="n">report_coinbase_live_value</span>
+
+<span class="kn">from</span> <span class="nn">surfingcrypto.portfolio</span> <span class="kn">import</span> <span class="n">Portfolio</span>
 <span class="kn">from</span> <span class="nn">surfingcrypto.ts</span> <span class="kn">import</span> <span class="n">TS</span>
 <span class="kn">from</span> <span class="nn">surfingcrypto</span> <span class="kn">import</span> <span class="n">Config</span>
+
 <span class="n">c</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/config&quot;</span><span class="p">)</span>
 <br/></pre></div>
 </div>
 </div>
-<div class="section" id="Percentage-difference">
-<h2>Percentage difference<a class="headerlink" href="#Percentage-difference" title="Permalink to this headline"></a></h2>
+<div class="section" id="TS-:-Price-percentage-difference">
+<h2>TS : Price percentage difference<a class="headerlink" href="#TS-:-Price-percentage-difference" title="Permalink to this headline"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">=</span><span class="n">TS</span><span class="p">(</span><span class="n">coin</span><span class="o">=</span><span class="s2">&quot;BTC&quot;</span><span class="p">,</span><span class="n">configuration</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
@@ -396,6 +402,77 @@ div.rendered_html tbody tr:hover {
 - 7d: -5.28 %
 - 14d: -2.91 %
 - 60d: 1.82 %
+
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Portfolio:-live-value">
+<h2>Portfolio: live value<a class="headerlink" href="#Portfolio:-live-value" title="Permalink to this headline"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Portfolio</span><span class="p">(</span><span class="s2">&quot;coinbase&quot;</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">report_coinbase_live_value</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ALGO : EUR 191.00
+AAVE : EUR 172.06
+SUSHI : EUR 70.61
+MATIC : EUR 350.16
+UNI : EUR 124.11
+ADA : EUR 148.25
+USDC : EUR 0.01
+---
+Portfolio: EUR 1056.20
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Portfolio-:-Stock-gain/loss">
+<h2>Portfolio : Stock gain/loss<a class="headerlink" href="#Portfolio-:-Stock-gain/loss" title="Permalink to this headline"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">start_tracker</span><span class="p">(</span>
+    <span class="n">stocks_start</span><span class="o">=</span><span class="s2">&quot;1-1-2021&quot;</span><span class="p">,</span> <span class="n">benchmark</span><span class="o">=</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">report_stock_gain</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">daily_snaphost</span><span class="p">(</span><span class="s2">&quot;2022-03-27&quot;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ADA : -162.17
+MATIC : 94.87
+USDC : 0.00
+SUSHI : -69.20
+UNI : -58.55
+AAVE : -41.51
+ALGO : 33.65
 
 </pre></div></div>
 </div>

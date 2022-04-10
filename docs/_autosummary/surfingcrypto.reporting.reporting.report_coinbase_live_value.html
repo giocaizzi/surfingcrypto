@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>surfingcrypto.reporting.reporting.report_stock_gain &mdash; surfingcrypto 0.1.4 documentation</title>
+  <title>surfingcrypto.reporting.reporting.report_coinbase_live_value &mdash; surfingcrypto 0.1.4 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,8 +18,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="surfingcrypto.reporting.trend_line" href="surfingcrypto.reporting.trend_line.html" />
-    <link rel="prev" title="surfingcrypto.reporting.reporting.report_percentage_diff" href="surfingcrypto.reporting.reporting.report_percentage_diff.html" /> 
+    <link rel="next" title="surfingcrypto.reporting.reporting.report_percentage_diff" href="surfingcrypto.reporting.reporting.report_percentage_diff.html" />
+    <link rel="prev" title="surfingcrypto.reporting.reporting.percentage_diff" href="surfingcrypto.reporting.reporting.percentage_diff.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -67,9 +67,9 @@
 <li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.plotting.html">surfingcrypto.reporting.plotting</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="surfingcrypto.reporting.reporting.html">surfingcrypto.reporting.reporting</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.reporting.percentage_diff.html">surfingcrypto.reporting.reporting.percentage_diff</a></li>
-<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.reporting.report_coinbase_live_value.html">surfingcrypto.reporting.reporting.report_coinbase_live_value</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">surfingcrypto.reporting.reporting.report_coinbase_live_value</a></li>
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.reporting.report_percentage_diff.html">surfingcrypto.reporting.reporting.report_percentage_diff</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">surfingcrypto.reporting.reporting.report_stock_gain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.reporting.report_stock_gain.html">surfingcrypto.reporting.reporting.report_stock_gain</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.trend_line.html">surfingcrypto.reporting.trend_line</a></li>
@@ -98,9 +98,9 @@
           <li><a href="surfingcrypto.html">surfingcrypto</a> &raquo;</li>
           <li><a href="surfingcrypto.reporting.html">surfingcrypto.reporting</a> &raquo;</li>
           <li><a href="surfingcrypto.reporting.reporting.html">surfingcrypto.reporting.reporting</a> &raquo;</li>
-      <li>surfingcrypto.reporting.reporting.report_stock_gain</li>
+      <li>surfingcrypto.reporting.reporting.report_coinbase_live_value</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/surfingcrypto.reporting.reporting.report_stock_gain.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/surfingcrypto.reporting.reporting.report_coinbase_live_value.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -132,21 +132,22 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="surfingcrypto-reporting-reporting-report-stock-gain">
-<h1>surfingcrypto.reporting.reporting.report_stock_gain<a class="headerlink" href="#surfingcrypto-reporting-reporting-report-stock-gain" title="Permalink to this headline"></a></h1>
+<div class="section" id="surfingcrypto-reporting-reporting-report-coinbase-live-value">
+<h1>surfingcrypto.reporting.reporting.report_coinbase_live_value<a class="headerlink" href="#surfingcrypto-reporting-reporting-report-coinbase-live-value" title="Permalink to this headline"></a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="surfingcrypto.reporting.reporting.report_stock_gain">
-<span class="sig-prename descclassname"><span class="pre">surfingcrypto.reporting.reporting.</span></span><span class="sig-name descname"><span class="pre">report_stock_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.reporting.reporting.report_stock_gain" title="Permalink to this definition"></a></dt>
-<dd><p>report stock gain</p>
+<dt class="sig sig-object py" id="surfingcrypto.reporting.reporting.report_coinbase_live_value">
+<span class="sig-prename descclassname"><span class="pre">surfingcrypto.reporting.reporting.</span></span><span class="sig-name descname"><span class="pre">report_coinbase_live_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">portfolio</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.reporting.reporting.report_coinbase_live_value" title="Permalink to this definition"></a></dt>
+<dd><p>Nicely formatted report of accounts portfolio and user total
+balance in EUR.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>df</strong> (<em>pd.DataFrame</em>) – dataframe with single day data with calculations</p>
+<dd class="field-odd"><p><strong>portfolio</strong> (<em>_type_</em>) – _descr_</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>string report</p>
+<dd class="field-even"><p>text</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>str</p>
+<dd class="field-odd"><p>s (str)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -157,8 +158,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="surfingcrypto.reporting.reporting.report_percentage_diff.html" class="btn btn-neutral float-left" title="surfingcrypto.reporting.reporting.report_percentage_diff" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="surfingcrypto.reporting.trend_line.html" class="btn btn-neutral float-right" title="surfingcrypto.reporting.trend_line" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="surfingcrypto.reporting.reporting.percentage_diff.html" class="btn btn-neutral float-left" title="surfingcrypto.reporting.reporting.percentage_diff" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="surfingcrypto.reporting.reporting.report_percentage_diff.html" class="btn btn-neutral float-right" title="surfingcrypto.reporting.reporting.report_percentage_diff" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
