@@ -33,15 +33,16 @@ To use the package, at least a `config.json` file containing `coins` configurati
         "ADA":"",
         "SOL":""
     },
-    "telegram":
-    {
-        "token":"XXXXXXXXXX"
-    },
     "coinbase":
     {
         "key":"XXXXXXXXXX",
         "scrt":"XXXXXXXXXX"
-    }
-    
+    },
+    "telegram":
+    {
+        "token":"XXXXXXXXXX"
+    }, 
 }
 ```
+
+Additionally, it is possible to store other kind of private information, as third-party API keys, so to easily have them stored as attributes in the `Config` module.

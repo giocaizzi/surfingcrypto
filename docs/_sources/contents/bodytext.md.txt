@@ -1,17 +1,15 @@
 # Quick start
 
-This project provides a customizable and automatic reporting tool for crypto price data.
-It is able to plot complex graphs for price information (from traditional **candlesticks&volume** to **technical analysis** indicators).
-All outputs (plots and calculations) can be sent via telegram using a TelegramBot created with @BotFather.
-It features also an integration with Coinbase to get notifications on portfolio value.
+The `surfingcrypto` package is built to follow the crypto price data and *Coinbase* portfolio data.
+
+In order to follow the daily close prices and portoflio gain/loss, the package features a `reporting` module that offers plotting capabilities. The `reporting.figures` submodule contains the definition of various kind graphs, from **candlesticks** daily prices with **technical analysis** indicators to **daily portfolio** gain/loss plots.
 
 ![TA Figure](../images/ta.jpeg)
 
 It is possible to get historical price data on any cryptocurrency listed on [coinmarketcap.com](http://www.coinmarketcap.com), such as `BTC`,`ETH`,`ADA`,`MATIC`, `SOL`.
 
 The idea behind the package is to have a set of functions to produce daily reports, in form of plots and text. An example is as used as in [`main.py`](https://github.com/giocaizzi/surfingcrypto/blob/main/main.py).
-
-This script is actually deployed as a crontab job on a AWS ec2 istance, every day at `10:30 AM UTC`.
+This script is run on a AWS ec2 istance, every day at `10:30 AM UTC`. Paired with a notification system - I use Telegram - I get daily updates on my portfolio and coins that I want to monitor daily.
 
 ___
 - [Quick start](#quick-start)
@@ -19,8 +17,7 @@ ___
   - [Basic usage](#basic-usage)
     - [Configuration](#configuration)
     - [Price data scraping](#price-data-scraping)
-    - [Telegram notifications](#telegram-notifications)
-    - [Price data analysis](#price-data-analysis)
+    - [Reporting](#reporting)
       - [Plotting prices and indicators](#plotting-prices-and-indicators)
       - [Reporting useful information](#reporting-useful-information)
   - [Package modules structure](#package-modules-structure)
@@ -28,11 +25,13 @@ ___
 
 ## Key modules
 
-1. The [Scraper](../_autosummary/surfingcrypto.scraper.Scraper.rst) class gets the necesarriy data from [coinmarketcap.com](http://www.coinmarketcap.com) and stores data locally. 
-   
-2. TelegramBot starts a telegram client to send outputs to bot followers.
-   
-3. [TaPlot](../_autosummary/surfingcrypto.reporting.figures.TaPlot.rst) Creates a time-series figure plot that resumes the price cryptocurrency. There are also other kinds of data plot, but specifically it can also plot also complex indicators.
+1. The [Portoflio](../_autosummary/surfingcrypto.portfolio.portfolio.Portfolio.rst) object is the user Portfolio. Via the implemented APIs (at the moment, only **Coinbase**) get transaction history and tracks the portoflio live value, with gain/loss calculation.
+
+2. The [Scraper](../_autosummary/surfingcrypto.scraper.Scraper.rst) object gets the necesarriy data from [coinmarketcap.com](http://www.coinmarketcap.com) and stores data locally. 
+
+3. The [TS](../_autosummary/surfingcrypto.ts.TS.rst) object is implemented so to offer time-series calculation (TA Indicators, distance from ATH and other statistics) and easy access to the data as *pandas.DataFrame* objects or simple object attributes.
+
+4. The [surfingcrypto.reporting.figures](../_autosummary/surfingcrypto.reporting.figures.rst) module contains the definition of a series of plots that help visualize crypto prices and portfolio stock gain/loss and balance.
   
 The folder `examples` containsa a series of examples that allows to experiment interactively with the repository capacities.
 
@@ -43,30 +42,18 @@ The folder `examples` containsa a series of examples that allows to experiment i
 The [Config()](../_autosummary/surfingcrypto.config.Config.rst) class is used to pass the user configuration.
 
 It requires to specify the location of the folder in which there is a `config.json` file, in which it is possible/required to specify the following parameters:
-* the parametrization of Technical Analysis (eg. window of moving averages, RSI length, etc...)
-* the API key to the [telegram](https://core.telegram.org/) bot.
+* a `coins` dictionary containg the parametrization of Technical Analysis (eg. window of moving averages, RSI length, etc...). 
 * the API key to the [Coinbase](https://developers.coinbase.com/) client. 
-
-Additionally, it is possible to specify the location of a `data` folder where to save all data (eg. time series of prices)
 
 ### Price data scraping
 
 The [Scraper](../_autosummary/surfingcrypto.scraper.Scraper.rst) gets the necesarriy data from [coinmarketcap.com](http://www.coinmarketcap.com) and stores data locally. 
 
+The data date ranges, required by both the `portfolio` and `reporting` module, are passed to `Scraper` via the `Config` object.
+
 [Go to full example.](../examples/scraper.ipynb)
 
-### Telegram notifications
-
-In order to receive daily updates on prices, a telegram bot is used. Bots can be created with @BotFather.
-
-The bot can be used both in "normal" mode or in "channel mode".
-The normal mode (`channel_mode=False`) requires to specify a `chat_id` parameter to specify the desired chat to send the message/picture/document to. Otherwise, when `channel_mode=True` then the bot will send the content to all users specified in the `telegram_users.csv`.
-
-The bot has the capability of adding new users to the known list of users, just by recording the `chat_id` of the users that have interacted with it. Everytime the bot is initiated, it checks for new users.
-
-### Price data analysis
-
-The project is focused on the production of a customizable and useful set of information to be up to date with cryptocurrency prices.
+### Reporting 
 
 The reporting structure is based on the production of graphs and by well-structured text.
 
@@ -109,5 +96,7 @@ Ex: percentage difference for a set of different days.
 ## Package modules structure
 
 The following image depicts the package module structure and integration architecture.
+
+**TO BE UPDATED!**
 
 ![TA Figure](../images/structure.png)

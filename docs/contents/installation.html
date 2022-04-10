@@ -44,10 +44,7 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#other-optional-requirements">Other (optional) requirements</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bodytext.html">Quick start</a></li>
@@ -115,40 +112,26 @@
 </style>
 <div class="tex2jax_ignore mathjax_ignore section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
-<ol class="arabic">
-<li><p>Clone repo</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:giocaizzi/surfingcrypto.git
+<p>Install package with <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install surfincrypto
 </pre></div>
 </div>
-</li>
-<li><p>Install requirements.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install -r requirements.txt
-</pre></div>
-</div>
-</li>
-<li><p>Install package with <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install .
-</pre></div>
-</div>
-</li>
-</ol>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">surfincrypto</span></code> submodules require a <code class="docutils literal notranslate"><span class="pre">surfingcrypto.Config</span></code> object to set path directories to appropriate <code class="docutils literal notranslate"><span class="pre">config_folder</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code> folders to store private credentials and other generic data.</p>
+<p><code class="docutils literal notranslate"><span class="pre">surfincrypto</span></code> submodules require a <code class="docutils literal notranslate"><span class="pre">surfingcrypto.Config</span></code> object to set path directories to appropriate <code class="docutils literal notranslate"><span class="pre">config_folder</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code> folders to store private credentials and other data, as time series OHLC data.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">config_folder</span></code> : required</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">data_folder</span></code> - <em>optional</em>. If not provided is searched in parent of   <code class="docutils literal notranslate"><span class="pre">config_folder</span></code> or created.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_folder</span></code> - <em>optional</em>. If not provided is created in parent of <code class="docutils literal notranslate"><span class="pre">config_folder</span></code> or created.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">surfingcrypto</span> <span class="kn">import</span> <span class="n">Config</span>
 <span class="n">parent</span><span class="o">=</span><span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/&quot;</span>
 
 <span class="n">configuration</span><span class="o">=</span><span class="n">Config</span><span class="p">(</span>
     <span class="n">parent</span><span class="o">+</span><span class="s2">&quot;config&quot;</span><span class="p">,</span>
-    <span class="n">parent</span><span class="o">+</span><span class="s2">&quot;data&quot;</span>
     <span class="p">)</span>
 </pre></div>
 </div>
-<p>To use the package, at least a <code class="docutils literal notranslate"><span class="pre">config.json</span></code> file containing <code class="docutils literal notranslate"><span class="pre">coins</span></code> configuration is required. It can also contain private keys for authentication within other modules.</p>
+<p>To use the package, at least a <code class="docutils literal notranslate"><span class="pre">config.json</span></code> file containing <code class="docutils literal notranslate"><span class="pre">coins</span></code> configuration is required. It can also contain private keys for authentication within other modules, such as <code class="docutils literal notranslate"><span class="pre">surfingcrypto.Portfolio</span></code>.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;coins&quot;</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
@@ -158,31 +141,19 @@
 <span class="w">        </span><span class="nt">&quot;ADA&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;SOL&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="w"></span>
 <span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;telegram&quot;</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="s2">&quot;XXXXXXXXXX&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;coinbase&quot;</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="s2">&quot;XXXXXXXXXX&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;scrt&quot;</span><span class="p">:</span><span class="s2">&quot;XXXXXXXXXX&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;telegram&quot;</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="s2">&quot;XXXXXXXXXX&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="section" id="other-optional-requirements">
-<h3>Other (optional) requirements<a class="headerlink" href="#other-optional-requirements" title="Permalink to this headline"></a></h3>
-<ol class="arabic simple">
-<li><p>A list of users’ info must be supplied to <code class="docutils literal notranslate"><span class="pre">surfincrypto.telegram_bot</span></code> to be used in <code class="docutils literal notranslate"><span class="pre">channel_mode</span></code>. This is specified by adding in the <code class="docutils literal notranslate"><span class="pre">config_folder</span></code> directory a file named <code class="docutils literal notranslate"><span class="pre">telegram_users.csv</span></code> containing - at least - chat IDs (required) and usernames (optional) to keep track of users following the bot.</p></li>
-</ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chat_id</span><span class="p">,</span><span class="n">username</span><span class="p">,</span><span class="n">date_joined</span>
-<span class="n">XXXXXXXX</span><span class="p">,</span><span class="n">giocaizzi</span><span class="p">,</span><span class="mi">2021</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">08</span> <span class="mi">18</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">14</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
-<span class="n">XXXXXXXX</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">2021</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">08</span> <span class="mi">18</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">14</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
-</pre></div>
-</div>
-<p>This file will be updated by the bot in case of interaction with new users.</p>
-</div>
+<p>Additionally, it is possible to store other kind of private information, as third-party API keys, so to easily have them stored as attributes in the <code class="docutils literal notranslate"><span class="pre">Config</span></code> module.</p>
 </div>
 </div>
 

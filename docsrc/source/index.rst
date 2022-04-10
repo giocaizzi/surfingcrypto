@@ -10,18 +10,17 @@ Welcome to surfingcrypto's documentation!
 .. image:: https://img.shields.io/codecov/c/gh/giocaizzi/surfingcrypto
     :alt: codecov
 
-This project provides a customizable and automatic reporting tool for crypto price data.
-It is able to plot complex graphs for price information (from traditional **candlesticks&volume** to **technical analysis** indicators).
-All outputs (plots and calculations) can be sent via telegram using a TelegramBot created with @BotFather.
-It features also an integration with Coinbase to get notifications on portfolio value.
+
+python package to surf crypto-waves.
+
+- Scrapes *OHLC data* from `www.coinmarketcap.com <www.coinmarketcap.com>`_ and stores it locally.
+- Compute *Technical Analysis* indicators and plot complex graphs
+- Interact with *Coinbase API* to read transaction data and to compute Portfolio statistics
 
 It's future developement will be based on **algotrading**.
 
 .. note ::
    This is project is based on making money fast to go surf |:ocean:| in some tropical destination. |:palm_tree:|
-
-.. warning ::
-   The package is under developement and it has not been released yet.
 
 
 .. toctree::
