@@ -49,8 +49,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#basic-usage">Basic usage</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#price-data-scraping">Price data scraping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#telegram-notifications">Telegram notifications</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#price-data-analysis">Price data analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reporting">Reporting</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#plotting-prices-and-indicators">Plotting prices and indicators</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#reporting-useful-information">Reporting useful information</a></li>
 </ul>
@@ -125,14 +124,12 @@
 </style>
 <div class="tex2jax_ignore mathjax_ignore section" id="quick-start">
 <h1>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline"></a></h1>
-<p>This project provides a customizable and automatic reporting tool for crypto price data.
-It is able to plot complex graphs for price information (from traditional <strong>candlesticks&amp;volume</strong> to <strong>technical analysis</strong> indicators).
-All outputs (plots and calculations) can be sent via telegram using a TelegramBot created with &#64;BotFather.
-It features also an integration with Coinbase to get notifications on portfolio value.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">surfingcrypto</span></code> package is built to follow the crypto price data and <em>Coinbase</em> portfolio data.</p>
+<p>In order to follow the daily close prices and portoflio gain/loss, the package features a <code class="docutils literal notranslate"><span class="pre">reporting</span></code> module that offers plotting capabilities. The <code class="docutils literal notranslate"><span class="pre">reporting.figures</span></code> submodule contains the definition of various kind graphs, from <strong>candlesticks</strong> daily prices with <strong>technical analysis</strong> indicators to <strong>daily portfolio</strong> gain/loss plots.</p>
 <p><img alt="TA Figure" src="../_images/ta.jpeg" /></p>
 <p>It is possible to get historical price data on any cryptocurrency listed on <a class="reference external" href="http://www.coinmarketcap.com">coinmarketcap.com</a>, such as <code class="docutils literal notranslate"><span class="pre">BTC</span></code>,<code class="docutils literal notranslate"><span class="pre">ETH</span></code>,<code class="docutils literal notranslate"><span class="pre">ADA</span></code>,<code class="docutils literal notranslate"><span class="pre">MATIC</span></code>, <code class="docutils literal notranslate"><span class="pre">SOL</span></code>.</p>
-<p>The idea behind the package is to have a set of functions to produce daily reports, in form of plots and text. An example is as used as in <a class="reference external" href="https://github.com/giocaizzi/surfingcrypto/blob/main/main.py"><code class="docutils literal notranslate"><span class="pre">main.py</span></code></a>.</p>
-<p>This script is actually deployed as a crontab job on a AWS ec2 istance, every day at <code class="docutils literal notranslate"><span class="pre">10:30</span> <span class="pre">AM</span> <span class="pre">UTC</span></code>.</p>
+<p>The idea behind the package is to have a set of functions to produce daily reports, in form of plots and text. An example is as used as in <a class="reference external" href="https://github.com/giocaizzi/surfingcrypto/blob/main/main.py"><code class="docutils literal notranslate"><span class="pre">main.py</span></code></a>.
+This script is run on a AWS ec2 istance, every day at <code class="docutils literal notranslate"><span class="pre">10:30</span> <span class="pre">AM</span> <span class="pre">UTC</span></code>. Paired with a notification system - I use Telegram - I get daily updates on my portfolio and coins that I want to monitor daily.</p>
 <hr class="docutils" />
 <ul class="simple">
 <li><p><a class="reference external" href="#quick-start">Quick start</a></p>
@@ -142,8 +139,7 @@ It features also an integration with Coinbase to get notifications on portfolio 
 <ul>
 <li><p><a class="reference external" href="#configuration">Configuration</a></p></li>
 <li><p><a class="reference external" href="#price-data-scraping">Price data scraping</a></p></li>
-<li><p><a class="reference external" href="#telegram-notifications">Telegram notifications</a></p></li>
-<li><p><a class="reference external" href="#price-data-analysis">Price data analysis</a></p>
+<li><p><a class="reference external" href="#reporting">Reporting</a></p>
 <ul>
 <li><p><a class="reference external" href="#plotting-prices-and-indicators">Plotting prices and indicators</a></p></li>
 <li><p><a class="reference external" href="#reporting-useful-information">Reporting useful information</a></p></li>
@@ -159,9 +155,10 @@ It features also an integration with Coinbase to get notifications on portfolio 
 <div class="section" id="key-modules">
 <h2>Key modules<a class="headerlink" href="#key-modules" title="Permalink to this headline"></a></h2>
 <ol class="arabic simple">
-<li><p>The <a class="reference internal" href="../_autosummary/surfingcrypto.scraper.Scraper.html"><span class="doc std std-doc">Scraper</span></a> class gets the necesarriy data from <a class="reference external" href="http://www.coinmarketcap.com">coinmarketcap.com</a> and stores data locally.</p></li>
-<li><p>TelegramBot starts a telegram client to send outputs to bot followers.</p></li>
-<li><p><a class="reference internal" href="../_autosummary/surfingcrypto.reporting.figures.TaPlot.html"><span class="doc std std-doc">TaPlot</span></a> Creates a time-series figure plot that resumes the price cryptocurrency. There are also other kinds of data plot, but specifically it can also plot also complex indicators.</p></li>
+<li><p>The <a class="reference internal" href="../_autosummary/surfingcrypto.portfolio.portfolio.Portfolio.html"><span class="doc std std-doc">Portoflio</span></a> object is the user Portfolio. Via the implemented APIs (at the moment, only <strong>Coinbase</strong>) get transaction history and tracks the portoflio live value, with gain/loss calculation.</p></li>
+<li><p>The <a class="reference internal" href="../_autosummary/surfingcrypto.scraper.Scraper.html"><span class="doc std std-doc">Scraper</span></a> object gets the necesarriy data from <a class="reference external" href="http://www.coinmarketcap.com">coinmarketcap.com</a> and stores data locally.</p></li>
+<li><p>The <a class="reference internal" href="../_autosummary/surfingcrypto.ts.TS.html"><span class="doc std std-doc">TS</span></a> object is implemented so to offer time-series calculation (TA Indicators, distance from ATH and other statistics) and easy access to the data as <em>pandas.DataFrame</em> objects or simple object attributes.</p></li>
+<li><p>The <a class="reference internal" href="../_autosummary/surfingcrypto.reporting.figures.html"><span class="doc std std-doc">surfingcrypto.reporting.figures</span></a> module contains the definition of a series of plots that help visualize crypto prices and portfolio stock gain/loss and balance.</p></li>
 </ol>
 <p>The folder <code class="docutils literal notranslate"><span class="pre">examples</span></code> containsa a series of examples that allows to experiment interactively with the repository capacities.</p>
 </div>
@@ -172,27 +169,18 @@ It features also an integration with Coinbase to get notifications on portfolio 
 <p>The <a class="reference internal" href="../_autosummary/surfingcrypto.config.Config.html"><span class="doc std std-doc">Config()</span></a> class is used to pass the user configuration.</p>
 <p>It requires to specify the location of the folder in which there is a <code class="docutils literal notranslate"><span class="pre">config.json</span></code> file, in which it is possible/required to specify the following parameters:</p>
 <ul class="simple">
-<li><p>the parametrization of Technical Analysis (eg. window of moving averages, RSI length, etc…)</p></li>
-<li><p>the API key to the <a class="reference external" href="https://core.telegram.org/">telegram</a> bot.</p></li>
+<li><p>a <code class="docutils literal notranslate"><span class="pre">coins</span></code> dictionary containg the parametrization of Technical Analysis (eg. window of moving averages, RSI length, etc…).</p></li>
 <li><p>the API key to the <a class="reference external" href="https://developers.coinbase.com/">Coinbase</a> client.</p></li>
 </ul>
-<p>Additionally, it is possible to specify the location of a <code class="docutils literal notranslate"><span class="pre">data</span></code> folder where to save all data (eg. time series of prices)</p>
 </div>
 <div class="section" id="price-data-scraping">
 <h3>Price data scraping<a class="headerlink" href="#price-data-scraping" title="Permalink to this headline"></a></h3>
 <p>The <a class="reference internal" href="../_autosummary/surfingcrypto.scraper.Scraper.html"><span class="doc std std-doc">Scraper</span></a> gets the necesarriy data from <a class="reference external" href="http://www.coinmarketcap.com">coinmarketcap.com</a> and stores data locally.</p>
+<p>The data date ranges, required by both the <code class="docutils literal notranslate"><span class="pre">portfolio</span></code> and <code class="docutils literal notranslate"><span class="pre">reporting</span></code> module, are passed to <code class="docutils literal notranslate"><span class="pre">Scraper</span></code> via the <code class="docutils literal notranslate"><span class="pre">Config</span></code> object.</p>
 <p><a class="reference internal" href="../examples/scraper.html"><span class="doc std std-doc">Go to full example.</span></a></p>
 </div>
-<div class="section" id="telegram-notifications">
-<h3>Telegram notifications<a class="headerlink" href="#telegram-notifications" title="Permalink to this headline"></a></h3>
-<p>In order to receive daily updates on prices, a telegram bot is used. Bots can be created with &#64;BotFather.</p>
-<p>The bot can be used both in “normal” mode or in “channel mode”.
-The normal mode (<code class="docutils literal notranslate"><span class="pre">channel_mode=False</span></code>) requires to specify a <code class="docutils literal notranslate"><span class="pre">chat_id</span></code> parameter to specify the desired chat to send the message/picture/document to. Otherwise, when <code class="docutils literal notranslate"><span class="pre">channel_mode=True</span></code> then the bot will send the content to all users specified in the <code class="docutils literal notranslate"><span class="pre">telegram_users.csv</span></code>.</p>
-<p>The bot has the capability of adding new users to the known list of users, just by recording the <code class="docutils literal notranslate"><span class="pre">chat_id</span></code> of the users that have interacted with it. Everytime the bot is initiated, it checks for new users.</p>
-</div>
-<div class="section" id="price-data-analysis">
-<h3>Price data analysis<a class="headerlink" href="#price-data-analysis" title="Permalink to this headline"></a></h3>
-<p>The project is focused on the production of a customizable and useful set of information to be up to date with cryptocurrency prices.</p>
+<div class="section" id="reporting">
+<h3>Reporting<a class="headerlink" href="#reporting" title="Permalink to this headline"></a></h3>
 <p>The reporting structure is based on the production of graphs and by well-structured text.</p>
 <div class="section" id="plotting-prices-and-indicators">
 <h4>Plotting prices and indicators<a class="headerlink" href="#plotting-prices-and-indicators" title="Permalink to this headline"></a></h4>
@@ -236,6 +224,7 @@ The normal mode (<code class="docutils literal notranslate"><span class="pre">ch
 <div class="section" id="package-modules-structure">
 <h2>Package modules structure<a class="headerlink" href="#package-modules-structure" title="Permalink to this headline"></a></h2>
 <p>The following image depicts the package module structure and integration architecture.</p>
+<p><strong>TO BE UPDATED!</strong></p>
 <p><img alt="TA Figure" src="../_images/structure.png" /></p>
 </div>
 </div>

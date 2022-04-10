@@ -6,4 +6,4 @@ The following are the references used in the package.
 
 - Matias B, 2019, *Tracking Your Portfolio Performance On Coinbase Using Python and Google Sheets*, [https://levelup.gitconnected.com/tracking-your-coinbase-portfolio-performance-using-python-google-sheets-57d86d687547](https://levelup.gitconnected.com/tracking-your-coinbase-portfolio-performance-using-python-google-sheets-57d86d687547)
 
-- https://stackoverflow.com/questions/44351034/pagination-on-coinbase-python-api
+- Stackoverflow.com,[https://stackoverflow.com/questions/44351034/pagination-on-coinbase-python-api](https://stackoverflow.com/questions/44351034/pagination-on-coinbase-python-api)
