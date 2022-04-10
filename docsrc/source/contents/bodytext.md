@@ -1,17 +1,15 @@
 # Quick start
 
-This project provides a customizable and automatic reporting tool for crypto price data.
-It is able to plot complex graphs for price information (from traditional **candlesticks&volume** to **technical analysis** indicators).
-All outputs (plots and calculations) can be sent via telegram using a TelegramBot created with @BotFather.
-It features also an integration with Coinbase to get notifications on portfolio value.
+The `surfingcrypto` package is built to follow the crypto price data and *Coinbase* portfolio data.
+
+In order to follow the daily close prices and portoflio gain/loss, the package features a `reporting` module that offers plotting capabilities. The `reporting.figures` submodule contains the definition of various kind graphs, from **candlesticks** daily prices with **technical analysis** indicators to **daily portfolio** gain/loss plots.
 
 ![TA Figure](../images/ta.jpeg)
 
 It is possible to get historical price data on any cryptocurrency listed on [coinmarketcap.com](http://www.coinmarketcap.com), such as `BTC`,`ETH`,`ADA`,`MATIC`, `SOL`.
 
 The idea behind the package is to have a set of functions to produce daily reports, in form of plots and text. An example is as used as in [`main.py`](https://github.com/giocaizzi/surfingcrypto/blob/main/main.py).
-
-This script is actually deployed as a crontab job on a AWS ec2 istance, every day at `10:30 AM UTC`.
+This script is run on a AWS ec2 istance, every day at `10:30 AM UTC`. Paired with a notification system - I use Telegram - I get daily updates on my portfolio and coins that I want to monitor daily.
 
 ___
 - [Quick start](#quick-start)
@@ -28,11 +26,13 @@ ___
 
 ## Key modules
 
-1. The [Scraper](../_autosummary/surfingcrypto.scraper.Scraper.rst) class gets the necesarriy data from [coinmarketcap.com](http://www.coinmarketcap.com) and stores data locally. 
-   
-2. TelegramBot starts a telegram client to send outputs to bot followers.
-   
-3. [TaPlot](../_autosummary/surfingcrypto.reporting.figures.TaPlot.rst) Creates a time-series figure plot that resumes the price cryptocurrency. There are also other kinds of data plot, but specifically it can also plot also complex indicators.
+1. The [Portoflio](../_autosummary/surfingcrypto.portfolio.portfolio.Portfolio.rst) object is the user Portfolio. Via the implemented APIs (at the moment, only **Coinbase**) get transaction history and tracks the portoflio live value, with gain/loss calculation.
+
+2. The [Scraper](../_autosummary/surfingcrypto.scraper.Scraper.rst) object gets the necesarriy data from [coinmarketcap.com](http://www.coinmarketcap.com) and stores data locally. 
+
+3. The [TS](../_autosummary/surfingcrypto.ts.TS.rst) object is implemented so to offer all time-series calculation and easy access to the data as *pandas.DataFrame* objects
+
+3. The [surfingcrypto.[TaPlot](../_autosummary/surfingcrypto.reporting.figures.TaPlot.rst) Creates a time-series figure plot that resumes the price cryptocurrency. There are also other kinds of data plot, but specifically it can also plot also complex indicators.
   
 The folder `examples` containsa a series of examples that allows to experiment interactively with the repository capacities.
 
