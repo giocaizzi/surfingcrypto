@@ -16,8 +16,10 @@ surfingcrypto.reporting.figures.PortfolioPlot
    
       ~PortfolioPlot.__init__
       ~PortfolioPlot.center_series
+      ~PortfolioPlot.plot
       ~PortfolioPlot.save
       ~PortfolioPlot.set_axes
+      ~PortfolioPlot.subset_series
    
    
 

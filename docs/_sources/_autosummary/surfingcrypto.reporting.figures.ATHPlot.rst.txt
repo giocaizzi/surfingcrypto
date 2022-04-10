@@ -19,6 +19,7 @@ surfingcrypto.reporting.figures.ATHPlot
       ~ATHPlot.plot
       ~ATHPlot.save
       ~ATHPlot.set_axes
+      ~ATHPlot.subset_series
    
    
 

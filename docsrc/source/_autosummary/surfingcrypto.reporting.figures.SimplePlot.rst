@@ -19,6 +19,7 @@ surfingcrypto.reporting.figures.SimplePlot
       ~SimplePlot.default_plot
       ~SimplePlot.save
       ~SimplePlot.set_axes
+      ~SimplePlot.subset_series
    
    
 

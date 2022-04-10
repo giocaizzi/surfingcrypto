@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>surfingcrypto.reporting.figures &mdash; surfingcrypto 0.1.3 documentation</title>
+  <title>surfingcrypto.reporting.figures &mdash; surfingcrypto 0.1.4 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -31,7 +31,7 @@
             <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.1.3
+                0.1.4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -52,6 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/scraper.html"><code class="docutils literal notranslate"><span class="pre">Scraper</span></code>: get the required data.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ts.html"><code class="docutils literal notranslate"><span class="pre">TS</span></code>: a time-series object optimized for crypto price data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/reporting.html">Reporting: plot price data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_01.html">Surfingcrypto <code class="docutils literal notranslate"><span class="pre">Portfolio</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_coinbase.html">Portfolio: <code class="docutils literal notranslate"><span class="pre">MyCoinbase</span></code></a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Code reference:</span></p>
@@ -64,6 +65,7 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">surfingcrypto.reporting.figures</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.figures.ATHPlot.html">surfingcrypto.reporting.figures.ATHPlot</a></li>
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.figures.BaseFigure.html">surfingcrypto.reporting.figures.BaseFigure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.figures.CalendarPlot.html">surfingcrypto.reporting.figures.CalendarPlot</a></li>
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.figures.PortfolioPlot.html">surfingcrypto.reporting.figures.PortfolioPlot</a></li>
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.figures.SimplePlot.html">surfingcrypto.reporting.figures.SimplePlot</a></li>
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.figures.TaPlot.html">surfingcrypto.reporting.figures.TaPlot</a></li>
@@ -142,16 +144,19 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="surfingcrypto.reporting.figures.ATHPlot.html#surfingcrypto.reporting.figures.ATHPlot" title="surfingcrypto.reporting.figures.ATHPlot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ATHPlot</span></code></a>(*args, **kwargs)</p></td>
 <td><p>distance from ATH plot.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="surfingcrypto.reporting.figures.BaseFigure.html#surfingcrypto.reporting.figures.BaseFigure" title="surfingcrypto.reporting.figures.BaseFigure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseFigure</span></code></a>(ts[, graphstart])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="surfingcrypto.reporting.figures.BaseFigure.html#surfingcrypto.reporting.figures.BaseFigure" title="surfingcrypto.reporting.figures.BaseFigure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseFigure</span></code></a>(object[, graphstart])</p></td>
 <td><p>This is the base class object for all figures.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="surfingcrypto.reporting.figures.PortfolioPlot.html#surfingcrypto.reporting.figures.PortfolioPlot" title="surfingcrypto.reporting.figures.PortfolioPlot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PortfolioPlot</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="surfingcrypto.reporting.figures.CalendarPlot.html#surfingcrypto.reporting.figures.CalendarPlot" title="surfingcrypto.reporting.figures.CalendarPlot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CalendarPlot</span></code></a>(values)</p></td>
+<td><p>calendar plot</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="surfingcrypto.reporting.figures.PortfolioPlot.html#surfingcrypto.reporting.figures.PortfolioPlot" title="surfingcrypto.reporting.figures.PortfolioPlot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PortfolioPlot</span></code></a>(variables[, by_symbol, zero_line])</p></td>
 <td><p>Portfolio plots</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="surfingcrypto.reporting.figures.SimplePlot.html#surfingcrypto.reporting.figures.SimplePlot" title="surfingcrypto.reporting.figures.SimplePlot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SimplePlot</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="surfingcrypto.reporting.figures.SimplePlot.html#surfingcrypto.reporting.figures.SimplePlot" title="surfingcrypto.reporting.figures.SimplePlot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SimplePlot</span></code></a>(*args, **kwargs)</p></td>
 <td><p>This is the basic price plot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="surfingcrypto.reporting.figures.TaPlot.html#surfingcrypto.reporting.figures.TaPlot" title="surfingcrypto.reporting.figures.TaPlot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TaPlot</span></code></a>([trendlines])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="surfingcrypto.reporting.figures.TaPlot.html#surfingcrypto.reporting.figures.TaPlot" title="surfingcrypto.reporting.figures.TaPlot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TaPlot</span></code></a>([trendlines])</p></td>
 <td><p>this is the Technical Analysis plot.</p></td>
 </tr>
 </tbody>

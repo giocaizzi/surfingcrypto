@@ -18,6 +18,7 @@ surfingcrypto.reporting.figures.BaseFigure
       ~BaseFigure.center_series
       ~BaseFigure.save
       ~BaseFigure.set_axes
+      ~BaseFigure.subset_series
    
    
 

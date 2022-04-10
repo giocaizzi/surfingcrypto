@@ -1,4 +1,4 @@
-surfingcrypto.reporting.figures
+﻿surfingcrypto.reporting.figures
 ===============================
 
 .. automodule:: surfingcrypto.reporting.figures
@@ -21,6 +21,7 @@ surfingcrypto.reporting.figures
    
       ATHPlot
       BaseFigure
+      CalendarPlot
       PortfolioPlot
       SimplePlot
       TaPlot

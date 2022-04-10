@@ -1,0 +1,2274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Surfingcrypto Portfolio &mdash; surfingcrypto 0.1.4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Portfolio: MyCoinbase" href="portfolio_coinbase.html" />
+    <link rel="prev" title="Reporting: plot price data" href="reporting.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> surfingcrypto
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.1.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contents/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/bodytext.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/references.html">References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="scraper.html"><code class="docutils literal notranslate"><span class="pre">Scraper</span></code>: get the required data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ts.html"><code class="docutils literal notranslate"><span class="pre">TS</span></code>: a time-series object optimized for crypto price data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting: plot price data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Surfingcrypto <code class="docutils literal notranslate"><span class="pre">Portfolio</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Total-fees">Total fees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Portfolio-total-investment`">Portfolio total investment`</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Portfolio-value-tracker">Portfolio value tracker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Closedata">Closedata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Portfolio-start-balance">Portfolio start balance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Daily-snapshots">Daily snapshots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Portfolio-calculations">Portfolio calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Portfolio-figures">Portfolio figures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Portfolio-gain/loss">Portfolio gain/loss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Portfolio-daily-value-by-symbol">Portfolio daily value by symbol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Stock-gain-by-symbol">Stock gain by symbol</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Calendar-plot">Calendar plot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="portfolio_coinbase.html">Portfolio: <code class="docutils literal notranslate"><span class="pre">MyCoinbase</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Code reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/surfingcrypto.html">surfingcrypto</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">surfingcrypto</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Surfingcrypto <code class="docutils literal notranslate"><span class="pre">Portfolio</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/examples/portfolio_01.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Surfingcrypto-Portfolio">
+<h1>Surfingcrypto <code class="docutils literal notranslate"><span class="pre">Portfolio</span></code><a class="headerlink" href="#Surfingcrypto-Portfolio" title="Permalink to this headline"></a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">surfingcrypto</span></code> portfolio.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+<span class="kn">from</span> <span class="nn">surfingcrypto</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">surfingcrypto.portfolio</span> <span class="kn">import</span> <span class="n">Portfolio</span>
+<span class="kn">from</span> <span class="nn">surfingcrypto.portfolio.tracker</span> <span class="kn">import</span> <span class="n">Tracker</span>
+<span class="kn">from</span> <span class="nn">surfingcrypto.reporting.figures</span> <span class="kn">import</span> <span class="n">PortfolioPlot</span>
+<span class="kn">from</span> <span class="nn">surfingcrypto.reporting.figures</span> <span class="kn">import</span> <span class="n">CalendarPlot</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/config&quot;</span><span class="p">)</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Portfolio</span><span class="p">(</span><span class="s2">&quot;coinbase&quot;</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+####### PORTFOLIO
+
+MyCoinbase( isHistoric:True, last updated:2022-04-10 15:37:29, N_accounts:31)
+
+
+Warning! There are 14 transactionsthat were EXCLUDED in std_df.
+
+Warning! Errors while handling transactions:
+TransactionsHistory(Transactions:188 - Processed:188, Unhandled:0 - Errors:9)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">coinbase</span><span class="o">.</span><span class="n">mycoinbase_report</span><span class="p">())</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ALGO : EUR 192.51
+AAVE : EUR 170.29
+SUSHI : EUR 70.89
+MATIC : EUR 350.64
+UNI : EUR 124.84
+ADA : EUR 147.98
+USDC : EUR 0.01
+---
+Portfolio: EUR 1057.16
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">coinbase</span><span class="o">.</span><span class="n">active_accounts</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;ALGO&#39;, &#39;AAVE&#39;, &#39;SUSHI&#39;, &#39;MATIC&#39;, &#39;UNI&#39;, &#39;ADA&#39;, &#39;USDC&#39;]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">std_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>amount</th>
+      <th>symbol</th>
+      <th>native_amount</th>
+      <th>nat_symbol</th>
+      <th>total</th>
+      <th>subtotal</th>
+      <th>total_fee</th>
+      <th>spot_price</th>
+      <th>trade_id</th>
+    </tr>
+    <tr>
+      <th>datetime</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2018-10-22T06:29:22Z</th>
+      <td>buy</td>
+      <td>0.017237</td>
+      <td>BTC</td>
+      <td>100.00</td>
+      <td>EUR</td>
+      <td>100.00</td>
+      <td>97.01</td>
+      <td>2.99</td>
+      <td>5627.999719</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2018-11-09T12:05:12Z</th>
+      <td>sell</td>
+      <td>0.017237</td>
+      <td>BTC</td>
+      <td>93.27</td>
+      <td>EUR</td>
+      <td>93.27</td>
+      <td>96.26</td>
+      <td>2.99</td>
+      <td>5584.488743</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2018-11-09T12:06:14Z</th>
+      <td>buy</td>
+      <td>348.021666</td>
+      <td>BAT</td>
+      <td>93.27</td>
+      <td>EUR</td>
+      <td>93.27</td>
+      <td>90.28</td>
+      <td>2.99</td>
+      <td>0.259409</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2019-01-25T14:28:56Z</th>
+      <td>sell</td>
+      <td>348.021666</td>
+      <td>BAT</td>
+      <td>35.96</td>
+      <td>EUR</td>
+      <td>35.96</td>
+      <td>37.95</td>
+      <td>1.99</td>
+      <td>0.109045</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2021-04-20T18:57:40Z</th>
+      <td>buy</td>
+      <td>0.258429</td>
+      <td>ETH</td>
+      <td>500.00</td>
+      <td>EUR</td>
+      <td>500.00</td>
+      <td>492.66</td>
+      <td>7.34</td>
+      <td>1906.364408</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="section" id="Total-fees">
+<h2>Total fees<a class="headerlink" href="#Total-fees" title="Permalink to this headline"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">total_fees</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+205.53999999999965
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Portfolio-total-investment`">
+<h2>Portfolio total investment`<a class="headerlink" href="#Portfolio-total-investment`" title="Permalink to this headline"></a></h2>
+<p>Gets total investment buy summing up <code class="docutils literal notranslate"><span class="pre">fiat_deposit</span></code> and <code class="docutils literal notranslate"><span class="pre">fiat_withdrawal</span></code> investment.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle">Note</p>
+<p>At the moment, when buying with a credit card, the transaction is not registered as <code class="docutils literal notranslate"><span class="pre">fiat_deposit</span></code> and so it is not included in this calculation.</p>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">coinbase</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">df</span><span class="p">[</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">coinbase</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;fiat_deposit&quot;</span><span class="p">,</span> <span class="s2">&quot;fiat_withdrawal&quot;</span><span class="p">])</span>
+<span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)[[</span><span class="s2">&quot;amount&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>amount</th>
+    </tr>
+    <tr>
+      <th>type</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>fiat_deposit</th>
+      <td>1050.00</td>
+    </tr>
+    <tr>
+      <th>fiat_withdrawal</th>
+      <td>-35.96</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="Portfolio-value-tracker">
+<h2>Portfolio value tracker<a class="headerlink" href="#Portfolio-value-tracker" title="Permalink to this headline"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Tracker</span><span class="p">(</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">std_df</span><span class="p">,</span> <span class="n">stocks_start</span><span class="o">=</span><span class="s2">&quot;1-1-2021&quot;</span><span class="p">,</span> <span class="n">benchmark</span><span class="o">=</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="n">c</span>
+<span class="p">)</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="section" id="Closedata">
+<h3>Closedata<a class="headerlink" href="#Closedata" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Tracker</span></code> uses locally stored closedata to track the portfolio daily values.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">closedata</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Close</th>
+      <th>symbol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2017-10-01 00:00:00+00:00</td>
+      <td>3729.454806</td>
+      <td>BTC</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2017-10-02 00:00:00+00:00</td>
+      <td>3758.690499</td>
+      <td>BTC</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2017-10-03 00:00:00+00:00</td>
+      <td>3675.702350</td>
+      <td>BTC</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2017-10-04 00:00:00+00:00</td>
+      <td>3597.924171</td>
+      <td>BTC</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2017-10-05 00:00:00+00:00</td>
+      <td>3695.389871</td>
+      <td>BTC</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>11070</th>
+      <td>2022-04-05 00:00:00+00:00</td>
+      <td>0.765744</td>
+      <td>ALGO</td>
+    </tr>
+    <tr>
+      <th>11071</th>
+      <td>2022-04-06 00:00:00+00:00</td>
+      <td>0.704313</td>
+      <td>ALGO</td>
+    </tr>
+    <tr>
+      <th>11072</th>
+      <td>2022-04-07 00:00:00+00:00</td>
+      <td>0.737744</td>
+      <td>ALGO</td>
+    </tr>
+    <tr>
+      <th>11073</th>
+      <td>2022-04-08 00:00:00+00:00</td>
+      <td>0.696384</td>
+      <td>ALGO</td>
+    </tr>
+    <tr>
+      <th>11074</th>
+      <td>2022-04-09 00:00:00+00:00</td>
+      <td>0.725147</td>
+      <td>ALGO</td>
+    </tr>
+  </tbody>
+</table>
+<p>11075 rows × 3 columns</p>
+</div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">error_log</span></code> attributes contains the log from loading data.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">error_log</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[]
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Portfolio-start-balance">
+<h3>Portfolio start balance<a class="headerlink" href="#Portfolio-start-balance" title="Permalink to this headline"></a></h3>
+<p>Tracker module allows to consider transactions happened before the <code class="docutils literal notranslate"><span class="pre">stocks_start</span></code> date specified.</p>
+<p>This is done adjusting past positions to the current value at <code class="docutils literal notranslate"><span class="pre">stocks_start</span></code> date.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">active_positions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open date</th>
+      <th>Type</th>
+      <th>Qty</th>
+      <th>Symbol</th>
+      <th>Adj cost</th>
+      <th>Adj cost per share</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>2021-04-20 18:57:40+00:00</td>
+      <td>buy</td>
+      <td>0.258429</td>
+      <td>ETH</td>
+      <td>500.00</td>
+      <td>1906.364408</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2021-04-22 10:13:53+00:00</td>
+      <td>buy</td>
+      <td>0.062128</td>
+      <td>MKR</td>
+      <td>250.00</td>
+      <td>3964.873854</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2021-04-22 19:20:15+00:00</td>
+      <td>sell</td>
+      <td>0.062128</td>
+      <td>MKR</td>
+      <td>213.69</td>
+      <td>3491.496921</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2021-04-24 08:53:47+00:00</td>
+      <td>buy</td>
+      <td>210.343863</td>
+      <td>ADA</td>
+      <td>213.69</td>
+      <td>1.000980</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2021-04-25 16:15:33+00:00</td>
+      <td>buy</td>
+      <td>0.350116</td>
+      <td>CGLD</td>
+      <td>1.65</td>
+      <td>4.712730</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="Daily-snapshots">
+<h3>Daily snapshots<a class="headerlink" href="#Daily-snapshots" title="Permalink to this headline"></a></h3>
+<p>The module produces daily snapshots of the portfolio balance.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">daily_snapshots</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open date</th>
+      <th>Type</th>
+      <th>Qty</th>
+      <th>Symbol</th>
+      <th>Adj cost</th>
+      <th>Adj cost per share</th>
+      <th>Date Snapshot</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>155</th>
+      <td>2021-09-09 23:30:55+00:00</td>
+      <td>buy</td>
+      <td>152.199381</td>
+      <td>ADA</td>
+      <td>692.45</td>
+      <td>2.142006</td>
+      <td>2022-04-09 00:00:00+00:00</td>
+    </tr>
+    <tr>
+      <th>151</th>
+      <td>2021-08-26 19:45:55+00:00</td>
+      <td>buy</td>
+      <td>257.829804</td>
+      <td>MATIC</td>
+      <td>1360.65</td>
+      <td>1.174154</td>
+      <td>2022-04-09 00:00:00+00:00</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>2021-08-21 18:49:29+00:00</td>
+      <td>buy</td>
+      <td>0.006479</td>
+      <td>USDC</td>
+      <td>1117.38</td>
+      <td>0.854942</td>
+      <td>2022-04-09 00:00:00+00:00</td>
+    </tr>
+    <tr>
+      <th>157</th>
+      <td>2021-11-29 10:44:04+00:00</td>
+      <td>buy</td>
+      <td>21.493860</td>
+      <td>SUSHI</td>
+      <td>147.19</td>
+      <td>6.848002</td>
+      <td>2022-04-09 00:00:00+00:00</td>
+    </tr>
+    <tr>
+      <th>161</th>
+      <td>2021-12-23 07:27:08+00:00</td>
+      <td>buy</td>
+      <td>13.238243</td>
+      <td>UNI</td>
+      <td>195.91</td>
+      <td>14.798792</td>
+      <td>2022-04-09 00:00:00+00:00</td>
+    </tr>
+    <tr>
+      <th>163</th>
+      <td>2021-12-23 07:28:57+00:00</td>
+      <td>buy</td>
+      <td>1.001178</td>
+      <td>AAVE</td>
+      <td>195.57</td>
+      <td>195.339958</td>
+      <td>2022-04-09 00:00:00+00:00</td>
+    </tr>
+    <tr>
+      <th>172</th>
+      <td>2022-03-21 22:51:02+00:00</td>
+      <td>buy</td>
+      <td>266.411209</td>
+      <td>ALGO</td>
+      <td>196.42</td>
+      <td>0.737281</td>
+      <td>2022-04-09 00:00:00+00:00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="Portfolio-calculations">
+<h3>Portfolio calculations<a class="headerlink" href="#Portfolio-calculations" title="Permalink to this headline"></a></h3>
+<p>All <code class="docutils literal notranslate"><span class="pre">daily_snapshots</span></code> are concatenated in a single dataframe, where for each row the following new attributes are calculated:</p>
+<ul class="simple">
+<li><p>Symbol Adj Close</p></li>
+<li><p>Adj cost daily</p></li>
+<li><p>Benchmark Close</p></li>
+<li><p>Benchmark DayOfBuy Close</p></li>
+<li><p>Benchmark Equiv Shares</p></li>
+<li><p>Benchmark Adj Cost Daily</p></li>
+<li><p>symbol Return</p></li>
+<li><p>Stock Gain / (Loss)</p></li>
+<li><p>Benchmark Return</p></li>
+<li><p>Benchmark Gain / (Loss)</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">daily_calcs</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open date</th>
+      <th>Type</th>
+      <th>Qty</th>
+      <th>Symbol</th>
+      <th>Adj cost</th>
+      <th>Adj cost per share</th>
+      <th>Date Snapshot</th>
+      <th>Symbol Adj Close</th>
+      <th>Adj cost daily</th>
+      <th>Benchmark Close</th>
+      <th>Benchmark DayOfBuy Close</th>
+      <th>Benchmark Equiv Shares</th>
+      <th>Benchmark Adj Cost Daily</th>
+      <th>symbol Return</th>
+      <th>Stock Gain / (Loss)</th>
+      <th>Benchmark Return</th>
+      <th>Benchmark Gain / (Loss)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021-04-20 18:57:40+00:00</td>
+      <td>buy</td>
+      <td>0.258429</td>
+      <td>ETH</td>
+      <td>500.00</td>
+      <td>1906.364408</td>
+      <td>2021-04-20 00:00:00+00:00</td>
+      <td>1936.596366</td>
+      <td>500.472817</td>
+      <td>1936.596366</td>
+      <td>1936.596366</td>
+      <td>0.258185</td>
+      <td>500.000000</td>
+      <td>0.015858</td>
+      <td>7.812817</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021-04-20 18:57:40+00:00</td>
+      <td>buy</td>
+      <td>0.258429</td>
+      <td>ETH</td>
+      <td>500.00</td>
+      <td>1906.364408</td>
+      <td>2021-04-21 00:00:00+00:00</td>
+      <td>1964.593249</td>
+      <td>507.708026</td>
+      <td>1964.593249</td>
+      <td>1936.596366</td>
+      <td>0.258185</td>
+      <td>507.228373</td>
+      <td>0.030544</td>
+      <td>15.048026</td>
+      <td>0.014457</td>
+      <td>7.228373</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021-04-20 18:57:40+00:00</td>
+      <td>buy</td>
+      <td>0.258429</td>
+      <td>ETH</td>
+      <td>500.00</td>
+      <td>1906.364408</td>
+      <td>2021-04-22 00:00:00+00:00</td>
+      <td>2000.536891</td>
+      <td>516.996908</td>
+      <td>2000.536891</td>
+      <td>1936.596366</td>
+      <td>0.258185</td>
+      <td>516.508480</td>
+      <td>0.049399</td>
+      <td>24.336908</td>
+      <td>0.033017</td>
+      <td>16.508480</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021-04-20 18:57:40+00:00</td>
+      <td>buy</td>
+      <td>0.258429</td>
+      <td>ETH</td>
+      <td>500.00</td>
+      <td>1906.364408</td>
+      <td>2021-04-23 00:00:00+00:00</td>
+      <td>1953.619811</td>
+      <td>504.872170</td>
+      <td>1953.619811</td>
+      <td>1936.596366</td>
+      <td>0.258185</td>
+      <td>504.395197</td>
+      <td>0.024788</td>
+      <td>12.212170</td>
+      <td>0.008790</td>
+      <td>4.395197</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021-04-20 18:57:40+00:00</td>
+      <td>buy</td>
+      <td>0.258429</td>
+      <td>ETH</td>
+      <td>500.00</td>
+      <td>1906.364408</td>
+      <td>2021-04-24 00:00:00+00:00</td>
+      <td>1828.220570</td>
+      <td>472.465360</td>
+      <td>1828.220570</td>
+      <td>1936.596366</td>
+      <td>0.258185</td>
+      <td>472.019002</td>
+      <td>-0.040991</td>
+      <td>-20.194640</td>
+      <td>-0.055962</td>
+      <td>-27.980998</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1758</th>
+      <td>2021-08-21 18:49:29+00:00</td>
+      <td>buy</td>
+      <td>0.006479</td>
+      <td>USDC</td>
+      <td>1117.38</td>
+      <td>0.854942</td>
+      <td>2022-04-09 00:00:00+00:00</td>
+      <td>0.919490</td>
+      <td>0.005957</td>
+      <td>2999.048132</td>
+      <td>2758.043679</td>
+      <td>0.405135</td>
+      <td>1215.019337</td>
+      <td>0.075500</td>
+      <td>0.000418</td>
+      <td>0.087382</td>
+      <td>97.639337</td>
+    </tr>
+    <tr>
+      <th>1759</th>
+      <td>2021-11-29 10:44:04+00:00</td>
+      <td>buy</td>
+      <td>21.493860</td>
+      <td>SUSHI</td>
+      <td>147.19</td>
+      <td>6.848002</td>
+      <td>2022-04-09 00:00:00+00:00</td>
+      <td>3.275918</td>
+      <td>70.412119</td>
+      <td>2999.048132</td>
+      <td>3936.273838</td>
+      <td>0.037393</td>
+      <td>112.144102</td>
+      <td>-0.521624</td>
+      <td>-76.777881</td>
+      <td>-0.238100</td>
+      <td>-35.045898</td>
+    </tr>
+    <tr>
+      <th>1760</th>
+      <td>2021-12-23 07:27:08+00:00</td>
+      <td>buy</td>
+      <td>13.238243</td>
+      <td>UNI</td>
+      <td>195.91</td>
+      <td>14.798792</td>
+      <td>2022-04-09 00:00:00+00:00</td>
+      <td>9.248885</td>
+      <td>122.438985</td>
+      <td>2999.048132</td>
+      <td>3627.940496</td>
+      <td>0.054000</td>
+      <td>161.949602</td>
+      <td>-0.375024</td>
+      <td>-73.471015</td>
+      <td>-0.173347</td>
+      <td>-33.960398</td>
+    </tr>
+    <tr>
+      <th>1761</th>
+      <td>2021-12-23 07:28:57+00:00</td>
+      <td>buy</td>
+      <td>1.001178</td>
+      <td>AAVE</td>
+      <td>195.57</td>
+      <td>195.339958</td>
+      <td>2022-04-09 00:00:00+00:00</td>
+      <td>169.821445</td>
+      <td>170.021436</td>
+      <td>2999.048132</td>
+      <td>3627.940496</td>
+      <td>0.053907</td>
+      <td>161.668540</td>
+      <td>-0.130636</td>
+      <td>-25.548564</td>
+      <td>-0.173347</td>
+      <td>-33.901460</td>
+    </tr>
+    <tr>
+      <th>1762</th>
+      <td>2022-03-21 22:51:02+00:00</td>
+      <td>buy</td>
+      <td>266.411209</td>
+      <td>ALGO</td>
+      <td>196.42</td>
+      <td>0.737281</td>
+      <td>2022-04-09 00:00:00+00:00</td>
+      <td>0.725147</td>
+      <td>193.187300</td>
+      <td>2999.048132</td>
+      <td>2630.493433</td>
+      <td>0.074670</td>
+      <td>223.940127</td>
+      <td>-0.016458</td>
+      <td>-3.232700</td>
+      <td>0.140109</td>
+      <td>27.520127</td>
+    </tr>
+  </tbody>
+</table>
+<p>1763 rows × 17 columns</p>
+</div></div>
+</div>
+<p>Each day can be accessed by selecting via the <code class="docutils literal notranslate"><span class="pre">Date</span> <span class="pre">Snapshot</span></code> column.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">daily_calcs</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Date Snapshot&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2022-03-27&quot;</span><span class="p">]</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open date</th>
+      <th>Type</th>
+      <th>Qty</th>
+      <th>Symbol</th>
+      <th>Adj cost</th>
+      <th>Adj cost per share</th>
+      <th>Symbol Adj Close</th>
+      <th>Adj cost daily</th>
+      <th>Benchmark Close</th>
+      <th>Benchmark DayOfBuy Close</th>
+      <th>Benchmark Equiv Shares</th>
+      <th>Benchmark Adj Cost Daily</th>
+      <th>symbol Return</th>
+      <th>Stock Gain / (Loss)</th>
+      <th>Benchmark Return</th>
+      <th>Benchmark Gain / (Loss)</th>
+    </tr>
+    <tr>
+      <th>Date Snapshot</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-03-27 00:00:00+00:00</th>
+      <td>2021-09-09 23:30:55+00:00</td>
+      <td>buy</td>
+      <td>152.199381</td>
+      <td>ADA</td>
+      <td>692.45</td>
+      <td>2.142006</td>
+      <td>1.076485</td>
+      <td>163.840401</td>
+      <td>2997.369798</td>
+      <td>2898.501595</td>
+      <td>0.238899</td>
+      <td>716.069544</td>
+      <td>-0.497441</td>
+      <td>-162.171620</td>
+      <td>0.034110</td>
+      <td>23.619544</td>
+    </tr>
+    <tr>
+      <th>2022-03-27 00:00:00+00:00</th>
+      <td>2021-08-26 19:45:55+00:00</td>
+      <td>buy</td>
+      <td>257.829804</td>
+      <td>MATIC</td>
+      <td>1360.65</td>
+      <td>1.174154</td>
+      <td>1.542114</td>
+      <td>397.603027</td>
+      <td>2997.369798</td>
+      <td>2637.787884</td>
+      <td>0.515830</td>
+      <td>1546.133122</td>
+      <td>0.313383</td>
+      <td>94.871114</td>
+      <td>0.136319</td>
+      <td>185.483122</td>
+    </tr>
+    <tr>
+      <th>2022-03-27 00:00:00+00:00</th>
+      <td>2021-08-21 18:49:29+00:00</td>
+      <td>buy</td>
+      <td>0.006479</td>
+      <td>USDC</td>
+      <td>1117.38</td>
+      <td>0.854942</td>
+      <td>0.910654</td>
+      <td>0.005900</td>
+      <td>2997.369798</td>
+      <td>2758.043679</td>
+      <td>0.405135</td>
+      <td>1214.339385</td>
+      <td>0.065165</td>
+      <td>0.000361</td>
+      <td>0.086774</td>
+      <td>96.959385</td>
+    </tr>
+    <tr>
+      <th>2022-03-27 00:00:00+00:00</th>
+      <td>2021-11-29 10:44:04+00:00</td>
+      <td>buy</td>
+      <td>21.493860</td>
+      <td>SUSHI</td>
+      <td>147.19</td>
+      <td>6.848002</td>
+      <td>3.628505</td>
+      <td>77.990581</td>
+      <td>2997.369798</td>
+      <td>3936.273838</td>
+      <td>0.037393</td>
+      <td>112.081344</td>
+      <td>-0.470137</td>
+      <td>-69.199419</td>
+      <td>-0.238526</td>
+      <td>-35.108656</td>
+    </tr>
+    <tr>
+      <th>2022-03-27 00:00:00+00:00</th>
+      <td>2021-12-23 07:27:08+00:00</td>
+      <td>buy</td>
+      <td>13.238243</td>
+      <td>UNI</td>
+      <td>195.91</td>
+      <td>14.798792</td>
+      <td>10.376201</td>
+      <td>137.362662</td>
+      <td>2997.369798</td>
+      <td>3627.940496</td>
+      <td>0.054000</td>
+      <td>161.858971</td>
+      <td>-0.298848</td>
+      <td>-58.547338</td>
+      <td>-0.173810</td>
+      <td>-34.051029</td>
+    </tr>
+    <tr>
+      <th>2022-03-27 00:00:00+00:00</th>
+      <td>2021-12-23 07:28:57+00:00</td>
+      <td>buy</td>
+      <td>1.001178</td>
+      <td>AAVE</td>
+      <td>195.57</td>
+      <td>195.339958</td>
+      <td>153.883400</td>
+      <td>154.064620</td>
+      <td>2997.369798</td>
+      <td>3627.940496</td>
+      <td>0.053907</td>
+      <td>161.578067</td>
+      <td>-0.212228</td>
+      <td>-41.505380</td>
+      <td>-0.173810</td>
+      <td>-33.991933</td>
+    </tr>
+    <tr>
+      <th>2022-03-27 00:00:00+00:00</th>
+      <td>2022-03-21 22:51:02+00:00</td>
+      <td>buy</td>
+      <td>266.411209</td>
+      <td>ALGO</td>
+      <td>196.42</td>
+      <td>0.737281</td>
+      <td>0.863601</td>
+      <td>230.072928</td>
+      <td>2997.369798</td>
+      <td>2630.493433</td>
+      <td>0.074670</td>
+      <td>223.814805</td>
+      <td>0.171331</td>
+      <td>33.652928</td>
+      <td>0.139471</td>
+      <td>27.394805</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">daily_grouped_metrics()</span></code> method can be used to extract from the <code class="docutils literal notranslate"><span class="pre">daily_calcs</span></code> dataframe a single grouped timeseries of a selecred set of variables.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">daily_grouped_metrics</span><span class="p">([</span><span class="s2">&quot;Adj cost daily&quot;</span><span class="p">])</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>variable</th>
+      <th>Adj cost daily</th>
+    </tr>
+    <tr>
+      <th>Date Snapshot</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-04-20</th>
+      <td>500.472817</td>
+    </tr>
+    <tr>
+      <th>2021-04-21</th>
+      <td>507.708026</td>
+    </tr>
+    <tr>
+      <th>2021-04-22</th>
+      <td>516.996908</td>
+    </tr>
+    <tr>
+      <th>2021-04-23</th>
+      <td>504.872170</td>
+    </tr>
+    <tr>
+      <th>2021-04-24</th>
+      <td>663.967701</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2022-04-05</th>
+      <td>1162.573957</td>
+    </tr>
+    <tr>
+      <th>2022-04-06</th>
+      <td>1047.152545</td>
+    </tr>
+    <tr>
+      <th>2022-04-07</th>
+      <td>1095.390930</td>
+    </tr>
+    <tr>
+      <th>2022-04-08</th>
+      <td>1023.464954</td>
+    </tr>
+    <tr>
+      <th>2022-04-09</th>
+      <td>1049.419587</td>
+    </tr>
+  </tbody>
+</table>
+<p>355 rows × 1 columns</p>
+</div></div>
+</div>
+<p>By default all different assets are summed together, otherwise it is possible to keep data separated by simbol, with <code class="docutils literal notranslate"><span class="pre">by_simbol</span></code> set as <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">daily_grouped_metrics</span><span class="p">([</span><span class="s2">&quot;Adj cost daily&quot;</span><span class="p">],</span> <span class="n">by_symbol</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span>
+    <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>AAVE</th>
+      <th>ADA</th>
+      <th>ALGO</th>
+      <th>MATIC</th>
+      <th>SUSHI</th>
+      <th>UNI</th>
+      <th>USDC</th>
+    </tr>
+    <tr>
+      <th>variable</th>
+      <th>Adj cost daily</th>
+      <th>Adj cost daily</th>
+      <th>Adj cost daily</th>
+      <th>Adj cost daily</th>
+      <th>Adj cost daily</th>
+      <th>Adj cost daily</th>
+      <th>Adj cost daily</th>
+    </tr>
+    <tr>
+      <th>Date Snapshot</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-04-05</th>
+      <td>202.981765</td>
+      <td>163.394274</td>
+      <td>204.002873</td>
+      <td>376.589556</td>
+      <td>80.724306</td>
+      <td>134.875244</td>
+      <td>0.005939</td>
+    </tr>
+    <tr>
+      <th>2022-04-06</th>
+      <td>175.889172</td>
+      <td>147.030232</td>
+      <td>187.636837</td>
+      <td>345.122484</td>
+      <td>70.359430</td>
+      <td>121.108447</td>
+      <td>0.005943</td>
+    </tr>
+    <tr>
+      <th>2022-04-07</th>
+      <td>186.685538</td>
+      <td>152.957396</td>
+      <td>196.543267</td>
+      <td>359.295347</td>
+      <td>72.063584</td>
+      <td>127.839834</td>
+      <td>0.005964</td>
+    </tr>
+    <tr>
+      <th>2022-04-08</th>
+      <td>168.845813</td>
+      <td>143.617935</td>
+      <td>185.524524</td>
+      <td>340.336082</td>
+      <td>66.905473</td>
+      <td>118.229171</td>
+      <td>0.005955</td>
+    </tr>
+    <tr>
+      <th>2022-04-09</th>
+      <td>170.021436</td>
+      <td>146.233260</td>
+      <td>193.187300</td>
+      <td>347.120531</td>
+      <td>70.412119</td>
+      <td>122.438985</td>
+      <td>0.005957</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Since <code class="docutils literal notranslate"><span class="pre">variables</span></code> is a list, we can compare multiple attributes.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">daily_grouped_metrics</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;Benchmark Gain / (Loss)&quot;</span><span class="p">,</span> <span class="s2">&quot;Stock Gain / (Loss)&quot;</span><span class="p">],</span> <span class="n">by_symbol</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th colspan="2" halign="left">AAVE</th>
+      <th colspan="2" halign="left">ACH</th>
+      <th colspan="2" halign="left">ADA</th>
+      <th colspan="2" halign="left">ALGO</th>
+      <th colspan="2" halign="left">AMP</th>
+      <th>...</th>
+      <th colspan="2" halign="left">SOL</th>
+      <th colspan="2" halign="left">SUSHI</th>
+      <th colspan="2" halign="left">UNI</th>
+      <th colspan="2" halign="left">USDC</th>
+      <th colspan="2" halign="left">USDT</th>
+    </tr>
+    <tr>
+      <th>variable</th>
+      <th>Benchmark Gain / (Loss)</th>
+      <th>Stock Gain / (Loss)</th>
+      <th>Benchmark Gain / (Loss)</th>
+      <th>Stock Gain / (Loss)</th>
+      <th>Benchmark Gain / (Loss)</th>
+      <th>Stock Gain / (Loss)</th>
+      <th>Benchmark Gain / (Loss)</th>
+      <th>Stock Gain / (Loss)</th>
+      <th>Benchmark Gain / (Loss)</th>
+      <th>Stock Gain / (Loss)</th>
+      <th>...</th>
+      <th>Benchmark Gain / (Loss)</th>
+      <th>Stock Gain / (Loss)</th>
+      <th>Benchmark Gain / (Loss)</th>
+      <th>Stock Gain / (Loss)</th>
+      <th>Benchmark Gain / (Loss)</th>
+      <th>Stock Gain / (Loss)</th>
+      <th>Benchmark Gain / (Loss)</th>
+      <th>Stock Gain / (Loss)</th>
+      <th>Benchmark Gain / (Loss)</th>
+      <th>Stock Gain / (Loss)</th>
+    </tr>
+    <tr>
+      <th>Date Snapshot</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-04-05</th>
+      <td>-26.928052</td>
+      <td>7.411765</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>54.924723</td>
+      <td>-162.617748</td>
+      <td>37.179557</td>
+      <td>7.582873</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-30.208676</td>
+      <td>-66.465694</td>
+      <td>-26.974867</td>
+      <td>-61.034756</td>
+      <td>150.047960</td>
+      <td>0.000400</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2022-04-06</th>
+      <td>-38.680774</td>
+      <td>-19.680828</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.839891</td>
+      <td>-178.981789</td>
+      <td>20.899914</td>
+      <td>-8.783163</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-38.361150</td>
+      <td>-76.830570</td>
+      <td>-38.748021</td>
+      <td>-74.801553</td>
+      <td>61.720417</td>
+      <td>0.000404</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2022-04-07</th>
+      <td>-35.148798</td>
+      <td>-8.884462</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>18.492640</td>
+      <td>-173.054625</td>
+      <td>25.792339</td>
+      <td>0.123267</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-35.911135</td>
+      <td>-75.126416</td>
+      <td>-35.209904</td>
+      <td>-68.070166</td>
+      <td>88.264976</td>
+      <td>0.000424</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2022-04-08</th>
+      <td>-37.363007</td>
+      <td>-26.724187</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>8.679875</td>
+      <td>-182.394086</td>
+      <td>22.725260</td>
+      <td>-10.895476</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-37.447058</td>
+      <td>-80.284527</td>
+      <td>-37.427962</td>
+      <td>-77.680829</td>
+      <td>71.624096</td>
+      <td>0.000416</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2022-04-09</th>
+      <td>-33.901460</td>
+      <td>-25.548564</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>24.020497</td>
+      <td>-179.778762</td>
+      <td>27.520127</td>
+      <td>-3.232700</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-35.045898</td>
+      <td>-76.777881</td>
+      <td>-33.960398</td>
+      <td>-73.471015</td>
+      <td>97.639337</td>
+      <td>0.000418</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 32 columns</p>
+</div></div>
+</div>
+</div>
+</div>
+<div class="section" id="Portfolio-figures">
+<h2>Portfolio figures<a class="headerlink" href="#Portfolio-figures" title="Permalink to this headline"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">surfingcrypto.reporting.figures</span></code> modules containes a custom <code class="docutils literal notranslate"><span class="pre">PortfolioPlot</span></code> class that is designed to plot figures for the stock calculation, as <em>Adj cost daily</em> or <em>Stock Gain / (Loss)</em>.</p>
+<p>Data can be selected by passing the <code class="docutils literal notranslate"><span class="pre">variable</span></code> - and optionally <code class="docutils literal notranslate"><span class="pre">by_symbol</span></code>- as to a <code class="docutils literal notranslate"><span class="pre">daily_grouped_metrics()</span></code> function.</p>
+<p>Moreover, with <code class="docutils literal notranslate"><span class="pre">zero_line</span></code>as <code class="docutils literal notranslate"><span class="pre">True</span></code> it is possible to add an horizontal line at 0. ### Portfolio daily value</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PortfolioPlot</span><span class="p">(</span><span class="n">variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Adj cost daily&quot;</span><span class="p">],</span> <span class="nb">object</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">graphstart</span><span class="o">=</span><span class="s2">&quot;6m&quot;</span><span class="p">)</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;surfingcrypto.reporting.figures.PortfolioPlot at 0x7fb5084b9050&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_portfolio_01_32_1.png" src="../_images/examples_portfolio_01_32_1.png" />
+</div>
+</div>
+<div class="section" id="Portfolio-gain/loss">
+<h3>Portfolio gain/loss<a class="headerlink" href="#Portfolio-gain/loss" title="Permalink to this headline"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PortfolioPlot</span><span class="p">(</span>
+    <span class="n">variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Stock Gain / (Loss)&quot;</span><span class="p">],</span>
+    <span class="n">zero_line</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="nb">object</span><span class="o">=</span><span class="n">t</span><span class="p">,</span>
+    <span class="n">graphstart</span><span class="o">=</span><span class="s2">&quot;6m&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;surfingcrypto.reporting.figures.PortfolioPlot at 0x7fb5080c1590&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_portfolio_01_34_1.png" src="../_images/examples_portfolio_01_34_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PortfolioPlot</span><span class="p">(</span>
+    <span class="n">variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Stock Gain / (Loss)&quot;</span><span class="p">,</span> <span class="s2">&quot;Benchmark Gain / (Loss)&quot;</span><span class="p">],</span>
+    <span class="n">zero_line</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="nb">object</span><span class="o">=</span><span class="n">t</span><span class="p">,</span>
+    <span class="n">graphstart</span><span class="o">=</span><span class="s2">&quot;6m&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;surfingcrypto.reporting.figures.PortfolioPlot at 0x7fb5080445d0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_portfolio_01_35_1.png" src="../_images/examples_portfolio_01_35_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Portfolio-daily-value-by-symbol">
+<h3>Portfolio daily value by symbol<a class="headerlink" href="#Portfolio-daily-value-by-symbol" title="Permalink to this headline"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PortfolioPlot</span><span class="p">(</span>
+    <span class="n">variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Adj cost daily&quot;</span><span class="p">],</span> <span class="n">by_symbol</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">object</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">graphstart</span><span class="o">=</span><span class="s2">&quot;6m&quot;</span>
+<span class="p">)</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;surfingcrypto.reporting.figures.PortfolioPlot at 0x7fb5084f7c90&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_portfolio_01_37_1.png" src="../_images/examples_portfolio_01_37_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Stock-gain-by-symbol">
+<h3>Stock gain by symbol<a class="headerlink" href="#Stock-gain-by-symbol" title="Permalink to this headline"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PortfolioPlot</span><span class="p">(</span>
+    <span class="n">variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Stock Gain / (Loss)&quot;</span><span class="p">],</span>
+    <span class="n">by_symbol</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">zero_line</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="nb">object</span><span class="o">=</span><span class="n">t</span><span class="p">,</span>
+    <span class="n">graphstart</span><span class="o">=</span><span class="s2">&quot;6m&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;surfingcrypto.reporting.figures.PortfolioPlot at 0x7fb5080719d0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_portfolio_01_39_1.png" src="../_images/examples_portfolio_01_39_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Calendar-plot">
+<h2>Calendar plot<a class="headerlink" href="#Calendar-plot" title="Permalink to this headline"></a></h2>
+<p>This calendar plot is a good visualisation of a variable in a calendar style.</p>
+<p>The series passed as input must have a datetime index.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">daily_grouped_metrics</span><span class="p">([</span><span class="s2">&quot;Stock Gain / (Loss)&quot;</span><span class="p">])</span>
+<span class="n">values</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Date Snapshot&quot;</span><span class="p">)</span>
+<span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>variable</th>
+      <th>Stock Gain / (Loss)</th>
+    </tr>
+    <tr>
+      <th>Date Snapshot</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-04-20</th>
+      <td>7.812817</td>
+    </tr>
+    <tr>
+      <th>2021-04-21</th>
+      <td>15.048026</td>
+    </tr>
+    <tr>
+      <th>2021-04-22</th>
+      <td>24.336908</td>
+    </tr>
+    <tr>
+      <th>2021-04-23</th>
+      <td>12.212170</td>
+    </tr>
+    <tr>
+      <th>2021-04-24</th>
+      <td>-39.242299</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2022-04-05</th>
+      <td>-201.265517</td>
+    </tr>
+    <tr>
+      <th>2022-04-06</th>
+      <td>-316.686929</td>
+    </tr>
+    <tr>
+      <th>2022-04-07</th>
+      <td>-268.448544</td>
+    </tr>
+    <tr>
+      <th>2022-04-08</th>
+      <td>-340.374520</td>
+    </tr>
+    <tr>
+      <th>2022-04-09</th>
+      <td>-314.419887</td>
+    </tr>
+  </tbody>
+</table>
+<p>355 rows × 1 columns</p>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CalendarPlot</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;surfingcrypto.reporting.figures.CalendarPlot at 0x7fb507d7c190&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_portfolio_01_42_1.png" src="../_images/examples_portfolio_01_42_1.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="reporting.html" class="btn btn-neutral float-left" title="Reporting: plot price data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="portfolio_coinbase.html" class="btn btn-neutral float-right" title="Portfolio: MyCoinbase" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, giocaizzi.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

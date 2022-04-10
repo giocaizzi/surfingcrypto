@@ -18,6 +18,7 @@ surfingcrypto.reporting.figures.TaPlot
       ~TaPlot.center_series
       ~TaPlot.save
       ~TaPlot.set_axes
+      ~TaPlot.subset_series
       ~TaPlot.ta_plot
    
    
