@@ -19,7 +19,6 @@
     "%autoreload 2\n",
     "from surfingcrypto import Config\n",
     "from surfingcrypto.portfolio import Portfolio\n",
-    "from surfingcrypto.portfolio.tracker import Tracker\n",
     "from surfingcrypto.reporting.figures import PortfolioPlot\n",
     "from surfingcrypto.reporting.figures import CalendarPlot\n",
     "\n",
@@ -71,20 +70,20 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "ALGO : EUR 192.51\n",
-      "AAVE : EUR 170.29\n",
-      "SUSHI : EUR 70.89\n",
-      "MATIC : EUR 350.64\n",
-      "UNI : EUR 124.84\n",
-      "ADA : EUR 147.98\n",
+      "ALGO : EUR 192.52\n",
+      "AAVE : EUR 171.57\n",
+      "SUSHI : EUR 71.19\n",
+      "MATIC : EUR 351.07\n",
+      "UNI : EUR 124.51\n",
+      "ADA : EUR 148.65\n",
       "USDC : EUR 0.01\n",
       "---\n",
-      "Portfolio: EUR 1057.16\n"
+      "Portfolio: EUR 1059.52\n"
      ]
     }
    ],
    "source": [
-    "print(p.coinbase.mycoinbase_report())\n"
+    "print(p.coinbase.live_value_report())\n"
    ]
   },
   {
@@ -358,9 +357,7 @@
     }
    ],
    "source": [
-    "p.coinbase.history.df[\n",
-    "    p.coinbase.history.df.type.isin([\"fiat_deposit\", \"fiat_withdrawal\"])\n",
-    "].groupby(\"type\")[[\"amount\"]].sum()\n",
+    "p.total_investment()\n",
     "\n"
    ]
   },
@@ -377,8 +374,8 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "t = Tracker(\n",
-    "    p.std_df, stocks_start=\"1-1-2021\", benchmark=\"ETH\", configuration=c\n",
+    "p.start_tracker(\n",
+    "    stocks_start=\"1-1-2021\", benchmark=\"ETH\",\n",
     ")\n",
     "\n"
    ]
@@ -425,42 +422,6 @@
        "  </thead>\n",
        "  <tbody>\n",
        "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>2017-10-01 00:00:00+00:00</td>\n",
-       "      <td>3729.454806</td>\n",
-       "      <td>BTC</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>2017-10-02 00:00:00+00:00</td>\n",
-       "      <td>3758.690499</td>\n",
-       "      <td>BTC</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>2017-10-03 00:00:00+00:00</td>\n",
-       "      <td>3675.702350</td>\n",
-       "      <td>BTC</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>3</th>\n",
-       "      <td>2017-10-04 00:00:00+00:00</td>\n",
-       "      <td>3597.924171</td>\n",
-       "      <td>BTC</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>4</th>\n",
-       "      <td>2017-10-05 00:00:00+00:00</td>\n",
-       "      <td>3695.389871</td>\n",
-       "      <td>BTC</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>...</th>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
        "      <th>11070</th>\n",
        "      <td>2022-04-05 00:00:00+00:00</td>\n",
        "      <td>0.765744</td>\n",
@@ -492,24 +453,15 @@
        "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
-       "<p>11075 rows × 3 columns</p>\n",
        "</div>"
       ],
       "text/plain": [
-       "                           Date        Close symbol\n",
-       "0     2017-10-01 00:00:00+00:00  3729.454806    BTC\n",
-       "1     2017-10-02 00:00:00+00:00  3758.690499    BTC\n",
-       "2     2017-10-03 00:00:00+00:00  3675.702350    BTC\n",
-       "3     2017-10-04 00:00:00+00:00  3597.924171    BTC\n",
-       "4     2017-10-05 00:00:00+00:00  3695.389871    BTC\n",
-       "...                         ...          ...    ...\n",
-       "11070 2022-04-05 00:00:00+00:00     0.765744   ALGO\n",
-       "11071 2022-04-06 00:00:00+00:00     0.704313   ALGO\n",
-       "11072 2022-04-07 00:00:00+00:00     0.737744   ALGO\n",
-       "11073 2022-04-08 00:00:00+00:00     0.696384   ALGO\n",
-       "11074 2022-04-09 00:00:00+00:00     0.725147   ALGO\n",
-       "\n",
-       "[11075 rows x 3 columns]"
+       "                           Date     Close symbol\n",
+       "11070 2022-04-05 00:00:00+00:00  0.765744   ALGO\n",
+       "11071 2022-04-06 00:00:00+00:00  0.704313   ALGO\n",
+       "11072 2022-04-07 00:00:00+00:00  0.737744   ALGO\n",
+       "11073 2022-04-08 00:00:00+00:00  0.696384   ALGO\n",
+       "11074 2022-04-09 00:00:00+00:00  0.725147   ALGO"
       ]
      },
      "execution_count": 10,
@@ -518,7 +470,7 @@
     }
    ],
    "source": [
-    "t.closedata\n"
+    "p.tracker.closedata.tail()\n"
    ]
   },
   {
@@ -545,7 +497,7 @@
     }
    ],
    "source": [
-    "t.error_log\n"
+    "p.tracker.error_log\n"
    ]
   },
   {
@@ -665,155 +617,7 @@
     }
    ],
    "source": [
-    "t.active_positions.head()\n"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "### Daily snapshots\n",
-    "\n",
-    "The module produces daily snapshots of the portfolio balance."
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 13,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th></th>\n",
-       "      <th>Open date</th>\n",
-       "      <th>Type</th>\n",
-       "      <th>Qty</th>\n",
-       "      <th>Symbol</th>\n",
-       "      <th>Adj cost</th>\n",
-       "      <th>Adj cost per share</th>\n",
-       "      <th>Date Snapshot</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>155</th>\n",
-       "      <td>2021-09-09 23:30:55+00:00</td>\n",
-       "      <td>buy</td>\n",
-       "      <td>152.199381</td>\n",
-       "      <td>ADA</td>\n",
-       "      <td>692.45</td>\n",
-       "      <td>2.142006</td>\n",
-       "      <td>2022-04-09 00:00:00+00:00</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>151</th>\n",
-       "      <td>2021-08-26 19:45:55+00:00</td>\n",
-       "      <td>buy</td>\n",
-       "      <td>257.829804</td>\n",
-       "      <td>MATIC</td>\n",
-       "      <td>1360.65</td>\n",
-       "      <td>1.174154</td>\n",
-       "      <td>2022-04-09 00:00:00+00:00</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>147</th>\n",
-       "      <td>2021-08-21 18:49:29+00:00</td>\n",
-       "      <td>buy</td>\n",
-       "      <td>0.006479</td>\n",
-       "      <td>USDC</td>\n",
-       "      <td>1117.38</td>\n",
-       "      <td>0.854942</td>\n",
-       "      <td>2022-04-09 00:00:00+00:00</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>157</th>\n",
-       "      <td>2021-11-29 10:44:04+00:00</td>\n",
-       "      <td>buy</td>\n",
-       "      <td>21.493860</td>\n",
-       "      <td>SUSHI</td>\n",
-       "      <td>147.19</td>\n",
-       "      <td>6.848002</td>\n",
-       "      <td>2022-04-09 00:00:00+00:00</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>161</th>\n",
-       "      <td>2021-12-23 07:27:08+00:00</td>\n",
-       "      <td>buy</td>\n",
-       "      <td>13.238243</td>\n",
-       "      <td>UNI</td>\n",
-       "      <td>195.91</td>\n",
-       "      <td>14.798792</td>\n",
-       "      <td>2022-04-09 00:00:00+00:00</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>163</th>\n",
-       "      <td>2021-12-23 07:28:57+00:00</td>\n",
-       "      <td>buy</td>\n",
-       "      <td>1.001178</td>\n",
-       "      <td>AAVE</td>\n",
-       "      <td>195.57</td>\n",
-       "      <td>195.339958</td>\n",
-       "      <td>2022-04-09 00:00:00+00:00</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>172</th>\n",
-       "      <td>2022-03-21 22:51:02+00:00</td>\n",
-       "      <td>buy</td>\n",
-       "      <td>266.411209</td>\n",
-       "      <td>ALGO</td>\n",
-       "      <td>196.42</td>\n",
-       "      <td>0.737281</td>\n",
-       "      <td>2022-04-09 00:00:00+00:00</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "                    Open date Type         Qty Symbol  Adj cost  \\\n",
-       "155 2021-09-09 23:30:55+00:00  buy  152.199381    ADA    692.45   \n",
-       "151 2021-08-26 19:45:55+00:00  buy  257.829804  MATIC   1360.65   \n",
-       "147 2021-08-21 18:49:29+00:00  buy    0.006479   USDC   1117.38   \n",
-       "157 2021-11-29 10:44:04+00:00  buy   21.493860  SUSHI    147.19   \n",
-       "161 2021-12-23 07:27:08+00:00  buy   13.238243    UNI    195.91   \n",
-       "163 2021-12-23 07:28:57+00:00  buy    1.001178   AAVE    195.57   \n",
-       "172 2022-03-21 22:51:02+00:00  buy  266.411209   ALGO    196.42   \n",
-       "\n",
-       "     Adj cost per share             Date Snapshot  \n",
-       "155            2.142006 2022-04-09 00:00:00+00:00  \n",
-       "151            1.174154 2022-04-09 00:00:00+00:00  \n",
-       "147            0.854942 2022-04-09 00:00:00+00:00  \n",
-       "157            6.848002 2022-04-09 00:00:00+00:00  \n",
-       "161           14.798792 2022-04-09 00:00:00+00:00  \n",
-       "163          195.339958 2022-04-09 00:00:00+00:00  \n",
-       "172            0.737281 2022-04-09 00:00:00+00:00  "
-      ]
-     },
-     "execution_count": 13,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "t.daily_snapshots[-1]\n"
+    "p.tracker.active_positions.head()\n"
    ]
   },
   {
@@ -838,7 +642,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 13,
    "metadata": {},
    "outputs": [
     {
@@ -1176,25 +980,28 @@
        "[1763 rows x 17 columns]"
       ]
      },
-     "execution_count": 14,
+     "execution_count": 13,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "t.daily_calcs\n"
+    "p.tracker.daily_calcs"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Each day can be accessed by selecting via the `Date Snapshot` column."
+    "### Daily snapshots\n",
+    "\n",
+    "The module produces daily snapshots of the portfolio balance.\n",
+    "Each day can be accessed by selecting via the `Date Snapshot` column.\n"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 15,
+   "execution_count": 14,
    "metadata": {},
    "outputs": [
     {
@@ -1465,13 +1272,13 @@
        "2022-03-27 00:00:00+00:00                27.394805  "
       ]
      },
-     "execution_count": 15,
+     "execution_count": 14,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "t.daily_calcs.set_index(\"Date Snapshot\").loc[\"2022-03-27\"]\n"
+    "p.tracker.daily_snaphost(\"2022-03-27\")\n"
    ]
   },
   {
@@ -1483,7 +1290,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 16,
+   "execution_count": 15,
    "metadata": {},
    "outputs": [
     {
@@ -1516,30 +1323,6 @@
        "  </thead>\n",
        "  <tbody>\n",
        "    <tr>\n",
-       "      <th>2021-04-20</th>\n",
-       "      <td>500.472817</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2021-04-21</th>\n",
-       "      <td>507.708026</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2021-04-22</th>\n",
-       "      <td>516.996908</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2021-04-23</th>\n",
-       "      <td>504.872170</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2021-04-24</th>\n",
-       "      <td>663.967701</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>...</th>\n",
-       "      <td>...</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
        "      <th>2022-04-05</th>\n",
        "      <td>1162.573957</td>\n",
        "    </tr>\n",
@@ -1561,34 +1344,25 @@
        "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
-       "<p>355 rows × 1 columns</p>\n",
        "</div>"
       ],
       "text/plain": [
        "variable       Adj cost daily\n",
        "Date Snapshot                \n",
-       "2021-04-20         500.472817\n",
-       "2021-04-21         507.708026\n",
-       "2021-04-22         516.996908\n",
-       "2021-04-23         504.872170\n",
-       "2021-04-24         663.967701\n",
-       "...                       ...\n",
        "2022-04-05        1162.573957\n",
        "2022-04-06        1047.152545\n",
        "2022-04-07        1095.390930\n",
        "2022-04-08        1023.464954\n",
-       "2022-04-09        1049.419587\n",
-       "\n",
-       "[355 rows x 1 columns]"
+       "2022-04-09        1049.419587"
       ]
      },
-     "execution_count": 16,
+     "execution_count": 15,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "t.daily_grouped_metrics([\"Adj cost daily\"])\n",
+    "p.tracker.daily_grouped_metrics([\"Adj cost daily\"]).tail()\n",
     "\n"
    ]
   },
@@ -1601,7 +1375,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 16,
    "metadata": {},
    "outputs": [
     {
@@ -1733,13 +1507,13 @@
        "2022-04-09         70.412119     122.438985       0.005957  "
       ]
      },
-     "execution_count": 17,
+     "execution_count": 16,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "t.daily_grouped_metrics([\"Adj cost daily\"], by_symbol=True).iloc[-5:].dropna(\n",
+    "p.tracker.daily_grouped_metrics([\"Adj cost daily\"], by_symbol=True).iloc[-5:].dropna(\n",
     "    axis=1\n",
     ")\n",
     "\n"
@@ -1754,7 +1528,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 17,
    "metadata": {},
    "outputs": [
     {
@@ -2063,13 +1837,13 @@
        "[5 rows x 32 columns]"
       ]
      },
-     "execution_count": 18,
+     "execution_count": 17,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "df = t.daily_grouped_metrics(\n",
+    "df = p.tracker.daily_grouped_metrics(\n",
     "    [\"Benchmark Gain / (Loss)\", \"Stock Gain / (Loss)\"], by_symbol=True\n",
     ")\n",
     "df.tail()\n"
@@ -2091,16 +1865,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 19,
+   "execution_count": 24,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "<surfingcrypto.reporting.figures.PortfolioPlot at 0x7fb5084b9050>"
+       "<surfingcrypto.reporting.figures.PortfolioPlot at 0x7f942c015b10>"
       ]
      },
-     "execution_count": 19,
+     "execution_count": 24,
      "metadata": {},
      "output_type": "execute_result"
     },
@@ -2116,7 +1890,7 @@
     }
    ],
    "source": [
-    "PortfolioPlot(variables=[\"Adj cost daily\"], object=t, graphstart=\"6m\")\n",
+    "PortfolioPlot(variables=[\"Adj cost daily\"], object=p, graphstart=\"6m\")\n",
     "\n"
    ]
   },
@@ -2129,16 +1903,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": 25,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "<surfingcrypto.reporting.figures.PortfolioPlot at 0x7fb5080c1590>"
+       "<surfingcrypto.reporting.figures.PortfolioPlot at 0x7f942ed1af50>"
       ]
      },
-     "execution_count": 20,
+     "execution_count": 25,
      "metadata": {},
      "output_type": "execute_result"
     },
@@ -2157,7 +1931,7 @@
     "PortfolioPlot(\n",
     "    variables=[\"Stock Gain / (Loss)\"],\n",
     "    zero_line=True,\n",
-    "    object=t,\n",
+    "    object=p,\n",
     "    graphstart=\"6m\",\n",
     ")\n",
     "\n"
@@ -2165,16 +1939,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 21,
+   "execution_count": 27,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "<surfingcrypto.reporting.figures.PortfolioPlot at 0x7fb5080445d0>"
+       "<surfingcrypto.reporting.figures.PortfolioPlot at 0x7f942fdbc350>"
       ]
      },
-     "execution_count": 21,
+     "execution_count": 27,
      "metadata": {},
      "output_type": "execute_result"
     },
@@ -2193,7 +1967,7 @@
     "PortfolioPlot(\n",
     "    variables=[\"Stock Gain / (Loss)\", \"Benchmark Gain / (Loss)\"],\n",
     "    zero_line=True,\n",
-    "    object=t,\n",
+    "    object=p,\n",
     "    graphstart=\"6m\",\n",
     ")\n",
     "\n"
@@ -2208,16 +1982,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": 28,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "<surfingcrypto.reporting.figures.PortfolioPlot at 0x7fb5084f7c90>"
+       "<surfingcrypto.reporting.figures.PortfolioPlot at 0x7f942fdbc3d0>"
       ]
      },
-     "execution_count": 22,
+     "execution_count": 28,
      "metadata": {},
      "output_type": "execute_result"
     },
@@ -2234,7 +2008,7 @@
    ],
    "source": [
     "PortfolioPlot(\n",
-    "    variables=[\"Adj cost daily\"], by_symbol=True, object=t, graphstart=\"6m\"\n",
+    "    variables=[\"Adj cost daily\"], by_symbol=True, object=p, graphstart=\"6m\"\n",
     ")\n",
     "\n"
    ]
@@ -2248,16 +2022,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": 30,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "<surfingcrypto.reporting.figures.PortfolioPlot at 0x7fb5080719d0>"
+       "<surfingcrypto.reporting.figures.PortfolioPlot at 0x7f943015bc10>"
       ]
      },
-     "execution_count": 23,
+     "execution_count": 30,
      "metadata": {},
      "output_type": "execute_result"
     },
@@ -2277,7 +2051,7 @@
     "    variables=[\"Stock Gain / (Loss)\"],\n",
     "    by_symbol=True,\n",
     "    zero_line=True,\n",
-    "    object=t,\n",
+    "    object=p,\n",
     "    graphstart=\"6m\",\n",
     ")\n"
    ]
@@ -2295,7 +2069,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": 31,
    "metadata": {},
    "outputs": [
     {
@@ -2394,13 +2168,13 @@
        "[355 rows x 1 columns]"
       ]
      },
-     "execution_count": 24,
+     "execution_count": 31,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "values = t.daily_grouped_metrics([\"Stock Gain / (Loss)\"])\n",
+    "values = p.tracker.daily_grouped_metrics([\"Stock Gain / (Loss)\"])\n",
     "values.index = pd.to_datetime(values.index)\n",
     "values = values.reset_index().set_index(\"Date Snapshot\")\n",
     "values"
@@ -2408,16 +2182,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 25,
+   "execution_count": 32,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "<surfingcrypto.reporting.figures.CalendarPlot at 0x7fb507d7c190>"
+       "<surfingcrypto.reporting.figures.CalendarPlot at 0x7f9430912f50>"
       ]
      },
-     "execution_count": 25,
+     "execution_count": 32,
      "metadata": {},
      "output_type": "execute_result"
     },

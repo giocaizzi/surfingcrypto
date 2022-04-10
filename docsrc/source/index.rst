@@ -38,6 +38,7 @@ It's future developement will be based on **algotrading**.
    examples/scraper.ipynb
    examples/ts.ipynb
    examples/reporting.ipynb
+   examples/figures.ipynb
    examples/portfolio_01.ipynb
    examples/portfolio_coinbase.ipynb
 

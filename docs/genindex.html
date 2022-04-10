@@ -49,7 +49,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/scraper.html"><code class="docutils literal notranslate"><span class="pre">Scraper</span></code>: get the required data.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/ts.html"><code class="docutils literal notranslate"><span class="pre">TS</span></code>: a time-series object optimized for crypto price data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/reporting.html">Reporting: plot price data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/reporting.html">Reporting: text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/figures.html">Reporting: figures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/portfolio_01.html">Surfingcrypto <code class="docutils literal notranslate"><span class="pre">Portfolio</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/portfolio_coinbase.html">Portfolio: <code class="docutils literal notranslate"><span class="pre">MyCoinbase</span></code></a></li>
 </ul>
@@ -186,6 +187,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/surfingcrypto.portfolio.tracker.Tracker.html#surfingcrypto.portfolio.tracker.Tracker.daily_grouped_metrics">daily_grouped_metrics() (surfingcrypto.portfolio.tracker.Tracker method)</a>
 </li>
+      <li><a href="_autosummary/surfingcrypto.portfolio.tracker.Tracker.html#surfingcrypto.portfolio.tracker.Tracker.daily_snaphost">daily_snaphost() (surfingcrypto.portfolio.tracker.Tracker method)</a>
+</li>
       <li><a href="_autosummary/surfingcrypto.config.Config.html#surfingcrypto.config.Config.data_folder">data_folder (surfingcrypto.config.Config attribute)</a>
 </li>
       <li><a href="_autosummary/surfingcrypto.reporting.figures.SimplePlot.html#surfingcrypto.reporting.figures.SimplePlot.default_plot">default_plot() (surfingcrypto.reporting.figures.SimplePlot method)</a>
@@ -311,6 +314,10 @@
       <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.MyCoinbase.html#surfingcrypto.portfolio.coinbase.MyCoinbase.last_updated">last_updated (surfingcrypto.portfolio.coinbase.MyCoinbase attribute)</a>
 </li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.MyCoinbase.html#surfingcrypto.portfolio.coinbase.MyCoinbase.live_value_report">live_value_report() (surfingcrypto.portfolio.coinbase.MyCoinbase method)</a>
+</li>
+  </ul></td>
 </tr></table>
 
 <h2 id="M">M</h2>
@@ -342,6 +349,8 @@
 </li>
         <li><a href="_autosummary/surfingcrypto.reporting.plotting.html#module-surfingcrypto.reporting.plotting">surfingcrypto.reporting.plotting</a>
 </li>
+        <li><a href="_autosummary/surfingcrypto.reporting.reporting.html#module-surfingcrypto.reporting.reporting">surfingcrypto.reporting.reporting</a>
+</li>
         <li><a href="_autosummary/surfingcrypto.reporting.trend_line.html#module-surfingcrypto.reporting.trend_line">surfingcrypto.reporting.trend_line</a>
 </li>
         <li><a href="_autosummary/surfingcrypto.scraper.html#module-surfingcrypto.scraper">surfingcrypto.scraper</a>
@@ -352,8 +361,6 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.MyCoinbase.html#surfingcrypto.portfolio.coinbase.MyCoinbase">MyCoinbase (class in surfingcrypto.portfolio.coinbase)</a>
-</li>
-      <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.MyCoinbase.html#surfingcrypto.portfolio.coinbase.MyCoinbase.mycoinbase_report">mycoinbase_report() (surfingcrypto.portfolio.coinbase.MyCoinbase method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -377,7 +384,7 @@
 </li>
       <li><a href="_autosummary/surfingcrypto.scraper.CoinScraper.html#surfingcrypto.scraper.CoinScraper.path">path (surfingcrypto.scraper.CoinScraper attribute)</a>
 </li>
-      <li><a href="_autosummary/surfingcrypto.ts.TS.html#surfingcrypto.ts.TS.percentage_diff">percentage_diff() (surfingcrypto.ts.TS method)</a>
+      <li><a href="_autosummary/surfingcrypto.reporting.reporting.percentage_diff.html#surfingcrypto.reporting.reporting.percentage_diff">percentage_diff() (in module surfingcrypto.reporting.reporting)</a>
 </li>
       <li><a href="_autosummary/surfingcrypto.reporting.figures.ATHPlot.html#surfingcrypto.reporting.figures.ATHPlot.plot">plot() (surfingcrypto.reporting.figures.ATHPlot method)</a>
 </li>
@@ -405,7 +412,9 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/surfingcrypto.config.Config.html#surfingcrypto.config.Config.rebrandings">rebrandings (surfingcrypto.config.Config attribute)</a>
 </li>
-      <li><a href="_autosummary/surfingcrypto.ts.TS.html#surfingcrypto.ts.TS.report_percentage_diff">report_percentage_diff() (surfingcrypto.ts.TS method)</a>
+      <li><a href="_autosummary/surfingcrypto.reporting.reporting.report_percentage_diff.html#surfingcrypto.reporting.reporting.report_percentage_diff">report_percentage_diff() (in module surfingcrypto.reporting.reporting)</a>
+</li>
+      <li><a href="_autosummary/surfingcrypto.reporting.reporting.report_stock_gain.html#surfingcrypto.reporting.reporting.report_stock_gain">report_stock_gain() (in module surfingcrypto.reporting.reporting)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -539,6 +548,13 @@
 </li>
       </ul></li>
       <li>
+    surfingcrypto.reporting.reporting
+
+      <ul>
+        <li><a href="_autosummary/surfingcrypto.reporting.reporting.html#module-surfingcrypto.reporting.reporting">module</a>
+</li>
+      </ul></li>
+      <li>
     surfingcrypto.reporting.trend_line
 
       <ul>
@@ -582,6 +598,8 @@
       <li><a href="_autosummary/surfingcrypto.portfolio.coinbase.MyCoinbase.html#surfingcrypto.portfolio.coinbase.MyCoinbase.timeranges">timeranges (surfingcrypto.portfolio.coinbase.MyCoinbase attribute)</a>
 </li>
       <li><a href="_autosummary/surfingcrypto.portfolio.portfolio.Portfolio.html#surfingcrypto.portfolio.portfolio.Portfolio.total_fees">total_fees() (surfingcrypto.portfolio.portfolio.Portfolio method)</a>
+</li>
+      <li><a href="_autosummary/surfingcrypto.portfolio.portfolio.Portfolio.html#surfingcrypto.portfolio.portfolio.Portfolio.total_investment">total_investment() (surfingcrypto.portfolio.portfolio.Portfolio method)</a>
 </li>
       <li><a href="_autosummary/surfingcrypto.portfolio.tracker.Tracker.html#surfingcrypto.portfolio.tracker.Tracker">Tracker (class in surfingcrypto.portfolio.tracker)</a>
 </li>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reporting: plot price data &mdash; surfingcrypto 0.1.4 documentation</title>
+  <title>Reporting: text &mdash; surfingcrypto 0.1.4 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -20,7 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Surfingcrypto Portfolio" href="portfolio_01.html" />
+    <link rel="next" title="Reporting: figures" href="figures.html" />
     <link rel="prev" title="TS: a time-series object optimized for crypto price data" href="ts.html" /> 
 </head>
 
@@ -53,18 +53,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="scraper.html"><code class="docutils literal notranslate"><span class="pre">Scraper</span></code>: get the required data.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ts.html"><code class="docutils literal notranslate"><span class="pre">TS</span></code>: a time-series object optimized for crypto price data</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Reporting: plot price data</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Price-data-plots">Price data plots</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#The-SimplePlot-figure">The <code class="docutils literal notranslate"><span class="pre">SimplePlot</span></code> figure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#The-TaPlot-figure">The <code class="docutils literal notranslate"><span class="pre">TaPlot</span></code> figure</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reporting: text</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Percentage-difference">Percentage difference</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Other-plots">Other plots</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Distance-from-ATH">Distance from ATH</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="figures.html">Reporting: figures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portfolio_01.html">Surfingcrypto <code class="docutils literal notranslate"><span class="pre">Portfolio</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="portfolio_coinbase.html">Portfolio: <code class="docutils literal notranslate"><span class="pre">MyCoinbase</span></code></a></li>
 </ul>
@@ -87,7 +80,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Reporting: plot price data</li>
+      <li>Reporting: text</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/examples/reporting.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -367,118 +360,44 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Reporting:-plot-price-data">
-<h1>Reporting: plot price data<a class="headerlink" href="#Reporting:-plot-price-data" title="Permalink to this headline"></a></h1>
-<p>This module is the core for the production of the images that can be used for visually assessing the price data.</p>
-<p>All package figures are based on <code class="docutils literal notranslate"><span class="pre">BaseFigure</span></code> object that offers basic methods for working with matplotlib figures.</p>
+<div class="section" id="Reporting:-text">
+<h1>Reporting: text<a class="headerlink" href="#Reporting:-text" title="Permalink to this headline"></a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">surfingcrypto.reporting.reporting</span></code> module contains a set of methods used to extract formatted text out of <code class="docutils literal notranslate"><span class="pre">surfingcrypto</span></code> modules, so to report their status.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">surfingcrypto</span> <span class="kn">import</span> <span class="n">Config</span><span class="p">,</span><span class="n">TS</span>
-<span class="kn">from</span> <span class="nn">surfingcrypto.reporting.figures</span> <span class="kn">import</span> <span class="n">SimplePlot</span><span class="p">,</span><span class="n">TaPlot</span><span class="p">,</span><span class="n">ATHPlot</span>
-</pre></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">surfingcrypto.reporting.reporting</span> <span class="kn">import</span> <span class="n">report_percentage_diff</span>
+<span class="kn">from</span> <span class="nn">surfingcrypto.ts</span> <span class="kn">import</span> <span class="n">TS</span>
+<span class="kn">from</span> <span class="nn">surfingcrypto</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/config&quot;</span><span class="p">)</span>
+<br/></pre></div>
 </div>
 </div>
-<p>Then load the configuration files.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parent</span><span class="o">=</span><span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/&quot;</span>
-<span class="n">c</span><span class="o">=</span><span class="n">Config</span><span class="p">(</span><span class="n">parent</span><span class="o">+</span><span class="s2">&quot;config&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="Price-data-plots">
-<h2>Price data plots<a class="headerlink" href="#Price-data-plots" title="Permalink to this headline"></a></h2>
-<div class="section" id="The-SimplePlot-figure">
-<h3>The <code class="docutils literal notranslate"><span class="pre">SimplePlot</span></code> figure<a class="headerlink" href="#The-SimplePlot-figure" title="Permalink to this headline"></a></h3>
-<p>This is the most basic price plot.</p>
+<div class="section" id="Percentage-difference">
+<h2>Percentage difference<a class="headerlink" href="#Percentage-difference" title="Permalink to this headline"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">=</span><span class="n">TS</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">coin</span><span class="o">=</span><span class="s2">&quot;BTC&quot;</span><span class="p">)</span>
-<span class="n">sp</span><span class="o">=</span><span class="n">SimplePlot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span><span class="s2">&quot;6m&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">=</span><span class="n">TS</span><span class="p">(</span><span class="n">coin</span><span class="o">=</span><span class="s2">&quot;BTC&quot;</span><span class="p">,</span><span class="n">configuration</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">report_percentage_diff</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">df</span><span class="p">,</span><span class="n">ts</span><span class="o">.</span><span class="n">coin</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-BTC plotted.
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_reporting_5_1.png" src="../_images/examples_reporting_5_1.png" />
-</div>
-</div>
-</div>
-<div class="section" id="The-TaPlot-figure">
-<h3>The <code class="docutils literal notranslate"><span class="pre">TaPlot</span></code> figure<a class="headerlink" href="#The-TaPlot-figure" title="Permalink to this headline"></a></h3>
-<p>Produce a comples <code class="docutils literal notranslate"><span class="pre">ta</span></code> plot for each coin specified in the configuration file.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tap</span><span class="o">=</span><span class="n">TaPlot</span><span class="p">(</span>
-    <span class="n">trendlines</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="nb">object</span><span class="o">=</span><span class="n">ts</span><span class="p">,</span>
-    <span class="n">graphstart</span><span class="o">=</span><span class="s2">&quot;6m&quot;</span>
-    <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
 <div class="highlight"><pre>
-BTC plotted.
+**BTC**
+- 1d: 1.17 %
+- 3d: -0.79 %
+- 7d: -5.28 %
+- 14d: -2.91 %
+- 60d: 1.82 %
+
 </pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/examples_reporting_8_1.png" src="../_images/examples_reporting_8_1.png" />
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="Other-plots">
-<h2>Other plots<a class="headerlink" href="#Other-plots" title="Permalink to this headline"></a></h2>
-<div class="section" id="Distance-from-ATH">
-<h3>Distance from ATH<a class="headerlink" href="#Distance-from-ATH" title="Permalink to this headline"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ath</span><span class="o">=</span><span class="n">ATHPlot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span><span class="s2">&quot;1-1-2020&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-BTC ATH plotted.
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/examples_reporting_10_1.png" src="../_images/examples_reporting_10_1.png" />
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -488,7 +407,7 @@ BTC ATH plotted.
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="ts.html" class="btn btn-neutral float-left" title="TS: a time-series object optimized for crypto price data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="portfolio_01.html" class="btn btn-neutral float-right" title="Surfingcrypto Portfolio" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="figures.html" class="btn btn-neutral float-right" title="Reporting: figures" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

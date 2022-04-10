@@ -74,14 +74,18 @@ There following are the kind of plots that have been implemented.
 
 - `ATHPlot` Distance from ATH plot
 
+- `PortfolioPlot` All plots related to the user portfolio.
+  
+- `CalendarPlot` Calendar plot of a variable.
+
 [Go to full example.](../examples/reporting.ipynb)
 
 
-All plots inherits from the same base object `BaseFigure` that has useful methods for working with matplotlib figures.
+Most plots inherits from the same base object `BaseFigure` that has useful methods for working with matplotlib figures.
 
 #### Reporting useful information
 
-The `TS` class has some reporting methods associated, such as `report_percentage_diff` that produces a well structured string with formatting to be sent via telegram or read over the terminal.
+The `reporting.reporting` module is made of a set of methods, such as `report_percentage_diff`, that produce a well structured string with formatting to be easily read.
 
 ```
 **ADA**

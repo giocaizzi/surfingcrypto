@@ -50,7 +50,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples/scraper.html"><code class="docutils literal notranslate"><span class="pre">Scraper</span></code>: get the required data.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ts.html"><code class="docutils literal notranslate"><span class="pre">TS</span></code>: a time-series object optimized for crypto price data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/reporting.html">Reporting: plot price data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/reporting.html">Reporting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_01.html">Surfingcrypto <code class="docutils literal notranslate"><span class="pre">Portfolio</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_coinbase.html">Portfolio: <code class="docutils literal notranslate"><span class="pre">MyCoinbase</span></code></a></li>
 </ul>
@@ -185,12 +185,6 @@ computed invoking the relative method.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.ts.TS.parametrization" title="surfingcrypto.ts.TS.parametrization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parametrization</span></code></a>()</p></td>
 <td><p>sets the default parameters if not specified in config.json file.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.ts.TS.percentage_diff" title="surfingcrypto.ts.TS.percentage_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">percentage_diff</span></code></a>([window])</p></td>
-<td><p>Percentage difference given a window size.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.ts.TS.report_percentage_diff" title="surfingcrypto.ts.TS.report_percentage_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">report_percentage_diff</span></code></a>([windows])</p></td>
-<td><p>Produces verbose and pretty report on latest price difference from a given list of windows.</p></td>
-</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.ts.TS.ta_indicators" title="surfingcrypto.ts.TS.ta_indicators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ta_indicators</span></code></a>()</p></td>
 <td><p>computes the selected TA indicators and appends them to df attribute.</p></td>
 </tr>
@@ -207,31 +201,6 @@ saved in .csv format.</p>
 <dt class="sig sig-object py" id="surfingcrypto.ts.TS.parametrization">
 <span class="sig-name descname"><span class="pre">parametrization</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.ts.TS.parametrization" title="Permalink to this definition"></a></dt>
 <dd><p>sets the default parameters if not specified in config.json file.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.ts.TS.percentage_diff">
-<span class="sig-name descname"><span class="pre">percentage_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.ts.TS.percentage_diff" title="Permalink to this definition"></a></dt>
-<dd><p>Percentage difference given a window size.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>window</strong> (<em>int</em>) – number of days used to computer percentage
-difference.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.ts.TS.report_percentage_diff">
-<span class="sig-name descname"><span class="pre">report_percentage_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">3,</span> <span class="pre">7,</span> <span class="pre">14,</span> <span class="pre">60]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.ts.TS.report_percentage_diff" title="Permalink to this definition"></a></dt>
-<dd><p>Produces verbose and pretty report on latest price
-difference from a given list of windows.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>windows</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>) – list of windows
-to compute percentage difference.</p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py method">

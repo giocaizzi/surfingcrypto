@@ -1,4 +1,4 @@
-surfingcrypto.portfolio.tracker.Tracker
+﻿surfingcrypto.portfolio.tracker.Tracker
 =======================================
 
 .. currentmodule:: surfingcrypto.portfolio.tracker
@@ -16,6 +16,7 @@ surfingcrypto.portfolio.tracker.Tracker
    
       ~Tracker.__init__
       ~Tracker.daily_grouped_metrics
+      ~Tracker.daily_snaphost
    
    
 

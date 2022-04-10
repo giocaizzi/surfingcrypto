@@ -1,4 +1,4 @@
-surfingcrypto.ts.TS
+﻿surfingcrypto.ts.TS
 ===================
 
 .. currentmodule:: surfingcrypto.ts
@@ -18,8 +18,6 @@ surfingcrypto.ts.TS
       ~TS.build_ts
       ~TS.distance_from_ath
       ~TS.parametrization
-      ~TS.percentage_diff
-      ~TS.report_percentage_diff
       ~TS.ta_indicators
    
    

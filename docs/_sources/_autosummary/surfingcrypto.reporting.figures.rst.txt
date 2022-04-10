@@ -1,4 +1,4 @@
-﻿surfingcrypto.reporting.figures
+surfingcrypto.reporting.figures
 ===============================
 
 .. automodule:: surfingcrypto.reporting.figures

@@ -51,7 +51,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples/scraper.html"><code class="docutils literal notranslate"><span class="pre">Scraper</span></code>: get the required data.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ts.html"><code class="docutils literal notranslate"><span class="pre">TS</span></code>: a time-series object optimized for crypto price data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/reporting.html">Reporting: plot price data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/reporting.html">Reporting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_01.html">Surfingcrypto <code class="docutils literal notranslate"><span class="pre">Portfolio</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_coinbase.html">Portfolio: <code class="docutils literal notranslate"><span class="pre">MyCoinbase</span></code></a></li>
 </ul>
@@ -190,15 +190,43 @@ contains only <cite>buy</cite> or <cite>sell</cite></p>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>(portfolio_type, **kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.portfolio.Portfolio.total_fees" title="surfingcrypto.portfolio.portfolio.Portfolio.total_fees"><code class="xref py py-obj docutils literal notranslate"><span class="pre">total_fees</span></code></a>()</p></td>
-<td><p>total fees paid for handled transactions.</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_tracker</span></code>([stocks_start, benchmark])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.portfolio.Portfolio.total_fees" title="surfingcrypto.portfolio.portfolio.Portfolio.total_fees"><code class="xref py py-obj docutils literal notranslate"><span class="pre">total_fees</span></code></a>()</p></td>
+<td><p>total fees paid</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.portfolio.Portfolio.total_investment" title="surfingcrypto.portfolio.portfolio.Portfolio.total_investment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">total_investment</span></code></a>()</p></td>
+<td><p>get total investment</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.Portfolio.total_fees">
-<span class="sig-name descname"><span class="pre">total_fees</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.Portfolio.total_fees" title="Permalink to this definition"></a></dt>
-<dd><p>total fees paid for handled transactions.</p>
+<span class="sig-name descname"><span class="pre">total_fees</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.Portfolio.total_fees" title="Permalink to this definition"></a></dt>
+<dd><p>total fees paid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>total fees paid for handled transactions.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.portfolio.Portfolio.total_investment">
+<span class="sig-name descname"><span class="pre">total_investment</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.core.frame.DataFrame</span></span></span><a class="headerlink" href="#surfingcrypto.portfolio.portfolio.Portfolio.total_investment" title="Permalink to this definition"></a></dt>
+<dd><p>get total investment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dataframe resuming investment</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
