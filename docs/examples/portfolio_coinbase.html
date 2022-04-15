@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio: MyCoinbase &mdash; surfingcrypto 0.1.4 documentation</title>
+  <title>Portfolio: MyCoinbase &mdash; surfingcrypto 0.1.6 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -33,7 +33,7 @@
             <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.1.4
+                0.1.6
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -53,7 +53,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="scraper.html"><code class="docutils literal notranslate"><span class="pre">Scraper</span></code>: get the required data.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ts.html"><code class="docutils literal notranslate"><span class="pre">TS</span></code>: a time-series object optimized for crypto price data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting: plot price data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting: text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="figures.html">Reporting: figures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portfolio_01.html">Surfingcrypto <code class="docutils literal notranslate"><span class="pre">Portfolio</span></code></a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Portfolio: <code class="docutils literal notranslate"><span class="pre">MyCoinbase</span></code></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#MyCoinbase-object"><code class="docutils literal notranslate"><span class="pre">MyCoinbase</span></code> object</a><ul>
@@ -368,8 +369,8 @@ div.rendered_html tbody tr:hover {
 <h1>Portfolio: <code class="docutils literal notranslate"><span class="pre">MyCoinbase</span></code><a class="headerlink" href="#Portfolio:-MyCoinbase" title="Permalink to this headline"></a></h1>
 <p>The user portfolio is an object that is kept apart from the definition of objects related to the cryprocurrency portfolio provider (eg. Coinbase API).</p>
 <p>This is done for keeping a level of separation between the two layers, allowing future developement (eg. the implementation of other crypto trading services) and providing methods that are useful specifically at this level.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
@@ -377,17 +378,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-The autoreload extension is already loaded. To reload it, use:
-  %reload_ext autoreload
-</pre></div></div>
-</div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">surfingcrypto</span> <span class="kn">import</span> <span class="n">Config</span>
@@ -396,7 +388,7 @@ The autoreload extension is already loaded. To reload it, use:
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parent</span> <span class="o">=</span> <span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/&quot;</span>
@@ -411,7 +403,7 @@ The autoreload extension is already loaded. To reload it, use:
 <h3>Get active accounts<a class="headerlink" href="#Get-active-accounts" title="Permalink to this headline"></a></h3>
 <p>Basic <code class="docutils literal notranslate"><span class="pre">MyCoinbase</span></code> initialization offers loading all accounts that can be considered <code class="docutils literal notranslate"><span class="pre">active</span></code>, a.k.a. that have a <code class="docutils literal notranslate"><span class="pre">balance</span></code>&gt; 0.00 EUR or USD.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cb</span> <span class="o">=</span> <span class="n">MyCoinbase</span><span class="p">(</span><span class="n">configuration</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
@@ -424,30 +416,7 @@ The autoreload extension is already loaded. To reload it, use:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-MyCoinbase( isHistoric:False, last updated:2022-03-09 20:47:07.340329, N_accounts:6)
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cb</span><span class="o">.</span><span class="n">mycoinbase_report</span><span class="p">())</span>
-<br/></pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-AAVE : EUR 113.62
-SUSHI : EUR 60.43
-MATIC : EUR 346.92
-UNI : EUR 108.69
-ADA : EUR 300.82
-USDC : EUR 0.01
----
-Portfolio: EUR 930.49
+MyCoinbase( isHistoric:False, last updated:2022-04-13 21:39:21.080442, N_accounts:4)
 </pre></div></div>
 </div>
 </div>
@@ -455,9 +424,9 @@ Portfolio: EUR 930.49
 <h3>Get all accounts with transactions.<a class="headerlink" href="#Get-all-accounts-with-transactions." title="Permalink to this headline"></a></h3>
 <p>This is the <code class="docutils literal notranslate"><span class="pre">isHistoric</span></code> mode of MyCoinbase, in which the <code class="docutils literal notranslate"><span class="pre">accounts</span></code> represents all accounts that has ever had a transaction. These accounts can either be fetched all from Coinbase API or locally cached.</p>
 <p>If the local cached account file is older than 7 days, it is automatically updated. Otherwise, accounts are loaded from the ones specified in dump file.</p>
-<p>There is a huge difference in time of execution, loading all accounts that have transactions takes about 1m 20s versus about 12.7s to load accounts from a local dump file.</p>
+<p>There is a huge difference in time of execution, loading all accounts that have transactions takes about 3 minutes versus about 30 s to load accounts from a local dump file.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cb</span> <span class="o">=</span> <span class="n">MyCoinbase</span><span class="p">(</span><span class="n">active_accounts</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
@@ -470,16 +439,17 @@ Portfolio: EUR 930.49
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-MyCoinbase( isHistoric:True, last updated:2022-03-06 16:08:57, N_accounts:30)
+MyCoinbase( isHistoric:True, last updated:2022-04-10 15:37:29, N_accounts:31)
 </pre></div></div>
 </div>
-<p>Obviously the result of <code class="docutils literal notranslate"><span class="pre">mycoinbase_report()</span></code> won’t change as it ignores accounts that have <code class="docutils literal notranslate"><span class="pre">balance</span></code>==0.00, but the length of the <code class="docutils literal notranslate"><span class="pre">accounts</span></code> attribute has more accounts than when initalized for only the active ones.</p>
+<p>If required, a fresh update of all accounts can be forced.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cb</span><span class="o">.</span><span class="n">mycoinbase_report</span><span class="p">())</span>
-<br/></pre></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cb</span> <span class="o">=</span> <span class="n">MyCoinbase</span><span class="p">(</span><span class="n">active_accounts</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">configuration</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cb</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -487,47 +457,33 @@ MyCoinbase( isHistoric:True, last updated:2022-03-06 16:08:57, N_accounts:30)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-AAVE : EUR 113.62
-SUSHI : EUR 60.43
-MATIC : EUR 346.92
-UNI : EUR 108.69
-ADA : EUR 300.82
-USDC : EUR 0.01
----
-Portfolio: EUR 930.49
+MyCoinbase( isHistoric:True, last updated:2022-04-13 21:43:18.005117+00:00, N_accounts:31)
 </pre></div></div>
 </div>
 </div>
 <div class="section" id="Transaction-history">
 <h3>Transaction history<a class="headerlink" href="#Transaction-history" title="Permalink to this headline"></a></h3>
 <p>Get the full transaction history via the <code class="docutils literal notranslate"><span class="pre">TransactionsHistory</span></code> class.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cb</span><span class="o">.</span><span class="n">get_history</span><span class="p">()</span>
-<br/></pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cb</span><span class="o">.</span><span class="n">history</span>
+<span class="n">cb</span><span class="o">.</span><span class="n">history</span>
 <br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-TransactionsHistory(Transactions:186 - Processed:186, Unhandled:0 - Errors:9)
+TransactionsHistory(Transactions:201 - Processed:201, Unhandled:0 - Errors:9)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cb</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -535,7 +491,7 @@ TransactionsHistory(Transactions:186 - Processed:186, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -653,7 +609,7 @@ TransactionsHistory(Transactions:186 - Processed:186, Unhandled:0 - Errors:9)
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cb</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">error_log</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -661,7 +617,7 @@ TransactionsHistory(Transactions:186 - Processed:186, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
