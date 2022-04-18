@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>surfingcrypto.portfolio.coinbase.MyCoinbase &mdash; surfingcrypto 0.1.6 documentation</title>
+  <title>surfingcrypto.portfolio.coinbase.MyCoinbase &mdash; surfingcrypto 0.2.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -31,7 +31,7 @@
             <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.1.6
+                0.2.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -145,9 +145,9 @@ It automatically dumps temporary data in order to load accounts faster.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>active_accounts</strong> (<em>bool</em>) – default <cite>True</cite>, select
-active (balance&gt;0) accounts only.</p></li>
+active (balance&gt;0) accounts only. Defaults to True.</p></li>
 <li><p><strong>force</strong> (<em>bool</em>) – force update from API even if
-local cache is found.</p></li>
+local cache is found. Defaults to False.</p></li>
 <li><p><strong>configuration</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.config.config</span></code>) – package
 configuration object.</p></li>
 </ul>
@@ -157,6 +157,17 @@ configuration object.</p></li>
 <dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.accounts">
 <span class="sig-name descname"><span class="pre">accounts</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.accounts" title="Permalink to this definition"></a></dt>
 <dd><p>list of selected accounts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">coibase.model.ApiObject</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.transactions">
+<span class="sig-name descname"><span class="pre">transactions</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.transactions" title="Permalink to this definition"></a></dt>
+<dd><p>list of transactions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">coibase.model.ApiObject</span></code></p>
@@ -182,31 +193,6 @@ configuration object.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="surfingcrypto.portfolio.coinbase.TransactionsHistory.html#surfingcrypto.portfolio.coinbase.TransactionsHistory" title="surfingcrypto.portfolio.coinbase.TransactionsHistory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">surfingcrypto.portfolio.coinbase.TransactionsHistory</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.last_updated">
-<span class="sig-name descname"><span class="pre">last_updated</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.last_updated" title="Permalink to this definition"></a></dt>
-<dd><p>datetime of
-last updates of account list.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime.datetime</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.timeranges">
-<span class="sig-name descname"><span class="pre">timeranges</span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.timeranges" title="Permalink to this definition"></a></dt>
-<dd><p>list of
-dictionaries with dates of first and last transaction for
-each account</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -244,41 +230,20 @@ a.k.a. all accounts with a transaction in the record</p>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>([active_accounts, force])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_accounts_from_list" title="surfingcrypto.portfolio.coinbase.MyCoinbase.get_accounts_from_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_accounts_from_list</span></code></a>([_list])</p></td>
-<td><p>gets accounts from a list dumped locally in the config folder.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_active_accounts" title="surfingcrypto.portfolio.coinbase.MyCoinbase.get_active_accounts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_active_accounts</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_active_accounts" title="surfingcrypto.portfolio.coinbase.MyCoinbase.get_active_accounts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_active_accounts</span></code></a>()</p></td>
 <td><p>get active accounts (balance &gt; 0)</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_all_accounts_with_transactions" title="surfingcrypto.portfolio.coinbase.MyCoinbase.get_all_accounts_with_transactions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_all_accounts_with_transactions</span></code></a>([verbose])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_full_history" title="surfingcrypto.portfolio.coinbase.MyCoinbase.get_full_history"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_full_history</span></code></a>(cache[, transactions])</p></td>
 <td><p>get all accounts with recorded transactions.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_history" title="surfingcrypto.portfolio.coinbase.MyCoinbase.get_history"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_history</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_history" title="surfingcrypto.portfolio.coinbase.MyCoinbase.get_history"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_history</span></code></a>()</p></td>
 <td><p>start a TransactionsHistory object</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.start" title="surfingcrypto.portfolio.coinbase.MyCoinbase.start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start</span></code></a>(active_accounts, force)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.start" title="surfingcrypto.portfolio.coinbase.MyCoinbase.start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start</span></code></a>(active_accounts, force)</p></td>
 <td><p>start MyCoinbase module, loading accounts as specified.</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.get_accounts_from_list">
-<span class="sig-name descname"><span class="pre">get_accounts_from_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_accounts_from_list" title="Permalink to this definition"></a></dt>
-<dd><p>gets accounts from a list dumped locally in the config folder.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><dl class="simple">
-<dt>list</dt><dd><p>of coinbase accounts</p>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>from_list (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">coinbase.ApiObject</span></code>)</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.get_active_accounts">
 <span class="sig-name descname"><span class="pre">get_active_accounts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_active_accounts" title="Permalink to this definition"></a></dt>
@@ -298,30 +263,22 @@ a.k.a. all accounts with a transaction in the record</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.get_all_accounts_with_transactions">
-<span class="sig-name descname"><span class="pre">get_all_accounts_with_transactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_all_accounts_with_transactions" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.get_full_history">
+<span class="sig-name descname"><span class="pre">get_full_history</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cache</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transactions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.get_full_history" title="Permalink to this definition"></a></dt>
 <dd><p>get all accounts with recorded transactions.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>SUPER FUCKING SLOW!!!</p>
-</div>
-<dl class="simple">
-<dt>Params:</dt><dd><p>verbose (bool): verbose mode in order to check status</p>
-</dd>
-</dl>
+<p>From v0.2 features updating accounts and transactions from cache.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><dl class="simple">
-<dt>list</dt><dd><p>of coinbase accounts</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cache</strong> (<em>None</em><em> or </em><em>dict</em>) – _description_</p></li>
+<li><p><strong>transactions</strong> (<em>list</em><em>, </em><em>optional</em>) – _description_. Defaults to [].</p></li>
+</ul>
 </dd>
-<dt>timeranges (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code>): list of</dt><dd><p>dictionaries with dates of first and last transaction
-for each account in <cite>has_transactions</cite></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>_description_</p>
 </dd>
-</dl>
-</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>has_transactions (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">coinbase.ApiObject</span></code>)</p>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
 </dd>
 </dl>
 </dd></dl>
@@ -334,7 +291,7 @@ for each account in <cite>has_transactions</cite></p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="surfingcrypto.portfolio.coinbase.MyCoinbase.start">
-<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">active_accounts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.start" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">active_accounts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.portfolio.coinbase.MyCoinbase.start" title="Permalink to this definition"></a></dt>
 <dd><p>start MyCoinbase module, loading accounts as specified.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

@@ -1,4 +1,4 @@
-﻿surfingcrypto.ts.TS
+surfingcrypto.ts.TS
 ===================
 
 .. currentmodule:: surfingcrypto.ts

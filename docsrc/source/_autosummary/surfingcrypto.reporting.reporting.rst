@@ -1,4 +1,4 @@
-﻿surfingcrypto.reporting.reporting
+surfingcrypto.reporting.reporting
 =================================
 
 .. automodule:: surfingcrypto.reporting.reporting

@@ -1,4 +1,4 @@
-﻿surfingcrypto.portfolio.tracker.Tracker
+surfingcrypto.portfolio.tracker.Tracker
 =======================================
 
 .. currentmodule:: surfingcrypto.portfolio.tracker

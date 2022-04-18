@@ -1,4 +1,4 @@
-﻿surfingcrypto.portfolio.coinbase.MyCoinbase
+surfingcrypto.portfolio.coinbase.MyCoinbase
 ===========================================
 
 .. currentmodule:: surfingcrypto.portfolio.coinbase
@@ -15,9 +15,8 @@
    .. autosummary::
    
       ~MyCoinbase.__init__
-      ~MyCoinbase.get_accounts_from_list
       ~MyCoinbase.get_active_accounts
-      ~MyCoinbase.get_all_accounts_with_transactions
+      ~MyCoinbase.get_full_history
       ~MyCoinbase.get_history
       ~MyCoinbase.start
    
