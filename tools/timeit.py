@@ -3,13 +3,13 @@ import datetime
 import time
 
 
-def timeit(method,is_classmethod=True):
+def timeit(method, is_classmethod=True):
     def timed(*args, **kw):
         ts = datetime.datetime.now()
         result = method(*args, **kw)
         te = datetime.datetime.now()
         if is_classmethod:
-            args=args[1:]
+            args = args[1:]
         print(
             " #  {} \n"
             "    - args: {} \n"
@@ -21,6 +21,7 @@ def timeit(method,is_classmethod=True):
         return result
 
     return timed
+
 
 class Foo(object):
     @timeit
@@ -50,9 +51,11 @@ class Foo(object):
     def __str__(self) -> str:
         return f"Foo({self.a},{self.b})"
 
+
 @timeit
 def external():
     time.sleep(1.5)
+
 
 f = Foo(a=5)
 f.f2(4)
