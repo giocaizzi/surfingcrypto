@@ -139,7 +139,7 @@
 <h1>surfingcrypto.reporting.figures.TaPlot<a class="headerlink" href="#surfingcrypto-reporting-figures-taplot" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="surfingcrypto.reporting.figures.TaPlot">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.reporting.figures.</span></span><span class="sig-name descname"><span class="pre">TaPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trendlines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.reporting.figures.TaPlot" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.reporting.figures.</span></span><span class="sig-name descname"><span class="pre">TaPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.reporting.figures.TaPlot" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="surfingcrypto.reporting.figures.BaseFigure.html#surfingcrypto.reporting.figures.BaseFigure" title="surfingcrypto.reporting.figures.BaseFigure"><code class="xref py py-class docutils literal notranslate"><span class="pre">surfingcrypto.reporting.figures.BaseFigure</span></code></a></p>
 <p>this is the Technical Analysis plot.
 It shows (at current time): candlesticks,
@@ -148,8 +148,6 @@ Can be easily modified to fit other and/or more indicators.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>trendlines</strong> (<em>bool</em>) – UNDER DEVELOPEMENT! - plot also trendlines
-calculated with <cite>src.trend_line</cite> class.</p></li>
 <li><p><strong>ts</strong> (<a class="reference internal" href="surfingcrypto.ts.TS.html#surfingcrypto.ts.TS" title="surfingcrypto.ts.TS"><code class="xref py py-class docutils literal notranslate"><span class="pre">surfingcrypto.ts.TS</span></code></a>) – <cite>surfingcrypto.ts.TS</cite> object</p></li>
 <li><p><strong>graphstart</strong> (<em>str</em>) – date string in d-m-Y format
 (or relative from today eg. 1 month: <cite>1m</cite>,3 month: <cite>3m</cite>) from
@@ -164,7 +162,7 @@ which to start the graph.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>([trendlines])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>(*args, **kwargs)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.reporting.figures.TaPlot.save" title="surfingcrypto.reporting.figures.TaPlot.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(path)</p></td>
@@ -176,7 +174,7 @@ which to start the graph.</p></li>
 <tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.reporting.figures.TaPlot.subset_ts_df" title="surfingcrypto.reporting.figures.TaPlot.subset_ts_df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subset_ts_df</span></code></a>(first[, last])</p></td>
 <td><p>subsets inplace ts.df to selected interval</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.reporting.figures.TaPlot.ta_plot" title="surfingcrypto.reporting.figures.TaPlot.ta_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ta_plot</span></code></a>(trendlines)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.reporting.figures.TaPlot.ta_plot" title="surfingcrypto.reporting.figures.TaPlot.ta_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ta_plot</span></code></a>()</p></td>
 <td><p>plotting function.</p></td>
 </tr>
 </tbody>
@@ -221,7 +219,7 @@ Defaults to None.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="surfingcrypto.reporting.figures.TaPlot.ta_plot">
-<span class="sig-name descname"><span class="pre">ta_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trendlines</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.reporting.figures.TaPlot.ta_plot" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">ta_plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.reporting.figures.TaPlot.ta_plot" title="Permalink to this definition"></a></dt>
 <dd><p>plotting function.</p>
 </dd></dl>
 

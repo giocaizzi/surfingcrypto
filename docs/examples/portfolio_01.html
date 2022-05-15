@@ -380,8 +380,8 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Surfingcrypto-Portfolio">
 <h1>Surfingcrypto <code class="docutils literal notranslate"><span class="pre">Portfolio</span></code><a class="headerlink" href="#Surfingcrypto-Portfolio" title="Permalink to this headline"></a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">surfingcrypto</span></code> portfolio.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
@@ -393,8 +393,17 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The autoreload extension is already loaded. To reload it, use:
+  %reload_ext autoreload
+</pre></div></div>
+</div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coins</span><span class="o">=</span><span class="p">{</span>
@@ -409,7 +418,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Portfolio</span><span class="p">(</span><span class="s2">&quot;coinbase&quot;</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
@@ -423,13 +432,13 @@ div.rendered_html tbody tr:hover {
 <div class="highlight"><pre>
 ### PORTFOLIO
 MyCoinbase( isHistoric:True, N_accounts:32)
-Warning! There are 14 transactionsthat were EXCLUDED in df.
+Warning! There are 16 transactionsthat were EXCLUDED in df.
 Warning! Errors while handling transactions:
-TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
+TransactionsHistory(Transactions:218 - Processed:218, Unhandled:0 - Errors:10)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">coinbase</span><span class="o">.</span><span class="n">active_accounts</span>
@@ -437,16 +446,16 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&#39;USDC&#39;]
+[]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
@@ -454,7 +463,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -505,74 +514,74 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
   </thead>
   <tbody>
     <tr>
-      <th>2022-05-08T10:31:37Z</th>
-      <td>sell</td>
-      <td>0.237942</td>
-      <td>ETH</td>
-      <td>577.03</td>
-      <td>EUR</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>5.600</td>
-      <td>2425.087907</td>
-      <td>88c0ad78-7767-5d45-b05a-783e950af60d</td>
-      <td>70dae0d2-56b4-5045-85e8-11e95d078b41</td>
-    </tr>
-    <tr>
-      <th>2022-05-08T10:32:22Z</th>
+      <th>2022-05-10T06:31:30Z</th>
       <td>buy</td>
-      <td>252.420433</td>
-      <td>USDC</td>
-      <td>239.29</td>
-      <td>EUR</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2.520</td>
-      <td>0.947982</td>
-      <td>bf77b834-e228-5642-8b6d-9ee08aceed22</td>
-      <td>d7d9fa15-9972-5b5b-a2c7-5e7ce94801dd</td>
-    </tr>
-    <tr>
-      <th>2022-05-08T10:32:23Z</th>
-      <td>sell</td>
-      <td>257.829804</td>
+      <td>970.875285</td>
       <td>MATIC</td>
-      <td>244.33</td>
+      <td>876.54</td>
       <td>EUR</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2.520</td>
-      <td>0.947641</td>
-      <td>a11ee786-d2e1-527e-b399-32c6c063b7ba</td>
-      <td>d7d9fa15-9972-5b5b-a2c7-5e7ce94801dd</td>
+      <td>8.945</td>
+      <td>0.902835</td>
+      <td>fe6b04dd-2d31-50d5-8548-966a630deedd</td>
+      <td>5634ee32-3ef8-5950-97b3-05dc905d6314</td>
     </tr>
     <tr>
-      <th>2022-05-08T10:32:55Z</th>
-      <td>buy</td>
-      <td>94.364255</td>
-      <td>USDC</td>
-      <td>89.46</td>
-      <td>EUR</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.885</td>
-      <td>0.948028</td>
-      <td>2a294c2b-3cbc-5778-8748-8af404f94e56</td>
-      <td>ce4c9b02-d24f-5198-9d2b-3dbb8ba5ed2e</td>
-    </tr>
-    <tr>
-      <th>2022-05-08T10:32:56Z</th>
+      <th>2022-05-10T06:31:31Z</th>
       <td>sell</td>
-      <td>1.228168</td>
-      <td>SOL</td>
-      <td>91.23</td>
+      <td>943.650000</td>
+      <td>USDC</td>
+      <td>894.43</td>
       <td>EUR</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>0.885</td>
-      <td>74.281358</td>
-      <td>b49a6ef7-74aa-5117-b99e-7721e6f1dd67</td>
-      <td>ce4c9b02-d24f-5198-9d2b-3dbb8ba5ed2e</td>
+      <td>8.945</td>
+      <td>0.947841</td>
+      <td>fa17e257-8227-57a5-baa9-4f18d6e1d1f2</td>
+      <td>5634ee32-3ef8-5950-97b3-05dc905d6314</td>
+    </tr>
+    <tr>
+      <th>2022-05-11T14:28:32Z</th>
+      <td>buy</td>
+      <td>745.762861</td>
+      <td>USDC</td>
+      <td>707.81</td>
+      <td>EUR</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>9.160</td>
+      <td>0.949109</td>
+      <td>7202ea05-ee11-5f57-b467-d23435942770</td>
+      <td>48bacb71-d3fb-51ea-84f5-2a015c74d80e</td>
+    </tr>
+    <tr>
+      <th>2022-05-11T14:28:33Z</th>
+      <td>sell</td>
+      <td>970.875285</td>
+      <td>MATIC</td>
+      <td>726.13</td>
+      <td>EUR</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>9.160</td>
+      <td>0.747913</td>
+      <td>8be98c50-91f1-59f7-a0e3-d232c2f07bad</td>
+      <td>48bacb71-d3fb-51ea-84f5-2a015c74d80e</td>
+    </tr>
+    <tr>
+      <th>2022-05-11T19:36:54Z</th>
+      <td>sell</td>
+      <td>745.770000</td>
+      <td>USDC</td>
+      <td>690.95</td>
+      <td>EUR</td>
+      <td>690.95</td>
+      <td>701.4</td>
+      <td>10.450</td>
+      <td>0.940504</td>
+      <td>8ead5b6e-8b47-53d1-9136-33d007607011</td>
+      <td>4024cb0d-d9b0-5eba-a3a6-3c37069d3929</td>
     </tr>
   </tbody>
 </table>
@@ -581,7 +590,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 <div class="section" id="Total-fees">
 <h2>Total fees<a class="headerlink" href="#Total-fees" title="Permalink to this headline"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">total_fees</span><span class="p">()</span>
@@ -589,12 +598,12 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-332.8499999999998
+317.6700000000001
 </pre></div></div>
 </div>
 </div>
@@ -606,7 +615,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 <p>At the moment, when buying with a credit card, the transaction is not registered as <code class="docutils literal notranslate"><span class="pre">fiat_deposit</span></code> and so it is not included in this calculation.</p>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">total_investment</span><span class="p">()</span>
@@ -614,7 +623,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -650,7 +659,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
     </tr>
     <tr>
       <th>fiat_withdrawal</th>
-      <td>-35.96</td>
+      <td>-726.91</td>
     </tr>
   </tbody>
 </table>
@@ -660,7 +669,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 <div class="section" id="Portfolio-value-tracker">
 <h2>Portfolio value tracker<a class="headerlink" href="#Portfolio-value-tracker" title="Permalink to this headline"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">start_tracker</span><span class="p">(</span>
@@ -671,7 +680,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">error_log</span></code> attributes contains the log from loading data.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">error_log</span>
@@ -679,7 +688,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -691,7 +700,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 <h3>Closedata<a class="headerlink" href="#Closedata" title="Permalink to this headline"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">Tracker</span></code> uses locally stored closedata to track the portfolio daily values.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">closedata</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
@@ -699,7 +708,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -728,31 +737,31 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
   </thead>
   <tbody>
     <tr>
-      <th>12949</th>
+      <th>12988</th>
       <td>2022-04-27 00:00:00+00:00</td>
       <td>0.132365</td>
       <td>DOGE</td>
     </tr>
     <tr>
-      <th>12950</th>
+      <th>12989</th>
       <td>2022-04-28 00:00:00+00:00</td>
       <td>0.130776</td>
       <td>DOGE</td>
     </tr>
     <tr>
-      <th>12951</th>
+      <th>12990</th>
       <td>2022-04-29 00:00:00+00:00</td>
       <td>0.128064</td>
       <td>DOGE</td>
     </tr>
     <tr>
-      <th>12952</th>
+      <th>12991</th>
       <td>2022-04-30 00:00:00+00:00</td>
       <td>0.120980</td>
       <td>DOGE</td>
     </tr>
     <tr>
-      <th>12953</th>
+      <th>12992</th>
       <td>2022-05-01 00:00:00+00:00</td>
       <td>0.126030</td>
       <td>DOGE</td>
@@ -767,7 +776,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 <p>Tracker module allows to consider transactions happened before the <code class="docutils literal notranslate"><span class="pre">stocks_start</span></code> date specified.</p>
 <p>This is done adjusting past positions to the current value at <code class="docutils literal notranslate"><span class="pre">stocks_start</span></code> date.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">active_positions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -775,7 +784,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -878,7 +887,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 <li><p>Benchmark Gain / (Loss)</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">daily_calcs</span>
@@ -886,7 +895,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1056,113 +1065,113 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
       <td>...</td>
     </tr>
     <tr>
-      <th>1871</th>
-      <td>2022-04-26 14:56:22+00:00</td>
+      <th>1885</th>
+      <td>2022-05-10 06:31:30+00:00</td>
       <td>buy</td>
-      <td>0.237942</td>
-      <td>ETH</td>
-      <td>648.59</td>
-      <td>2725.833606</td>
-      <td>205116b5-2fda-544a-b3b7-ee5489ed487c</td>
-      <td>2022-05-06 00:00:00+00:00</td>
-      <td>2554.894640</td>
-      <td>607.916459</td>
-      <td>2554.894640</td>
-      <td>2638.634988</td>
-      <td>0.245805</td>
-      <td>628.006193</td>
-      <td>-0.062711</td>
-      <td>-40.673541</td>
-      <td>-0.031736</td>
-      <td>-20.583807</td>
-    </tr>
-    <tr>
-      <th>1872</th>
-      <td>2022-04-11 21:35:11+00:00</td>
-      <td>buy</td>
-      <td>0.006639</td>
-      <td>USDC</td>
-      <td>143.41</td>
-      <td>0.918329</td>
-      <td>03bdcb79-0bc1-597f-89c8-c4f444e811c1</td>
-      <td>2022-05-07 00:00:00+00:00</td>
-      <td>0.947931</td>
-      <td>0.006293</td>
-      <td>2499.068846</td>
-      <td>2740.696028</td>
-      <td>0.052326</td>
-      <td>130.766586</td>
-      <td>0.032234</td>
-      <td>0.000197</td>
-      <td>-0.088163</td>
-      <td>-12.643414</td>
-    </tr>
-    <tr>
-      <th>1873</th>
-      <td>2021-08-26 19:45:55+00:00</td>
-      <td>buy</td>
-      <td>257.829804</td>
+      <td>970.875285</td>
       <td>MATIC</td>
-      <td>1360.65</td>
-      <td>1.174154</td>
-      <td>eb373ce7-462b-5b42-9494-03bf322fa5af</td>
-      <td>2022-05-07 00:00:00+00:00</td>
-      <td>0.968122</td>
-      <td>249.610696</td>
-      <td>2499.068846</td>
-      <td>2637.787884</td>
-      <td>0.515830</td>
-      <td>1289.094565</td>
-      <td>-0.175473</td>
-      <td>-53.121217</td>
-      <td>-0.052589</td>
-      <td>-71.555435</td>
+      <td>876.54</td>
+      <td>0.902835</td>
+      <td>fe6b04dd-2d31-50d5-8548-966a630deedd</td>
+      <td>2022-05-10 00:00:00+00:00</td>
+      <td>0.845660</td>
+      <td>821.030604</td>
+      <td>2225.735405</td>
+      <td>2225.735405</td>
+      <td>0.393820</td>
+      <td>876.540000</td>
+      <td>-0.063328</td>
+      <td>-55.509396</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
-      <th>1874</th>
-      <td>2022-04-13 21:13:35+00:00</td>
+      <th>1886</th>
+      <td>2022-05-11 14:28:32+00:00</td>
       <td>buy</td>
-      <td>1.228168</td>
-      <td>SOL</td>
-      <td>118.00</td>
-      <td>96.078047</td>
-      <td>d4e078a5-cafa-5263-ba88-46c8cfd0df55</td>
-      <td>2022-05-07 00:00:00+00:00</td>
-      <td>74.877865</td>
-      <td>91.962611</td>
-      <td>2499.068846</td>
-      <td>2862.116169</td>
-      <td>0.041228</td>
-      <td>103.032199</td>
-      <td>-0.220656</td>
-      <td>-26.037389</td>
-      <td>-0.126846</td>
-      <td>-14.967801</td>
+      <td>0.002088</td>
+      <td>USDC</td>
+      <td>707.81</td>
+      <td>0.949109</td>
+      <td>7202ea05-ee11-5f57-b467-d23435942770</td>
+      <td>2022-05-11 00:00:00+00:00</td>
+      <td>0.952025</td>
+      <td>0.001988</td>
+      <td>1971.188698</td>
+      <td>1971.188698</td>
+      <td>0.359078</td>
+      <td>707.810000</td>
+      <td>0.003072</td>
+      <td>0.000006</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
-      <th>1875</th>
-      <td>2022-04-26 14:56:22+00:00</td>
+      <th>1887</th>
+      <td>2022-05-11 14:28:32+00:00</td>
       <td>buy</td>
-      <td>0.237942</td>
-      <td>ETH</td>
-      <td>648.59</td>
-      <td>2725.833606</td>
-      <td>205116b5-2fda-544a-b3b7-ee5489ed487c</td>
-      <td>2022-05-07 00:00:00+00:00</td>
-      <td>2499.068846</td>
-      <td>594.633164</td>
-      <td>2499.068846</td>
-      <td>2638.634988</td>
-      <td>0.245805</td>
-      <td>614.283927</td>
-      <td>-0.083191</td>
-      <td>-53.956836</td>
-      <td>-0.052893</td>
-      <td>-34.306073</td>
+      <td>0.002088</td>
+      <td>USDC</td>
+      <td>707.81</td>
+      <td>0.949109</td>
+      <td>7202ea05-ee11-5f57-b467-d23435942770</td>
+      <td>2022-05-12 00:00:00+00:00</td>
+      <td>0.964168</td>
+      <td>0.002013</td>
+      <td>1890.164211</td>
+      <td>1971.188698</td>
+      <td>0.359078</td>
+      <td>678.715910</td>
+      <td>0.015867</td>
+      <td>0.000031</td>
+      <td>-0.041104</td>
+      <td>-29.094090</td>
+    </tr>
+    <tr>
+      <th>1888</th>
+      <td>2022-05-11 14:28:32+00:00</td>
+      <td>buy</td>
+      <td>0.002088</td>
+      <td>USDC</td>
+      <td>707.81</td>
+      <td>0.949109</td>
+      <td>7202ea05-ee11-5f57-b467-d23435942770</td>
+      <td>2022-05-13 00:00:00+00:00</td>
+      <td>0.960773</td>
+      <td>0.002006</td>
+      <td>1934.727849</td>
+      <td>1971.188698</td>
+      <td>0.359078</td>
+      <td>694.717720</td>
+      <td>0.012290</td>
+      <td>0.000024</td>
+      <td>-0.018497</td>
+      <td>-13.092280</td>
+    </tr>
+    <tr>
+      <th>1889</th>
+      <td>2022-05-11 14:28:32+00:00</td>
+      <td>buy</td>
+      <td>0.002088</td>
+      <td>USDC</td>
+      <td>707.81</td>
+      <td>0.949109</td>
+      <td>7202ea05-ee11-5f57-b467-d23435942770</td>
+      <td>2022-05-14 00:00:00+00:00</td>
+      <td>0.960806</td>
+      <td>0.002006</td>
+      <td>1974.927719</td>
+      <td>1971.188698</td>
+      <td>0.359078</td>
+      <td>709.152599</td>
+      <td>0.012324</td>
+      <td>0.000024</td>
+      <td>0.001897</td>
+      <td>1.342599</td>
     </tr>
   </tbody>
 </table>
-<p>1876 rows × 18 columns</p>
+<p>1890 rows × 18 columns</p>
 </div></div>
 </div>
 </div>
@@ -1171,7 +1180,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 <p>The module produces daily snapshots of the portfolio balance. Each day can be accessed by selecting via the <code class="docutils literal notranslate"><span class="pre">Date</span> <span class="pre">Snapshot</span></code> column.</p>
 <p>Either select a specifici day by specifing it with a string in <code class="docutils literal notranslate"><span class="pre">d-m-Y</span></code> forma or use <code class="docutils literal notranslate"><span class="pre">last</span></code> to get the last available snapshot.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">daily_snaphost</span><span class="p">(</span><span class="s2">&quot;last&quot;</span><span class="p">)</span>
@@ -1179,7 +1188,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1242,84 +1251,24 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
   </thead>
   <tbody>
     <tr>
-      <th>2022-05-07 00:00:00+00:00</th>
-      <td>2022-04-11 21:35:11+00:00</td>
+      <th>2022-05-14 00:00:00+00:00</th>
+      <td>2022-05-11 14:28:32+00:00</td>
       <td>buy</td>
-      <td>0.006639</td>
+      <td>0.002088</td>
       <td>USDC</td>
-      <td>143.41</td>
-      <td>0.918329</td>
-      <td>03bdcb79-0bc1-597f-89c8-c4f444e811c1</td>
-      <td>0.947931</td>
-      <td>0.006293</td>
-      <td>2499.068846</td>
-      <td>2740.696028</td>
-      <td>0.052326</td>
-      <td>130.766586</td>
-      <td>0.032234</td>
-      <td>0.000197</td>
-      <td>-0.088163</td>
-      <td>-12.643414</td>
-    </tr>
-    <tr>
-      <th>2022-05-07 00:00:00+00:00</th>
-      <td>2021-08-26 19:45:55+00:00</td>
-      <td>buy</td>
-      <td>257.829804</td>
-      <td>MATIC</td>
-      <td>1360.65</td>
-      <td>1.174154</td>
-      <td>eb373ce7-462b-5b42-9494-03bf322fa5af</td>
-      <td>0.968122</td>
-      <td>249.610696</td>
-      <td>2499.068846</td>
-      <td>2637.787884</td>
-      <td>0.515830</td>
-      <td>1289.094565</td>
-      <td>-0.175473</td>
-      <td>-53.121217</td>
-      <td>-0.052589</td>
-      <td>-71.555435</td>
-    </tr>
-    <tr>
-      <th>2022-05-07 00:00:00+00:00</th>
-      <td>2022-04-13 21:13:35+00:00</td>
-      <td>buy</td>
-      <td>1.228168</td>
-      <td>SOL</td>
-      <td>118.00</td>
-      <td>96.078047</td>
-      <td>d4e078a5-cafa-5263-ba88-46c8cfd0df55</td>
-      <td>74.877865</td>
-      <td>91.962611</td>
-      <td>2499.068846</td>
-      <td>2862.116169</td>
-      <td>0.041228</td>
-      <td>103.032199</td>
-      <td>-0.220656</td>
-      <td>-26.037389</td>
-      <td>-0.126846</td>
-      <td>-14.967801</td>
-    </tr>
-    <tr>
-      <th>2022-05-07 00:00:00+00:00</th>
-      <td>2022-04-26 14:56:22+00:00</td>
-      <td>buy</td>
-      <td>0.237942</td>
-      <td>ETH</td>
-      <td>648.59</td>
-      <td>2725.833606</td>
-      <td>205116b5-2fda-544a-b3b7-ee5489ed487c</td>
-      <td>2499.068846</td>
-      <td>594.633164</td>
-      <td>2499.068846</td>
-      <td>2638.634988</td>
-      <td>0.245805</td>
-      <td>614.283927</td>
-      <td>-0.083191</td>
-      <td>-53.956836</td>
-      <td>-0.052893</td>
-      <td>-34.306073</td>
+      <td>707.81</td>
+      <td>0.949109</td>
+      <td>7202ea05-ee11-5f57-b467-d23435942770</td>
+      <td>0.960806</td>
+      <td>0.002006</td>
+      <td>1974.927719</td>
+      <td>1971.188698</td>
+      <td>0.359078</td>
+      <td>709.152599</td>
+      <td>0.012324</td>
+      <td>0.000024</td>
+      <td>0.001897</td>
+      <td>1.342599</td>
     </tr>
   </tbody>
 </table>
@@ -1331,7 +1280,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 <p>Get the live snapshot of the portfolio.</p>
 <p>At the moment it does not feature updating benchmark calcs.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">live_snapshot</span><span class="p">()</span>
@@ -1339,7 +1288,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1390,60 +1339,18 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
   </thead>
   <tbody>
     <tr>
-      <th>2022-05-07 00:00:00+00:00</th>
-      <td>2022-04-11 21:35:11+00:00</td>
+      <th>2022-05-14 00:00:00+00:00</th>
+      <td>2022-05-11 14:28:32+00:00</td>
       <td>buy</td>
-      <td>0.006639</td>
+      <td>0.002088</td>
       <td>USDC</td>
-      <td>143.41</td>
-      <td>0.918329</td>
-      <td>03bdcb79-0bc1-597f-89c8-c4f444e811c1</td>
-      <td>0.94807</td>
-      <td>0.006294</td>
-      <td>0.032386</td>
-      <td>0.000197</td>
-    </tr>
-    <tr>
-      <th>2022-05-07 00:00:00+00:00</th>
-      <td>2021-08-26 19:45:55+00:00</td>
-      <td>buy</td>
-      <td>257.829804</td>
-      <td>MATIC</td>
-      <td>1360.65</td>
-      <td>1.174154</td>
-      <td>eb373ce7-462b-5b42-9494-03bf322fa5af</td>
-      <td>0.92750</td>
-      <td>239.137143</td>
-      <td>-0.210070</td>
-      <td>-63.594770</td>
-    </tr>
-    <tr>
-      <th>2022-05-07 00:00:00+00:00</th>
-      <td>2022-04-13 21:13:35+00:00</td>
-      <td>buy</td>
-      <td>1.228168</td>
-      <td>SOL</td>
-      <td>118.00</td>
-      <td>96.078047</td>
-      <td>d4e078a5-cafa-5263-ba88-46c8cfd0df55</td>
-      <td>72.02000</td>
-      <td>88.452672</td>
-      <td>-0.250401</td>
-      <td>-29.547328</td>
-    </tr>
-    <tr>
-      <th>2022-05-07 00:00:00+00:00</th>
-      <td>2022-04-26 14:56:22+00:00</td>
-      <td>buy</td>
-      <td>0.237942</td>
-      <td>ETH</td>
-      <td>648.59</td>
-      <td>2725.833606</td>
-      <td>205116b5-2fda-544a-b3b7-ee5489ed487c</td>
-      <td>2412.91000</td>
-      <td>574.132366</td>
-      <td>-0.114799</td>
-      <td>-74.457634</td>
+      <td>707.81</td>
+      <td>0.949109</td>
+      <td>7202ea05-ee11-5f57-b467-d23435942770</td>
+      <td>0.960347</td>
+      <td>0.002005</td>
+      <td>0.011841</td>
+      <td>0.000023</td>
     </tr>
   </tbody>
 </table>
@@ -1454,7 +1361,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 <h3>Daily grouped metrics<a class="headerlink" href="#Daily-grouped-metrics" title="Permalink to this headline"></a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">daily_grouped_metrics()</span></code> method can be used to extract from the <code class="docutils literal notranslate"><span class="pre">daily_calcs</span></code> dataframe a single grouped timeseries of a selecred set of variables.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">daily_grouped_metrics</span><span class="p">([</span><span class="s2">&quot;Adj cost daily&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
@@ -1462,7 +1369,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1493,24 +1400,24 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
   </thead>
   <tbody>
     <tr>
-      <th>2022-05-03</th>
-      <td>992.980264</td>
+      <th>2022-05-10</th>
+      <td>821.039366</td>
     </tr>
     <tr>
-      <th>2022-05-04</th>
-      <td>1050.344600</td>
+      <th>2022-05-11</th>
+      <td>0.001988</td>
     </tr>
     <tr>
-      <th>2022-05-05</th>
-      <td>979.693202</td>
+      <th>2022-05-12</th>
+      <td>0.002013</td>
     </tr>
     <tr>
-      <th>2022-05-06</th>
-      <td>958.338135</td>
+      <th>2022-05-13</th>
+      <td>0.002006</td>
     </tr>
     <tr>
-      <th>2022-05-07</th>
-      <td>936.212764</td>
+      <th>2022-05-14</th>
+      <td>0.002006</td>
     </tr>
   </tbody>
 </table>
@@ -1518,7 +1425,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 <p>By default all different assets are summed together, otherwise it is possible to keep data separated by simbol, with <code class="docutils literal notranslate"><span class="pre">by_simbol</span></code> set as <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">daily_grouped_metrics</span><span class="p">([</span><span class="s2">&quot;Adj cost daily&quot;</span><span class="p">],</span> <span class="n">by_symbol</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span>
@@ -1528,7 +1435,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1554,61 +1461,37 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
   <thead>
     <tr>
       <th>Symbol</th>
-      <th>ETH</th>
-      <th>MATIC</th>
-      <th>SOL</th>
       <th>USDC</th>
     </tr>
     <tr>
       <th>variable</th>
       <th>Adj cost daily</th>
-      <th>Adj cost daily</th>
-      <th>Adj cost daily</th>
-      <th>Adj cost daily</th>
     </tr>
     <tr>
       <th>Date Snapshot</th>
-      <th></th>
-      <th></th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2022-05-03</th>
-      <td>629.242633</td>
-      <td>263.565564</td>
-      <td>100.165759</td>
-      <td>0.006308</td>
+      <th>2022-05-10</th>
+      <td>0.008762</td>
     </tr>
     <tr>
-      <th>2022-05-04</th>
-      <td>658.789578</td>
-      <td>284.272755</td>
-      <td>107.276016</td>
-      <td>0.006251</td>
+      <th>2022-05-11</th>
+      <td>0.001988</td>
     </tr>
     <tr>
-      <th>2022-05-05</th>
-      <td>620.656391</td>
-      <td>260.452580</td>
-      <td>98.577932</td>
-      <td>0.006299</td>
+      <th>2022-05-12</th>
+      <td>0.002013</td>
     </tr>
     <tr>
-      <th>2022-05-06</th>
-      <td>607.916459</td>
-      <td>255.215147</td>
-      <td>95.200233</td>
-      <td>0.006294</td>
+      <th>2022-05-13</th>
+      <td>0.002006</td>
     </tr>
     <tr>
-      <th>2022-05-07</th>
-      <td>594.633164</td>
-      <td>249.610696</td>
-      <td>91.962611</td>
-      <td>0.006293</td>
+      <th>2022-05-14</th>
+      <td>0.002006</td>
     </tr>
   </tbody>
 </table>
@@ -1616,7 +1499,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 <p>Since <code class="docutils literal notranslate"><span class="pre">variables</span></code> is a list, we can compare multiple attributes.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">daily_grouped_metrics</span><span class="p">(</span>
@@ -1627,7 +1510,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1716,7 +1599,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
   </thead>
   <tbody>
     <tr>
-      <th>2022-05-03</th>
+      <th>2022-05-10</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1728,19 +1611,19 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
-      <td>-8.971012</td>
-      <td>-17.834241</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-5.032399</td>
-      <td>0.000212</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-6.157040</td>
+      <td>0.000014</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2022-05-04</th>
+      <th>2022-05-11</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1752,19 +1635,19 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
-      <td>-3.851407</td>
-      <td>-10.723984</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>1.465310</td>
-      <td>0.000155</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0.000006</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2022-05-05</th>
+      <th>2022-05-12</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1776,19 +1659,19 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
-      <td>-10.458751</td>
-      <td>-19.422068</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-6.920611</td>
-      <td>0.000202</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-29.094090</td>
+      <td>0.000031</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2022-05-06</th>
+      <th>2022-05-13</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1800,19 +1683,19 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
-      <td>-12.666202</td>
-      <td>-22.799767</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-9.722266</td>
-      <td>0.000198</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-13.092280</td>
+      <td>0.000024</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2022-05-07</th>
+      <th>2022-05-14</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1824,14 +1707,14 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
-      <td>-14.967801</td>
-      <td>-26.037389</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-12.643414</td>
-      <td>0.000197</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.342599</td>
+      <td>0.000024</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -1848,7 +1731,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 <p>Data can be selected by passing the <code class="docutils literal notranslate"><span class="pre">variable</span></code> - and optionally <code class="docutils literal notranslate"><span class="pre">by_symbol</span></code>- as to a <code class="docutils literal notranslate"><span class="pre">daily_grouped_metrics()</span></code> function.</p>
 <p>Moreover, with <code class="docutils literal notranslate"><span class="pre">zero_line</span></code>as <code class="docutils literal notranslate"><span class="pre">True</span></code> it is possible to add an horizontal line at 0. ### Portfolio daily value</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PortfolioPlot</span><span class="p">(</span><span class="n">variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Adj cost daily&quot;</span><span class="p">],</span> <span class="nb">object</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">graphstart</span><span class="o">=</span><span class="s2">&quot;6m&quot;</span><span class="p">)</span>
@@ -1856,12 +1739,12 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;surfingcrypto.reporting.figures.PortfolioPlot at 0x7fde8036b6d0&gt;
+&lt;surfingcrypto.reporting.figures.PortfolioPlot at 0x7fc68346e510&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1874,7 +1757,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 <div class="section" id="Portfolio-gain/loss">
 <h3>Portfolio gain/loss<a class="headerlink" href="#Portfolio-gain/loss" title="Permalink to this headline"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PortfolioPlot</span><span class="p">(</span>
@@ -1887,12 +1770,12 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;surfingcrypto.reporting.figures.PortfolioPlot at 0x7fde80613c10&gt;
+&lt;surfingcrypto.reporting.figures.PortfolioPlot at 0x7fc684597390&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1903,7 +1786,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PortfolioPlot</span><span class="p">(</span>
@@ -1916,12 +1799,12 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;surfingcrypto.reporting.figures.PortfolioPlot at 0x7fde80d8dc50&gt;
+&lt;surfingcrypto.reporting.figures.PortfolioPlot at 0x7fc6845ea090&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1935,7 +1818,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 <div class="section" id="Portfolio-daily-value-by-symbol">
 <h3>Portfolio daily value by symbol<a class="headerlink" href="#Portfolio-daily-value-by-symbol" title="Permalink to this headline"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PortfolioPlot</span><span class="p">(</span>
@@ -1945,12 +1828,12 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;surfingcrypto.reporting.figures.PortfolioPlot at 0x7fde811e1150&gt;
+&lt;surfingcrypto.reporting.figures.PortfolioPlot at 0x7fc683dae950&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1964,7 +1847,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 <div class="section" id="Stock-gain-by-symbol">
 <h3>Stock gain by symbol<a class="headerlink" href="#Stock-gain-by-symbol" title="Permalink to this headline"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PortfolioPlot</span><span class="p">(</span>
@@ -1978,12 +1861,12 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;surfingcrypto.reporting.figures.PortfolioPlot at 0x7fde81213110&gt;
+&lt;surfingcrypto.reporting.figures.PortfolioPlot at 0x7fc6844ef750&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1999,8 +1882,16 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 <h2>Calendar plot<a class="headerlink" href="#Calendar-plot" title="Permalink to this headline"></a></h2>
 <p>This calendar plot is a good visualisation of a variable in a calendar style.</p>
 <p>The series passed as input must have a datetime index.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">daily_grouped_metrics</span><span class="p">([</span><span class="s2">&quot;Stock Gain / (Loss)&quot;</span><span class="p">])</span>
@@ -2011,7 +1902,7 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2066,32 +1957,32 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
       <td>...</td>
     </tr>
     <tr>
-      <th>2022-05-03</th>
-      <td>-76.347746</td>
+      <th>2022-05-10</th>
+      <td>-55.509381</td>
     </tr>
     <tr>
-      <th>2022-05-04</th>
-      <td>-18.983411</td>
+      <th>2022-05-11</th>
+      <td>0.000006</td>
     </tr>
     <tr>
-      <th>2022-05-05</th>
-      <td>-89.634808</td>
+      <th>2022-05-12</th>
+      <td>0.000031</td>
     </tr>
     <tr>
-      <th>2022-05-06</th>
-      <td>-110.989875</td>
+      <th>2022-05-13</th>
+      <td>0.000024</td>
     </tr>
     <tr>
-      <th>2022-05-07</th>
-      <td>-133.115246</td>
+      <th>2022-05-14</th>
+      <td>0.000024</td>
     </tr>
   </tbody>
 </table>
-<p>383 rows × 1 columns</p>
+<p>390 rows × 1 columns</p>
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -2100,19 +1991,19 @@ TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;surfingcrypto.reporting.figures.CalendarPlot at 0x7fde812b3b50&gt;
+&lt;surfingcrypto.reporting.figures.CalendarPlot at 0x7fc685d06250&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_portfolio_01_41_1.png" src="../_images/examples_portfolio_01_41_1.png" />
+<img alt="../_images/examples_portfolio_01_42_1.png" src="../_images/examples_portfolio_01_42_1.png" />
 </div>
 </div>
 </div>
