@@ -18,6 +18,7 @@ surfingcrypto.reporting.reporting
       report_coinbase_live_value
       report_percentage_diff
       report_stock_gain
+      report_tomorrow_prediction
    
    
 

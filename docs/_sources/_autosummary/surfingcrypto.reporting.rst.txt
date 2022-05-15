@@ -31,5 +31,4 @@ surfingcrypto.reporting
    surfingcrypto.reporting.figures
    surfingcrypto.reporting.plotting
    surfingcrypto.reporting.reporting
-   surfingcrypto.reporting.trend_line
 

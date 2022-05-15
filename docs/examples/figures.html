@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reporting: figures &mdash; surfingcrypto 0.2.1 documentation</title>
+  <title>Reporting: figures &mdash; surfingcrypto 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -33,7 +33,7 @@
             <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.1
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -372,22 +372,39 @@ div.rendered_html tbody tr:hover {
 <h1>Reporting: figures<a class="headerlink" href="#Reporting:-figures" title="Permalink to this headline"></a></h1>
 <p>This module is the core for the production of the images that can be used for visually assessing the price data.</p>
 <p>All package figures are based on <code class="docutils literal notranslate"><span class="pre">BaseFigure</span></code> object that offers basic methods for working with matplotlib figures.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">surfingcrypto</span> <span class="kn">import</span> <span class="n">Config</span><span class="p">,</span><span class="n">TS</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+<span class="kn">from</span> <span class="nn">surfingcrypto</span> <span class="kn">import</span> <span class="n">Config</span><span class="p">,</span><span class="n">TS</span>
 <span class="kn">from</span> <span class="nn">surfingcrypto.reporting.figures</span> <span class="kn">import</span> <span class="n">SimplePlot</span><span class="p">,</span><span class="n">TaPlot</span><span class="p">,</span><span class="n">ATHPlot</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/opt/miniconda3/envs/cryptoenv/lib/python3.7/site-packages/pyfolio/pos.py:27: UserWarning: Module &#34;zipline.assets&#34; not found; multipliers will not be applied to position notionals.
+  &#39;Module &#34;zipline.assets&#34; not found; multipliers will not be applied&#39;
+</pre></div></div>
 </div>
 <p>Then load the configuration files.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parent</span><span class="o">=</span><span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/&quot;</span>
-<span class="n">c</span><span class="o">=</span><span class="n">Config</span><span class="p">(</span><span class="n">parent</span><span class="o">+</span><span class="s2">&quot;config&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coins</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;BTC&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ETH&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MATIC&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ADA&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SOL&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">coins</span><span class="p">,</span><span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/config&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -396,12 +413,117 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="The-SimplePlot-figure">
 <h3>The <code class="docutils literal notranslate"><span class="pre">SimplePlot</span></code> figure<a class="headerlink" href="#The-SimplePlot-figure" title="Permalink to this headline"></a></h3>
 <p>This is the most basic price plot.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">=</span><span class="n">TS</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">coin</span><span class="o">=</span><span class="s2">&quot;BTC&quot;</span><span class="p">)</span>
-<span class="n">sp</span><span class="o">=</span><span class="n">SimplePlot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span><span class="s2">&quot;6m&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Volume</th>
+      <th>Market Cap</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-10-01 00:00:00+00:00</th>
+      <td>3675.118358</td>
+      <td>3729.454806</td>
+      <td>3614.807026</td>
+      <td>3729.454806</td>
+      <td>1.023213e+09</td>
+      <td>6.190284e+10</td>
+    </tr>
+    <tr>
+      <th>2017-10-02 00:00:00+00:00</th>
+      <td>3722.738871</td>
+      <td>3810.612889</td>
+      <td>3727.718608</td>
+      <td>3758.690499</td>
+      <td>1.220467e+09</td>
+      <td>6.239506e+10</td>
+    </tr>
+    <tr>
+      <th>2017-10-03 00:00:00+00:00</th>
+      <td>3757.957515</td>
+      <td>3785.524139</td>
+      <td>3623.045629</td>
+      <td>3675.702350</td>
+      <td>1.096561e+09</td>
+      <td>6.102594e+10</td>
+    </tr>
+    <tr>
+      <th>2017-10-04 00:00:00+00:00</th>
+      <td>3677.311525</td>
+      <td>3701.573447</td>
+      <td>3579.984629</td>
+      <td>3597.924171</td>
+      <td>9.500383e+08</td>
+      <td>5.974056e+10</td>
+    </tr>
+    <tr>
+      <th>2017-10-05 00:00:00+00:00</th>
+      <td>3598.366553</td>
+      <td>3727.477902</td>
+      <td>3536.648382</td>
+      <td>3695.389871</td>
+      <td>9.918637e+08</td>
+      <td>6.136453e+10</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp</span><span class="o">=</span><span class="n">SimplePlot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span><span class="s2">&quot;6m&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -417,7 +539,7 @@ BTC plotted.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_figures_5_1.png" src="../_images/examples_figures_5_1.png" />
+<img alt="../_images/examples_figures_7_1.png" src="../_images/examples_figures_7_1.png" />
 </div>
 </div>
 </div>
@@ -425,10 +547,11 @@ BTC plotted.
 <h3>The <code class="docutils literal notranslate"><span class="pre">TaPlot</span></code> figure<a class="headerlink" href="#The-TaPlot-figure" title="Permalink to this headline"></a></h3>
 <p>Produce a comples <code class="docutils literal notranslate"><span class="pre">ta</span></code> plot for each coin specified in the configuration file.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tap</span><span class="o">=</span><span class="n">TaPlot</span><span class="p">(</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">ta_indicators</span><span class="p">()</span>
+<span class="n">tap</span><span class="o">=</span><span class="n">TaPlot</span><span class="p">(</span>
     <span class="n">trendlines</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="nb">object</span><span class="o">=</span><span class="n">ts</span><span class="p">,</span>
     <span class="n">graphstart</span><span class="o">=</span><span class="s2">&quot;6m&quot;</span>
@@ -448,7 +571,7 @@ BTC plotted.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_figures_8_1.png" src="../_images/examples_figures_8_1.png" />
+<img alt="../_images/examples_figures_10_1.png" src="../_images/examples_figures_10_1.png" />
 </div>
 </div>
 </div>
@@ -458,7 +581,204 @@ BTC plotted.
 <div class="section" id="Distance-from-ATH">
 <h3>Distance from ATH<a class="headerlink" href="#Distance-from-ATH" title="Permalink to this headline"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">distance_from_ath</span><span class="p">()</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Volume</th>
+      <th>Market Cap</th>
+      <th>SMA_26</th>
+      <th>SMA_12</th>
+      <th>SMA_200</th>
+      <th>SMA_100</th>
+      <th>MACD_12_26_9</th>
+      <th>MACDh_12_26_9</th>
+      <th>MACDs_12_26_9</th>
+      <th>BBL_20_2.0</th>
+      <th>BBM_20_2.0</th>
+      <th>BBU_20_2.0</th>
+      <th>BBB_20_2.0</th>
+      <th>BBP_20_2.0</th>
+      <th>RSI_14</th>
+      <th>distance_ATH</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-05-09 00:00:00+00:00</th>
+      <td>32338.826659</td>
+      <td>32533.077117</td>
+      <td>28681.095687</td>
+      <td>28681.095687</td>
+      <td>5.997649e+10</td>
+      <td>5.459583e+11</td>
+      <td>36204.792009</td>
+      <td>35018.340059</td>
+      <td>41217.349959</td>
+      <td>37151.505893</td>
+      <td>-1573.520256</td>
+      <td>-638.256984</td>
+      <td>-935.263273</td>
+      <td>31445.952407</td>
+      <td>35824.100830</td>
+      <td>40202.249253</td>
+      <td>24.442475</td>
+      <td>-0.315756</td>
+      <td>25.724493</td>
+      <td>29623.943599</td>
+    </tr>
+    <tr>
+      <th>2022-05-10 00:00:00+00:00</th>
+      <td>28659.039145</td>
+      <td>30856.838465</td>
+      <td>28347.606849</td>
+      <td>29463.818278</td>
+      <td>5.680518e+10</td>
+      <td>5.608859e+11</td>
+      <td>35918.707515</td>
+      <td>34318.102141</td>
+      <td>41104.054039</td>
+      <td>37106.146033</td>
+      <td>-1836.792199</td>
+      <td>-721.223141</td>
+      <td>-1115.569058</td>
+      <td>30346.772691</td>
+      <td>35390.603174</td>
+      <td>40434.433657</td>
+      <td>28.503784</td>
+      <td>-0.087528</td>
+      <td>29.454497</td>
+      <td>28841.221009</td>
+    </tr>
+    <tr>
+      <th>2022-05-11 00:00:00+00:00</th>
+      <td>29457.433472</td>
+      <td>30325.943087</td>
+      <td>26794.288407</td>
+      <td>27527.038796</td>
+      <td>6.696064e+10</td>
+      <td>5.240405e+11</td>
+      <td>35534.817389</td>
+      <td>33560.449620</td>
+      <td>40978.016233</td>
+      <td>37038.712251</td>
+      <td>-2176.628213</td>
+      <td>-848.847324</td>
+      <td>-1327.780889</td>
+      <td>28895.035957</td>
+      <td>34896.702369</td>
+      <td>40898.368780</td>
+      <td>34.396754</td>
+      <td>-0.113968</td>
+      <td>25.978109</td>
+      <td>30778.000491</td>
+    </tr>
+    <tr>
+      <th>2022-05-12 00:00:00+00:00</th>
+      <td>27527.399237</td>
+      <td>28532.648980</td>
+      <td>25197.893384</td>
+      <td>27988.466668</td>
+      <td>6.454628e+10</td>
+      <td>5.328504e+11</td>
+      <td>35173.262739</td>
+      <td>32911.982653</td>
+      <td>40856.218581</td>
+      <td>36974.919294</td>
+      <td>-2381.267560</td>
+      <td>-842.789337</td>
+      <td>-1538.478223</td>
+      <td>27818.962561</td>
+      <td>34454.026760</td>
+      <td>41089.090958</td>
+      <td>38.515464</td>
+      <td>0.012773</td>
+      <td>28.153759</td>
+      <td>30316.572619</td>
+    </tr>
+    <tr>
+      <th>2022-05-13 00:00:00+00:00</th>
+      <td>27972.240182</td>
+      <td>29749.227267</td>
+      <td>27733.041048</td>
+      <td>28124.664225</td>
+      <td>4.114633e+10</td>
+      <td>5.354693e+11</td>
+      <td>34842.324911</td>
+      <td>32212.732023</td>
+      <td>40725.324646</td>
+      <td>36929.138302</td>
+      <td>-2503.595817</td>
+      <td>-772.094075</td>
+      <td>-1731.501742</td>
+      <td>26931.338167</td>
+      <td>34029.915840</td>
+      <td>41128.493514</td>
+      <td>41.719631</td>
+      <td>0.084054</td>
+      <td>28.818794</td>
+      <td>30180.375062</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ath</span><span class="o">=</span><span class="n">ATHPlot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span><span class="s2">&quot;1-1-2020&quot;</span><span class="p">)</span>
@@ -477,7 +797,7 @@ BTC ATH plotted.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_figures_10_1.png" src="../_images/examples_figures_10_1.png" />
+<img alt="../_images/examples_figures_13_1.png" src="../_images/examples_figures_13_1.png" />
 </div>
 </div>
 </div>

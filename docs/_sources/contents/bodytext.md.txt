@@ -11,7 +11,6 @@ It is possible to get historical price data on any cryptocurrency listed on [coi
 The idea behind the package is to have a set of functions to produce daily reports, in form of plots and text. An example is as used as in [`main.py`](https://github.com/giocaizzi/surfingcrypto/blob/main/main.py).
 This script is run on a AWS ec2 istance, every day at `10:30 AM UTC`. Paired with a notification system - I use Telegram - I get daily updates on my portfolio and coins that I want to monitor daily.
 
-___
 - [Quick start](#quick-start)
   - [Key modules](#key-modules)
   - [Basic usage](#basic-usage)
@@ -21,7 +20,8 @@ ___
       - [Plotting prices and indicators](#plotting-prices-and-indicators)
       - [Reporting useful information](#reporting-useful-information)
   - [Package modules structure](#package-modules-structure)
-___
+
+
 
 ## Key modules
 
@@ -103,4 +103,4 @@ The following image depicts the package module structure and integration archite
 
 **TO BE UPDATED!**
 
-![TA Figure](../images/structure.png)
+<!-- ![TA Figure](../images/structure.png) -->

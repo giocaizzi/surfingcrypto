@@ -15,8 +15,6 @@ surfingcrypto.portfolio.coinbase.CB
    .. autosummary::
    
       ~CB.__init__
-      ~CB.get_active_accounts
-      ~CB.get_full_history
    
    
 

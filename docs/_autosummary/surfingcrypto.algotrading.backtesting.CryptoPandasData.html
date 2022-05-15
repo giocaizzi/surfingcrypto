@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>surfingcrypto.algotrading.backtesting.CryptoPandasData &mdash; surfingcrypto 0.3.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="surfingcrypto.algotrading.backtesting.CryptoSizer" href="surfingcrypto.algotrading.backtesting.CryptoSizer.html" />
+    <link rel="prev" title="surfingcrypto.algotrading.backtesting.CryptoComissionInfo" href="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> surfingcrypto
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.3.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contents/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/bodytext.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/references.html">References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/scraper.html"><code class="docutils literal notranslate"><span class="pre">Scraper</span></code>: get the required data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/ts.html"><code class="docutils literal notranslate"><span class="pre">TS</span></code>: a time-series object optimized for crypto price data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/reporting.html">Reporting: text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/figures.html">Reporting: figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_01.html">Surfingcrypto <code class="docutils literal notranslate"><span class="pre">Portfolio</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_coinbase.html">Portfolio: <code class="docutils literal notranslate"><span class="pre">MyCoinbase</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Code reference:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="surfingcrypto.html">surfingcrypto</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="surfingcrypto.algotrading.html">surfingcrypto.algotrading</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="surfingcrypto.algotrading.backtesting.html">surfingcrypto.algotrading.backtesting</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.algotrading.backtesting.BackTest.html">surfingcrypto.algotrading.backtesting.BackTest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.html">surfingcrypto.algotrading.backtesting.CryptoComissionInfo</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">surfingcrypto.algotrading.backtesting.CryptoPandasData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.algotrading.backtesting.CryptoSizer.html">surfingcrypto.algotrading.backtesting.CryptoSizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.algotrading.backtesting.MLStrategy.html">surfingcrypto.algotrading.backtesting.MLStrategy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.algotrading.features.html">surfingcrypto.algotrading.features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.algotrading.model.html">surfingcrypto.algotrading.model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.algotrading.signals.html">surfingcrypto.algotrading.signals</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.config.html">surfingcrypto.config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.extra.html">surfingcrypto.extra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.portfolio.html">surfingcrypto.portfolio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.reporting.html">surfingcrypto.reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.scraper.html">surfingcrypto.scraper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.ts.html">surfingcrypto.ts</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">surfingcrypto</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="surfingcrypto.html">surfingcrypto</a> &raquo;</li>
+          <li><a href="surfingcrypto.algotrading.html">surfingcrypto.algotrading</a> &raquo;</li>
+          <li><a href="surfingcrypto.algotrading.backtesting.html">surfingcrypto.algotrading.backtesting</a> &raquo;</li>
+      <li>surfingcrypto.algotrading.backtesting.CryptoPandasData</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/surfingcrypto.algotrading.backtesting.CryptoPandasData.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="surfingcrypto-algotrading-backtesting-cryptopandasdata">
+<h1>surfingcrypto.algotrading.backtesting.CryptoPandasData<a class="headerlink" href="#surfingcrypto-algotrading-backtesting-cryptopandasdata" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.algotrading.backtesting.</span></span><span class="sig-name descname"><span class="pre">CryptoPandasData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">backtrader.feeds.pandafeed.PandasData</span></code></p>
+<p>pandas df structure</p>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">addfilter</span></code>(p, *args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">addfilter_simple</span></code>(f, *args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.addminperiod" title="surfingcrypto.algotrading.backtesting.CryptoPandasData.addminperiod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addminperiod</span></code></a>(minperiod)</p></td>
+<td><p>The passed minperiod is fed to the lines</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">advance</span></code>([size, datamaster, ticks])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">advance_peek</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">backwards</span></code>([size, force])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone</span></code>(**kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.compensate" title="surfingcrypto.algotrading.backtesting.CryptoPandasData.compensate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compensate</span></code></a>(other)</p></td>
+<td><p>Call it to let the broker know that actions on this asset will compensate open positions in another</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">copyas</span></code>(_dataname, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">date2num</span></code>(dt)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">do_qcheck</span></code>(onoff, qlapse)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">extend</span></code>([value, size])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code>([value, size])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.get_notifications" title="surfingcrypto.algotrading.backtesting.CryptoPandasData.get_notifications"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_notifications</span></code></a>()</p></td>
+<td><p>Return the pending &quot;store&quot; notifications</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">getenvironment</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">getfeed</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">getwriterheaders</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">getwriterinfo</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">getwritervalues</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">haslivedata</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">home</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.incminperiod" title="surfingcrypto.algotrading.backtesting.CryptoPandasData.incminperiod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">incminperiod</span></code></a>(minperiod)</p></td>
+<td><p>The passed minperiod is fed to the lines</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.islive" title="surfingcrypto.algotrading.backtesting.CryptoPandasData.islive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">islive</span></code></a>()</p></td>
+<td><p>If this returns True, <code class="docutils literal notranslate"><span class="pre">Cerebro</span></code> will deactivate <code class="docutils literal notranslate"><span class="pre">preload</span></code> and <code class="docutils literal notranslate"><span class="pre">runonce</span></code> because a live data source must be fetched tick by tick (or bar by bar)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.minbuffer" title="surfingcrypto.algotrading.backtesting.CryptoPandasData.minbuffer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">minbuffer</span></code></a>(size)</p></td>
+<td><p>Receive notification of how large the buffer must at least be</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.next" title="surfingcrypto.algotrading.backtesting.CryptoPandasData.next"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next</span></code></a>([datamaster, ticks])</p></td>
+<td><p>Called to calculate values when the minperiod is over</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.nextstart" title="surfingcrypto.algotrading.backtesting.CryptoPandasData.nextstart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nextstart</span></code></a>()</p></td>
+<td><p>It will be called when the minperiod phase is over for the 1st post-minperiod value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">num2date</span></code>([dt, tz, naive])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.once" title="surfingcrypto.algotrading.backtesting.CryptoPandasData.once"><code class="xref py py-obj docutils literal notranslate"><span class="pre">once</span></code></a>(start, end)</p></td>
+<td><p>Called to calculate values at &quot;once&quot; when the minperiod is over</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.oncestart" title="surfingcrypto.algotrading.backtesting.CryptoPandasData.oncestart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">oncestart</span></code></a>(start, end)</p></td>
+<td><p>It will be called when the minperiod phase is over for the 1st post-minperiod value</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotlabel</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">preload</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.prenext" title="surfingcrypto.algotrading.backtesting.CryptoPandasData.prenext"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prenext</span></code></a>()</p></td>
+<td><p>It will be called during the &quot;minperiod&quot; phase of an iteration.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.preonce" title="surfingcrypto.algotrading.backtesting.CryptoPandasData.preonce"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preonce</span></code></a>(start, end)</p></td>
+<td><p>It will be called during the &quot;minperiod&quot; phase of a &quot;once&quot; iteration</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.put_notification" title="surfingcrypto.algotrading.backtesting.CryptoPandasData.put_notification"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put_notification</span></code></a>(status, *args, **kwargs)</p></td>
+<td><p>Add arguments to notification queue</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.qbuffer" title="surfingcrypto.algotrading.backtesting.CryptoPandasData.qbuffer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qbuffer</span></code></a>([savemem, replaying])</p></td>
+<td><p>Change the lines to implement a minimum size qbuffer scheme</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">replay</span></code>(**kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">resample</span></code>(**kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rewind</span></code>([size])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.setenvironment" title="surfingcrypto.algotrading.backtesting.CryptoPandasData.setenvironment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setenvironment</span></code></a>(env)</p></td>
+<td><p>Keep a reference to the environment</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.setminperiod" title="surfingcrypto.algotrading.backtesting.CryptoPandasData.setminperiod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setminperiod</span></code></a>(minperiod)</p></td>
+<td><p>Direct minperiod manipulation.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">start</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.updateminperiod" title="surfingcrypto.algotrading.backtesting.CryptoPandasData.updateminperiod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">updateminperiod</span></code></a>(minperiod)</p></td>
+<td><p>Update the minperiod if needed.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">CONNBROKEN</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">CONNECTED</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Close</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">DELAYED</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISCONNECTED</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">DateTime</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">High</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">IndType</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">LIVE</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">LineOrder</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Low</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">NOTSUBSCRIBED</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">NOTSUPPORTED_TF</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ObsType</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Open</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">OpenInterest</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">StratType</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">UNKNOWN</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Volume</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">alias</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">aliased</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">cols</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">csv</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">datafields</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">frompackages</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">packages</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">replaying</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">resampling</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData.addminperiod">
+<span class="sig-name descname"><span class="pre">addminperiod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minperiod</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.addminperiod" title="Permalink to this definition"></a></dt>
+<dd><p>The passed minperiod is fed to the lines</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData.compensate">
+<span class="sig-name descname"><span class="pre">compensate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.compensate" title="Permalink to this definition"></a></dt>
+<dd><p>Call it to let the broker know that actions on this asset will
+compensate open positions in another</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData.get_notifications">
+<span class="sig-name descname"><span class="pre">get_notifications</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.get_notifications" title="Permalink to this definition"></a></dt>
+<dd><p>Return the pending “store” notifications</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData.incminperiod">
+<span class="sig-name descname"><span class="pre">incminperiod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minperiod</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.incminperiod" title="Permalink to this definition"></a></dt>
+<dd><p>The passed minperiod is fed to the lines</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData.islive">
+<span class="sig-name descname"><span class="pre">islive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.islive" title="Permalink to this definition"></a></dt>
+<dd><p>If this returns True, <code class="docutils literal notranslate"><span class="pre">Cerebro</span></code> will deactivate <code class="docutils literal notranslate"><span class="pre">preload</span></code> and
+<code class="docutils literal notranslate"><span class="pre">runonce</span></code> because a live data source must be fetched tick by tick (or
+bar by bar)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData.lines">
+<span class="sig-name descname"><span class="pre">lines</span></span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.lines" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">backtrader.lineseries.Lines_LineSeries_DataSeries_OHLC_OHLCDateTime_AbstractDataBase_DataBase_PandasData_CryptoPandasData</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData.minbuffer">
+<span class="sig-name descname"><span class="pre">minbuffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.minbuffer" title="Permalink to this definition"></a></dt>
+<dd><p>Receive notification of how large the buffer must at least be</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData.next">
+<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datamaster</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.next" title="Permalink to this definition"></a></dt>
+<dd><p>Called to calculate values when the minperiod is over</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData.nextstart">
+<span class="sig-name descname"><span class="pre">nextstart</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.nextstart" title="Permalink to this definition"></a></dt>
+<dd><p>It will be called when the minperiod phase is over for the 1st
+post-minperiod value. Only called once and defaults to automatically
+calling next</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData.once">
+<span class="sig-name descname"><span class="pre">once</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.once" title="Permalink to this definition"></a></dt>
+<dd><p>Called to calculate values at “once” when the minperiod is over</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData.oncestart">
+<span class="sig-name descname"><span class="pre">oncestart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.oncestart" title="Permalink to this definition"></a></dt>
+<dd><p>It will be called when the minperiod phase is over for the 1st
+post-minperiod value</p>
+<p>Only called once and defaults to automatically calling once</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData.prenext">
+<span class="sig-name descname"><span class="pre">prenext</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.prenext" title="Permalink to this definition"></a></dt>
+<dd><p>It will be called during the “minperiod” phase of an iteration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData.preonce">
+<span class="sig-name descname"><span class="pre">preonce</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.preonce" title="Permalink to this definition"></a></dt>
+<dd><p>It will be called during the “minperiod” phase of a “once” iteration</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData.put_notification">
+<span class="sig-name descname"><span class="pre">put_notification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.put_notification" title="Permalink to this definition"></a></dt>
+<dd><p>Add arguments to notification queue</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData.qbuffer">
+<span class="sig-name descname"><span class="pre">qbuffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">savemem</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replaying</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.qbuffer" title="Permalink to this definition"></a></dt>
+<dd><p>Change the lines to implement a minimum size qbuffer scheme</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData.setenvironment">
+<span class="sig-name descname"><span class="pre">setenvironment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.setenvironment" title="Permalink to this definition"></a></dt>
+<dd><p>Keep a reference to the environment</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData.setminperiod">
+<span class="sig-name descname"><span class="pre">setminperiod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minperiod</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.setminperiod" title="Permalink to this definition"></a></dt>
+<dd><p>Direct minperiod manipulation. It could be used for example
+by a strategy
+to not wait for all indicators to produce a value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoPandasData.updateminperiod">
+<span class="sig-name descname"><span class="pre">updateminperiod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minperiod</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoPandasData.updateminperiod" title="Permalink to this definition"></a></dt>
+<dd><p>Update the minperiod if needed. The minperiod will have been
+calculated elsewhere
+and has to take over if greater that self’s</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.html" class="btn btn-neutral float-left" title="surfingcrypto.algotrading.backtesting.CryptoComissionInfo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="surfingcrypto.algotrading.backtesting.CryptoSizer.html" class="btn btn-neutral float-right" title="surfingcrypto.algotrading.backtesting.CryptoSizer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, giocaizzi.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

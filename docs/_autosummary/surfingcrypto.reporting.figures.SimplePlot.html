@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>surfingcrypto.reporting.figures.SimplePlot &mdash; surfingcrypto 0.2.1 documentation</title>
+  <title>surfingcrypto.reporting.figures.SimplePlot &mdash; surfingcrypto 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -31,7 +31,7 @@
             <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.1
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -59,12 +59,14 @@
 <p class="caption" role="heading"><span class="caption-text">Code reference:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="surfingcrypto.html">surfingcrypto</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.algotrading.html">surfingcrypto.algotrading</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.config.html">surfingcrypto.config</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.extra.html">surfingcrypto.extra</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.portfolio.html">surfingcrypto.portfolio</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="surfingcrypto.reporting.html">surfingcrypto.reporting</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="surfingcrypto.reporting.figures.html">surfingcrypto.reporting.figures</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.figures.ATHPlot.html">surfingcrypto.reporting.figures.ATHPlot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.figures.BacktestPerformancePlot.html">surfingcrypto.reporting.figures.BacktestPerformancePlot</a></li>
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.figures.BaseFigure.html">surfingcrypto.reporting.figures.BaseFigure</a></li>
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.figures.CalendarPlot.html">surfingcrypto.reporting.figures.CalendarPlot</a></li>
 <li class="toctree-l4"><a class="reference internal" href="surfingcrypto.reporting.figures.PortfolioPlot.html">surfingcrypto.reporting.figures.PortfolioPlot</a></li>
@@ -74,7 +76,6 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.plotting.html">surfingcrypto.reporting.plotting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.reporting.html">surfingcrypto.reporting.reporting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.trend_line.html">surfingcrypto.reporting.trend_line</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.scraper.html">surfingcrypto.scraper</a></li>
@@ -152,7 +153,7 @@ Candlesticks + volume.</p>
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -161,38 +162,20 @@ Candlesticks + volume.</p>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>(*args, **kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.reporting.figures.SimplePlot.center_series" title="surfingcrypto.reporting.figures.SimplePlot.center_series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">center_series</span></code></a>(ax[, on])</p></td>
-<td><p>centers the active series in the graph.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.reporting.figures.SimplePlot.default_plot" title="surfingcrypto.reporting.figures.SimplePlot.default_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_plot</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.reporting.figures.SimplePlot.default_plot" title="surfingcrypto.reporting.figures.SimplePlot.default_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_plot</span></code></a>()</p></td>
 <td><p>default plotting.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.reporting.figures.SimplePlot.save" title="surfingcrypto.reporting.figures.SimplePlot.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(path)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.reporting.figures.SimplePlot.save" title="surfingcrypto.reporting.figures.SimplePlot.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(path)</p></td>
 <td><p>save fig to specified path.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.reporting.figures.SimplePlot.set_axes" title="surfingcrypto.reporting.figures.SimplePlot.set_axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_axes</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.reporting.figures.SimplePlot.set_axes" title="surfingcrypto.reporting.figures.SimplePlot.set_axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_axes</span></code></a>()</p></td>
 <td><p>set axes look.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subset_series</span></code>()</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.reporting.figures.SimplePlot.subset_ts_df" title="surfingcrypto.reporting.figures.SimplePlot.subset_ts_df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subset_ts_df</span></code></a>(first[, last])</p></td>
+<td><p>subsets inplace ts.df to selected interval</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.reporting.figures.SimplePlot.center_series">
-<span class="sig-name descname"><span class="pre">center_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Close'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.reporting.figures.SimplePlot.center_series" title="Permalink to this definition"></a></dt>
-<dd><p>centers the active series in the graph.
-This is useful when dealing only with “zoomed-in” views.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ax</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code>) – </p></li>
-<li><p><strong>on</strong> (<em>str</em>) – <cite>Close</cite> or TA indicator name</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="surfingcrypto.reporting.figures.SimplePlot.default_plot">
 <span class="sig-name descname"><span class="pre">default_plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.reporting.figures.SimplePlot.default_plot" title="Permalink to this definition"></a></dt>
@@ -215,6 +198,26 @@ This is useful when dealing only with “zoomed-in” views.</p>
 <span class="sig-name descname"><span class="pre">set_axes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.reporting.figures.SimplePlot.set_axes" title="Permalink to this definition"></a></dt>
 <dd><p>set axes look.
 set axes to the specified xlims.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.reporting.figures.SimplePlot.subset_ts_df">
+<span class="sig-name descname"><span class="pre">subset_ts_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.reporting.figures.SimplePlot.subset_ts_df" title="Permalink to this definition"></a></dt>
+<dd><p>subsets inplace ts.df to selected interval</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <cite>object</cite> attribute is a TS or Portfolio object and it must have
+a df attribute.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>first</strong> (<em>str</em>) – first date of interval, as string in d-m-Y format</p></li>
+<li><p><strong>last</strong> (<em>_type_</em><em>, </em><em>optional</em>) – last date of interval, as string in d-m-Y format.
+Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

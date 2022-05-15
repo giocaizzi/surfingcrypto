@@ -15,8 +15,6 @@ surfingcrypto.portfolio.coinbase.MyCoinbase
    .. autosummary::
    
       ~MyCoinbase.__init__
-      ~MyCoinbase.get_active_accounts
-      ~MyCoinbase.get_full_history
       ~MyCoinbase.get_history
       ~MyCoinbase.start
    

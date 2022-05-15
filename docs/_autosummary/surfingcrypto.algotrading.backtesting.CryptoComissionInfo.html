@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>surfingcrypto.algotrading.backtesting.CryptoComissionInfo &mdash; surfingcrypto 0.3.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="surfingcrypto.algotrading.backtesting.CryptoPandasData" href="surfingcrypto.algotrading.backtesting.CryptoPandasData.html" />
+    <link rel="prev" title="surfingcrypto.algotrading.backtesting.BackTest" href="surfingcrypto.algotrading.backtesting.BackTest.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> surfingcrypto
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.3.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contents/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/bodytext.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/references.html">References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/scraper.html"><code class="docutils literal notranslate"><span class="pre">Scraper</span></code>: get the required data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/ts.html"><code class="docutils literal notranslate"><span class="pre">TS</span></code>: a time-series object optimized for crypto price data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/reporting.html">Reporting: text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/figures.html">Reporting: figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_01.html">Surfingcrypto <code class="docutils literal notranslate"><span class="pre">Portfolio</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/portfolio_coinbase.html">Portfolio: <code class="docutils literal notranslate"><span class="pre">MyCoinbase</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Code reference:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="surfingcrypto.html">surfingcrypto</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="surfingcrypto.algotrading.html">surfingcrypto.algotrading</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="surfingcrypto.algotrading.backtesting.html">surfingcrypto.algotrading.backtesting</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.algotrading.backtesting.BackTest.html">surfingcrypto.algotrading.backtesting.BackTest</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">surfingcrypto.algotrading.backtesting.CryptoComissionInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.algotrading.backtesting.CryptoPandasData.html">surfingcrypto.algotrading.backtesting.CryptoPandasData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.algotrading.backtesting.CryptoSizer.html">surfingcrypto.algotrading.backtesting.CryptoSizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.algotrading.backtesting.MLStrategy.html">surfingcrypto.algotrading.backtesting.MLStrategy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.algotrading.features.html">surfingcrypto.algotrading.features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.algotrading.model.html">surfingcrypto.algotrading.model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.algotrading.signals.html">surfingcrypto.algotrading.signals</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.config.html">surfingcrypto.config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.extra.html">surfingcrypto.extra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.portfolio.html">surfingcrypto.portfolio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.reporting.html">surfingcrypto.reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.scraper.html">surfingcrypto.scraper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.ts.html">surfingcrypto.ts</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">surfingcrypto</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="surfingcrypto.html">surfingcrypto</a> &raquo;</li>
+          <li><a href="surfingcrypto.algotrading.html">surfingcrypto.algotrading</a> &raquo;</li>
+          <li><a href="surfingcrypto.algotrading.backtesting.html">surfingcrypto.algotrading.backtesting</a> &raquo;</li>
+      <li>surfingcrypto.algotrading.backtesting.CryptoComissionInfo</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/surfingcrypto.algotrading.backtesting.CryptoComissionInfo.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="surfingcrypto-algotrading-backtesting-cryptocomissioninfo">
+<h1>surfingcrypto.algotrading.backtesting.CryptoComissionInfo<a class="headerlink" href="#surfingcrypto-algotrading-backtesting-cryptocomissioninfo" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoComissionInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.algotrading.backtesting.</span></span><span class="sig-name descname"><span class="pre">CryptoComissionInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">backtrader.comminfo.CommissionInfo</span></code></p>
+<p>commission info for crypto</p>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.cashadjust" title="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.cashadjust"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cashadjust</span></code></a>(size, price, newprice)</p></td>
+<td><p>Calculates cash adjustment for a given price difference</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">confirmexec</span></code>(size, price)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.get_credit_interest" title="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.get_credit_interest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_credit_interest</span></code></a>(data, pos, dt)</p></td>
+<td><p>Calculates the credit due for short selling or product specific</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.get_leverage" title="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.get_leverage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_leverage</span></code></a>()</p></td>
+<td><p>Returns the level of leverage allowed for this comission scheme</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.get_margin" title="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.get_margin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_margin</span></code></a>(price)</p></td>
+<td><p>Returns the actual margin/guarantees needed for a single item of the asset at the given price.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getcommission" title="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getcommission"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getcommission</span></code></a>(size, price)</p></td>
+<td><p>Calculates the commission of an operation at a given price</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getoperationcost" title="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getoperationcost"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getoperationcost</span></code></a>(size, price)</p></td>
+<td><p>Returns the needed amount of cash an operation would cost</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getsize" title="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getsize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getsize</span></code></a>(price, cash)</p></td>
+<td><p>Returns fractional size for cash operation &#64;price</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getvalue" title="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getvalue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getvalue</span></code></a>(position, price)</p></td>
+<td><p>Returns the value of a position given a price.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getvaluesize" title="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getvaluesize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getvaluesize</span></code></a>(size, price)</p></td>
+<td><p>Returns the value of size for given a price.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.profitandloss" title="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.profitandloss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">profitandloss</span></code></a>(size, price, newprice)</p></td>
+<td><p>Return actual profit and loss a position has</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">COMM_FIXED</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">COMM_PERC</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">frompackages</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">margin</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">packages</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">stocklike</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.cashadjust">
+<span class="sig-name descname"><span class="pre">cashadjust</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newprice</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.cashadjust" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates cash adjustment for a given price difference</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.get_credit_interest">
+<span class="sig-name descname"><span class="pre">get_credit_interest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.get_credit_interest" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the credit due for short selling or product specific</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.get_leverage">
+<span class="sig-name descname"><span class="pre">get_leverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.get_leverage" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the level of leverage allowed for this comission scheme</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.get_margin">
+<span class="sig-name descname"><span class="pre">get_margin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">price</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.get_margin" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the actual margin/guarantees needed for a single item of the
+asset at the given price. The default implementation has this policy:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Use param <code class="docutils literal notranslate"><span class="pre">margin</span></code> if param <code class="docutils literal notranslate"><span class="pre">automargin</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p>Use param <code class="docutils literal notranslate"><span class="pre">mult</span></code> * <code class="docutils literal notranslate"><span class="pre">price</span></code> if <code class="docutils literal notranslate"><span class="pre">automargin</span> <span class="pre">&lt;</span> <span class="pre">0</span></code></p></li>
+<li><p>Use param <code class="docutils literal notranslate"><span class="pre">automargin</span></code> * <code class="docutils literal notranslate"><span class="pre">price</span></code> if <code class="docutils literal notranslate"><span class="pre">automargin</span> <span class="pre">&gt;</span> <span class="pre">0</span></code></p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getcommission">
+<span class="sig-name descname"><span class="pre">getcommission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">price</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getcommission" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the commission of an operation at a given price</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getoperationcost">
+<span class="sig-name descname"><span class="pre">getoperationcost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">price</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getoperationcost" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the needed amount of cash an operation would cost</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getsize">
+<span class="sig-name descname"><span class="pre">getsize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cash</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getsize" title="Permalink to this definition"></a></dt>
+<dd><p>Returns fractional size for cash operation &#64;price</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getvalue">
+<span class="sig-name descname"><span class="pre">getvalue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">price</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getvalue" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the value of a position given a price. For future-like
+objects it is fixed at size * margin</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getvaluesize">
+<span class="sig-name descname"><span class="pre">getvaluesize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">price</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.getvaluesize" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the value of size for given a price. For future-like
+objects it is fixed at size * margin</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.profitandloss">
+<span class="sig-name descname"><span class="pre">profitandloss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newprice</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.CryptoComissionInfo.profitandloss" title="Permalink to this definition"></a></dt>
+<dd><p>Return actual profit and loss a position has</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="surfingcrypto.algotrading.backtesting.BackTest.html" class="btn btn-neutral float-left" title="surfingcrypto.algotrading.backtesting.BackTest" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="surfingcrypto.algotrading.backtesting.CryptoPandasData.html" class="btn btn-neutral float-right" title="surfingcrypto.algotrading.backtesting.CryptoPandasData" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, giocaizzi.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

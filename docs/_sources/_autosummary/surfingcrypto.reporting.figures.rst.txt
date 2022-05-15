@@ -20,6 +20,7 @@ surfingcrypto.reporting.figures
       :template: custom-class-template.rst
    
       ATHPlot
+      BacktestPerformancePlot
       BaseFigure
       CalendarPlot
       PortfolioPlot

@@ -15,11 +15,10 @@ surfingcrypto.reporting.figures.ATHPlot
    .. autosummary::
    
       ~ATHPlot.__init__
-      ~ATHPlot.center_series
       ~ATHPlot.plot
       ~ATHPlot.save
       ~ATHPlot.set_axes
-      ~ATHPlot.subset_series
+      ~ATHPlot.subset_ts_df
    
    
 

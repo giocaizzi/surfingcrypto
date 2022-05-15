@@ -28,6 +28,7 @@
    :template: custom-module-template.rst
    :recursive:
 
+   surfingcrypto.algotrading
    surfingcrypto.config
    surfingcrypto.extra
    surfingcrypto.portfolio

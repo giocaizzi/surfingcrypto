@@ -15,10 +15,9 @@ surfingcrypto.reporting.figures.TaPlot
    .. autosummary::
    
       ~TaPlot.__init__
-      ~TaPlot.center_series
       ~TaPlot.save
       ~TaPlot.set_axes
-      ~TaPlot.subset_series
+      ~TaPlot.subset_ts_df
       ~TaPlot.ta_plot
    
    

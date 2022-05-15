@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>surfingcrypto.reporting.trend_line &mdash; surfingcrypto 0.2.1 documentation</title>
+  <title>surfingcrypto.algotrading.backtesting.BackTest &mdash; surfingcrypto 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,8 +18,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="surfingcrypto.scraper" href="surfingcrypto.scraper.html" />
-    <link rel="prev" title="surfingcrypto.reporting.reporting.report_stock_gain" href="surfingcrypto.reporting.reporting.report_stock_gain.html" /> 
+    <link rel="next" title="surfingcrypto.algotrading.backtesting.CryptoComissionInfo" href="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.html" />
+    <link rel="prev" title="surfingcrypto.algotrading.backtesting" href="surfingcrypto.algotrading.backtesting.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -31,7 +31,7 @@
             <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.1
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -59,16 +59,24 @@
 <p class="caption" role="heading"><span class="caption-text">Code reference:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="surfingcrypto.html">surfingcrypto</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="surfingcrypto.algotrading.html">surfingcrypto.algotrading</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="surfingcrypto.algotrading.backtesting.html">surfingcrypto.algotrading.backtesting</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">surfingcrypto.algotrading.backtesting.BackTest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.html">surfingcrypto.algotrading.backtesting.CryptoComissionInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.algotrading.backtesting.CryptoPandasData.html">surfingcrypto.algotrading.backtesting.CryptoPandasData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.algotrading.backtesting.CryptoSizer.html">surfingcrypto.algotrading.backtesting.CryptoSizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surfingcrypto.algotrading.backtesting.MLStrategy.html">surfingcrypto.algotrading.backtesting.MLStrategy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.algotrading.features.html">surfingcrypto.algotrading.features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.algotrading.model.html">surfingcrypto.algotrading.model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.algotrading.signals.html">surfingcrypto.algotrading.signals</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.config.html">surfingcrypto.config</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.extra.html">surfingcrypto.extra</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.portfolio.html">surfingcrypto.portfolio</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="surfingcrypto.reporting.html">surfingcrypto.reporting</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.figures.html">surfingcrypto.reporting.figures</a></li>
-<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.plotting.html">surfingcrypto.reporting.plotting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="surfingcrypto.reporting.reporting.html">surfingcrypto.reporting.reporting</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">surfingcrypto.reporting.trend_line</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.reporting.html">surfingcrypto.reporting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.scraper.html">surfingcrypto.scraper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.ts.html">surfingcrypto.ts</a></li>
 </ul>
@@ -90,10 +98,11 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="surfingcrypto.html">surfingcrypto</a> &raquo;</li>
-          <li><a href="surfingcrypto.reporting.html">surfingcrypto.reporting</a> &raquo;</li>
-      <li>surfingcrypto.reporting.trend_line</li>
+          <li><a href="surfingcrypto.algotrading.html">surfingcrypto.algotrading</a> &raquo;</li>
+          <li><a href="surfingcrypto.algotrading.backtesting.html">surfingcrypto.algotrading.backtesting</a> &raquo;</li>
+      <li>surfingcrypto.algotrading.backtesting.BackTest</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/surfingcrypto.reporting.trend_line.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/surfingcrypto.algotrading.backtesting.BackTest.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -125,16 +134,44 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="module-surfingcrypto.reporting.trend_line">
-<span id="surfingcrypto-reporting-trend-line"></span><h1>surfingcrypto.reporting.trend_line<a class="headerlink" href="#module-surfingcrypto.reporting.trend_line" title="Permalink to this headline"></a></h1>
+<div class="section" id="surfingcrypto-algotrading-backtesting-backtest">
+<h1>surfingcrypto.algotrading.backtesting.BackTest<a class="headerlink" href="#surfingcrypto-algotrading-backtesting-backtest" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="surfingcrypto.algotrading.backtesting.BackTest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surfingcrypto.algotrading.backtesting.</span></span><span class="sig-name descname"><span class="pre">BackTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="surfingcrypto.algotrading.model.Model.html#surfingcrypto.algotrading.model.Model" title="surfingcrypto.algotrading.model.Model"><span class="pre">surfingcrypto.algotrading.model.Model</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.algotrading.backtesting.BackTest" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>backtest istance</p>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>(m, start[, verbose])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">performance_stats</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_log</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="surfingcrypto.reporting.reporting.report_stock_gain.html" class="btn btn-neutral float-left" title="surfingcrypto.reporting.reporting.report_stock_gain" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="surfingcrypto.scraper.html" class="btn btn-neutral float-right" title="surfingcrypto.scraper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="surfingcrypto.algotrading.backtesting.html" class="btn btn-neutral float-left" title="surfingcrypto.algotrading.backtesting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="surfingcrypto.algotrading.backtesting.CryptoComissionInfo.html" class="btn btn-neutral float-right" title="surfingcrypto.algotrading.backtesting.CryptoComissionInfo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

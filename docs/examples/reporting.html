@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reporting: text &mdash; surfingcrypto 0.2.1 documentation</title>
+  <title>Reporting: text &mdash; surfingcrypto 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -33,7 +33,7 @@
             <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.1
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -376,7 +376,14 @@ div.rendered_html tbody tr:hover {
 <span class="kn">from</span> <span class="nn">surfingcrypto.ts</span> <span class="kn">import</span> <span class="n">TS</span>
 <span class="kn">from</span> <span class="nn">surfingcrypto</span> <span class="kn">import</span> <span class="n">Config</span>
 
-<span class="n">c</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/config&quot;</span><span class="p">)</span>
+<span class="n">coins</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;BTC&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ETH&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MATIC&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ADA&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SOL&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">coins</span><span class="p">,</span><span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/config&quot;</span><span class="p">)</span>
 <br/></pre></div>
 </div>
 </div>
@@ -397,18 +404,18 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 **BTC**
-- 1d: 1.17 %
-- 3d: -0.79 %
-- 7d: -5.28 %
-- 14d: -2.91 %
-- 60d: 1.82 %
+- 1d: -1.50 %
+- 3d: -9.95 %
+- 7d: -5.91 %
+- 14d: -8.06 %
+- 60d: -5.32 %
 
 </pre></div></div>
 </div>
 </div>
 <div class="section" id="Portfolio:-live-value">
 <h2>Portfolio: live value<a class="headerlink" href="#Portfolio:-live-value" title="Permalink to this headline"></a></h2>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
@@ -416,8 +423,20 @@ div.rendered_html tbody tr:hover {
 <br/></pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+### PORTFOLIO
+MyCoinbase( isHistoric:True, N_accounts:32)
+Warning! There are 14 transactionsthat were EXCLUDED in std_df.
+Warning! Errors while handling transactions:
+TransactionsHistory(Transactions:211 - Processed:211, Unhandled:0 - Errors:9)
+</pre></div></div>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">report_coinbase_live_value</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
@@ -429,22 +448,16 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-ALGO : EUR 191.00
-AAVE : EUR 172.06
-SUSHI : EUR 70.61
-MATIC : EUR 350.16
-UNI : EUR 124.11
-ADA : EUR 148.25
-USDC : EUR 0.01
+USDC : EUR 894.59
 ---
-Portfolio: EUR 1056.20
+Portfolio: EUR 894.59
 </pre></div></div>
 </div>
 </div>
 <div class="section" id="Portfolio-:-Stock-gain/loss">
 <h2>Portfolio : Stock gain/loss<a class="headerlink" href="#Portfolio-:-Stock-gain/loss" title="Permalink to this headline"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">start_tracker</span><span class="p">(</span>
@@ -454,10 +467,10 @@ Portfolio: EUR 1056.20
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">report_stock_gain</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">daily_snaphost</span><span class="p">(</span><span class="s2">&quot;2022-03-27&quot;</span><span class="p">)))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">report_stock_gain</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">daily_snaphost</span><span class="p">(</span><span class="s2">&quot;last&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -466,13 +479,10 @@ Portfolio: EUR 1056.20
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-ADA : -162.17
-MATIC : 94.87
 USDC : 0.00
-SUSHI : -69.20
-UNI : -58.55
-AAVE : -41.51
-ALGO : 33.65
+MATIC : nan
+SOL : nan
+ETH : nan
 
 </pre></div></div>
 </div>

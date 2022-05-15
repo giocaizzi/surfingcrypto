@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TS: a time-series object optimized for crypto price data &mdash; surfingcrypto 0.2.1 documentation</title>
+  <title>TS: a time-series object optimized for crypto price data &mdash; surfingcrypto 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -33,7 +33,7 @@
             <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.1
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -369,12 +369,14 @@ div.rendered_html tbody tr:hover {
 <p>The object <code class="docutils literal notranslate"><span class="pre">surfingcrypto.ts.TS</span></code> is specifically designed for cryptocurrencies price data.</p>
 <p>To initiate the object, first load the package configuration.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">surfingcrypto</span> <span class="kn">import</span> <span class="n">Config</span><span class="p">,</span><span class="n">TS</span>
-<span class="n">c</span><span class="o">=</span><span class="n">Config</span><span class="p">(</span><span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/config&quot;</span><span class="p">)</span>
-</pre></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">surfingcrypto</span> <span class="kn">import</span> <span class="n">Config</span><span class="p">,</span> <span class="n">TS</span>
+
+<span class="n">coins</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;BTC&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;ETH&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;MATIC&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;ADA&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;SOL&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">}</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">coins</span><span class="p">,</span> <span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/config&quot;</span><span class="p">)</span>
+<br/></pre></div>
 </div>
 </div>
 <p>Itiate a <code class="docutils literal notranslate"><span class="pre">TS</span></code> object by passing the <code class="docutils literal notranslate"><span class="pre">Config</span></code> object and specify the <code class="docutils literal notranslate"><span class="pre">coin</span></code> code string.</p>
@@ -383,26 +385,50 @@ div.rendered_html tbody tr:hover {
 <p>The data must be available locally in the path loaded as <code class="docutils literal notranslate"><span class="pre">Config.data_folder</span></code> attribute. If required, data can be first scraped with the <code class="docutils literal notranslate"><span class="pre">surfingcrypto.scraper.Scraper</span></code> object.</p>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">=</span><span class="n">TS</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">coin</span><span class="o">=</span><span class="s2">&quot;BTC&quot;</span><span class="p">)</span>
-</pre></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">TS</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">coin</span><span class="o">=</span><span class="s2">&quot;BTC&quot;</span><span class="p">)</span>
+<br/></pre></div>
 </div>
 </div>
 <div class="section" id="Compute-TA-indicators">
 <h2>Compute TA indicators<a class="headerlink" href="#Compute-TA-indicators" title="Permalink to this headline"></a></h2>
+<p>By default, the Technical Analysis indicators and its parametrizatio are the following:</p>
+<ul class="simple">
+<li><p>Simple Moving Average (SMA):</p>
+<ul>
+<li><p>12 and 26 days</p></li>
+<li><p>100 and 200 days {“fast”: 100, “slow”: 200}],</p></li>
+</ul>
+</li>
+<li><p>Moving Average Convergence Divergence:</p>
+<ul>
+<li><p>12 and 26 days with 9 days signal</p></li>
+</ul>
+</li>
+<li><p>Bollinger Bands</p>
+<ul>
+<li><p>20 days, 2 standard dev</p></li>
+</ul>
+</li>
+<li><p>RSI</p>
+<ul>
+<li><p>14 days</p></li>
+</ul>
+</li>
+</ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">ta_indicators</span><span class="p">()</span>
-<span class="n">ts</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
+<span class="n">ts</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -432,6 +458,8 @@ div.rendered_html tbody tr:hover {
       <th>Market Cap</th>
       <th>SMA_26</th>
       <th>SMA_12</th>
+      <th>SMA_200</th>
+      <th>SMA_100</th>
       <th>MACD_12_26_9</th>
       <th>MACDh_12_26_9</th>
       <th>MACDs_12_26_9</th>
@@ -461,129 +489,361 @@ div.rendered_html tbody tr:hover {
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2017-10-01 00:00:00+00:00</th>
-      <td>3675.118358</td>
-      <td>3729.454806</td>
-      <td>3614.807026</td>
-      <td>3729.454806</td>
-      <td>1.023213e+09</td>
-      <td>6.190284e+10</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <th>2022-05-03 00:00:00+00:00</th>
+      <td>36659.034364</td>
+      <td>36719.818983</td>
+      <td>35711.638869</td>
+      <td>35865.913505</td>
+      <td>2.596275e+10</td>
+      <td>6.825232e+11</td>
+      <td>37253.050949</td>
+      <td>36668.375046</td>
+      <td>41834.592482</td>
+      <td>37134.941366</td>
+      <td>-620.360917</td>
+      <td>-44.328904</td>
+      <td>-576.032013</td>
+      <td>35519.239974</td>
+      <td>37020.095124</td>
+      <td>38520.950274</td>
+      <td>8.108327</td>
+      <td>0.115492</td>
+      <td>42.704446</td>
     </tr>
     <tr>
-      <th>2017-10-02 00:00:00+00:00</th>
-      <td>3722.738871</td>
-      <td>3810.612889</td>
-      <td>3727.718608</td>
-      <td>3758.690499</td>
-      <td>1.220467e+09</td>
-      <td>6.239506e+10</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <th>2022-05-04 00:00:00+00:00</th>
+      <td>35863.593349</td>
+      <td>37683.827443</td>
+      <td>35831.232200</td>
+      <td>37377.127493</td>
+      <td>3.460530e+10</td>
+      <td>7.113164e+11</td>
+      <td>37195.254792</td>
+      <td>36712.970766</td>
+      <td>41759.005115</td>
+      <td>37185.019360</td>
+      <td>-522.648607</td>
+      <td>42.706725</td>
+      <td>-565.355332</td>
+      <td>35536.198691</td>
+      <td>37043.850742</td>
+      <td>38551.502794</td>
+      <td>8.139824</td>
+      <td>0.610528</td>
+      <td>49.990876</td>
     </tr>
     <tr>
-      <th>2017-10-03 00:00:00+00:00</th>
-      <td>3757.957515</td>
-      <td>3785.524139</td>
-      <td>3623.045629</td>
-      <td>3675.702350</td>
-      <td>1.096561e+09</td>
-      <td>6.102594e+10</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <th>2022-05-05 00:00:00+00:00</th>
+      <td>37374.656670</td>
+      <td>37479.435562</td>
+      <td>34032.961266</td>
+      <td>34702.275405</td>
+      <td>4.089896e+10</td>
+      <td>6.604444e+11</td>
+      <td>37017.094177</td>
+      <td>36554.253499</td>
+      <td>41667.119761</td>
+      <td>37205.108580</td>
+      <td>-653.515783</td>
+      <td>-70.528361</td>
+      <td>-582.987422</td>
+      <td>35101.401730</td>
+      <td>36903.555410</td>
+      <td>38705.709090</td>
+      <td>9.766830</td>
+      <td>-0.110736</td>
+      <td>40.236986</td>
     </tr>
     <tr>
-      <th>2017-10-04 00:00:00+00:00</th>
-      <td>3677.311525</td>
-      <td>3701.573447</td>
-      <td>3579.984629</td>
-      <td>3597.924171</td>
-      <td>9.500383e+08</td>
-      <td>5.974056e+10</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <th>2022-05-06 00:00:00+00:00</th>
+      <td>34700.415979</td>
+      <td>34757.799109</td>
+      <td>33570.816700</td>
+      <td>34167.515206</td>
+      <td>3.583096e+10</td>
+      <td>6.502979e+11</td>
+      <td>36839.745026</td>
+      <td>36358.766497</td>
+      <td>41570.913983</td>
+      <td>37218.946881</td>
+      <td>-791.258506</td>
+      <td>-166.616867</td>
+      <td>-624.641639</td>
+      <td>34599.111130</td>
+      <td>36742.486792</td>
+      <td>38885.862453</td>
+      <td>11.667015</td>
+      <td>-0.100681</td>
+      <td>38.614857</td>
     </tr>
     <tr>
-      <th>2017-10-05 00:00:00+00:00</th>
-      <td>3598.366553</td>
-      <td>3727.477902</td>
-      <td>3536.648382</td>
-      <td>3695.389871</td>
-      <td>9.918637e+08</td>
-      <td>6.136453e+10</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <th>2022-05-07 00:00:00+00:00</th>
+      <td>34169.014352</td>
+      <td>34251.891992</td>
+      <td>33124.600607</td>
+      <td>33656.562568</td>
+      <td>2.310884e+10</td>
+      <td>6.406051e+11</td>
+      <td>36736.715530</td>
+      <td>36016.352937</td>
+      <td>41463.002935</td>
+      <td>37222.269644</td>
+      <td>-930.919158</td>
+      <td>-245.022015</td>
+      <td>-685.897143</td>
+      <td>34058.209036</td>
+      <td>36588.862532</td>
+      <td>39119.516028</td>
+      <td>13.832917</td>
+      <td>-0.079356</td>
+      <td>37.076813</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
-<p>The time series are UTC aware.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<p>Otherwise, the parametrization of the <strong>implemented</strong> indicators can be passed via a dictionary.</p>
+<p>The dictionary is of the following kind: - <code class="docutils literal notranslate"><span class="pre">sma</span></code> : <em>list</em> of <em>dict</em> with <code class="docutils literal notranslate"><span class="pre">fast</span></code>,<code class="docutils literal notranslate"><span class="pre">slow</span></code> parameters - <code class="docutils literal notranslate"><span class="pre">macd</span></code>: <em>dict</em> with <code class="docutils literal notranslate"><span class="pre">fast</span></code>,<code class="docutils literal notranslate"><span class="pre">slow</span></code>,<code class="docutils literal notranslate"><span class="pre">signal</span></code> parameters - <code class="docutils literal notranslate"><span class="pre">bbands</span></code>: <em>dict</em> with <code class="docutils literal notranslate"><span class="pre">length</span></code>,<code class="docutils literal notranslate"><span class="pre">std</span></code> parameters - <code class="docutils literal notranslate"><span class="pre">rsi</span></code>: <em>dict</em> with <code class="docutils literal notranslate"><span class="pre">timeperiod</span></code> parameter</p>
+<p>The following example is the dictionary of the default</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>params={
+            &quot;sma&quot;: [{&quot;fast&quot;: 12, &quot;slow&quot;: 26}, {&quot;fast&quot;: 100, &quot;slow&quot;: 200}],
+            &quot;macd&quot;: {&quot;fast&quot;: 12, &quot;slow&quot;: 26, &quot;signal&quot;: 9},
+            &quot;bbands&quot;: {&quot;length&quot;: 20, &quot;std&quot;: 2},
+            &quot;rsi&quot;: {&quot;timeperiod&quot;: 14},
+        }
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">ta_indicators</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;sma&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;fast&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;slow&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}],</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Volume</th>
+      <th>Market Cap</th>
+      <th>SMA_26</th>
+      <th>SMA_12</th>
+      <th>SMA_200</th>
+      <th>SMA_100</th>
+      <th>...</th>
+      <th>MACDh_12_26_9</th>
+      <th>MACDs_12_26_9</th>
+      <th>BBL_20_2.0</th>
+      <th>BBM_20_2.0</th>
+      <th>BBU_20_2.0</th>
+      <th>BBB_20_2.0</th>
+      <th>BBP_20_2.0</th>
+      <th>RSI_14</th>
+      <th>SMA_7</th>
+      <th>SMA_3</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-05-03 00:00:00+00:00</th>
+      <td>36659.034364</td>
+      <td>36719.818983</td>
+      <td>35711.638869</td>
+      <td>35865.913505</td>
+      <td>2.596275e+10</td>
+      <td>6.825232e+11</td>
+      <td>37253.050949</td>
+      <td>36668.375046</td>
+      <td>41834.592482</td>
+      <td>37134.941366</td>
+      <td>...</td>
+      <td>-44.328904</td>
+      <td>-576.032013</td>
+      <td>35519.239974</td>
+      <td>37020.095124</td>
+      <td>38520.950274</td>
+      <td>8.108327</td>
+      <td>0.115492</td>
+      <td>42.704446</td>
+      <td>36639.736937</td>
+      <td>36347.259446</td>
+    </tr>
+    <tr>
+      <th>2022-05-04 00:00:00+00:00</th>
+      <td>35863.593349</td>
+      <td>37683.827443</td>
+      <td>35831.232200</td>
+      <td>37377.127493</td>
+      <td>3.460530e+10</td>
+      <td>7.113164e+11</td>
+      <td>37195.254792</td>
+      <td>36712.970766</td>
+      <td>41759.005115</td>
+      <td>37185.019360</td>
+      <td>...</td>
+      <td>42.706725</td>
+      <td>-565.355332</td>
+      <td>35536.198691</td>
+      <td>37043.850742</td>
+      <td>38551.502794</td>
+      <td>8.139824</td>
+      <td>0.610528</td>
+      <td>49.990876</td>
+      <td>36667.788350</td>
+      <td>36634.411350</td>
+    </tr>
+    <tr>
+      <th>2022-05-05 00:00:00+00:00</th>
+      <td>37374.656670</td>
+      <td>37479.435562</td>
+      <td>34032.961266</td>
+      <td>34702.275405</td>
+      <td>4.089896e+10</td>
+      <td>6.604444e+11</td>
+      <td>37017.094177</td>
+      <td>36554.253499</td>
+      <td>41667.119761</td>
+      <td>37205.108580</td>
+      <td>...</td>
+      <td>-70.528361</td>
+      <td>-582.987422</td>
+      <td>35101.401730</td>
+      <td>36903.555410</td>
+      <td>38705.709090</td>
+      <td>9.766830</td>
+      <td>-0.110736</td>
+      <td>40.236986</td>
+      <td>36215.731509</td>
+      <td>35981.772134</td>
+    </tr>
+    <tr>
+      <th>2022-05-06 00:00:00+00:00</th>
+      <td>34700.415979</td>
+      <td>34757.799109</td>
+      <td>33570.816700</td>
+      <td>34167.515206</td>
+      <td>3.583096e+10</td>
+      <td>6.502979e+11</td>
+      <td>36839.745026</td>
+      <td>36358.766497</td>
+      <td>41570.913983</td>
+      <td>37218.946881</td>
+      <td>...</td>
+      <td>-166.616867</td>
+      <td>-624.641639</td>
+      <td>34599.111130</td>
+      <td>36742.486792</td>
+      <td>38885.862453</td>
+      <td>11.667015</td>
+      <td>-0.100681</td>
+      <td>38.614857</td>
+      <td>35865.538102</td>
+      <td>35415.639368</td>
+    </tr>
+    <tr>
+      <th>2022-05-07 00:00:00+00:00</th>
+      <td>34169.014352</td>
+      <td>34251.891992</td>
+      <td>33124.600607</td>
+      <td>33656.562568</td>
+      <td>2.310884e+10</td>
+      <td>6.406051e+11</td>
+      <td>36736.715530</td>
+      <td>36016.352937</td>
+      <td>41463.002935</td>
+      <td>37222.269644</td>
+      <td>...</td>
+      <td>-245.022015</td>
+      <td>-685.897143</td>
+      <td>34058.209036</td>
+      <td>36588.862532</td>
+      <td>39119.516028</td>
+      <td>13.832917</td>
+      <td>-0.079356</td>
+      <td>37.076813</td>
+      <td>35563.608430</td>
+      <td>34175.451060</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 21 columns</p>
+</div></div>
+</div>
+<p>The time series are UTC aware.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Timestamp(&#39;2022-04-09 00:00:00+0000&#39;, tz=&#39;UTC&#39;)
+Timestamp(&#39;2022-05-07 00:00:00+0000&#39;, tz=&#39;UTC&#39;)
 </pre></div></div>
 </div>
 </div>
@@ -593,16 +853,16 @@ Timestamp(&#39;2022-04-09 00:00:00+0000&#39;, tz=&#39;UTC&#39;)
 <h3>Distance from ATH<a class="headerlink" href="#Distance-from-ATH" title="Permalink to this headline"></a></h3>
 <p>The distance from the all time high (ATH) can be computed.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">distance_from_ath</span><span class="p">()</span>
 <span class="n">ts</span><span class="o">.</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;distance_ATH&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -633,24 +893,24 @@ Timestamp(&#39;2022-04-09 00:00:00+0000&#39;, tz=&#39;UTC&#39;)
   </thead>
   <tbody>
     <tr>
-      <th>2022-04-05 00:00:00+00:00</th>
-      <td>16532.926695</td>
+      <th>2022-05-03 00:00:00+00:00</th>
+      <td>22439.125781</td>
     </tr>
     <tr>
-      <th>2022-04-06 00:00:00+00:00</th>
-      <td>18657.931904</td>
+      <th>2022-05-04 00:00:00+00:00</th>
+      <td>20927.911794</td>
     </tr>
     <tr>
-      <th>2022-04-07 00:00:00+00:00</th>
-      <td>18264.053010</td>
+      <th>2022-05-05 00:00:00+00:00</th>
+      <td>23602.763882</td>
     </tr>
     <tr>
-      <th>2022-04-08 00:00:00+00:00</th>
-      <td>19425.211714</td>
+      <th>2022-05-06 00:00:00+00:00</th>
+      <td>24137.524080</td>
     </tr>
     <tr>
-      <th>2022-04-09 00:00:00+00:00</th>
-      <td>18970.587908</td>
+      <th>2022-05-07 00:00:00+00:00</th>
+      <td>24648.476719</td>
     </tr>
   </tbody>
 </table>

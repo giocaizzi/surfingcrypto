@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>surfingcrypto.ts.TS &mdash; surfingcrypto 0.2.1 documentation</title>
+  <title>surfingcrypto.ts.TS &mdash; surfingcrypto 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
             <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.1
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -58,6 +58,7 @@
 <p class="caption" role="heading"><span class="caption-text">Code reference:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="surfingcrypto.html">surfingcrypto</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="surfingcrypto.algotrading.html">surfingcrypto.algotrading</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.config.html">surfingcrypto.config</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.extra.html">surfingcrypto.extra</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surfingcrypto.portfolio.html">surfingcrypto.portfolio</a></li>
@@ -168,7 +169,7 @@ computed invoking the relative method.</p>
 </dd></dl>
 
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -177,37 +178,27 @@ computed invoking the relative method.</p>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>(configuration[, coin])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.ts.TS.build_ts" title="surfingcrypto.ts.TS.build_ts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_ts</span></code></a>()</p></td>
-<td><p>reads the data from data stored locally in <cite>data/ts/</cite> and saved in .csv format.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">distance_from_ath</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">distance_from_ath</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#surfingcrypto.ts.TS.parametrization" title="surfingcrypto.ts.TS.parametrization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parametrization</span></code></a>()</p></td>
-<td><p>sets the default parameters if not specified in config.json file.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.ts.TS.ta_indicators" title="surfingcrypto.ts.TS.ta_indicators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ta_indicators</span></code></a>()</p></td>
-<td><p>computes the selected TA indicators and appends them to df attribute.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#surfingcrypto.ts.TS.ta_indicators" title="surfingcrypto.ts.TS.ta_indicators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ta_indicators</span></code></a>([params])</p></td>
+<td><p>computes the selected TA indicators and appends them to df attribute</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.ts.TS.build_ts">
-<span class="sig-name descname"><span class="pre">build_ts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.ts.TS.build_ts" title="Permalink to this definition"></a></dt>
-<dd><p>reads the data from data stored locally in <cite>data/ts/</cite> and
-saved in .csv format.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="surfingcrypto.ts.TS.parametrization">
-<span class="sig-name descname"><span class="pre">parametrization</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.ts.TS.parametrization" title="Permalink to this definition"></a></dt>
-<dd><p>sets the default parameters if not specified in config.json file.</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="surfingcrypto.ts.TS.ta_indicators">
-<span class="sig-name descname"><span class="pre">ta_indicators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.ts.TS.ta_indicators" title="Permalink to this definition"></a></dt>
-<dd><p>computes the selected TA indicators and appends them to df attribute.</p>
+<span class="sig-name descname"><span class="pre">ta_indicators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surfingcrypto.ts.TS.ta_indicators" title="Permalink to this definition"></a></dt>
+<dd><p>computes the selected TA indicators and appends them to df attribute</p>
+<dl class="simple">
+<dt>It supports:</dt><dd><ul class="simple">
+<li><p>SMA</p></li>
+<li><p>MACD</p></li>
+<li><p>Bolinger bands</p></li>
+<li><p>RSI</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

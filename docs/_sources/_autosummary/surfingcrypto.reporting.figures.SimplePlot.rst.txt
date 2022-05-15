@@ -15,11 +15,10 @@ surfingcrypto.reporting.figures.SimplePlot
    .. autosummary::
    
       ~SimplePlot.__init__
-      ~SimplePlot.center_series
       ~SimplePlot.default_plot
       ~SimplePlot.save
       ~SimplePlot.set_axes
-      ~SimplePlot.subset_series
+      ~SimplePlot.subset_ts_df
    
    
 

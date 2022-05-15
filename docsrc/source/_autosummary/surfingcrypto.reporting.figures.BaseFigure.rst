@@ -15,10 +15,9 @@ surfingcrypto.reporting.figures.BaseFigure
    .. autosummary::
    
       ~BaseFigure.__init__
-      ~BaseFigure.center_series
       ~BaseFigure.save
       ~BaseFigure.set_axes
-      ~BaseFigure.subset_series
+      ~BaseFigure.subset_ts_df
    
    
 
