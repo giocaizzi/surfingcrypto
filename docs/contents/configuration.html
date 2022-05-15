@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation &mdash; surfingcrypto 0.3.0 documentation</title>
+  <title>Configuration &mdash; surfingcrypto 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -43,10 +43,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bodytext.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
@@ -78,9 +75,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Installation</li>
+      <li>Configuration</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/contents/installation.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/contents/configuration.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -112,37 +109,29 @@
     text-align: unset;
 }
 </style>
-<div class="tex2jax_ignore mathjax_ignore section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
-<p>Install package with <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install surfincrypto
-</pre></div>
-</div>
-<div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">surfincrypto</span></code> submodules require a <code class="docutils literal notranslate"><span class="pre">surfingcrypto.Config</span></code> object to set path directories to appropriate <code class="docutils literal notranslate"><span class="pre">config_folder</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code> folders to store private credentials and other data, as time series OHLC data.</p>
+<div class="tex2jax_ignore mathjax_ignore section" id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">surfincrypto</span></code> submodules require a <code class="docutils literal notranslate"><span class="pre">surfingcrypto.Config</span></code> object to set coins configuration and to set path directories to appropriate <code class="docutils literal notranslate"><span class="pre">config_folder</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code> folders to store private credentials and other data, as time series OHLC data.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">config_folder</span></code> : required</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">data_folder</span></code> - <em>optional</em>. If not provided is created in parent of <code class="docutils literal notranslate"><span class="pre">config_folder</span></code> or created.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">surfingcrypto</span> <span class="kn">import</span> <span class="n">Config</span>
 <span class="n">parent</span><span class="o">=</span><span class="s2">&quot;/Users/giorgiocaizzi/Documents/GitHub/surfingcrypto/&quot;</span>
-
+<span class="n">coins</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;BTC&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ETH&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;MATIC&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ADA&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;SOL&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
 <span class="n">configuration</span><span class="o">=</span><span class="n">Config</span><span class="p">(</span>
     <span class="n">parent</span><span class="o">+</span><span class="s2">&quot;config&quot;</span><span class="p">,</span>
     <span class="p">)</span>
 </pre></div>
 </div>
-<p>To use the package, at least a <code class="docutils literal notranslate"><span class="pre">config.json</span></code> file containing <code class="docutils literal notranslate"><span class="pre">coins</span></code> configuration is required. It can also contain private keys for authentication within other modules, such as <code class="docutils literal notranslate"><span class="pre">surfingcrypto.Portfolio</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">config.json</span></code> contains private keys for authentication within other modules, such as <code class="docutils literal notranslate"><span class="pre">surfingcrypto.Portfolio</span></code>.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;coins&quot;</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;BTC&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;ETH&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;MATIC&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;ADA&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;SOL&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;coinbase&quot;</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="s2">&quot;XXXXXXXXXX&quot;</span><span class="p">,</span><span class="w"></span>
@@ -156,7 +145,6 @@
 </pre></div>
 </div>
 <p>Additionally, it is possible to store other kind of private information, as third-party API keys, so to easily have them stored as attributes in the <code class="docutils literal notranslate"><span class="pre">Config</span></code> module.</p>
-</div>
 </div>
 
 

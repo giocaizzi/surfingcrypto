@@ -27,7 +27,7 @@ It's future developement will be based on **algotrading**.
    :maxdepth: 2
    :caption: Contents:
 
-   contents/installation.md
+   contents/configuration.md
    contents/bodytext.md
    contents/references.md
 
